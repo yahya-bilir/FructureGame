@@ -1,0 +1,57 @@
+using System.Collections;
+using Unity.Cinemachine;
+using UnityEngine;
+using Utilities;
+
+namespace CommonComponents
+{
+    public class CamerasManager : SingletonMonoBehaviour<CamerasManager>
+    {
+        public CinemachineCamera ActivePlayerCam { get; private set; }
+        [SerializeField] private CinemachineCamera defaultCamera;
+    
+        protected override void Awake()
+        {
+            base.Awake();
+            ChangeActivePlayerCamera(defaultCamera);
+        }
+
+        public void ChangeActivePlayerCamera(CinemachineCamera camera)
+        {
+            if(ActivePlayerCam != null) ActivePlayerCam.Priority = 1;
+            ActivePlayerCam = camera;
+            ActivePlayerCam.Priority = 10;
+        }
+        
+        public void EnableCamera(CinemachineCamera camera)
+        {
+            ActivePlayerCam.Priority = 1;
+            camera.Priority = 10;
+        }
+
+        public void DisableCamera(CinemachineCamera camera)
+        {
+            camera.Priority = 1;
+            ActivePlayerCam.Priority = 10;
+        }
+
+        public void PanCameraCoroutineCaller(CinemachineCamera cam)
+        {
+            StartCoroutine(PanCamera(cam, 3f));
+        }        
+        
+        public void PanCameraCoroutineCaller(CinemachineCamera cam, float interval)
+        {
+            StartCoroutine(PanCamera(cam, interval));
+        }
+
+        public IEnumerator PanCamera(CinemachineCamera camera, float interval)
+        {
+            //yield return new WaitForSeconds(0.5f);
+            EnableCamera(camera);
+            yield return new WaitForSeconds(interval);
+            DisableCamera(camera);
+        }
+        
+    }
+}
