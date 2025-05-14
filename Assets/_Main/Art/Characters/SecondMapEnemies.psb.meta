@@ -1,0 +1,1198 @@
+fileFormatVersion: 2
+guid: cdc87fd312122fe4baa389afc9b383e0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: aea2ca0af9ad76d4e84c39d6588b8cb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: BeeBossHead
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1599
+      y: 3212
+      width: 647
+      height: 1346
+    spriteID: cd212e0771bb2c440951959f74ff5747
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1599, y: 3212}
+    spritePosition: {x: 427, y: 616}
+  - name: BeeBossRightWing
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7462
+      y: 4
+      width: 590
+      height: 791
+    spriteID: 8840209519687c74bbc2b5532a4bcd6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7462, y: 4}
+    spritePosition: {x: 871, y: 1107}
+  - name: BeeBossLeftWing
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2254
+      y: 3212
+      width: 478
+      height: 598
+    spriteID: b74351eee76576d44986a604ac981684
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2254, y: 3212}
+    spritePosition: {x: 224, y: 1070}
+  - name: BeeBossBody
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 979
+      width: 1459
+      height: 1083
+    spriteID: 478778483e23f12419f93b4d1d26549e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 979}
+    spritePosition: {x: 306, y: 527}
+  - name: BeeBossRightLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3380
+      y: 3818
+      width: 364
+      height: 651
+    spriteID: e75034cfc16c5df4e8adadfa183223d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3380, y: 3818}
+    spritePosition: {x: 1166, y: 248}
+  - name: BeeBossLeftLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3039
+      y: 3818
+      width: 333
+      height: 721
+    spriteID: cae409eca854e9342aef8012855277fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3039, y: 3818}
+    spritePosition: {x: 418, y: 158}
+  - name: BeeBossShadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4880
+      y: 2070
+      width: 1318
+      height: 649
+    spriteID: c091ae681fa05884aa5eb6915cf2314a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4880, y: 2070}
+    spritePosition: {x: 322, y: 0}
+  - name: EpicEnemyPurpleBackLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2648
+      y: 3818
+      width: 383
+      height: 671
+    spriteID: 32714b69c8423aa40946f6b6119d42e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2648, y: 3818}
+    spritePosition: {x: 1388, y: 371}
+  - name: EpicEnemyPurpleHead
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 803
+      y: 3212
+      width: 788
+      height: 1349
+    spriteID: 162b00d2787f12b408af3ff1a1988fd3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 803, y: 3212}
+    spritePosition: {x: 326, y: 524}
+  - name: EpicEnemyPurpleFrontLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5167
+      y: 3818
+      width: 335
+      height: 609
+    spriteID: 5ea2a571a46d3794b8a40040eee9bc6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5167, y: 3818}
+    spritePosition: {x: 1018, y: 306}
+  - name: EpicEnemyPurpleBody
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2070
+      width: 1206
+      height: 1134
+    spriteID: 32fbfe4ba829f25489379b11fde73a69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2070}
+    spritePosition: {x: 473, y: 623}
+  - name: EpicEnemyPurpleLeftLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6186
+      y: 3818
+      width: 323
+      height: 601
+    spriteID: 2a66a01a7db4021469c7d6ad1b6c95c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6186, y: 3818}
+    spritePosition: {x: 228, y: 430}
+  - name: EpicEnemyPurpleShadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1962
+      height: 967
+    spriteID: 412cfc7bf5e34534ab25daea4cdb2bcb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 85}
+  - name: EpicEnemyHead
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3212
+      width: 791
+      height: 1356
+    spriteID: 90f0b86ade45bff4ba8cf6c4cc0dcf27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3212}
+    spritePosition: {x: 326, y: 521}
+  - name: EpicEnemyBackLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2254
+      y: 3818
+      width: 386
+      height: 676
+    spriteID: 981e10382aad00a4282bc9df6f430917
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2254, y: 3818}
+    spritePosition: {x: 1385, y: 371}
+  - name: EpicEnemyRightLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4822
+      y: 3818
+      width: 337
+      height: 614
+    spriteID: eb4d8ff0567ddce48aa2817ea1680dcc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4822, y: 3818}
+    spritePosition: {x: 1018, y: 306}
+  - name: EpicEnemyLeftLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4479
+      y: 3818
+      width: 335
+      height: 623
+    spriteID: e95fa566dfc9cf5438b878372eb623b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4479, y: 3818}
+    spritePosition: {x: 228, y: 430}
+  - name: EpicEnemyBody
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1218
+      y: 2070
+      width: 1182
+      height: 1116
+    spriteID: 37c67f997e7b2c0468234d4e2f6737d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1218, y: 2070}
+    spritePosition: {x: 485, y: 641}
+  - name: EpicEnemyShadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1974
+      y: 4
+      width: 1962
+      height: 966
+    spriteID: 38496930ebe5b7042838da68a6a9ea53
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1974, y: 4}
+    spritePosition: {x: 0, y: 85}
+  - name: BlueEnemyRightLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5849
+      y: 3818
+      width: 329
+      height: 604
+    spriteID: 6a656c0cfa92820458eae5149b993d5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5849, y: 3818}
+    spritePosition: {x: 1173, y: 359}
+  - name: BlueEnemyHead
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6206
+      y: 2070
+      width: 883
+      height: 883
+    spriteID: 702563c34b4f91c45b1bb04d99604173
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6206, y: 2070}
+    spritePosition: {x: 390, y: 437}
+  - name: BlueEnemyBackLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4117
+      y: 3818
+      width: 354
+      height: 611
+    spriteID: 868220f35e6e14b479e591a30c415fd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4117, y: 3818}
+    spritePosition: {x: 1362, y: 467}
+  - name: BlueEnemyLeftLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6773
+      y: 3818
+      width: 246
+      height: 542
+    spriteID: 36ac95d84f8f1e34e9f358b199acfc8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6773, y: 3818}
+    spritePosition: {x: 266, y: 448}
+  - name: BlueEnemyBody
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3645
+      y: 2070
+      width: 1227
+      height: 985
+    spriteID: d49b6433615517c43aeb5ab299862aee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3645, y: 2070}
+    spritePosition: {x: 514, y: 761}
+  - name: BlueEnemyShadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3944
+      y: 4
+      width: 1750
+      height: 863
+    spriteID: be10e3d692812e84185f5147cfc1d52d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3944, y: 4}
+    spritePosition: {x: 124, y: 215}
+  - name: PurpleEnemyRightLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5510
+      y: 3818
+      width: 331
+      height: 604
+    spriteID: 896a2e8abc8ce6a4a80dbcec62304c7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5510, y: 3818}
+    spritePosition: {x: 1173, y: 359}
+  - name: PurpleEnemyHead
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7097
+      y: 2070
+      width: 883
+      height: 883
+    spriteID: 00c88d28c91df554a80af219d57deef8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7097, y: 2070}
+    spritePosition: {x: 386, y: 437}
+  - name: PurpleEnemyBackLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3752
+      y: 3818
+      width: 357
+      height: 610
+    spriteID: 5ac3917d25210ac4abd0932e6d2024ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3752, y: 3818}
+    spritePosition: {x: 1359, y: 465}
+  - name: PurpleEnemyBody
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2408
+      y: 2070
+      width: 1229
+      height: 985
+    spriteID: 0a9a32b9abe870c47941b4837ef3357d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2408, y: 2070}
+    spritePosition: {x: 514, y: 762}
+  - name: PurpleEnemyLeftLeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6517
+      y: 3818
+      width: 248
+      height: 541
+    spriteID: 158069296e7019c44b28ec9f6642d2f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6517, y: 3818}
+    spritePosition: {x: 266, y: 451}
+  - name: PurpleEnemyShadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5702
+      y: 4
+      width: 1752
+      height: 862
+    spriteID: c5ea272fe1bbbe34086ea46529770f6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5702, y: 4}
+    spritePosition: {x: 105, y: 215}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: BeeBoss
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 031fb98373955464db698bdc36b3dec6
+    layerID: 318
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: BeeBossHead
+    spriteName: BeeBossHead
+    isGroup: 0
+    parentIndex: 0
+    spriteID: cd212e0771bb2c440951959f74ff5747
+    layerID: 321
+    mosaicPosition: {x: 1599, y: 3212}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossRightWing
+    spriteName: BeeBossRightWing
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 8840209519687c74bbc2b5532a4bcd6a
+    layerID: 325
+    mosaicPosition: {x: 7462, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossLeftWing
+    spriteName: BeeBossLeftWing
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b74351eee76576d44986a604ac981684
+    layerID: 323
+    mosaicPosition: {x: 2254, y: 3212}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossBody
+    spriteName: BeeBossBody
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 478778483e23f12419f93b4d1d26549e
+    layerID: 320
+    mosaicPosition: {x: 4, y: 979}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossRightLeg
+    spriteName: BeeBossRightLeg
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e75034cfc16c5df4e8adadfa183223d9
+    layerID: 324
+    mosaicPosition: {x: 3380, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossLeftLeg
+    spriteName: BeeBossLeftLeg
+    isGroup: 0
+    parentIndex: 0
+    spriteID: cae409eca854e9342aef8012855277fb
+    layerID: 322
+    mosaicPosition: {x: 3039, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BeeBossShadow
+    spriteName: BeeBossShadow
+    isGroup: 0
+    parentIndex: 0
+    spriteID: c091ae681fa05884aa5eb6915cf2314a
+    layerID: 326
+    mosaicPosition: {x: 4880, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurple
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 4ad2a105f8625014e8d27df4e0478cd4
+    layerID: 315
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: EpicEnemyPurpleBackLeg
+    spriteName: EpicEnemyPurpleBackLeg
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 32714b69c8423aa40946f6b6119d42e6
+    layerID: 312
+    mosaicPosition: {x: 2648, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurpleHead
+    spriteName: EpicEnemyPurpleHead
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 162b00d2787f12b408af3ff1a1988fd3
+    layerID: 309
+    mosaicPosition: {x: 803, y: 3212}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurpleFrontLeg
+    spriteName: EpicEnemyPurpleFrontLeg
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 5ea2a571a46d3794b8a40040eee9bc6e
+    layerID: 314
+    mosaicPosition: {x: 5167, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurpleBody
+    spriteName: EpicEnemyPurpleBody
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 32fbfe4ba829f25489379b11fde73a69
+    layerID: 313
+    mosaicPosition: {x: 4, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurpleLeftLeg
+    spriteName: EpicEnemyPurpleLeftLeg
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 2a66a01a7db4021469c7d6ad1b6c95c6
+    layerID: 310
+    mosaicPosition: {x: 6186, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyPurpleShadow
+    spriteName: EpicEnemyPurpleShadow
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 412cfc7bf5e34534ab25daea4cdb2bcb
+    layerID: 311
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemy
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 6a181d174f9ceff49867f8dc5255fc85
+    layerID: 307
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: EpicEnemyHead
+    spriteName: EpicEnemyHead
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 90f0b86ade45bff4ba8cf6c4cc0dcf27
+    layerID: 302
+    mosaicPosition: {x: 4, y: 3212}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyBackLeg
+    spriteName: EpicEnemyBackLeg
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 981e10382aad00a4282bc9df6f430917
+    layerID: 306
+    mosaicPosition: {x: 2254, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyRightLeg
+    spriteName: EpicEnemyRightLeg
+    isGroup: 0
+    parentIndex: 15
+    spriteID: eb4d8ff0567ddce48aa2817ea1680dcc
+    layerID: 304
+    mosaicPosition: {x: 4822, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyLeftLeg
+    spriteName: EpicEnemyLeftLeg
+    isGroup: 0
+    parentIndex: 15
+    spriteID: e95fa566dfc9cf5438b878372eb623b8
+    layerID: 303
+    mosaicPosition: {x: 4479, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyBody
+    spriteName: EpicEnemyBody
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 37c67f997e7b2c0468234d4e2f6737d6
+    layerID: 301
+    mosaicPosition: {x: 1218, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: EpicEnemyShadow
+    spriteName: EpicEnemyShadow
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 38496930ebe5b7042838da68a6a9ea53
+    layerID: 305
+    mosaicPosition: {x: 1974, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemy
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 3dd18b0720883d3499b365ef6805d015
+    layerID: 291
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: BlueEnemyRightLeg
+    spriteName: BlueEnemyRightLeg
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 6a656c0cfa92820458eae5149b993d5c
+    layerID: 289
+    mosaicPosition: {x: 5849, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemyHead
+    spriteName: BlueEnemyHead
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 702563c34b4f91c45b1bb04d99604173
+    layerID: 287
+    mosaicPosition: {x: 6206, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemyBackLeg
+    spriteName: BlueEnemyBackLeg
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 868220f35e6e14b479e591a30c415fd0
+    layerID: 285
+    mosaicPosition: {x: 4117, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemyLeftLeg
+    spriteName: BlueEnemyLeftLeg
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 36ac95d84f8f1e34e9f358b199acfc8b
+    layerID: 288
+    mosaicPosition: {x: 6773, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemyBody
+    spriteName: BlueEnemyBody
+    isGroup: 0
+    parentIndex: 22
+    spriteID: d49b6433615517c43aeb5ab299862aee
+    layerID: 286
+    mosaicPosition: {x: 3645, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BlueEnemyShadow
+    spriteName: BlueEnemyShadow
+    isGroup: 0
+    parentIndex: 22
+    spriteID: be10e3d692812e84185f5147cfc1d52d
+    layerID: 290
+    mosaicPosition: {x: 3944, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemy
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: ad59dbe92f8f8544d9df1bde91bc7126
+    layerID: 282
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: PurpleEnemyRightLeg
+    spriteName: PurpleEnemyRightLeg
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 896a2e8abc8ce6a4a80dbcec62304c7f
+    layerID: 280
+    mosaicPosition: {x: 5510, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemyHead
+    spriteName: PurpleEnemyHead
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 00c88d28c91df554a80af219d57deef8
+    layerID: 278
+    mosaicPosition: {x: 7097, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemyBackLeg
+    spriteName: PurpleEnemyBackLeg
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 5ac3917d25210ac4abd0932e6d2024ab
+    layerID: 276
+    mosaicPosition: {x: 3752, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemyBody
+    spriteName: PurpleEnemyBody
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 0a9a32b9abe870c47941b4837ef3357d
+    layerID: 277
+    mosaicPosition: {x: 2408, y: 2070}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemyLeftLeg
+    spriteName: PurpleEnemyLeftLeg
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 158069296e7019c44b28ec9f6642d2f1
+    layerID: 279
+    mosaicPosition: {x: 6517, y: 3818}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PurpleEnemyShadow
+    spriteName: PurpleEnemyShadow
+    isGroup: 0
+    parentIndex: 29
+    spriteID: c5ea272fe1bbbe34086ea46529770f6c
+    layerID: 281
+    mosaicPosition: {x: 5702, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
