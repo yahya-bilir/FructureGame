@@ -5,7 +5,7 @@ using VContainer.Unity;
 
 namespace Initialization
 {
-    public class GameLifetimeScope : LifetimeScope
+    public class InitialLifetimeScope : LifetimeScope
     {
         [SerializeField] private GameData gameData;
 

@@ -21,6 +21,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60cdeff83042d2943ab3fcd82ac16581
+    m_Address: Assets/_Main/Project/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 12d622832ea71c2449bbb5f38eeba05c, type: 2}
   m_SchemaSet:

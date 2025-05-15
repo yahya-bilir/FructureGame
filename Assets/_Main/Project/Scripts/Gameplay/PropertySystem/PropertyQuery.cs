@@ -22,5 +22,6 @@
         LifeSteal,
         IceChance,
         IceDamage,
+        Speed
     }
 }

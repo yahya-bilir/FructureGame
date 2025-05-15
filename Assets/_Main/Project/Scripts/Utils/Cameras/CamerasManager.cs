@@ -5,14 +5,13 @@ using Utilities;
 
 namespace CommonComponents
 {
-    public class CamerasManager : SingletonMonoBehaviour<CamerasManager>
+    public class CamerasManager : MonoBehaviour
     {
         public CinemachineCamera ActivePlayerCam { get; private set; }
         [SerializeField] private CinemachineCamera defaultCamera;
     
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             ChangeActivePlayerCamera(defaultCamera);
         }
 

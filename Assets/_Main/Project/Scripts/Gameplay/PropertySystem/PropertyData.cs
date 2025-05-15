@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PropertySystem
 {
     [Serializable]
-    public class PropertySaveData
+    public class PropertyData
     {
         [field: SerializeField] public string EntityId { get; private set; }
 
@@ -21,28 +21,28 @@ namespace PropertySystem
         [FoldoutGroup("Property/Values")]
         [field: SerializeField] public int PermanentValueLevel { get; private set; }
 
-        public PropertySaveData(PropertyQuery propertyQuery, float permanentValue, float temporalValue, string entityId)
+        public PropertyData(PropertyQuery propertyQuery, float permanentValue, float temporalValue, string entityId)
         {
             PropertyQuery = propertyQuery;
             EntityId = entityId;
             SetDataInternally(permanentValue, temporalValue);
         }
 
-        public PropertySaveData SetDataInternally(float permanentValue, float temporalValue)
+        public PropertyData SetDataInternally(float permanentValue, float temporalValue)
         {
             PermanentValue = permanentValue;
             TemporaryValue = temporalValue;
             return this;
         }
 
-        public PropertySaveData SetPermanentValueLevel(int permanentValueLevel, float permanentValue)
+        public PropertyData SetPermanentValueLevel(int permanentValueLevel, float permanentValue)
         {
             PermanentValueLevel = permanentValueLevel;
             PermanentValue = permanentValue;
             return this;
         }
 
-        public PropertySaveData SetTempValueLevel(float tempValue)
+        public PropertyData SetTempValueLevel(float tempValue)
         {
             TemporaryValue = tempValue;
             return this;
