@@ -6,12 +6,14 @@ namespace PropertySystem
     public class Character : MonoBehaviour
     {
         [SerializeField] protected GameObject model;
-        [SerializeField] protected CharacterProperties characterProperties;
+        [SerializeField] private CharacterProperties characterProperties;
         [SerializeField] protected Animator animator;
+        protected PropertyManager PropertyManager;
         
         protected virtual void Awake()
         {
             animator = model.GetComponent<Animator>();
+            PropertyManager = new PropertyManager(characterProperties);
         }
     }
 }

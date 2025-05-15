@@ -16,7 +16,7 @@ namespace Characters.Enemy
         private Transform _playerTransform;
 
         private bool IsCharacterDead =>
-            characterProperties.GetPropertySaveData(PropertyQuery.Health).TemporaryValue <= 0;
+            PropertyManager.GetPropertySaveData(PropertyQuery.Health).TemporaryValue <= 0;
         protected override void Awake()
         {
             base.Awake();
