@@ -1,24 +1,28 @@
-﻿using AI.Base;
-using DataSave.Runtime;
+﻿using System;
+using AI.Base;
+using AI.EnemyStates;
 using Pathfinding;
+using PropertySystem;
 using UnityEngine;
 
 namespace Characters.Enemy
 {
-    public class EnemyBehaviour : MonoBehaviour
+    public class EnemyBehaviour : Character
     {
-        [SerializeField] private GameObject model;
-        [SerializeField] private CharacterProperties characterProperties;
-        
         private StateMachine _stateMachine;
-        private Animator _animator;
-        
+        private AIDestinationSetter _aiDestinationSetter;
         private AIPath _aiPath;
         private EnemyAnimationController _animationController;
-        public void Awake()
+        private Transform _playerTransform;
+
+        private bool IsCharacterDead =>
+            characterProperties.GetPropertySaveData(PropertyQuery.Health).TemporaryValue <= 0;
+        protected override void Awake()
         {
-            _animator = model.GetComponent<Animator>();
-            _animationController = new EnemyAnimationController(_animator);
+            base.Awake();
+            _aiDestinationSetter = GetComponent<AIDestinationSetter>();
+            _aiPath = GetComponent<AIPath>();
+            _animationController = new EnemyAnimationController(animator);
         }
 
         private void Start()
@@ -26,9 +30,10 @@ namespace Characters.Enemy
             SetStates();
         }
 
-        public void InitializeOnSpawn()
+        public void InitializeOnSpawn(Transform playerTransform)
         {
-            
+            _playerTransform = playerTransform;
+            _aiDestinationSetter.target = _playerTransform;
         }
         
         private void SetStates()
@@ -37,21 +42,27 @@ namespace Characters.Enemy
 
             #region States
 
-            
-
+            var walkingTowardsPlayer = new WalkingTowardsPlayer(_animationController, _playerTransform, _aiPath, model.transform);
+            var attacking = new Attacking(_animationController);
+            var dead = new Dead(_animationController);
             #endregion
 
             #region State Changing Conditions
 
-            
-
+            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.5f;
+            Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f;
+            Func<bool> CharacterIsDead() => () => IsCharacterDead;
             #endregion
 
             #region Transitions
 
-            
+            _stateMachine.AddTransition(walkingTowardsPlayer, attacking, ReachedPlayer());
+            _stateMachine.AddTransition(attacking, walkingTowardsPlayer, PlayerMovedFurther());
+            _stateMachine.AddAnyTransition(dead, CharacterIsDead());
 
             #endregion
+            
+            _stateMachine.SetState(walkingTowardsPlayer);
         }
         
         private void Update()

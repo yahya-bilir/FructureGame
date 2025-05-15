@@ -28,3 +28,8 @@ MonoBehaviour:
     <PermanentValue>k__BackingField: 5
     <TemporaryValue>k__BackingField: 5
     <PermanentValueLevel>k__BackingField: 0
+  - <EntityId>k__BackingField: 
+    <PropertyQuery>k__BackingField: 1
+    <PermanentValue>k__BackingField: 100
+    <TemporaryValue>k__BackingField: 0
+    <PermanentValueLevel>k__BackingField: 0

@@ -16,13 +16,13 @@ namespace Factories
         public bool IsSpawningAvailable => _spawnedEnemies.Count < factorySo.SpawnLimit;
         public float SpawnInterval => factorySo.SpawnInterval;
 
-        public void SpawnEnemy()
+        public void SpawnEnemy(Transform playerTransform)
         {
             var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
             var enemyPrefab = factorySo.SpawnableEnemies[random];
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             _spawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn();
+            enemy.InitializeOnSpawn(playerTransform);
         }
     }
 }

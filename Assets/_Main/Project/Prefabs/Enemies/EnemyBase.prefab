@@ -113,7 +113,7 @@ MonoBehaviour:
   version: 1073741824
   radius: 1
   height: 2
-  canMove: 1
+  canMove: 0
   maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
@@ -262,3 +262,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0294a02cf21044e1ae0ee0f7445b91f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::AI.EnemyBehaviour.EnemyBehaviour
+  model: {fileID: 0}
+  characterProperties: {fileID: 0}
