@@ -21,7 +21,6 @@ namespace PropertySystem
 
         private void Initialize()
         {
-
             if (_characterProperties.IsSaveable)
             {
                 ReadFromGameData();
@@ -40,10 +39,10 @@ namespace PropertySystem
             return data;
         }
 
-        public void SetProperty(PropertyQuery query, float permanentValue, float temporaryValue)
+        public void SetProperty(PropertyQuery query,  float temporaryValue, float permanentValue = 0)
         {
             var data = GetProperty(query);
-            data.SetDataInternally(permanentValue, temporaryValue);
+            data.SetDataInternally(permanentValue == 0 ? data.PermanentValue : permanentValue, temporaryValue);
             if (!_characterProperties.IsSaveable) return;
             SaveToGameData(data);
         }
@@ -51,7 +50,7 @@ namespace PropertySystem
         private void SaveToGameData(PropertyData data)
         {
             var saveData = _gameData.PropertySaves.GetProperty(data, _characterProperties.EntityId);
-            saveData.PropertyData.SetDataInternally(data.PermanentValue, data.TemporaryValue);
+            saveData.PropertyData.SetDataInternally(data.PermanentValue, data.PermanentValue);
             _gameData.PropertySaves.SaveProperty(saveData);
         }
 

@@ -1,7 +1,7 @@
 ﻿using PropertySystem;
 using UnityEngine;
 
-namespace Player
+namespace Characters.Player
 {
     public class PlayerJoystickMovement
     {

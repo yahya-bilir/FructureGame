@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using Characters.Player;
 using Cysharp.Threading.Tasks;
 using DataSave.Runtime;
-using Player;
 using UnityEngine;
 using VContainer;
 

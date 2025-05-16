@@ -1,7 +1,7 @@
-﻿using CommonComponents;
+﻿using Characters.Player;
+using CommonComponents;
 using DataSave.Runtime;
 using Factories;
-using Player;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

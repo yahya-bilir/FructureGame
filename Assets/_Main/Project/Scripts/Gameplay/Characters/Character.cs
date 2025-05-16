@@ -7,6 +7,8 @@ namespace Characters
 {
     public class Character : MonoBehaviour
     {
+        public CharacterCombatManager CharacterCombatManager { get; protected set; }
+        [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
         [SerializeField] protected GameObject model;
         [SerializeField] private CharacterProperties characterProperties;
         protected Animator animator;

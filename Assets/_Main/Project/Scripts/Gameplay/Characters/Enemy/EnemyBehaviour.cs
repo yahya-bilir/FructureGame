@@ -23,6 +23,7 @@ namespace Characters.Enemy
             _aiDestinationSetter = GetComponent<AIDestinationSetter>();
             _aiPath = GetComponent<AIPath>();
             _animationController = new EnemyAnimationController(animator);
+            CharacterCombatManager = new CharacterCombatManager(this, CharacterPropertyManager, CharacterDataHolder);
         }
 
         private void Start()
