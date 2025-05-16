@@ -7,8 +7,6 @@ namespace PropertySystem
     [Serializable]
     public class PropertyData
     {
-        [field: SerializeField] public string EntityId { get; private set; }
-
         [FoldoutGroup("Property")]
         [field: SerializeField] public PropertyQuery PropertyQuery { get; private set; }
         
@@ -21,11 +19,9 @@ namespace PropertySystem
         [FoldoutGroup("Property/Values")]
         [field: SerializeField] public int PermanentValueLevel { get; private set; }
 
-        public PropertyData(PropertyQuery propertyQuery, float permanentValue, float temporalValue, string entityId)
+        public PropertyData(PropertyQuery propertyQuery, float permanentValue, float temporalValue)
         {
-            PropertyQuery = propertyQuery;
-            EntityId = entityId;
-            SetDataInternally(permanentValue, temporalValue);
+            PropertyQuery = propertyQuery; SetDataInternally(permanentValue, temporalValue);
         }
 
         public PropertyData SetDataInternally(float permanentValue, float temporalValue)
@@ -34,18 +30,16 @@ namespace PropertySystem
             TemporaryValue = temporalValue;
             return this;
         }
-
-        public PropertyData SetPermanentValueLevel(int permanentValueLevel, float permanentValue)
+        
+        public PropertyData Clone()
         {
-            PermanentValueLevel = permanentValueLevel;
-            PermanentValue = permanentValue;
-            return this;
-        }
+            var copy = new PropertyData(PropertyQuery, PermanentValue, TemporaryValue);
 
-        public PropertyData SetTempValueLevel(float tempValue)
-        {
-            TemporaryValue = tempValue;
-            return this;
+            // Private set olduğu için reflection yerine constructor sonrası setmek en iyisi
+            typeof(PropertyData).GetProperty(nameof(PermanentValueLevel))
+                ?.SetValue(copy, this.PermanentValueLevel);
+
+            return copy;
         }
     }
 }

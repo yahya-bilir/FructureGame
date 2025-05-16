@@ -16,7 +16,7 @@ namespace Characters.Enemy
         private Transform _playerTransform;
 
         private bool IsCharacterDead =>
-            PropertyManager.GetPropertySaveData(PropertyQuery.Health).TemporaryValue <= 0;
+            CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
         protected override void Awake()
         {
             base.Awake();
@@ -34,6 +34,7 @@ namespace Characters.Enemy
         {
             _playerTransform = playerTransform;
             _aiDestinationSetter.target = _playerTransform;
+            
         }
         
         private void SetStates()
@@ -42,7 +43,7 @@ namespace Characters.Enemy
 
             #region States
 
-            var walkingTowardsPlayer = new WalkingTowardsPlayer(_animationController, _playerTransform, _aiPath, model.transform);
+            var walkingTowardsPlayer = new WalkingTowardsPlayer(_animationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
             var attacking = new Attacking(_animationController);
             var dead = new Dead(_animationController);
             #endregion

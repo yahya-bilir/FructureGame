@@ -1,19 +1,27 @@
 using DataSave.Runtime;
+using PropertySystem;
 using UnityEngine;
+using VContainer;
 
-namespace PropertySystem
+namespace Characters
 {
     public class Character : MonoBehaviour
     {
         [SerializeField] protected GameObject model;
         [SerializeField] private CharacterProperties characterProperties;
-        [SerializeField] protected Animator animator;
-        protected PropertyManager PropertyManager;
-        
+        protected Animator animator;
+        protected CharacterPropertyManager CharacterPropertyManager;
+        private GameData _gameData;
+
+        [Inject]
+        private void Inject(GameData gameData)
+        {
+            _gameData = gameData;
+        }
         protected virtual void Awake()
         {
             animator = model.GetComponent<Animator>();
-            PropertyManager = new PropertyManager(characterProperties);
+            CharacterPropertyManager = new CharacterPropertyManager(characterProperties, _gameData);
         }
     }
 }

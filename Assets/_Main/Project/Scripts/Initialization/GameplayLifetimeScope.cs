@@ -23,7 +23,7 @@ namespace Initialization
             base.Configure(builder);
             
             builder.RegisterComponentInHierarchy<CamerasManager>();
-            builder.RegisterComponentInHierarchy<PlayerJoystickMovement>();
+            builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
 

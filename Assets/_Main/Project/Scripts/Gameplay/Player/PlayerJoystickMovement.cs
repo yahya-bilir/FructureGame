@@ -1,35 +1,34 @@
-﻿using UnityEngine;
-using VContainer;
+﻿using PropertySystem;
+using UnityEngine;
 
 namespace Player
 {
-    public class PlayerJoystickMovement : MonoBehaviour
+    public class PlayerJoystickMovement
     {
         private DynamicJoystick _joystick;
-        public float moveSpeed = 5f;
         private Rigidbody2D _rb;
+        private PropertyData _speedData;
+        private Transform _transform;
 
-        private void Awake()
+        public PlayerJoystickMovement(Rigidbody2D rb, DynamicJoystick joystick, PropertyData speedData, Transform transform)
         {
-            _rb = GetComponent<Rigidbody2D>();
+            _rb = rb;
+            _joystick = joystick;
+            _speedData = speedData;
+            _transform = transform;
         }
         
-        [Inject]
-        public void Inject(DynamicJoystick joystick)
-        {
-            _joystick = joystick;
-        }
-        void Update()
+        public void Tick()
         {
             var moveInput = new Vector2(_joystick.Horizontal, _joystick.Vertical);
-            _rb.linearVelocity = moveInput.normalized * moveSpeed;
+            _rb.linearVelocity = moveInput.normalized * _speedData.TemporaryValue;
 
             if (moveInput != Vector2.zero)
             {
                 if (moveInput.x > 0)
-                    transform.localScale = new Vector3(1, 1, 1);
+                    _transform.localScale = new Vector3(1, 1, 1);
                 else if (moveInput.x < 0)
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    _transform.localScale = new Vector3(-1, 1, 1);
             }
         }
     }

@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using PropertySystem.Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DataSave.Runtime
 {
@@ -16,6 +15,7 @@ namespace DataSave.Runtime
         public SettingsData SettingsData;
         public PlayerProgressData PlayerProgressData;
         public TutorialData TutorialData;
+        public PropertySaves PropertySaves;
     }
 
     [System.Serializable]

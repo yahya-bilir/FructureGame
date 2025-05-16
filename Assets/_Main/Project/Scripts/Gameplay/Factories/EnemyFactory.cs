@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters.Enemy;
+using DataSave.Runtime;
+using PropertySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

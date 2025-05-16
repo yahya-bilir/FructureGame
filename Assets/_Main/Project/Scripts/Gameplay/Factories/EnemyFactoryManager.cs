@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DataSave.Runtime;
 using Player;
 using UnityEngine;
 using VContainer;
@@ -10,10 +11,13 @@ namespace Factories
     {
         [SerializeField] private List<EnemyFactory> enemyFactories;
         private Transform _playerTransform;
+        private GameData _gameData;
+        
         [Inject]
-        private void Inject(PlayerJoystickMovement joystickMovement)
+        private void Inject(PlayerController playerController, GameData gameData)
         {
-            _playerTransform = joystickMovement.transform;
+            _playerTransform = playerController.transform;
+            _gameData = gameData;
         }
         private void Start()
         {

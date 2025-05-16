@@ -1,6 +1,7 @@
 using AI.Base.Interfaces;
 using Characters.Enemy;
 using Pathfinding;
+using PropertySystem;
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -11,14 +12,16 @@ namespace AI.EnemyStates
         private readonly Transform _playerTransform;
         private readonly AIPath _aiPath;
         private readonly Transform _modelTransform;
+        private readonly PropertyData _speedPropertyData;
 
         public WalkingTowardsPlayer(EnemyAnimationController animationController, Transform playerTransform,
-            AIPath aiPath, Transform model)
+            AIPath aiPath, Transform model, PropertyData speedPropertyData)
         {
             _animationController = animationController;
             _playerTransform = playerTransform;
             _aiPath = aiPath;
             _modelTransform = model;
+            _speedPropertyData = speedPropertyData;
         }
 
         public void Tick()
@@ -33,8 +36,6 @@ namespace AI.EnemyStates
             {
                 _modelTransform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
             }
-
-            Debug.Log(_aiPath.remainingDistance);
             
             Debug.Log("Walking");
         }
@@ -43,6 +44,7 @@ namespace AI.EnemyStates
         {
             _animationController.Run();
             _aiPath.canMove = true;
+            _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
         }
 
         public void OnExit()

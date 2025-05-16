@@ -260,38 +260,6 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   playerProperties: {fileID: 11400000, guid: 77a964c82de17414992ba0b8ec0441a2, type: 2}
---- !u!1 &307862074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6972942769922135643, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
-  m_PrefabInstance: {fileID: 138282435611712700}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &307862077
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307862074}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &708503040
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,17 +896,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
   m_PrefabInstance: {fileID: 1367209494}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1367209496 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee, type: 3}
-  m_PrefabInstance: {fileID: 1367209494}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1589912189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,10 +1155,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3142410380277958126, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
-      propertyPath: _joystick
-      value: 
-      objectReference: {fileID: 1367209496}
     - target: {fileID: 6972942769922135643, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1209,10 +1162,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6972942769922135643, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 307862077}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
