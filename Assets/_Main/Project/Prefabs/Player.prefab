@@ -73,9 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec54cad71d043b0a913e8b331cecfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::Player.PlayerController
+  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: e746185e91e2a104986f53f302b73626, type: 2}
   model: {fileID: 8255057832194605294}
   characterProperties: {fileID: 11400000, guid: 77a964c82de17414992ba0b8ec0441a2, type: 2}
-  animator: {fileID: 0}
+  weaponCreationPoint: {fileID: 9178654692309900809}
 --- !u!1001 &8460034455889420627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,5 +158,10 @@ Transform:
 --- !u!1 &8255057832194605294 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 64ef7e0c2a1df7e4f81c5c8bd8758985, type: 3}
+  m_PrefabInstance: {fileID: 8460034455889420627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9178654692309900809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 723167817075015514, guid: 64ef7e0c2a1df7e4f81c5c8bd8758985, type: 3}
   m_PrefabInstance: {fileID: 8460034455889420627}
   m_PrefabAsset: {fileID: 0}
