@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Characters;
 using Characters.Player;
 using Cysharp.Threading.Tasks;
 using DataSave.Runtime;
@@ -10,17 +12,20 @@ namespace Factories
     public class EnemyFactoryManager : MonoBehaviour
     {
         [SerializeField] private List<EnemyFactory> enemyFactories;
-        private Transform _playerTransform;
+        private PlayerController _playerController;
         private GameData _gameData;
+        private CharacterCombatManager _playerCombatManager;
         
         [Inject]
         private void Inject(PlayerController playerController, GameData gameData)
         {
-            _playerTransform = playerController.transform;
+            _playerController = playerController;
             _gameData = gameData;
         }
         private void Start()
         {
+            _playerCombatManager = _playerController.CharacterCombatManager;
+
             foreach (var enemyFactory in enemyFactories)
             {
                 SpawnFactoryEnemies(enemyFactory).Forget();
@@ -33,7 +38,7 @@ namespace Factories
             {
                 await UniTask.WaitForSeconds(factory.SpawnInterval);
                 
-                factory.SpawnEnemy(_playerTransform);
+                factory.SpawnEnemy(_playerController.transform, _playerCombatManager);
             }
         }
     }

@@ -7,7 +7,7 @@ namespace WeaponSystem
     {
         [field: SerializeField] public string WeaponName { get; private set; }
         [field: SerializeField] public Sprite WeaponSprite { get; private set; }
-        [field: SerializeField] public int DamageIncrementOnEachUpgrade { get; private set; }
+        [field: SerializeField] public float DamageIncrementOnEachUpgrade { get; private set; }
         [field: SerializeField] public float AttackInterval { get; private set; }
     }
 }

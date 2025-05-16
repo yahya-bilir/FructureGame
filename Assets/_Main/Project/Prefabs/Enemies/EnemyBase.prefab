@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 5356910590511490258}
   m_Layer: 0
   m_Name: EnemyBase
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,5 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0294a02cf21044e1ae0ee0f7445b91f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::AI.EnemyBehaviour.EnemyBehaviour
+  <CharacterDataHolder>k__BackingField: {fileID: 0}
   model: {fileID: 0}
   characterProperties: {fileID: 0}

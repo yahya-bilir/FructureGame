@@ -10,31 +10,18 @@ namespace Characters
         private Character _connectedCharacter;
         private readonly CharacterPropertyManager _characterPropertyManager;
         private readonly CharacterDataHolder _characterDataHolder;
-        private float _passedTimeSinceLastAttack;
         private ShineEffect _shineEffect;
 
         public CharacterCombatManager(Character connectedCharacter, CharacterPropertyManager characterPropertyManager,
-            CharacterDataHolder characterDataHolder)
+            CharacterDataHolder characterDataHolder, ShineEffect shineEffect)
         {
             _connectedCharacter = connectedCharacter;
             _characterPropertyManager = characterPropertyManager;
             _characterDataHolder = characterDataHolder;
-            _shineEffect = new ShineEffect(_connectedCharacter.GetComponentsInChildren<SpriteRenderer>().ToList(), _characterDataHolder.ShineColor, _characterDataHolder.ShineDuration);
-        }
-
-        public virtual void OnGettingAttacked(float damage, float attackInterval)
-        {
-            if (_passedTimeSinceLastAttack < attackInterval)
-            {
-                _passedTimeSinceLastAttack += Time.deltaTime;
-                return;
-            }
-
-            _passedTimeSinceLastAttack = 0f;
-            GetDamage(damage);
+            _shineEffect = shineEffect;
         }
         
-        protected virtual void GetDamage(float damage)
+        public void GetDamage(float damage)
         {
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;

@@ -11,6 +11,7 @@ namespace Initialization
     public class GameplayLifetimeScope : LifetimeScope
     {
         [SerializeField] private CharacterProperties playerProperties;
+        [SerializeField] private Material shineMaterial;
         
         protected override void Awake()
         {
@@ -26,7 +27,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
-
+            
             builder.RegisterInstance(playerProperties).AsSelf();
         }        
     }

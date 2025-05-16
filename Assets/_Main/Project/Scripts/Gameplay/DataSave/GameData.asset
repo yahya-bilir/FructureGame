@@ -42,8 +42,8 @@ MonoBehaviour:
     - Id: Player
       PropertyData:
         <PropertyQuery>k__BackingField: 20
-        <PermanentValue>k__BackingField: 20
-        <TemporaryValue>k__BackingField: 20
+        <PermanentValue>k__BackingField: 5
+        <TemporaryValue>k__BackingField: 5
         <PermanentValueLevel>k__BackingField: 0
     - Id: Player
       PropertyData:

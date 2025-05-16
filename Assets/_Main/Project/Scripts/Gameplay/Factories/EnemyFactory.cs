@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Characters;
 using Characters.Enemy;
 using DataSave.Runtime;
 using PropertySystem;
@@ -18,13 +19,13 @@ namespace Factories
         public bool IsSpawningAvailable => _spawnedEnemies.Count < factorySo.SpawnLimit;
         public float SpawnInterval => factorySo.SpawnInterval;
 
-        public void SpawnEnemy(Transform playerTransform)
+        public void SpawnEnemy(Transform playerTransform, CharacterCombatManager playerCombatManager)
         {
             var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
             var enemyPrefab = factorySo.SpawnableEnemies[random];
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             _spawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn(playerTransform);
+            enemy.InitializeOnSpawn(playerTransform, playerCombatManager);
         }
     }
 }

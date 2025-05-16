@@ -22,7 +22,6 @@ namespace Characters.Player
         protected override void Awake()
         {
             base.Awake();
-            CharacterCombatManager = new PlayerCombatManager(this, CharacterPropertyManager, CharacterDataHolder);
             _weaponManager = new PlayerWeaponManager(weaponCreationPoint, CharacterPropertyManager);
         }
 

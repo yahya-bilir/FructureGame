@@ -14,6 +14,7 @@ namespace Characters.Enemy
         private AIPath _aiPath;
         private EnemyAnimationController _animationController;
         private Transform _playerTransform;
+        private CharacterCombatManager _playerCombatManager;
 
         private bool IsCharacterDead =>
             CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
@@ -23,7 +24,6 @@ namespace Characters.Enemy
             _aiDestinationSetter = GetComponent<AIDestinationSetter>();
             _aiPath = GetComponent<AIPath>();
             _animationController = new EnemyAnimationController(animator);
-            CharacterCombatManager = new CharacterCombatManager(this, CharacterPropertyManager, CharacterDataHolder);
         }
 
         private void Start()
@@ -31,11 +31,11 @@ namespace Characters.Enemy
             SetStates();
         }
 
-        public void InitializeOnSpawn(Transform playerTransform)
+        public void InitializeOnSpawn(Transform playerTransform, CharacterCombatManager playerCombatManager)
         {
             _playerTransform = playerTransform;
             _aiDestinationSetter.target = _playerTransform;
-            
+            _playerCombatManager = playerCombatManager;
         }
         
         private void SetStates()
@@ -45,7 +45,7 @@ namespace Characters.Enemy
             #region States
 
             var walkingTowardsPlayer = new WalkingTowardsPlayer(_animationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
-            var attacking = new Attacking(_animationController);
+            var attacking = new Attacking(_animationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
             var dead = new Dead(_animationController);
             #endregion
 

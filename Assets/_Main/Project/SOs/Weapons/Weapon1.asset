@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fb94f5502f488181580cc33b630fee, type: 3}
+  m_Name: Weapon1
+  m_EditorClassIdentifier: Gameplay::WeaponSystem.WeaponSO
+  <WeaponName>k__BackingField: Doom Bringer
+  <WeaponSprite>k__BackingField: {fileID: -25099983, guid: 80c5f23f92b3f614eb723f300e42a37f, type: 3}
+  <DamageIncrementOnEachUpgrade>k__BackingField: 0.1
+  <AttackInterval>k__BackingField: 0.25

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using _Main.Project.Scripts.Utils;
 using DataSave.Runtime;
 using PropertySystem;
 using UnityEngine;
@@ -14,6 +17,9 @@ namespace Characters
         protected Animator animator;
         protected CharacterPropertyManager CharacterPropertyManager;
         private GameData _gameData;
+        
+        private SpriteRenderer[] _childrenSpriteRenderers;
+        private ShineEffect _shineEffect;
 
         [Inject]
         private void Inject(GameData gameData)
@@ -23,7 +29,11 @@ namespace Characters
         protected virtual void Awake()
         {
             animator = model.GetComponent<Animator>();
+            _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            _shineEffect = new ShineEffect(_childrenSpriteRenderers.ToList(), CharacterDataHolder.ShineColor, CharacterDataHolder.ShineDuration);
+
             CharacterPropertyManager = new CharacterPropertyManager(characterProperties, _gameData);
+            CharacterCombatManager = new CharacterCombatManager(this, CharacterPropertyManager, CharacterDataHolder, _shineEffect);
         }
     }
 }

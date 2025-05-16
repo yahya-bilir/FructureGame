@@ -12,5 +12,9 @@ namespace Characters
         [field: SerializeField, ColorUsage(true, true)] public Color ShineColor { get; private set; } =  new Color(2f, 2f, 2f, 1f);
         [field: SerializeField] public float ShineDuration { get; private set; } = .3f;
         
+        [Header("Attacking")]
+        [field: SerializeField]
+        public float AttackingInterval { get; private set; }
+        
     }
 }
