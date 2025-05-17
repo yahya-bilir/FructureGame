@@ -18,22 +18,44 @@ MonoBehaviour:
   - m_GUID: 58ef249ad7abb9e40abd003c04ab996b
     m_Address: Assets/_Main/Project/SOs/Properties/EnemyProperties/Enemy1Properties.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60cdeff83042d2943ab3fcd82ac16581
     m_Address: Assets/_Main/Project/Prefabs/Player.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a964c82de17414992ba0b8ec0441a2
     m_Address: Assets/_Main/Project/SOs/Properties/PlayerProperties.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbfcf8aa5ece64fc8bc8350e59b59cce
     m_Address: Assets/_Main/Project/SOs/Factories/EnemyFactories/EnemyFactory.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdf1ad60c88849268c0ad53c69a8c075
+    m_Address: Assets/_Main/Project/Scripts/Gameplay/DataSave/GameData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6f574c0a11eb491088ea2b35fdf9580
+    m_Address: Assets/_Main/Project/SOs/Weapons/Weapon1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c979a2186def89c4fac0ebc9ad65ca96
+    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 12d622832ea71c2449bbb5f38eeba05c, type: 2}

@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1192af05484624349b1acff4929f3e0a, type: 3}
+  m_Script: {fileID: 11500000, guid: b0813b3161ec4637a9e56a5e74bddb50, type: 3}
   m_Name: EditorDataHolder
   m_EditorClassIdentifier: 
-  ProjectFilePath: /FlingTamplate/DataSave/Editor/DefaultDatas/
-  DefaultDataPathes:
-  - default
-  - newdata
-  - debug
+  ProjectFilePath: /FlingTamplate/DataSave/DefaultDatas/
+  DefaultDataPathes: []

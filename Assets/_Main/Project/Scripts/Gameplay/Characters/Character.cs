@@ -14,6 +14,7 @@ namespace Characters
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
         [SerializeField] protected GameObject model;
         [SerializeField] private CharacterProperties characterProperties;
+
         protected Animator animator;
         protected CharacterPropertyManager CharacterPropertyManager;
         private GameData _gameData;

@@ -26,7 +26,10 @@ namespace _Main.Project.Scripts.Utils
         private void Setup()
         {
             _materials = new();
-            _spriteRenderers.ForEach(x => _materials.Add(x.material));
+            _spriteRenderers.ForEach(x =>
+            {
+                _materials.Add(x.material);
+            });
             _baseColor = _materials[0].GetColor("Color_207CF4A");
         }
 
