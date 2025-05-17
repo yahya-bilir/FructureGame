@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Characters;
 using Characters.Enemy;
-using DataSave.Runtime;
-using PropertySystem;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 using Random = UnityEngine.Random;
 
 namespace Factories
@@ -18,14 +18,17 @@ namespace Factories
         private List<EnemyBehaviour> _spawnedEnemies = new();
         public bool IsSpawningAvailable => _spawnedEnemies.Count < factorySo.SpawnLimit;
         public float SpawnInterval => factorySo.SpawnInterval;
-
-        public void SpawnEnemy(Transform playerTransform, CharacterCombatManager playerCombatManager)
+        private IObjectResolver _objectResolver;
+        public void SpawnEnemy(CharacterCombatManager playerCombatManager)
         {
             var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
             var enemyPrefab = factorySo.SpawnableEnemies[random];
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            _objectResolver.InjectGameObject(enemy.gameObject);
             _spawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn(playerTransform, playerCombatManager);
+            enemy.InitializeOnSpawn(playerCombatManager);
         }
+
+        public void Initialize(IObjectResolver objectResolver) => _objectResolver = objectResolver;
     }
 }

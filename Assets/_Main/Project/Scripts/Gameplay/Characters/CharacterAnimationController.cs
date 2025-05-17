@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-namespace Characters.Enemy
+namespace Characters
 {
-    public class EnemyAnimationController
+    public class CharacterAnimationController
     {
         private readonly Animator _animator;
         private static readonly int RunHash = Animator.StringToHash("Run");
         private static readonly int WalkHash = Animator.StringToHash("Walk");
         private static readonly int AttackHash = Animator.StringToHash("Attack");
 
-        public EnemyAnimationController(Animator animator)
+        public CharacterAnimationController(Animator animator)
         {
             _animator = animator;
         }

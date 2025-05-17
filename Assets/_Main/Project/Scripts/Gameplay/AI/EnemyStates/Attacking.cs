@@ -8,13 +8,13 @@ namespace AI.EnemyStates
 {
     public class Attacking : IState
     {
-        private readonly EnemyAnimationController _animationController;
+        private readonly CharacterAnimationController _animationController;
         private readonly float _attackingInterval;
         private readonly CharacterCombatManager _playerCombatManager;
         private readonly float _attackDamage;
         private float _attackingTimer;
 
-        public Attacking(EnemyAnimationController animationController, float attackingInterval,
+        public Attacking(CharacterAnimationController animationController, float attackingInterval,
             CharacterCombatManager playerCombatManager, float attackDamage)
         {
             _animationController = animationController;

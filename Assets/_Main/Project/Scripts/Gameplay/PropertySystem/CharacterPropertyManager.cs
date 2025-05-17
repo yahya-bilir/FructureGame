@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataSave.Runtime;
 using UnityEngine;
+using VContainer;
 
 namespace PropertySystem
 {
@@ -9,17 +10,20 @@ namespace PropertySystem
     {
         private readonly CharacterProperties _characterProperties;
         private List<PropertyData> _propertySaveDatas = new();
-        private readonly GameData _gameData;
+        private GameData _gameData;
 
-        public CharacterPropertyManager(CharacterProperties characterProperties, GameData gameData)
+        public CharacterPropertyManager(CharacterProperties characterProperties)
         {
             _characterProperties = characterProperties;
-            _gameData = gameData;
-
-            Initialize();
         }
 
-        private void Initialize()
+        [Inject]
+        private void Inject(GameData gameData)
+        {
+            _gameData = gameData;
+        }
+
+        public void Initialize()
         {
             if (_characterProperties.IsSaveable)
             {

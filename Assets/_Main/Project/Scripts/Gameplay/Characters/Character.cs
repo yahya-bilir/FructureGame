@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using System.Linq;
-using _Main.Project.Scripts.Utils;
 using DataSave.Runtime;
 using PropertySystem;
+using UI;
 using UnityEngine;
+using Utils;
 using VContainer;
 
 namespace Characters
@@ -14,27 +14,47 @@ namespace Characters
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
         [SerializeField] protected GameObject model;
         [SerializeField] private CharacterProperties characterProperties;
+        [SerializeField] private UIPercentageFiller healthBar;
 
-        protected Animator animator;
+        private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
-        private GameData _gameData;
+        private CharacterVisualEffects _characterVisualEffects;
         
         private SpriteRenderer[] _childrenSpriteRenderers;
         private ShineEffect _shineEffect;
+        protected CharacterAnimationController AnimationController;
 
+        private IObjectResolver _resolver;
         [Inject]
-        private void Inject(GameData gameData)
+        private void Inject(IObjectResolver resolver)
         {
-            _gameData = gameData;
+            _resolver = resolver;
         }
         protected virtual void Awake()
         {
-            animator = model.GetComponent<Animator>();
-            _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-            _shineEffect = new ShineEffect(_childrenSpriteRenderers.ToList(), CharacterDataHolder.ShineColor, CharacterDataHolder.ShineDuration);
+            GetComponents();
+            AnimationController = new CharacterAnimationController(_animator);
+            _characterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar);
+            CharacterPropertyManager = new CharacterPropertyManager(characterProperties);
+            CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, _characterVisualEffects, this);
+        }
+        
+        protected virtual void Start()
+        {
+            ResolveOrInitializeCreatedObjects();
+        }
 
-            CharacterPropertyManager = new CharacterPropertyManager(characterProperties, _gameData);
-            CharacterCombatManager = new CharacterCombatManager(this, CharacterPropertyManager, CharacterDataHolder, _shineEffect);
+        private void ResolveOrInitializeCreatedObjects()
+        {
+            _resolver.Inject(CharacterCombatManager);
+            _resolver.Inject(CharacterPropertyManager);
+            CharacterPropertyManager.Initialize();
+        }
+
+        protected virtual void GetComponents()
+        {
+            _animator = model.GetComponent<Animator>();
+            _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         }
     }
 }

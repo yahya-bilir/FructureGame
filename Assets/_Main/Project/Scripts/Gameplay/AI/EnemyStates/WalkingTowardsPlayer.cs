@@ -1,4 +1,5 @@
 using AI.Base.Interfaces;
+using Characters;
 using Characters.Enemy;
 using Pathfinding;
 using PropertySystem;
@@ -8,13 +9,13 @@ namespace AI.EnemyStates
 {
     public class WalkingTowardsPlayer : IState
     {
-        private readonly EnemyAnimationController _animationController;
+        private readonly CharacterAnimationController _animationController;
         private readonly Transform _playerTransform;
         private readonly AIPath _aiPath;
         private readonly Transform _modelTransform;
         private readonly PropertyData _speedPropertyData;
 
-        public WalkingTowardsPlayer(EnemyAnimationController animationController, Transform playerTransform,
+        public WalkingTowardsPlayer(CharacterAnimationController animationController, Transform playerTransform,
             AIPath aiPath, Transform model, PropertyData speedPropertyData)
         {
             _animationController = animationController;

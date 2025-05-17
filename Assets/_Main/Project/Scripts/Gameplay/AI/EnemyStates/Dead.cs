@@ -1,4 +1,5 @@
 using AI.Base.Interfaces;
+using Characters;
 using Characters.Enemy;
 using UnityEngine;
 
@@ -6,11 +7,13 @@ namespace AI.EnemyStates
 {
     public class Dead : IState
     {
-        private readonly EnemyAnimationController _animationController;
+        private readonly CharacterAnimationController _animationController;
+        private readonly Collider2D _collider2D;
 
-        public Dead(EnemyAnimationController animationController)
+        public Dead(CharacterAnimationController animationController, Collider2D collider2D)
         {
             _animationController = animationController;
+            _collider2D = collider2D;
         }
 
         public void Tick()
@@ -21,7 +24,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
-            
+            _collider2D.enabled = false;
         }
 
         public void OnExit()

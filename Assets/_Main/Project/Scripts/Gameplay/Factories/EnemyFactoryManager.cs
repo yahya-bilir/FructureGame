@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Characters;
 using Characters.Player;
 using Cysharp.Threading.Tasks;
 using DataSave.Runtime;
+using EventBusses;
 using UnityEngine;
 using VContainer;
 
@@ -13,21 +13,22 @@ namespace Factories
     {
         [SerializeField] private List<EnemyFactory> enemyFactories;
         private PlayerController _playerController;
-        private GameData _gameData;
         private CharacterCombatManager _playerCombatManager;
-        
+        private IObjectResolver _resolver;
         [Inject]
-        private void Inject(PlayerController playerController, GameData gameData)
+        private void Inject(PlayerController playerController, IObjectResolver resolver)
         {
             _playerController = playerController;
-            _gameData = gameData;
+            _resolver = resolver;
         }
+
         private void Start()
         {
             _playerCombatManager = _playerController.CharacterCombatManager;
 
             foreach (var enemyFactory in enemyFactories)
             {
+                enemyFactory.Initialize(_resolver);
                 SpawnFactoryEnemies(enemyFactory).Forget();
             }
         }
@@ -38,8 +39,10 @@ namespace Factories
             {
                 await UniTask.WaitForSeconds(factory.SpawnInterval);
                 
-                factory.SpawnEnemy(_playerController.transform, _playerCombatManager);
+                factory.SpawnEnemy(_playerCombatManager);
             }
         }
+        
+        
     }
 }

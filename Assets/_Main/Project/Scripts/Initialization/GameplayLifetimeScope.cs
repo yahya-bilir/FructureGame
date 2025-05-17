@@ -1,4 +1,5 @@
-﻿using Characters.Player;
+﻿using Characters;
+using Characters.Player;
 using CommonComponents;
 using DataSave.Runtime;
 using Factories;
@@ -26,7 +27,6 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
-            
             builder.RegisterInstance(playerProperties).AsSelf();
 
         }        

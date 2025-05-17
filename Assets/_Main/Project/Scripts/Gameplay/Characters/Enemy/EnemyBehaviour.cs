@@ -1,9 +1,11 @@
 ﻿using System;
 using AI.Base;
 using AI.EnemyStates;
+using Characters.Player;
 using Pathfinding;
 using PropertySystem;
 using UnityEngine;
+using VContainer;
 
 namespace Characters.Enemy
 {
@@ -12,28 +14,34 @@ namespace Characters.Enemy
         private StateMachine _stateMachine;
         private AIDestinationSetter _aiDestinationSetter;
         private AIPath _aiPath;
-        private EnemyAnimationController _animationController;
         private Transform _playerTransform;
         private CharacterCombatManager _playerCombatManager;
-
+        private Collider2D _collider;
         private bool IsCharacterDead =>
             CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
-        protected override void Awake()
+
+        protected override void GetComponents()
         {
-            base.Awake();
+            base.GetComponents();
             _aiDestinationSetter = GetComponent<AIDestinationSetter>();
             _aiPath = GetComponent<AIPath>();
-            _animationController = new EnemyAnimationController(animator);
+            _collider = GetComponent<Collider2D>();
         }
 
-        private void Start()
+        [Inject]
+        private void Inject(PlayerController playerController)
         {
+            _playerTransform = playerController.transform;
+        }
+        
+        protected override void Start()
+        {
+            base.Start();
             SetStates();
         }
 
-        public void InitializeOnSpawn(Transform playerTransform, CharacterCombatManager playerCombatManager)
+        public void InitializeOnSpawn(CharacterCombatManager playerCombatManager)
         {
-            _playerTransform = playerTransform;
             _aiDestinationSetter.target = _playerTransform;
             _playerCombatManager = playerCombatManager;
         }
@@ -44,9 +52,9 @@ namespace Characters.Enemy
 
             #region States
 
-            var walkingTowardsPlayer = new WalkingTowardsPlayer(_animationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
-            var attacking = new Attacking(_animationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
-            var dead = new Dead(_animationController);
+            var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
+            var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
+            var dead = new Dead(AnimationController, _collider);
             #endregion
 
             #region State Changing Conditions

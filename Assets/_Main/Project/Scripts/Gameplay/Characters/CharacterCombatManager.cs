@@ -1,24 +1,30 @@
-﻿using System.Linq;
-using _Main.Project.Scripts.Utils;
+﻿using Cysharp.Threading.Tasks;
+using EventBusses;
+using Events;
 using PropertySystem;
 using UnityEngine;
+using VContainer;
 
 namespace Characters
 {
     public class CharacterCombatManager
     {
-        private Character _connectedCharacter;
         private readonly CharacterPropertyManager _characterPropertyManager;
-        private readonly CharacterDataHolder _characterDataHolder;
-        private ShineEffect _shineEffect;
+        private readonly CharacterVisualEffects _characterVisualEffects;
+        private readonly Character _character;
+        private IEventBus _eventBus;
 
-        public CharacterCombatManager(Character connectedCharacter, CharacterPropertyManager characterPropertyManager,
-            CharacterDataHolder characterDataHolder, ShineEffect shineEffect)
+        public CharacterCombatManager(CharacterPropertyManager characterPropertyManager, CharacterVisualEffects characterVisualEffects, Character character)
         {
-            _connectedCharacter = connectedCharacter;
             _characterPropertyManager = characterPropertyManager;
-            _characterDataHolder = characterDataHolder;
-            _shineEffect = shineEffect;
+            _characterVisualEffects = characterVisualEffects;
+            _character = character;
+        }
+        
+        [Inject]
+        private void Inject(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
         }
         
         public void GetDamage(float damage)
@@ -26,14 +32,17 @@ namespace Characters
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
             _characterPropertyManager.SetProperty(PropertyQuery.Health, newHealth);
-            _shineEffect.Shine();
+            Debug.Log(newHealth);
+            _characterVisualEffects.OnCharacterTookDamage(newHealth, _characterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
             
-            if(newHealth <= 0) CharacterIsDead();
+            if(newHealth <= 0) OnCharacterDied().Forget();
         }
-
-        private void CharacterIsDead()
+        
+        private async UniTask OnCharacterDied()
         {
-            
+            await _characterVisualEffects.OnCharacterDied();
+            _eventBus.Publish(new OnCharacterDiedEvent(_character));
         }
+        
     }
 }

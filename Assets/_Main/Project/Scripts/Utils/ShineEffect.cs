@@ -4,38 +4,39 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Main.Project.Scripts.Utils
+namespace Utils
 {
     public class ShineEffect : IDisposable
     {
         private readonly List<SpriteRenderer> _spriteRenderers;
-        [ColorUsage(true, true)] private Color _baseColor;
-        [ColorUsage(true, true)] private readonly Color _shineColor;
-        private List<Material> _materials;
+        private readonly Color _shineColor;
         private readonly float _shineDuration;
+        private Color _baseColor;
+        private List<Material> _materials;
         private CancellationTokenSource _source;
-        
+        private bool _isShining;
+
         public ShineEffect(List<SpriteRenderer> spriteRenderers, Color shineColor, float shineDuration)
         {
             _spriteRenderers = spriteRenderers;
             _shineColor = shineColor;
             _shineDuration = shineDuration;
-            Setup();
+            SetupMaterials();
         }
 
-        private void Setup()
+        private void SetupMaterials()
         {
-            _materials = new();
-            _spriteRenderers.ForEach(x =>
-            {
-                _materials.Add(x.material);
-            });
-            _baseColor = _materials[0].GetColor("Color_207CF4A");
-        }
+            _materials = new List<Material>();
+            foreach (var sr in _spriteRenderers)
+                _materials.Add(sr.material);
 
+            //_baseColor = _materials[0].GetColor("Color_207CF4A");
+        }
 
         public void Shine()
         {
+            if (_isShining) return;
+
             _source?.Cancel();
             _source = new CancellationTokenSource();
             ShineAnim(_source.Token).Forget();
@@ -43,21 +44,23 @@ namespace _Main.Project.Scripts.Utils
 
         private async UniTaskVoid ShineAnim(CancellationToken ct)
         {
-            _materials.ForEach(x => x.SetColor("Color_207CF4A", _shineColor));
-            float duration = _shineDuration;
-            float elapsed = 0;
-            while (elapsed < duration && !ct.IsCancellationRequested)
+            _isShining = true;
+            _materials.ForEach(m => m.SetColor("Color_207CF4A", _shineColor));
+
+            float elapsed = 0f;
+
+            while (elapsed < _shineDuration && !ct.IsCancellationRequested)
             {
-                float t = elapsed / duration;
-                t = Mathf.SmoothStep(0f, 1f, t);
-                Color currentColor = Color.Lerp(_shineColor, _baseColor, t);
-                _materials.ForEach(x => x.SetColor("Color_207CF4A", currentColor));
-                // _shineMat.SetColor("Color_207CF4A", currentColor);
+                float t = Mathf.SmoothStep(0f, 1f, elapsed / _shineDuration);
+                Color lerped = Color.Lerp(_shineColor, Color.white, t);
+                _materials.ForEach(m => m.SetColor("Color_207CF4A", lerped));
+
                 elapsed += Time.deltaTime;
-                await UniTask.Yield(cancellationToken: ct);
+                await UniTask.Yield(PlayerLoopTiming.Update, ct);
             }
 
-            _materials.ForEach(x => x.SetColor("Color_207CF4A", _baseColor));
+            _materials.ForEach(m => m.SetColor("Color_207CF4A", Color.white));
+            _isShining = false;
         }
 
         public void Dispose()

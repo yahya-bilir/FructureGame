@@ -1,4 +1,5 @@
 ﻿using DataSave.Runtime;
+using EventBusses;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -19,6 +20,7 @@ namespace Initialization
         {
             builder.RegisterInstance(gameData).AsSelf();
             builder.RegisterEntryPoint<AddressableStartupLoader>();
+            builder.Register<IEventBus, EventBus>(Lifetime.Singleton);
         }
     }
 }
