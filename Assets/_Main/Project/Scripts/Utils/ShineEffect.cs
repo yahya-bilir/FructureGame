@@ -9,28 +9,32 @@ namespace Utils
     public class ShineEffect : IDisposable
     {
         private readonly List<SpriteRenderer> _spriteRenderers;
-        private readonly Color _shineColor;
         private readonly float _shineDuration;
-        private Color _baseColor;
-        private List<Material> _materials;
+        private readonly Color _shineColor = new Color(2.5f, 2.5f, 1.5f, 1f);
+
+        private readonly Dictionary<SpriteRenderer, MaterialPropertyBlock> _propertyBlocks;
         private CancellationTokenSource _source;
         private bool _isShining;
 
         public ShineEffect(List<SpriteRenderer> spriteRenderers, Color shineColor, float shineDuration)
         {
             _spriteRenderers = spriteRenderers;
-            _shineColor = shineColor;
             _shineDuration = shineDuration;
-            SetupMaterials();
+            _shineColor = shineColor;
+            _propertyBlocks = new Dictionary<SpriteRenderer, MaterialPropertyBlock>();
+            SetupPropertyBlocks();
         }
 
-        private void SetupMaterials()
+        private void SetupPropertyBlocks()
         {
-            _materials = new List<Material>();
             foreach (var sr in _spriteRenderers)
-                _materials.Add(sr.material);
-
-            //_baseColor = _materials[0].GetColor("Color_207CF4A");
+            {
+                var block = new MaterialPropertyBlock();
+                sr.GetPropertyBlock(block);
+                block.SetColor("_Color", Color.white);
+                sr.SetPropertyBlock(block);
+                _propertyBlocks[sr] = block;
+            }
         }
 
         public void Shine()
@@ -45,7 +49,12 @@ namespace Utils
         private async UniTaskVoid ShineAnim(CancellationToken ct)
         {
             _isShining = true;
-            _materials.ForEach(m => m.SetColor("Color_207CF4A", _shineColor));
+
+            foreach (var (sr, block) in _propertyBlocks)
+            {
+                block.SetColor("_Color", _shineColor);
+                sr.SetPropertyBlock(block);
+            }
 
             float elapsed = 0f;
 
@@ -53,13 +62,23 @@ namespace Utils
             {
                 float t = Mathf.SmoothStep(0f, 1f, elapsed / _shineDuration);
                 Color lerped = Color.Lerp(_shineColor, Color.white, t);
-                _materials.ForEach(m => m.SetColor("Color_207CF4A", lerped));
+
+                foreach (var (sr, block) in _propertyBlocks)
+                {
+                    block.SetColor("_Color", lerped);
+                    sr.SetPropertyBlock(block);
+                }
 
                 elapsed += Time.deltaTime;
                 await UniTask.Yield(PlayerLoopTiming.Update, ct);
             }
 
-            _materials.ForEach(m => m.SetColor("Color_207CF4A", Color.white));
+            foreach (var (sr, block) in _propertyBlocks)
+            {
+                block.SetColor("_Color", Color.white);
+                sr.SetPropertyBlock(block);
+            }
+
             _isShining = false;
         }
 

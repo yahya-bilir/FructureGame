@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy2 Softbody Material 1
+  m_Name: PlayerMaterial
   m_Shader: {fileID: 4800000, guid: e3e893eb49f989546919b83c63ae148b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,13 +42,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _JiggleFrequency: 1
+    - _JiggleFrequency: 0
     - _JigglePosition: 0
     - _JigglePositionOffset: 0
-    - _JiggleSpeed: 5
+    - _JiggleSpeed: 0
     - _JiggleStrength: 0.2
-    - _JiggleStrengthX: 0.07
-    - _JiggleStrengthY: 0.03
+    - _JiggleStrengthX: 0
+    - _JiggleStrengthY: 0
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

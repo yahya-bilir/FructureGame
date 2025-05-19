@@ -1,4 +1,5 @@
-﻿using Characters;
+﻿using System;
+using Characters;
 using Characters.Player;
 using CommonComponents;
 using DataSave.Runtime;
@@ -28,7 +29,13 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterInstance(playerProperties).AsSelf();
+        }
 
-        }        
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+            Debug.unityLogger.logEnabled = false;
+
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace Characters
 
         public async UniTask OnCharacterDied()
         {
-            _healthBar.DisableOrEnableObjectsVisibility(false);
+            if(_healthBar != null) _healthBar.DisableOrEnableObjectsVisibility(false);
             foreach (var renderer in _spriteRenderers)
             {
                 DOVirtual.Color(renderer.color, new Color(1, 1, 1, 0), 2,

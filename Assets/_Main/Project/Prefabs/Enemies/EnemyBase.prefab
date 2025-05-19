@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 1073741824
-  radius: 1
+  radius: 0.5
   height: 2
   canMove: 0
   maxSpeed: 1
