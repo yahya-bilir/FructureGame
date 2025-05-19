@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Softbody Material
+  m_Name: Enemy1 Softbody Material
   m_Shader: {fileID: 4800000, guid: e3e893eb49f989546919b83c63ae148b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,8 +47,8 @@ Material:
     - _JigglePositionOffset: 0
     - _JiggleSpeed: 5
     - _JiggleStrength: 0.2
-    - _JiggleStrengthX: 0.05
-    - _JiggleStrengthY: 0.05
+    - _JiggleStrengthX: 0.07
+    - _JiggleStrengthY: 0.07
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
