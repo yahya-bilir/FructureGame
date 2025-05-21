@@ -45,12 +45,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c6f574c0a11eb491088ea2b35fdf9580
-    m_Address: Assets/_Main/Project/SOs/Weapons/Weapon1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c979a2186def89c4fac0ebc9ad65ca96
     m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy1.prefab
     m_ReadOnly: 0

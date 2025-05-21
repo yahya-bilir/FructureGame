@@ -1,13 +1,11 @@
-﻿using UnityEngine;
+﻿using UI;
+using UnityEngine;
 
-namespace WeaponSystem
+namespace WeaponSystem.MeleeWeapons
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapons/Weapon", order = 0)]
-    public class WeaponSO : ScriptableObject
+    public class WeaponSO : ObjectUIIdentifierSO
     {
-        [field: SerializeField] public string WeaponName { get; private set; }
-        [field: SerializeField] public Sprite WeaponSprite { get; private set; }
-        [field: SerializeField] public float DamageIncrementOnEachUpgrade { get; private set; }
         [field: SerializeField] public float AttackInterval { get; private set; }
     }
 }

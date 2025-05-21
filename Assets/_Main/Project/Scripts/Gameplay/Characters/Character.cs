@@ -23,7 +23,8 @@ namespace Characters
         private SpriteRenderer[] _childrenSpriteRenderers;
         private ShineEffect _shineEffect;
         protected CharacterAnimationController AnimationController;
-
+        public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
+        
         private IObjectResolver _resolver;
         [Inject]
         private void Inject(IObjectResolver resolver)

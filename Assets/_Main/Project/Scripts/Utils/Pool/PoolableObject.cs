@@ -1,15 +1,17 @@
 using UnityEngine;
+using VContainer;
 
-namespace Utilities.Pool
+namespace Utils.Pool
 {
     public class PoolableObject : MonoBehaviour
     {
         public string PoolTag { get; set; }
-
+        [Inject] private PoolSystem _poolSystem;
+        
         private void OnDisable()
         {
             transform.localScale = Vector3.one;
-            PoolSystem.Instance.ReturnToPool(PoolTag, gameObject);
+            _poolSystem.ReturnToPool(PoolTag, gameObject);
         }
     }
 }

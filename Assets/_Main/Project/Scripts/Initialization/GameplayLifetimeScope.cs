@@ -5,6 +5,7 @@ using CommonComponents;
 using DataSave.Runtime;
 using Factories;
 using UnityEngine;
+using Utils.Pool;
 using VContainer;
 using VContainer.Unity;
 
@@ -25,16 +26,16 @@ namespace Initialization
             base.Configure(builder);
             
             builder.RegisterComponentInHierarchy<CamerasManager>();
-            builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
+            builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterInstance(playerProperties).AsSelf();
         }
 
         private void Start()
         {
             Application.targetFrameRate = 60;
-            Debug.unityLogger.logEnabled = false;
+            //Debug.unityLogger.logEnabled = false;
 
         }
     }

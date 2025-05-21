@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Linq;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
 using PropertySystem;
@@ -42,6 +43,26 @@ namespace Characters
         {
             await _characterVisualEffects.OnCharacterDied();
             _eventBus.Publish(new OnCharacterDiedEvent(_character));
+        }
+
+        public Character FindNearestEnemy()
+        {
+            var range = _characterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
+            var origin = _character.transform.position;
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, range, LayerMask.GetMask("Enemy"));
+
+            if (hits.Length == 0)
+                return null;
+
+            var nearest = hits
+                .OrderBy(c => Vector2.Distance(origin, c.transform.position))
+                .FirstOrDefault();
+
+            if (nearest == null) return null;
+            var component = nearest.GetComponent<Character>();
+            _eventBus.Publish(new OnNearbyEnemyFoundEvent(component));
+            return component;
         }
         
     }

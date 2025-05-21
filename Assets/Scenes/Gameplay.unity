@@ -167,50 +167,6 @@ MonoBehaviour:
   enemyFactories:
   - factorySo: {fileID: 11400000, guid: bbfcf8aa5ece64fc8bc8350e59b59cce, type: 2}
     spawnPoint: {fileID: 1309834060}
---- !u!1 &142873568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142873569}
-  - component: {fileID: 142873570}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &142873569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142873568}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.99858, y: 2.28623, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &142873570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142873568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3b07e87039419f98da8aa6579bb37b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Initialization::Initialization.GameplayScope
 --- !u!1 &143710299
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +500,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 16.45259
+    OrthographicSize: 11.3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -640,7 +596,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16.45259
+  orthographic size: 11.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -888,6 +844,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
   m_PrefabInstance: {fileID: 1367209494}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589866695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589866696}
+  - component: {fileID: 1589866697}
+  m_Layer: 0
+  m_Name: PoolSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589866696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589866695}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28083, y: -1.14347, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589866697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589866695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2aa62fcb3c348aaa37e3a993251f70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Utils::Utilities.Pool.PoolSystem
+  pools:
+  - tag: basic-ammo
+    prefab: {fileID: 2524038127036583080, guid: 03d1ffa63be46434389650184decbe12, type: 3}
+    size: 1000
 --- !u!1 &1589912189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,17 +1151,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5428654434234523650, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6972942769922135643, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6972942769922135643, guid: 60cdeff83042d2943ab3fcd82ac16581, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1169,7 +1165,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1264810233}
-  - {fileID: 142873569}
   - {fileID: 2021614418}
   - {fileID: 708503042}
   - {fileID: 1589912192}
@@ -1179,3 +1174,4 @@ SceneRoots:
   - {fileID: 1726597805}
   - {fileID: 138282435611712700}
   - {fileID: 34980055}
+  - {fileID: 1589866696}

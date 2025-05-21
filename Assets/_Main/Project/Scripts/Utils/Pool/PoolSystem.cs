@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utilities.Pool
+namespace Utils.Pool
 {
-    public class PoolSystem : SingletonMonoBehaviour<PoolSystem>
+    public class PoolSystem : MonoBehaviour
     {
         [System.Serializable]
         public class Pool
@@ -13,9 +13,8 @@ namespace Utilities.Pool
             public int size;
         }
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             SpawnPool();
         }
 

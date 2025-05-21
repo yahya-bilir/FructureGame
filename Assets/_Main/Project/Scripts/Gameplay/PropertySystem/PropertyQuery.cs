@@ -22,6 +22,7 @@
         LifeSteal,
         IceChance,
         IceDamage,
-        Speed
+        Speed,
+        AttackRange,
     }
 }

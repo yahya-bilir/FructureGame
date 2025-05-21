@@ -31,3 +31,7 @@ MonoBehaviour:
     <PermanentValue>k__BackingField: 100
     <TemporaryValue>k__BackingField: 100
     <PermanentValueLevel>k__BackingField: 0
+  - <PropertyQuery>k__BackingField: 21
+    <PermanentValue>k__BackingField: 10
+    <TemporaryValue>k__BackingField: 10
+    <PermanentValueLevel>k__BackingField: 0

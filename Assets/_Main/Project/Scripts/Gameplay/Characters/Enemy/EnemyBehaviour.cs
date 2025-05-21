@@ -17,8 +17,7 @@ namespace Characters.Enemy
         private Transform _playerTransform;
         private CharacterCombatManager _playerCombatManager;
         private Collider2D _collider;
-        private bool IsCharacterDead =>
-            CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
+
 
         protected override void GetComponents()
         {
