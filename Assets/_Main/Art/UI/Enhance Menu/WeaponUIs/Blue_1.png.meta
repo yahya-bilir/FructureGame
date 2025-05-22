@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 97bf23160aee5b541b43ef3d30a01ede
+guid: 94bc0d4d38af4ab498b2176c85f10aac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7718720603454127984
-    second: SliderBG_0
+      213: 2114939304942317460
+    second: Blue_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SliderBG_0
+      name: Blue_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 620
-        height: 94
+        width: 218
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 090c0a6b18891e490800000000000000
-      internalID: -7718720603454127984
+      spriteID: 49f2998a716c95d10800000000000000
+      internalID: 2114939304942317460
       vertices: []
       indices: 
       edges: []
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blue_1_0: 2114939304942317460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

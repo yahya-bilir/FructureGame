@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 629861ac592375840a107f11fd2fccc3
+guid: 14bc07efa2b28f84d9ff98ed1c1703ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6065193162962388810
-    second: Grey_1_0
+      213: 4562682840266587460
+    second: Purple_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grey_1_0
+      name: Purple_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b8bf7bf3fa14dba0800000000000000
-      internalID: -6065193162962388810
+      spriteID: 44d3cdc7ed7e15f30800000000000000
+      internalID: 4562682840266587460
       vertices: []
       indices: 
       edges: []
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Purple_1_0: 4562682840266587460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 78121c88132037d43a4d17245aaa4ba8
+guid: 629861ac592375840a107f11fd2fccc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6117354043859094160
-    second: MainBlue_2_0
+      213: -6065193162962388810
+    second: Grey_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainBlue_2_0
+      name: Grey_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 207
-        height: 208
+        width: 218
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09a458d771535e450800000000000000
-      internalID: 6117354043859094160
+      spriteID: 6b8bf7bf3fa14dba0800000000000000
+      internalID: -6065193162962388810
       vertices: []
       indices: 
       edges: []
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grey_1_0: -6065193162962388810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

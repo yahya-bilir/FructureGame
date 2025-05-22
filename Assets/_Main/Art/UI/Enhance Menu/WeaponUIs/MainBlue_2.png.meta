@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a6fe4b7e085d884f92c20be8f13e0d6
+guid: 78121c88132037d43a4d17245aaa4ba8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2813274282232148420
-    second: Shine_0
+      213: 6117354043859094160
+    second: MainBlue_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shine_0
+      name: MainBlue_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 277
-        height: 277
+        width: 207
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c17038ed02ca0720800000000000000
-      internalID: 2813274282232148420
+      spriteID: 09a458d771535e450800000000000000
+      internalID: 6117354043859094160
       vertices: []
       indices: 
       edges: []
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MainBlue_2_0: 6117354043859094160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

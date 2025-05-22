@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bad3e519e5d11974dbea470f20c0394b
+guid: 26f3ab079daf73849a331bfcb6fcabd4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2887078031112308361
-    second: MainYellow_2_0
+      213: 4245346993083677993
+    second: MainPurple_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainYellow_2_0
+      name: MainPurple_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98688434c26f01820800000000000000
-      internalID: 2887078031112308361
+      spriteID: 92d760fe8908aea30800000000000000
+      internalID: 4245346993083677993
       vertices: []
       indices: 
       edges: []
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MainPurple_2_0: 4245346993083677993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
