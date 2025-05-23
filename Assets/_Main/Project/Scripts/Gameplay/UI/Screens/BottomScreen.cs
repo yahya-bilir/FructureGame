@@ -6,6 +6,7 @@ using EventBusses;
 using Events;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Utilities;
 using Utils.UIComponents.UIToolkit;
 using VContainer;
 
@@ -37,13 +38,13 @@ namespace UI.Screens
             _imageContainer = _rootElement.Q("ImageContainer");
             _priceLabel = _rootElement.Q<Label>("EnhanceCoin");
             _itemNameLabel = _rootElement.Q<Label>("ItemNameField");
-            _itemNameLabel = _rootElement.Q<Label>("ItemNameField");
+            _damageLabel = _rootElement.Q<Label>("ATKCalculationText");
+            _attackSpeedLabel = _rootElement.Q<Label>("ATKSpeedCalculationText");
+            _levelLabel = _rootElement.Q<Label>("LevelText");
             _enhanceButton = _rootElement.Q<Button>("EnhanceButton");
             
-            
-            
             Show();
-            ContinuesShineAnim();
+            //ContinuesShineAnim();
         }
         
 
@@ -70,6 +71,12 @@ namespace UI.Screens
 
         private void OnWeaponUpgraded(OnWeaponUpgraded eventData)
         {
+            _itemNameLabel.text = $"{Extensions.ColoredText(eventData.Stage.Prefix, eventData.Stage.PrefixColor)} {eventData.ObjectUIIdentifierSo.ObjectName}";
+            _attackSpeedLabel.text = eventData.AttackSpeed.ToString("F2");
+            _levelLabel.text = $"LV. {eventData.Level.ToString()}";
+
+            var plusDamageText = $"(+{eventData.Damage - eventData.BaseDamage})";
+            _damageLabel.text = $"{eventData.Damage}{Extensions.ColoredText(plusDamageText,new Color(0.572f, 0.847f, 0.337f, 1f))}";
             
         }
 

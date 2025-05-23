@@ -47,38 +47,41 @@ namespace WeaponSystem.Managers
 
         private void UpgradePlayerDamage(OnUpgradeButtonPressed eventData)
         {
-            RangedWeapon weapon = (RangedWeapon) Weapons.Find(i => i is RangedWeapon);
-            
-            if(weapon == null) return;
-            
+            RangedWeapon weapon = (RangedWeapon)Weapons.Find(i => i is RangedWeapon);
+
+            if (weapon == null) return;
+
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Damage);
-            
+
             var upgradeableData = weapon.ObjectUIIdentifierSo as RangedWeaponSO;
             var newDamage = damageData.TemporaryValue + upgradeableData.DamageIncrementOnEachUpgrade;
-            
+
             weapon.SetNewDamage(newDamage);
-            _characterPropertyManager.SetProperty(PropertyQuery.Damage, newDamage);
 
-            if (eventData == null) return;
+            var stage = _gameData.EnhanceButtonData.TemporaryButtonClickedCount %
+                        _gameDatabase.WeaponDatabase.WeaponStages.Count;
+            var weaponNumber = _gameData.EnhanceButtonData.TemporaryButtonClickedCount /
+                               _gameDatabase.WeaponDatabase.WeaponStages.Count;
             
-            var stage = _gameData.EnhanceButtonData.TemporaryButtonClickedCount % _gameDatabase.WeaponDatabase.WeaponStages.Count;
-            var weaponNumber = _gameData.EnhanceButtonData.TemporaryButtonClickedCount / _gameDatabase.WeaponDatabase.WeaponStages.Count;
-            if (stage == 0)
-            {
-                ReplaceWeapon(weaponNumber);
-            }
-
             var upgradeData = new OnWeaponUpgraded(
 
                 _gameDatabase.WeaponDatabase.WeaponStages[stage],
-                (int) newDamage,
-                (int) damageData.TemporaryValue,
+                (int)newDamage,
+                (int)damageData.TemporaryValue,
                 weapon.CurrentAttackInterval,
                 _gameData.EnhanceButtonData.TemporaryButtonClickedCount,
                 upgradeableData
             );
-                
+
             _eventBus.Publish(upgradeData);
+            
+            _characterPropertyManager.SetProperty(PropertyQuery.Damage, newDamage);
+
+            if (eventData == null) return;
+            if (stage == 0)
+            {
+                ReplaceWeapon(weaponNumber);
+            }
         }
 
         public override void ReplaceWeapon(int weaponNumber)

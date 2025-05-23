@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:Template name="Star" src="project://database/Assets/_Main/Project/UI/Screens/Templates/Star.uxml?fileID=9197481963319205126&amp;guid=d408a0dafea49e142a253a344c3bce30&amp;type=3#Star" />
     <Style src="project://database/Assets/_Main/Project/UI/USS/bottom.uss?fileID=7433441132597879392&amp;guid=402ffcca1f991c447b8e7416e3932390&amp;type=3#bottom" />
+    <Style src="project://database/Assets/_Main/Project/UI/USS/Base/Text.uss?fileID=7433441132597879392&amp;guid=36f8aa8e68d8483189e51f32e4d0a630&amp;type=3#Text" />
     <ui:VisualElement name="Bottom" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0.72); flex-basis: 30%; height: auto; flex-shrink: 0; flex-direction: column; top: 70%;">
         <ui:VisualElement name="Items" style="flex-grow: 0; background-color: rgba(212, 0, 0, 0); flex-direction: row; height: 40%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/TopBG_0.png?fileID=2800000&amp;guid=d92d14806aa8cac488404b0f7643e7a2&amp;type=3#TopBG_0&quot;); border-top-width: 15px; border-left-color: rgba(0, 0, 0, 0.75); border-right-color: rgba(0, 0, 0, 0.75); border-top-color: rgba(0, 0, 0, 0.75); border-bottom-color: rgba(0, 0, 0, 0.75); width: 100%;">
             <ui:VisualElement name="ImageFieldContainer" style="background-color: rgba(90, 0, 255, 0); width: 33%; height: 100%; align-items: center; justify-content: center; align-content: auto; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
@@ -32,11 +33,11 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="AttackTextContainer" class="stat-text-container">
                         <ui:Label text="ATK:" enable-rich-text="true" name="ATKText" class="stat-text stat-text-left-side" />
-                        <ui:Label text="276(+185)" name="ATKCalculationText" class="stat-text rigtside-text-padding rigtside-padding" />
+                        <ui:Label text="276(+185)" name="ATKCalculationText" class="stat-text rigtside-text-padding rigtside-padding" style="color: rgb(219, 213, 166);" />
                     </ui:VisualElement>
                     <ui:VisualElement name="AttackSpeedContainer" class="stat-text-container" style="flex-grow: 0; height: 33%; flex-direction: row;">
                         <ui:Label text="ATK SPD:" enable-rich-text="true" name="ATKSpeedText" class="stat-text" />
-                        <ui:Label text="1.3s" name="ATKSpeedCalculationText" class="stat-text rigtside-text-padding rigtside-padding" style="color: rgb(255, 248, 193);" />
+                        <ui:Label text="1.3s" name="ATKSpeedCalculationText" class="stat-text rigtside-text-padding rigtside-padding" style="color: rgb(211, 206, 160);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

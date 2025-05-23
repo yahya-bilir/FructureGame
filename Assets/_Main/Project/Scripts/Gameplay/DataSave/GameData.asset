@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   CharacterResource:
-    CoinCount: 100
+    CoinCount: 880
   SettingsData:
     IsCloseVibration: 0
     IsCloseSound: 0
@@ -58,4 +58,4 @@ MonoBehaviour:
         <PermanentValueLevel>k__BackingField: 0
   EnhanceButtonData:
     ButtonClickedCount: 0
-    TemporaryButtonClickedCount: 0
+    TemporaryButtonClickedCount: 5

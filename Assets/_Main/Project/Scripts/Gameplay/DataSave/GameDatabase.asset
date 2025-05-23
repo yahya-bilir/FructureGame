@@ -21,6 +21,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ceb55db710217a143a51915cdb4269a8, type: 2}
     <Weapons>k__BackingField:
     - {fileID: 273383944931532540, guid: 9a9ebe42a947c7241929871bd94c8bd3, type: 3}
+    - {fileID: 990159928383293607, guid: 59d12f4a7fc0b9f4683c12976783aea7, type: 3}
   <EnhanceButtonDatabase>k__BackingField:
     <InitialEnhancePrice>k__BackingField: 10
     <IncrementOnEachUpgrade>k__BackingField: 1
