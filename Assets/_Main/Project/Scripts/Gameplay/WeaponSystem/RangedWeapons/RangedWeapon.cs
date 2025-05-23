@@ -15,9 +15,6 @@ namespace WeaponSystem.RangedWeapons
         {
             _rangedWeaponSo = ObjectUIIdentifierSo as RangedWeaponSO;
             _currentAttackInterval = _rangedWeaponSo.InitialAttackSpeed;
-            
-            _rangedWeaponSo = ObjectUIIdentifierSo as RangedWeaponSO;
-            _currentAttackInterval = _rangedWeaponSo.InitialAttackSpeed;
     
             _projectilePool = new Queue<AmmoProjectile>();
             for (int i = 0; i < 100; i++)

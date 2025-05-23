@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Star" style="flex-grow: 1; flex-basis: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/StarInactive.png?fileID=2800000&amp;guid=2b95e6f683da8364d8f2d7de7069f400&amp;type=3#StarInactive&quot;); -unity-background-scale-mode: scale-to-fit;">
+        <ui:VisualElement name="InnerStar" class="star-filled star-unshown" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/StarActive.png?fileID=2800000&amp;guid=e5ae6d8756459474ca9f54bb7b0039e8&amp;type=3#StarActive&quot;); -unity-background-scale-mode: scale-to-fit;" />
+    </ui:VisualElement>
+</ui:UXML>

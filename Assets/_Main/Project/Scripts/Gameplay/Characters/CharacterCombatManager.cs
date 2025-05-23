@@ -33,7 +33,7 @@ namespace Characters
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
             _characterPropertyManager.SetProperty(PropertyQuery.Health, newHealth);
-            Debug.Log(newHealth);
+            //Debug.Log(newHealth);
             _characterVisualEffects.OnCharacterTookDamage(newHealth, _characterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
             
             if(newHealth <= 0) OnCharacterDied().Forget();
