@@ -153,6 +153,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   gameData: {fileID: 11400000, guid: bdf1ad60c88849268c0ad53c69a8c075, type: 2}
+  gameDatabase: {fileID: 11400000, guid: f4a3f3c63a828f14380f45e0c0c4ebf1, type: 2}
 --- !u!4 &283809255
 Transform:
   m_ObjectHideFlags: 0

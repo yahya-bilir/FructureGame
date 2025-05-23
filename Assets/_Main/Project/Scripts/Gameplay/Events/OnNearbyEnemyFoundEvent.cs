@@ -5,7 +5,7 @@ namespace Events
 {
     public class OnNearbyEnemyFoundEvent
     {
-        public Character FoundEnemy { get; set; }
+        public Character FoundEnemy { get; }
         
         public OnNearbyEnemyFoundEvent(Character enemy)
         {

@@ -21,7 +21,6 @@ namespace Characters.Player
         private GameData _gameData;
         private IObjectResolver _resolver;
         [Header("Debug")] 
-        [SerializeField] private RangedWeapon rangedWeapon;
         [SerializeField]private MeleeWeapon meleeWeapon;
         
         
@@ -44,13 +43,13 @@ namespace Characters.Player
             var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed);
             _playerMovement = new PlayerMovement(GetComponent<Rigidbody2D>(), speed, model.transform);
             _resolver.Inject(_playerMovement);
+            _resolver.Inject(_weaponManager);
         }
 
         [Button]
         private void EquipWeapon()
         {
-            _weaponManager.ReplaceWeapon(rangedWeapon);
-            _weaponManager.ReplaceWeapon(meleeWeapon);
+            //_weaponManager.ReplaceWeapon(meleeWeapon);
         }
 
         private void Update()

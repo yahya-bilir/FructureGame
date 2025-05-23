@@ -6,6 +6,6 @@ namespace WeaponSystem.Managers
     public abstract class CharacterWeaponManager
     {
         protected List<ObjectWithDamage> Weapons = new();
-        public abstract void ReplaceWeapon(ObjectWithDamage weapon);
+        public abstract void ReplaceWeapon(int weaponNumber);
     }
 }

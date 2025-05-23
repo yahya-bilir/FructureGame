@@ -55,12 +55,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4876903489000703841}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.067, y: 0.658, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.283, y: -0.094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396091774970523385}
+  m_Father: {fileID: 5981448436721470359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6084294815393989660
 GameObject:
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 5771060803557974073}
   - component: {fileID: 5495123223636297091}
   m_Layer: 0
-  m_Name: WeaponArea
+  m_Name: MeleeWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,37 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d11c6b45ef4675b42cf556b1b2aad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::Characters.Player.WeaponAreaSpinning
---- !u!1 &6562327669607385187
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7776863010250228704}
-  m_Layer: 0
-  m_Name: RangedWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7776863010250228704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6562327669607385187}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1396091774970523385}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6972942769922135643
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,9 +139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5771060803557974073}
-  - {fileID: 4121478582482121012}
   - {fileID: 1437449293460727990}
-  - {fileID: 7776863010250228704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5774221059686897705
@@ -220,7 +187,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   weaponCreationPoint: {fileID: 97054342643801640}
   projectileWeaponCreationPoint: {fileID: 4121478582482121012}
-  rangedWeapon: {fileID: 990159928383293607, guid: 59d12f4a7fc0b9f4683c12976783aea7, type: 3}
   meleeWeapon: {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
 --- !u!1001 &350452354040533352
 PrefabInstance:
@@ -280,7 +246,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8cde220b988d14bb58ffa740e548aae3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6331868827580652287, guid: 9b07a39c5eb2e5c46bf19c7960702f38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4121478582482121012}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 9b07a39c5eb2e5c46bf19c7960702f38, type: 3}
 --- !u!1 &232710883927109845 stripped
@@ -291,5 +260,10 @@ GameObject:
 --- !u!4 &1437449293460727990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 9b07a39c5eb2e5c46bf19c7960702f38, type: 3}
+  m_PrefabInstance: {fileID: 350452354040533352}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5981448436721470359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6331868827580652287, guid: 9b07a39c5eb2e5c46bf19c7960702f38, type: 3}
   m_PrefabInstance: {fileID: 350452354040533352}
   m_PrefabAsset: {fileID: 0}

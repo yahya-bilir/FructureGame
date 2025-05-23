@@ -1,4 +1,5 @@
-﻿using DataSave.Runtime;
+﻿using DataSave;
+using DataSave.Runtime;
 using EventBusses;
 using UnityEngine;
 using VContainer;
@@ -9,6 +10,7 @@ namespace Initialization
     public class InitialLifetimeScope : LifetimeScope
     {
         [SerializeField] private GameData gameData;
+        [SerializeField] private GameDatabase gameDatabase;
 
         protected override void Awake()
         {
@@ -19,6 +21,7 @@ namespace Initialization
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(gameData).AsSelf();
+            builder.RegisterInstance(gameDatabase).AsSelf();
             builder.RegisterEntryPoint<AddressableStartupLoader>();
             builder.Register<IEventBus, EventBus>(Lifetime.Singleton);
         }

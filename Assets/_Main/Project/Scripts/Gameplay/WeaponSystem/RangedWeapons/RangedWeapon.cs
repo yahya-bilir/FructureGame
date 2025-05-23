@@ -8,27 +8,21 @@ namespace WeaponSystem.RangedWeapons
     {
         private RangedWeaponSO _rangedWeaponSo;
         private float _shootCooldown;
-        private float _currentAttackInterval;
+        public float CurrentAttackInterval { get; private set; }
         private Queue<AmmoProjectile> _projectilePool;
 
-        private void Awake()
+        public override void Initialize(CharacterCombatManager connectedCombatManager)
         {
+            base.Initialize(connectedCombatManager);
             _rangedWeaponSo = ObjectUIIdentifierSo as RangedWeaponSO;
-            _currentAttackInterval = _rangedWeaponSo.InitialAttackSpeed;
-    
-            _projectilePool = new Queue<AmmoProjectile>();
-            for (int i = 0; i < 100; i++)
-            {
-                var projectile = Instantiate(_rangedWeaponSo.ProjectilePrefab);
-                projectile.gameObject.SetActive(false);
-                _projectilePool.Enqueue(projectile);
-            }
+            CurrentAttackInterval = _rangedWeaponSo.InitialAttackSpeed;
+            InitializePool();
         }
 
         private void Update()
         {
             _shootCooldown += Time.deltaTime;
-            if (_shootCooldown >= _currentAttackInterval)
+            if (_shootCooldown >= CurrentAttackInterval)
             {
                 var closestEnemy = ConnectedCombatManager.FindNearestEnemy();
                 if(closestEnemy == null) return;
@@ -38,8 +32,7 @@ namespace WeaponSystem.RangedWeapons
         }
         private void Shoot(Character character)
         {
-            if (_projectilePool.Count == 0)
-                ExpandPool();
+            if (_projectilePool.Count == 0) ExpandPool();
 
             var projectile = _projectilePool.Dequeue();
             projectile.transform.position = transform.position;
@@ -49,12 +42,25 @@ namespace WeaponSystem.RangedWeapons
             projectile.SetOwner(this);
             projectile.SendProjectileToDirection(character.transform.position - transform.position);
         }
-        
-        public void UpgradeAttackInterval()
+
+        public override void SetNewDamage(float damage)
         {
-            _currentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
+            base.SetNewDamage(damage);
+            CurrentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
         }
-        
+
+        #region Pool
+
+        private void InitializePool()
+        {
+            _projectilePool = new Queue<AmmoProjectile>();
+            for (int i = 0; i < 100; i++)
+            {
+                var projectile = Instantiate(_rangedWeaponSo.ProjectilePrefab);
+                projectile.gameObject.SetActive(false);
+                _projectilePool.Enqueue(projectile);
+            }
+        }
         public void ReturnProjectileToPool(AmmoProjectile projectile)
         {
             _projectilePool.Enqueue(projectile);
@@ -69,5 +75,7 @@ namespace WeaponSystem.RangedWeapons
                 _projectilePool.Enqueue(projectile);
             }
         }
+
+        #endregion
     }
 }

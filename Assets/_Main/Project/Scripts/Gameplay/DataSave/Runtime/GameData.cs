@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using PropertySystem.Save;
 using Sirenix.OdinInspector;
@@ -16,6 +17,7 @@ namespace DataSave.Runtime
         public PlayerProgressData PlayerProgressData;
         public TutorialData TutorialData;
         public PropertySaves PropertySaves;
+        public EnhanceButtonData EnhanceButtonData;
     }
 
     [System.Serializable]
@@ -30,6 +32,7 @@ namespace DataSave.Runtime
     {
         public int mapCount = 2;
         public int Level;
+
         public List<LevelInfo> LevelInfos;
 
         public LevelInfo GetInfo(int lvl)
@@ -76,6 +79,12 @@ namespace DataSave.Runtime
     public class CharacterResource
     {
         public int CoinCount;
-        public int InGameCollectedCoin;
+    }
+
+    [Serializable]
+    public class EnhanceButtonData
+    {
+        public int ButtonClickedCount;
+        public int TemporaryButtonClickedCount;
     }
 }

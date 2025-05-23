@@ -1,11 +1,9 @@
-﻿using System;
-using Characters;
-using Characters.Player;
+﻿using Characters.Player;
 using CommonComponents;
 using DataSave.Runtime;
 using Factories;
+using UI.Screens;
 using UnityEngine;
-using Utils.Pool;
 using VContainer;
 using VContainer.Unity;
 
@@ -29,6 +27,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<PlayerController>();
+            builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterInstance(playerProperties).AsSelf();
         }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using WeaponSystem.MeleeWeapons;
 
 namespace WeaponSystem
@@ -8,8 +7,6 @@ namespace WeaponSystem
     {
         [field: SerializeField] public float DamageIncrementOnEachUpgrade { get; private set; }
         [field: SerializeField] public float InitialAttackSpeed { get; private set; }
-
-        [field: SerializeField] public List<WeaponStagesSO> Stages { get; private set; }
     }
     
 }
