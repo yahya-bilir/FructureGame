@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicGun
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponSO
   <ObjectName>k__BackingField: Basic Gun
-  <ObjectSprite>k__BackingField: {fileID: -8325714642750133219, guid: 64ef7e0c2a1df7e4f81c5c8bd8758985, type: 3}
+  <ObjectSprite>k__BackingField: {fileID: -8047024348982610444, guid: 0cc31567f1fcb11418943a7e36828ba7, type: 3}
   <AttackInterval>k__BackingField: 0.5
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <InitialAttackSpeed>k__BackingField: 0.75

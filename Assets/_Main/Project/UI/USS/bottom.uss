@@ -52,9 +52,6 @@
     -unity-font-definition: url("project://database/Assets/_Main/Art/Fonts/LilitaOne.ttf?fileID=12800000&guid=663f10044fa97624d9f600bad9855b7b&type=3#LilitaOne");
     -unity-font-style: bold;
     font-size: 45px;
-    -unity-text-outline-color: rgb(0, 0, 0);
-    -unity-text-outline-width: 0;
-    text-shadow: 2px 2px 0 rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
 

@@ -2,6 +2,7 @@
 using CommonComponents;
 using DataSave.Runtime;
 using Factories;
+using UI;
 using UI.Screens;
 using UnityEngine;
 using VContainer;
@@ -28,6 +29,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
+            builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterInstance(playerProperties).AsSelf();
         }
 

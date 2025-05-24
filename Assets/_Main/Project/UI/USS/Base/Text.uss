@@ -111,3 +111,13 @@
 
 .perk-title {
 }
+
+.text__outline--large {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.text__outline--large {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}

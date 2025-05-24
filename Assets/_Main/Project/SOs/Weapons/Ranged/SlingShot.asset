@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SlingShot
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponSO
   <ObjectName>k__BackingField: Sling Shot
+  <ObjectSprite>k__BackingField: {fileID: 21300000, guid: a354b5facd704ad4994eb61a3161f18c, type: 3}
   <AttackInterval>k__BackingField: 0.5
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <InitialAttackSpeed>k__BackingField: 0.75
