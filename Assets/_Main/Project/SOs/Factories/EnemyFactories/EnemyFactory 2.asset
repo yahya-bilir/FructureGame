@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaf0e0a8e67341fd8ded70baba58ecb4, type: 3}
-  m_Name: EnemyFactory
+  m_Name: EnemyFactory 2
   m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
   <SpawnableEnemies>k__BackingField:
-  - {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
-  - {fileID: 4113275089465577485, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
+  - {fileID: 7030995552157624148, guid: 63a72990a086948519820366ee579be9, type: 3}
+  - {fileID: 8061583023813746614, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
   <SpawnLimit>k__BackingField: 5
-  <SpawnInterval>k__BackingField: 1
+  <SpawnInterval>k__BackingField: 10
