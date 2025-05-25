@@ -11,21 +11,11 @@
 
 .image-container {
     flex-grow: 0;
-    width: 275px;
-    height: 275px;
+    width: 75%;
     -unity-text-outline-color: rgba(0, 193, 179, 0.62);
-    border-left-color: rgba(0, 0, 0, 0.71);
-    border-right-color: rgba(0, 0, 0, 0.71);
-    border-top-color: rgba(0, 0, 0, 0.71);
-    border-bottom-color: rgba(0, 0, 0, 0.71);
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
-    border-top-left-radius: 55px;
-    border-top-right-radius: 55px;
-    border-bottom-right-radius: 55px;
-    border-bottom-left-radius: 55px;
+    padding-top: 0;
+    height: 75%;
+    flex-shrink: 0;
 }
 
 .rigtside-padding {
