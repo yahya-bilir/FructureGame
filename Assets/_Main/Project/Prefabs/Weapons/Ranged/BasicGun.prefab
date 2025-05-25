@@ -95,6 +95,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 272979430506774330, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
+      propertyPath: modelRenderer
+      value: 
+      objectReference: {fileID: 3089806477919324218}
     - target: {fileID: 491065507225781877, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: m_Name
       value: BasicGun

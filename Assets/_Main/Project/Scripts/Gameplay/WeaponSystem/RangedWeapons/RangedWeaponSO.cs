@@ -6,6 +6,7 @@ namespace WeaponSystem.RangedWeapons
     public class RangedWeaponSO : UpgradableWeaponSO
     {
         [field: SerializeField] public float AttackSpeedUpgradeOnEachIncrement { get; private set; }
+        [field: SerializeField] public bool ShouldDisableAfterEachShot { get; private set; }
         [field: SerializeField] public AmmoProjectile ProjectilePrefab { get; private set; }
     }
 }

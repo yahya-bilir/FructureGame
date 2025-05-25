@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using EventBusses;
+using Events;
 using PropertySystem.Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VContainer;
 
 namespace DataSave.Runtime
 {
@@ -74,11 +77,20 @@ namespace DataSave.Runtime
     }
     
 
-
-    [System.Serializable]
+    [Serializable]
     public class CharacterResource
     {
-        public int CoinCount;
+        [Inject] private IEventBus _eventBus;
+        private int _coinCount;
+        public int CoinCount
+        {
+            get => _coinCount;
+            set
+            {
+                _coinCount = value;
+                _eventBus.Publish(new OnCoinCountChanged(_coinCount));
+            }
+        }
     }
 
     [Serializable]

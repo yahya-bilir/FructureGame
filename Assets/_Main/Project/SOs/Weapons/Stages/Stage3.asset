@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.WeaponStagesSO
   <StarCount>k__BackingField: 3
   <Prefix>k__BackingField: Rare
-  <PrefixColor>k__BackingField: {r: 0, g: 0.17016107, b: 0.9547169, a: 1}
-  <OutlineColor>k__BackingField: {r: 0, g: 0.17254902, b: 0.95686275, a: 1}
+  <PrefixColor>k__BackingField: {r: 0.28235295, g: 0.77647066, b: 0.92549026, a: 1}
+  <OutlineColor>k__BackingField: {r: 0.28627452, g: 0.79215693, b: 0.9450981, a: 1}
+  <BackgroundBorderSprite>k__BackingField: {fileID: 2114939304942317460, guid: 94bc0d4d38af4ab498b2176c85f10aac, type: 3}
+  <BackgroundInnerSprite>k__BackingField: {fileID: 6117354043859094160, guid: 78121c88132037d43a4d17245aaa4ba8, type: 3}

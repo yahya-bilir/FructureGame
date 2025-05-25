@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using DataSave;
 using DataSave.Runtime;
 using DG.Tweening;
@@ -9,6 +10,7 @@ using UnityEngine.UIElements;
 using Utilities;
 using Utils.UIComponents.UIToolkit;
 using VContainer;
+using WeaponSystem;
 
 namespace UI.Screens
 {
@@ -16,18 +18,27 @@ namespace UI.Screens
     {
         private VisualElement _shineElement;
         private VisualElement _imageContainer;
+        private VisualElement _backgroundImage;
+        private VisualElement _innerBackground;
+        private List<VisualElement> _stars;
+
+
         private Button _enhanceButton;
+        
         private Label _priceLabel;
         private Label _levelLabel;
         private Label _attackSpeedLabel;
         private Label _damageLabel;
         private Label _itemNameLabel;
-        
+
         private bool _increasing = true;
         private GameData _gameData;
         private GameDatabase _gameDatabase;
         private IEventBus _eventBus;
         private int _currentPrice;
+        private bool _isAnimationPlaying;
+        private float _initialImageContainerSizeX;
+        private float _initialImageContainerSizeY;
         public BottomScreen(VisualElement rootElement) : base(rootElement)
         {
         }
@@ -42,9 +53,11 @@ namespace UI.Screens
             _attackSpeedLabel = _rootElement.Q<Label>("ATKSpeedCalculationText");
             _levelLabel = _rootElement.Q<Label>("LevelText");
             _enhanceButton = _rootElement.Q<Button>("EnhanceButton");
-            
+            _backgroundImage = _rootElement.Q("ImageColorBG");
+            _innerBackground = _rootElement.Q("ImageMainColor");
+
+            _stars = _rootElement.Query<VisualElement>(name: "InnerStar").ToList();
             Show();
-            //ContinuesShineAnim();
         }
         
 
@@ -59,7 +72,7 @@ namespace UI.Screens
             _gameDatabase = gameDatabase;
             _eventBus = eventBus;
             SetAfterInjection();
-            
+
         }
 
         private void SetAfterInjection()
@@ -67,6 +80,7 @@ namespace UI.Screens
             _eventBus.Subscribe<OnCoinCountChanged>(CheckIfButtonShouldBeEnabled);
             _eventBus.Subscribe<OnWeaponUpgraded>(OnWeaponUpgraded);
             SetPriceAndLabel(_gameData.EnhanceButtonData.ButtonClickedCount);
+            ContinuesShineAnim();
         }
 
         private void OnWeaponUpgraded(OnWeaponUpgraded eventData)
@@ -78,6 +92,10 @@ namespace UI.Screens
             var plusDamageText = $"(+{eventData.Damage - 5})";
             _damageLabel.text = $"{eventData.Damage}{Extensions.ColoredText(plusDamageText, new Color(0.572f, 0.847f, 0.337f, 1f))}";
             
+
+            
+            
+            ScaleUp(eventData.Stage);
         }
 
         private void SetPriceAndLabel(int buttonLevel)
@@ -112,12 +130,10 @@ namespace UI.Screens
         {
             _gameData.CharacterResource.CoinCount -= _currentPrice;
             _gameData.EnhanceButtonData.TemporaryButtonClickedCount++;
-            
-            _eventBus.Publish(new OnCoinCountChanged(_gameData.CharacterResource.CoinCount));
             _eventBus.Publish(new OnUpgradeButtonPressed());
         }
         
-        public void ContinuesShineAnim()
+        private void ContinuesShineAnim()
         {
             DOVirtual.Float(97f, 103f, 0.5f, value =>
                 {
@@ -125,26 +141,47 @@ namespace UI.Screens
                 })
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine);
-            
-            ScaleUp().Forget();
         }
 
-        private async UniTask ScaleUp()
+        private void ScaleUp(WeaponStagesSO stage)
         {
-            var initialImageContainer = _imageContainer.resolvedStyle.width;
+            DOTween.Kill("ScaleUpTween");
+            
+             _imageContainer.style.width = 275f;
+             _imageContainer.style.height = 275f;
+
+            var initialImageContainer = _imageContainer.style.width.value.value;
             var targetSize = initialImageContainer * 1.2f;
+            
+            var tween = DOTween.Sequence();
+            tween.SetId("ScaleUpTween");
+            tween.Append(DOVirtual.Float(initialImageContainer, targetSize, 0.6f, value =>
+            {
+                _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
+                _imageContainer.style.height = new Length(value, LengthUnit.Pixel);
+            }));
+            tween.Append(DOVirtual.Float(targetSize, initialImageContainer, 0.6f, value =>
+            {
+                _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
+                _imageContainer.style.height = new Length(value, LengthUnit.Pixel);
+            }));
+            tween.OnComplete(() =>
+            {
+                _backgroundImage.style.backgroundImage = new StyleBackground(stage.BackgroundBorderSprite);
+                _innerBackground.style.backgroundImage = new StyleBackground(stage.BackgroundInnerSprite);
 
-            _imageContainer.experimental.animation
-                .Size(new Vector2(targetSize, targetSize), 600)
-                //.Ease(t => t * t) // InQuad easing
-                .OnCompleted(() =>
+                foreach (var star in _stars)
                 {
-                    _imageContainer.experimental.animation
-                        .Size(new Vector2(initialImageContainer, initialImageContainer), 600)
-                        .Ease(t => 1 - Mathf.Pow(2, -10 * t)); // OutExpo easing
-                });
+                    ToolkitUtils.ChangeClasses(star, "", "star-unshown");
+                }
 
-            await UniTask.Yield(); // Asenkron yapıya uygunluk için eklenmiştir
+                for (var i = _stars.Count - 1; i >= stage.StarCount; i--)
+                {
+                    var star = _stars[i];
+                    ToolkitUtils.ChangeClasses(star, "star-unshown", "");
+                }
+
+            });
         }
 
         public override void Dispose()
@@ -152,8 +189,6 @@ namespace UI.Screens
             base.Dispose();
             _eventBus.Unsubscribe<OnCoinCountChanged>(CheckIfButtonShouldBeEnabled);
             _eventBus.Unsubscribe<OnWeaponUpgraded>(OnWeaponUpgraded);
-
-
         }
     }
 }

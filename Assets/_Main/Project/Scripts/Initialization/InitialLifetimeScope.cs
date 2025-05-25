@@ -25,5 +25,13 @@ namespace Initialization
             builder.RegisterEntryPoint<AddressableStartupLoader>();
             builder.Register<IEventBus, EventBus>(Lifetime.Singleton);
         }
+
+        private void Start()
+        {
+            var resolver = Container;
+            var characterResources = gameData.CharacterResource;
+
+            resolver.Inject(characterResources);
+        }
     }
 }

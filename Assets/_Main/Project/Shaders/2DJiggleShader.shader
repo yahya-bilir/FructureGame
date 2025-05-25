@@ -63,7 +63,9 @@ Shader "Custom/Particles_JiggleShine"
             half4 frag(v2f i) : SV_Target
             {
                 half4 texColor = tex2D(_MainTex, i.uv);
-                return texColor * _Color;
+                half4 result = texColor * _Color;
+                result.a = texColor.a * _Color.a;
+                return result;
             }
 
             ENDHLSL

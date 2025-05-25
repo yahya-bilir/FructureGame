@@ -16,3 +16,5 @@ MonoBehaviour:
   <Prefix>k__BackingField: Common
   <PrefixColor>k__BackingField: {r: 0.5999999, g: 0.5999999, b: 0.5999999, a: 1}
   <OutlineColor>k__BackingField: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  <BackgroundBorderSprite>k__BackingField: {fileID: -6065193162962388810, guid: 629861ac592375840a107f11fd2fccc3, type: 3}
+  <BackgroundInnerSprite>k__BackingField: {fileID: 2194727738659623528, guid: d913b5b8933ae724ba864776a55708d0, type: 3}

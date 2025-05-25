@@ -51,7 +51,7 @@ Material:
     - _JiggleStrengthY: 0.03
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.9098039}
     - _Color_207CF4A: {r: 0.7490197, g: 0.7490197, b: 0.7490197, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9f57c08ae28c03f4db01dab3163775b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: a354b5facd704ad4994eb61a3161f18c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,6 +95,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 272979430506774330, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
+      propertyPath: modelRenderer
+      value: 
+      objectReference: {fileID: 8564173303807465053}
     - target: {fileID: 272979430506774330, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: <ObjectUIIdentifierSo>k__BackingField
       value: 

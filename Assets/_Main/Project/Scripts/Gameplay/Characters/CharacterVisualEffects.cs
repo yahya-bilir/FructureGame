@@ -51,14 +51,25 @@ namespace Characters
 
         public async UniTask OnCharacterDied()
         {
-            if(_healthBar != null) _healthBar.DisableOrEnableObjectsVisibility(false);
+            if (_healthBar != null)
+                _healthBar.DisableOrEnableObjectsVisibility(false);
+
+            await UniTask.WaitForSeconds(_characterDataHolder.ShineDuration + 0.05f);
+
             foreach (var renderer in _spriteRenderers)
             {
-                DOVirtual.Color(renderer.color, new Color(1, 1, 1, 0), 2,
-                    (color) => { renderer.color = color; });
+                var propertyBlock = new MaterialPropertyBlock();
+                renderer.GetPropertyBlock(propertyBlock);
+                var startColor = Color.white;
+
+                DOVirtual.Color(startColor, new Color(startColor.r, startColor.g, startColor.b, 0f), 1f,
+                    color =>
+                    {
+                        propertyBlock.SetColor("_Color", color);
+                        renderer.SetPropertyBlock(propertyBlock);
+                    });
             }
         }
-
         private async UniTask OnDamageTakenHealthBarDisablingChecker()
         {
             _isHealthStillRunning = true;

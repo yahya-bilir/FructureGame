@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Characters;
+using Cysharp.Threading.Tasks;
 using DataSave;
 using DataSave.Runtime;
 using EventBusses;
@@ -21,7 +22,8 @@ namespace WeaponSystem.Managers
         private GameData _gameData;
         private GameDatabase _gameDatabase;
         private IEventBus _eventBus;
-        
+        private IObjectResolver _resolver;
+
         public PlayerWeaponManager(Transform meleeWeaponEquippingField, Transform rangedWeaponEquippingField, CharacterPropertyManager characterPropertyManager, CharacterCombatManager characterCombatManager)
         {
             _characterPropertyManager = characterPropertyManager;
@@ -31,18 +33,19 @@ namespace WeaponSystem.Managers
         }
 
         [Inject]
-        private void Inject(GameData gameData, GameDatabase gameDatabase, IEventBus eventBus)
+        private void Inject(GameData gameData, GameDatabase gameDatabase, IEventBus eventBus, IObjectResolver resolver)
         {
             _gameData = gameData;
             _gameDatabase = gameDatabase;
             _eventBus = eventBus;
+            _resolver = resolver;
             SetAfterInjection();
         }
 
         private void SetAfterInjection()
         {
             _eventBus.Subscribe<OnUpgradeButtonPressed>(UpgradePlayerDamage);
-            InitiateWeapon();
+            InitiateWeapon().Forget();
         }
 
         private void UpgradePlayerDamage(OnUpgradeButtonPressed eventData)
@@ -62,22 +65,23 @@ namespace WeaponSystem.Managers
                         _gameDatabase.WeaponDatabase.WeaponStages.Count;
             var weaponNumber = _gameData.EnhanceButtonData.TemporaryButtonClickedCount /
                                _gameDatabase.WeaponDatabase.WeaponStages.Count;
-            
+
+            _characterPropertyManager.SetProperty(PropertyQuery.Damage, newDamage);
+
             var upgradeData = new OnWeaponUpgraded(
 
                 _gameDatabase.WeaponDatabase.WeaponStages[stage],
                 (int)newDamage,
                 (int)damageData.TemporaryValue,
                 weapon.CurrentAttackInterval,
-                _gameData.EnhanceButtonData.TemporaryButtonClickedCount,
-                upgradeableData
+                _gameData.EnhanceButtonData.TemporaryButtonClickedCount + 1,
+                _gameDatabase.WeaponDatabase.Weapons[weaponNumber].ObjectUIIdentifierSo
             );
 
             _eventBus.Publish(upgradeData);
             
-            _characterPropertyManager.SetProperty(PropertyQuery.Damage, newDamage);
-
             if (eventData == null) return;
+            
             if (stage == 0)
             {
                 ReplaceWeapon(weaponNumber);
@@ -106,18 +110,17 @@ namespace WeaponSystem.Managers
 
         }
 
-        private void InitiateWeapon()
+        private async UniTask InitiateWeapon()
         {
-            var weapons = _gameDatabase.WeaponDatabase.Weapons;
-            var weaponStages = _gameDatabase.WeaponDatabase.WeaponStages;
+            await UniTask.WaitForSeconds(0.5f);
+            var weaponDatabase = _gameDatabase.WeaponDatabase;
+            var weaponStages = weaponDatabase.WeaponStages;
             var enhanceButtonData = _gameData.EnhanceButtonData;
             
             _gameData.EnhanceButtonData.TemporaryButtonClickedCount = enhanceButtonData.ButtonClickedCount;
             var weaponNumber = enhanceButtonData.TemporaryButtonClickedCount / weaponStages.Count;
-            var stage = enhanceButtonData.ButtonClickedCount % weaponStages.Count;
             
             ReplaceWeapon(weaponNumber);
-            UpgradePlayerDamage(null);
         }
         private void SpawnWeapon(ObjectWithDamage weapon, Transform spawnField)
         {
@@ -125,6 +128,7 @@ namespace WeaponSystem.Managers
             newWeapon.transform.localEulerAngles = Vector3.zero;
             newWeapon.Initialize(_characterCombatManager);
             Weapons.Add(newWeapon);
+            _resolver.Inject(newWeapon);
         }
 
         public void Dispose()

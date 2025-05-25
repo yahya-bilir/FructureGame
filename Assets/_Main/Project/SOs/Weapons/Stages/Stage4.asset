@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.WeaponStagesSO
   <StarCount>k__BackingField: 4
   <Prefix>k__BackingField: Epic
-  <PrefixColor>k__BackingField: {r: 0.7283019, g: 0, b: 0.6771772, a: 1}
-  <OutlineColor>k__BackingField: {r: 0.7294118, g: 0, b: 0.6784314, a: 1}
+  <PrefixColor>k__BackingField: {r: 0.7960785, g: 0.44705886, b: 0.9333334, a: 1}
+  <OutlineColor>k__BackingField: {r: 0.7803922, g: 0.43921572, b: 0.91372555, a: 1}
+  <BackgroundBorderSprite>k__BackingField: {fileID: 4562682840266587460, guid: 14bc07efa2b28f84d9ff98ed1c1703ee, type: 3}
+  <BackgroundInnerSprite>k__BackingField: {fileID: 4245346993083677993, guid: 26f3ab079daf73849a331bfcb6fcabd4, type: 3}

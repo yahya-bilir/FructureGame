@@ -41,8 +41,16 @@ namespace UI
 
         private void ChangeWeaponSpriteWithAnim(OnWeaponUpgraded eventData)
         {
+            
             var emptySpriteRenderer = _renderers.Find(i => i.sprite == null);
             var fullSpriteRenderer = _renderers.Find(i => i.sprite != null);
+            
+            if (emptySpriteRenderer == null || fullSpriteRenderer == null)
+            {
+                Debug.LogWarning("SpriteRenderer eşleşmesinde problem: null referans.");
+                return;
+            }
+            
             emptySpriteRenderer.transform.position = spawnPoint.position;
             emptySpriteRenderer.sprite = eventData.ObjectUIIdentifierSo.ObjectSprite;
             emptySpriteRenderer.material.SetColor(_outlineColorId, eventData.Stage.OutlineColor);
@@ -52,6 +60,8 @@ namespace UI
 
         private void CreateObject(SpriteRenderer fullSpriteRenderer, SpriteRenderer emptySpriteRenderer)
         {
+            DOTween.Kill(GetHashCode());
+            
             var tween = DOTween.Sequence();
             tween.SetId(GetHashCode());
             tween.OnKill(() =>

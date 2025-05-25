@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Characters;
+using EventBusses;
+using Events;
 using UnityEngine;
+using VContainer;
 
 namespace WeaponSystem.RangedWeapons
 {
@@ -10,6 +13,19 @@ namespace WeaponSystem.RangedWeapons
         private float _shootCooldown;
         public float CurrentAttackInterval { get; private set; }
         private Queue<AmmoProjectile> _projectilePool;
+        private IEventBus _eventBus;
+        [Inject]
+        private void Inject(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+            _eventBus.Subscribe<OnWeaponUpgraded>(ChangeTintColor);
+        }
+
+        private void ChangeTintColor(OnWeaponUpgraded eventData)
+        {
+            if (eventData.ObjectUIIdentifierSo != ObjectUIIdentifierSo) return;
+            modelRenderer.material.SetColor("_OuterOutlineColor", eventData.Stage.OutlineColor);
+        }
 
         public override void Initialize(CharacterCombatManager connectedCombatManager)
         {
@@ -22,6 +38,7 @@ namespace WeaponSystem.RangedWeapons
         private void Update()
         {
             _shootCooldown += Time.deltaTime;
+            if(CurrentAttackInterval / 2 < _shootCooldown) modelRenderer.enabled = true;
             if (_shootCooldown >= CurrentAttackInterval)
             {
                 var closestEnemy = ConnectedCombatManager.FindNearestEnemy();
@@ -32,6 +49,7 @@ namespace WeaponSystem.RangedWeapons
         }
         private void Shoot(Character character)
         {
+            if (_rangedWeaponSo.ShouldDisableAfterEachShot) modelRenderer.enabled = false;
             if (_projectilePool.Count == 0) ExpandPool();
 
             var projectile = _projectilePool.Dequeue();

@@ -2,17 +2,19 @@
 using EventBusses;
 using Events;
 using Sirenix.OdinInspector;
+using UI.Screens;
 using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
 
-namespace UI.Screens
+namespace UI
 {
     public class GameplayUI : MonoBehaviour
     {
         private UIDocument _document;
         private VisualElement _rootElement;
         private BottomScreen _bottomScreen;
+        private CoinCollectionSliderScreen _coinCollectionSliderScreen;
         private IObjectResolver _resolver;
         private IEventBus _eventBus;
         private CharacterResource _characterResource;
@@ -33,9 +35,19 @@ namespace UI.Screens
         {
             _rootElement = _document.rootVisualElement;
             _bottomScreen = new BottomScreen(_rootElement);
+            _coinCollectionSliderScreen = new CoinCollectionSliderScreen(_rootElement);
             _resolver.Inject(_bottomScreen);
-            
-            _eventBus.Publish(new OnCoinCountChanged(_characterResource.CoinCount));
+            _resolver.Inject(_coinCollectionSliderScreen);
+            _characterResource.CoinCount = 1000;
+            _eventBus.Publish(new OnCoinCollectionIncreased(1));
         }
+
+        [Button]
+        private void IncreaseAmount(float amount)
+        {
+            _eventBus.Publish(new OnCoinCollectionIncreased(amount));
+
+        }
+        
     }
 }

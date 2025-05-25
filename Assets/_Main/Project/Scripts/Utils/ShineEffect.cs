@@ -49,36 +49,36 @@ namespace Utils
         private async UniTaskVoid ShineAnim(CancellationToken ct)
         {
             _isShining = true;
-
+            
             foreach (var (sr, block) in _propertyBlocks)
             {
                 block.SetColor("_Color", _shineColor);
                 sr.SetPropertyBlock(block);
             }
-
+            
             float elapsed = 0f;
-
+            
             while (elapsed < _shineDuration && !ct.IsCancellationRequested)
             {
                 float t = Mathf.SmoothStep(0f, 1f, elapsed / _shineDuration);
                 Color lerped = Color.Lerp(_shineColor, Color.white, t);
-
+            
                 foreach (var (sr, block) in _propertyBlocks)
                 {
                     block.SetColor("_Color", lerped);
                     sr.SetPropertyBlock(block);
                 }
-
+            
                 elapsed += Time.deltaTime;
                 await UniTask.Yield(PlayerLoopTiming.Update, ct);
             }
-
+            
             foreach (var (sr, block) in _propertyBlocks)
             {
                 block.SetColor("_Color", Color.white);
                 sr.SetPropertyBlock(block);
             }
-
+            
             _isShining = false;
         }
 

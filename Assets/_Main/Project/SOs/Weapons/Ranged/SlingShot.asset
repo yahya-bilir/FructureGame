@@ -18,4 +18,5 @@ MonoBehaviour:
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <InitialAttackSpeed>k__BackingField: 0.75
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.1
+  <ShouldDisableAfterEachShot>k__BackingField: 1
   <ProjectilePrefab>k__BackingField: {fileID: 2793828590862226443, guid: dfb3cd422cf8563459594977c6b41ff8, type: 3}
