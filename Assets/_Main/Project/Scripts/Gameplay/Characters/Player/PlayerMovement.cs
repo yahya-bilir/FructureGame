@@ -49,22 +49,19 @@ namespace Characters.Player
             {
                 var directionToEnemy = (_nearestEnemy.transform.position - _transform.position).normalized;
 
-                _transform.localScale = new Vector3(
-                    directionToEnemy.x >= 0 ? _initialScale.x : -_initialScale.x,
-                    _initialScale.y,
-                    _initialScale.z);
+                if (directionToEnemy.x > 0.1f)
+                    _transform.localEulerAngles = new Vector3(0, 0, 0); // Sağa bak
+                else if (directionToEnemy.x < -0.1f)
+                    _transform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
             }
             else if (moveInput != Vector2.zero)
             {
-                _transform.localScale = new Vector3(
-                    moveInput.x >= 0 ? _initialScale.x : -_initialScale.x,
-                    _initialScale.y,
-                    _initialScale.z);
+                if (moveInput.x > 0.1f)
+                    _transform.localEulerAngles = new Vector3(0, 0, 0); // Sağa bak
+                else if (moveInput.x < -0.1f)
+                    _transform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
             }
-            
-            
         }
-
         public void Dispose()
         {
             _eventBus.Unsubscribe<OnNearbyEnemyFoundEvent>(OnEnemyFound);

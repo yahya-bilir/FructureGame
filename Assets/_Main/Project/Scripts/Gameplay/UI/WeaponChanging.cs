@@ -3,7 +3,6 @@ using System.Linq;
 using DG.Tweening;
 using EventBusses;
 using Events;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 
@@ -47,8 +46,14 @@ namespace UI
             
             if (emptySpriteRenderer == null || fullSpriteRenderer == null)
             {
-                Debug.LogWarning("SpriteRenderer eşleşmesinde problem: null referans.");
-                return;
+                Debug.Log("SpriteRenderer eşleşmesinde problem: null referans.");
+                emptySpriteRenderer = _renderers[0];
+                fullSpriteRenderer = _renderers[1];
+
+                foreach (var rnd in _renderers)
+                {
+                    rnd.sprite = null;
+                }
             }
             
             emptySpriteRenderer.transform.position = spawnPoint.position;
@@ -64,9 +69,11 @@ namespace UI
             
             var tween = DOTween.Sequence();
             tween.SetId(GetHashCode());
+            tween.SetAutoKill(false);
             tween.OnKill(() =>
             {
-                //todo eğer butona birden fazla basılırsa olacak aksiyon gerçekleşsin.
+                emptySpriteRenderer.transform.position = middlePoint.position;
+                fullSpriteRenderer.transform.position = spawnPoint.position;
             });
             tween.Append(fullSpriteRenderer.transform.DOMove(topPoint.position, 0.5f));
             tween.Join(emptySpriteRenderer.transform.DOMove(middlePoint.position, 0.5f));

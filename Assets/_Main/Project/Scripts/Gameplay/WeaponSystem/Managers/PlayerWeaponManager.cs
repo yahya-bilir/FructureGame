@@ -112,7 +112,7 @@ namespace WeaponSystem.Managers
 
         private async UniTask InitiateWeapon()
         {
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(0.25f);
             var weaponDatabase = _gameDatabase.WeaponDatabase;
             var weaponStages = weaponDatabase.WeaponStages;
             var enhanceButtonData = _gameData.EnhanceButtonData;
@@ -122,7 +122,7 @@ namespace WeaponSystem.Managers
             
             ReplaceWeapon(weaponNumber);
         }
-        private void SpawnWeapon(ObjectWithDamage weapon, Transform spawnField)
+        public void SpawnWeapon(ObjectWithDamage weapon, Transform spawnField)
         {
             var newWeapon = GameObject.Instantiate(weapon, spawnField.position, Quaternion.identity, spawnField);
             newWeapon.transform.localEulerAngles = Vector3.zero;

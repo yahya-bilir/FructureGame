@@ -58,6 +58,7 @@ namespace UI.Screens
 
             _stars = _rootElement.Query<VisualElement>(name: "InnerStar").ToList();
             Show();
+            _rootElement.RegisterCallback<GeometryChangedEvent>(InitializeOnStart);
         }
         
 
@@ -73,6 +74,13 @@ namespace UI.Screens
             _eventBus = eventBus;
             SetAfterInjection();
 
+        }
+
+        private void InitializeOnStart(GeometryChangedEvent evt)
+        {
+            _imageContainer.style.height = _imageContainer.style.width;
+            _initialImageContainerSizeX = _imageContainer.resolvedStyle.width;
+            _initialImageContainerSizeY = _imageContainer.resolvedStyle.height;
         }
 
         private void SetAfterInjection()
@@ -91,10 +99,6 @@ namespace UI.Screens
 
             var plusDamageText = $"(+{eventData.Damage - 5})";
             _damageLabel.text = $"{eventData.Damage}{Extensions.ColoredText(plusDamageText, new Color(0.572f, 0.847f, 0.337f, 1f))}";
-            
-
-            
-            
             ScaleUp(eventData.Stage);
         }
 
@@ -146,20 +150,29 @@ namespace UI.Screens
         private void ScaleUp(WeaponStagesSO stage)
         {
             DOTween.Kill("ScaleUpTween");
-            
-             _imageContainer.style.width = 275f;
-             _imageContainer.style.height = 275f;
 
-            var initialImageContainer = _imageContainer.style.width.value.value;
+            var initialImageContainer = _initialImageContainerSizeX;
             var targetSize = initialImageContainer * 1.2f;
-            
+
             var tween = DOTween.Sequence();
             tween.SetId("ScaleUpTween");
+            tween.SetAutoKill(false);
+            tween.OnKill(() =>
+            {
+                _imageContainer.style.width = _initialImageContainerSizeX;
+                _imageContainer.style.height = _initialImageContainerSizeY;
+
+            });
             tween.Append(DOVirtual.Float(initialImageContainer, targetSize, 0.6f, value =>
             {
                 _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
                 _imageContainer.style.height = new Length(value, LengthUnit.Pixel);
             }));
+            tween.AppendCallback(() =>
+            {
+                _backgroundImage.style.backgroundImage = new StyleBackground(stage.BackgroundBorderSprite);
+                _innerBackground.style.backgroundImage = new StyleBackground(stage.BackgroundInnerSprite);
+            });
             tween.Append(DOVirtual.Float(targetSize, initialImageContainer, 0.6f, value =>
             {
                 _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
@@ -167,20 +180,17 @@ namespace UI.Screens
             }));
             tween.OnComplete(() =>
             {
-                _backgroundImage.style.backgroundImage = new StyleBackground(stage.BackgroundBorderSprite);
-                _innerBackground.style.backgroundImage = new StyleBackground(stage.BackgroundInnerSprite);
-
                 foreach (var star in _stars)
                 {
                     ToolkitUtils.ChangeClasses(star, "", "star-unshown");
                 }
-
+            
                 for (var i = _stars.Count - 1; i >= stage.StarCount; i--)
                 {
                     var star = _stars[i];
                     ToolkitUtils.ChangeClasses(star, "star-unshown", "");
                 }
-
+            
             });
         }
 

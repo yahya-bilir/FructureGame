@@ -1,4 +1,5 @@
-﻿using DataSave.Runtime;
+﻿using Cysharp.Threading.Tasks;
+using DataSave.Runtime;
 using EventBusses;
 using Events;
 using Sirenix.OdinInspector;
@@ -21,6 +22,9 @@ namespace UI
         private void Awake()
         {
             _document = GetComponent<UIDocument>();
+            _rootElement = _document.rootVisualElement;
+            _bottomScreen = new BottomScreen(_rootElement);
+            _coinCollectionSliderScreen = new CoinCollectionSliderScreen(_rootElement);
         }
 
         [Inject]
@@ -33,11 +37,9 @@ namespace UI
         
         private void Start()
         {
-            _rootElement = _document.rootVisualElement;
-            _bottomScreen = new BottomScreen(_rootElement);
-            _coinCollectionSliderScreen = new CoinCollectionSliderScreen(_rootElement);
             _resolver.Inject(_bottomScreen);
             _resolver.Inject(_coinCollectionSliderScreen);
+            //_bottomScreen.InitializeOnStart();
             _characterResource.CoinCount = 1000;
             _eventBus.Publish(new OnCoinCollectionIncreased(1));
         }

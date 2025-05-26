@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: 8399011212269539787, guid: 5145e6a39c8c04c4abffc2d3ee5ad703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1397264439347791925, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: -1397264439347791925, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1829647819434971715, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,6 +143,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626204024890543117, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: modelRenderer
+      value: 
+      objectReference: {fileID: 3267488903555575692}
     - target: {fileID: 3626204024890543117, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: <ObjectUIIdentifierSo>k__BackingField
       value: 

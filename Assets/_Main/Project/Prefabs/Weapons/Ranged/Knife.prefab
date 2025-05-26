@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3840553005783089585
+--- !u!1 &5139555207188992525
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6702525529441226794}
-  - component: {fileID: 8564173303807465053}
+  - component: {fileID: 6297927718892809469}
+  - component: {fileID: 2616045475076416449}
   m_Layer: 0
-  m_Name: Level1_Weapon
+  m_Name: New_Level3Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6702525529441226794
+--- !u!4 &6297927718892809469
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840553005783089585}
+  m_GameObject: {fileID: 5139555207188992525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8083661658064834051}
+  m_Father: {fileID: 5141659545488915783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8564173303807465053
+--- !u!212 &2616045475076416449
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840553005783089585}
+  m_GameObject: {fileID: 5139555207188992525}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,18 +76,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 2ba271be6427e144aa1e8a55bd422995, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51f3e7ef1d50ab545be735346f367223, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.73, y: 4.8}
+  m_Size: {x: 10.21, y: 3.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &721723597545926
+--- !u!1001 &3996565375882023554
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -98,14 +98,14 @@ PrefabInstance:
     - target: {fileID: 272979430506774330, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: modelRenderer
       value: 
-      objectReference: {fileID: 8564173303807465053}
+      objectReference: {fileID: 2616045475076416449}
     - target: {fileID: 272979430506774330, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: <ObjectUIIdentifierSo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 65dc24526865a8f4ebd959a9b1d2907a, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ece31aead5ec9c45a4b878c6f5bed1d, type: 2}
     - target: {fileID: 491065507225781877, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: m_Name
-      value: Sling
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 7803305157754664785, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -152,11 +152,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8082975162410872773, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6702525529441226794}
+      addedObject: {fileID: 6297927718892809469}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
---- !u!4 &8083661658064834051 stripped
+--- !u!4 &5141659545488915783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8082975162410872773, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
-  m_PrefabInstance: {fileID: 721723597545926}
+  m_PrefabInstance: {fileID: 3996565375882023554}
   m_PrefabAsset: {fileID: 0}

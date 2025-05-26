@@ -1,6 +1,5 @@
 using AI.Base.Interfaces;
 using Characters;
-using Characters.Enemy;
 using Pathfinding;
 using PropertySystem;
 using UnityEngine;
@@ -38,7 +37,7 @@ namespace AI.EnemyStates
                 _modelTransform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
             }
             
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
         }
 
         public void OnEnter()

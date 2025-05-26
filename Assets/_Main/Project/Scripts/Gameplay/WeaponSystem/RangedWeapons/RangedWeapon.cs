@@ -14,6 +14,7 @@ namespace WeaponSystem.RangedWeapons
         public float CurrentAttackInterval { get; private set; }
         private Queue<AmmoProjectile> _projectilePool;
         private IEventBus _eventBus;
+        private Color _currentColor;
         [Inject]
         private void Inject(IEventBus eventBus)
         {
@@ -24,14 +25,15 @@ namespace WeaponSystem.RangedWeapons
         private void ChangeTintColor(OnWeaponUpgraded eventData)
         {
             if (eventData.ObjectUIIdentifierSo != ObjectUIIdentifierSo) return;
-            modelRenderer.material.SetColor("_OuterOutlineColor", eventData.Stage.OutlineColor);
+            _currentColor = eventData.Stage.OutlineColor;
+            modelRenderer.material.SetColor("_OuterOutlineColor", _currentColor);
         }
 
         public override void Initialize(CharacterCombatManager connectedCombatManager)
         {
             base.Initialize(connectedCombatManager);
             _rangedWeaponSo = ObjectUIIdentifierSo as RangedWeaponSO;
-            CurrentAttackInterval = _rangedWeaponSo.InitialAttackSpeed;
+            CurrentAttackInterval = _rangedWeaponSo.AttackInterval;
             InitializePool();
         }
 
@@ -57,7 +59,7 @@ namespace WeaponSystem.RangedWeapons
             projectile.transform.rotation = transform.rotation;
             projectile.SetNewDamage(Damage);
             projectile.gameObject.SetActive(true);
-            projectile.SetOwner(this);
+            projectile.SetOwnerAndColor(this, _currentColor);
             projectile.SendProjectileToDirection(character.transform.position - transform.position);
         }
 

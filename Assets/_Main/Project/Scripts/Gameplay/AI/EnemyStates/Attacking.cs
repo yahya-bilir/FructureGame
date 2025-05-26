@@ -25,7 +25,7 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-            Debug.Log("Attacking");
+            //Debug.Log("Attacking");
             
             if (_attackingTimer < _attackingInterval)
             {

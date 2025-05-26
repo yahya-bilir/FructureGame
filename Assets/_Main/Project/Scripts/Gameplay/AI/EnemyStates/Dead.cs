@@ -18,13 +18,12 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-            Debug.Log("Dead");
-
         }
 
         public void OnEnter()
         {
             _collider2D.enabled = false;
+            _animationController.DisableAnimator();
         }
 
         public void OnExit()

@@ -44,12 +44,14 @@ namespace Characters.Player
             _playerMovement = new PlayerMovement(GetComponent<Rigidbody2D>(), speed, model.transform);
             _resolver.Inject(_playerMovement);
             _resolver.Inject(_weaponManager);
+            
+            EquipWeapon();
         }
 
         [Button]
         private void EquipWeapon()
         {
-            //_weaponManager.ReplaceWeapon(meleeWeapon);
+            _weaponManager.SpawnWeapon(meleeWeapon, weaponCreationPoint);
         }
 
         private void Update()

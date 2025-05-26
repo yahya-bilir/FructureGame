@@ -18,7 +18,15 @@ namespace WeaponSystem.RangedWeapons
             _speed = so.Speed;
         }
 
-        public void SetOwner(RangedWeapon owner) => _ownerWeapon = owner;
+        public void SetOwnerAndColor(RangedWeapon owner, Color color)
+        {
+            _ownerWeapon = owner;
+            modelRenderer.material.SetColor("_OuterOutlineColor", color);
+            var trailRenderer = GetComponent<TrailRenderer>();
+            color.a /= 2;
+            trailRenderer.startColor = color;
+            trailRenderer.endColor = color;
+        }
 
         protected override void TryProcessTrigger(Collider2D other, bool isEntering)
         {

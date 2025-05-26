@@ -57,7 +57,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; width: 48%; align-content: auto; justify-content: center;">
-                <ui:VisualElement name="ButtonHolder" style="flex-grow: 1; align-items: center; justify-content: center; margin-left: 10%;">
+                <ui:VisualElement name="ButtonHolder" style="flex-grow: 0; align-items: flex-start; justify-content: center; margin-left: 10%; margin-right: 0; flex-shrink: 0; height: 95%;">
                     <ui:Button text="&#10;" name="EnhanceButton" class="enhance-button-available">
                         <ui:Label text="Enhance!" name="EnhaceText" class="stat-text text__outline--large text__shadow--large" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 65px;" />
                         <ui:VisualElement name="CoinContainer" class="text__outline--mid" style="flex-grow: 0; flex-direction: row; padding-bottom: 3%; bottom: 2%;">
