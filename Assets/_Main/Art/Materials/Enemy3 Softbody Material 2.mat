@@ -42,13 +42,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _JiggleFrequency: 4
+    - _JiggleFrequency: 2
     - _JigglePosition: 0
     - _JigglePositionOffset: 0
     - _JiggleSpeed: 10
     - _JiggleStrength: 0.2
-    - _JiggleStrengthX: 0.07
-    - _JiggleStrengthY: 0.03
+    - _JiggleStrengthX: 0.06
+    - _JiggleStrengthY: 0.02
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
