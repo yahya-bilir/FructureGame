@@ -2,8 +2,6 @@
 using Characters;
 using Characters.Player;
 using Cysharp.Threading.Tasks;
-using DataSave.Runtime;
-using EventBusses;
 using UnityEngine;
 using VContainer;
 
@@ -35,10 +33,16 @@ namespace Factories
 
         private async UniTask SpawnFactoryEnemies(EnemyFactory factory)
         {
+            await UniTask.WaitForSeconds(factory.InitialSpawnInterval);
+    
+            if (factory.IsSpawningAvailable)
+            {
+                factory.SpawnEnemy(_playerCombatManager);
+            }
+
             while (factory.IsSpawningAvailable)
             {
                 await UniTask.WaitForSeconds(factory.SpawnInterval);
-                
                 factory.SpawnEnemy(_playerCombatManager);
             }
         }

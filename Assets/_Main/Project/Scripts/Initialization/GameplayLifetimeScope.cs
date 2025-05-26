@@ -32,12 +32,5 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterInstance(playerProperties).AsSelf();
         }
-
-        private void Start()
-        {
-            Application.targetFrameRate = 60;
-            //Debug.unityLogger.logEnabled = false;
-
-        }
     }
 }

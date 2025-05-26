@@ -23,6 +23,7 @@ namespace WeaponSystem.RangedWeapons
             _ownerWeapon = owner;
             modelRenderer.material.SetColor("_OuterOutlineColor", color);
             var trailRenderer = GetComponent<TrailRenderer>();
+            Debug.Log(color);
             color.a /= 2;
             trailRenderer.startColor = color;
             trailRenderer.endColor = color;

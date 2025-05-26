@@ -52,6 +52,7 @@ namespace Characters.Player
         private void EquipWeapon()
         {
             _weaponManager.SpawnWeapon(meleeWeapon, weaponCreationPoint);
+            meleeWeapon.SetNewDamage(1);
         }
 
         private void Update()

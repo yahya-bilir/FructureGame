@@ -18,6 +18,8 @@ namespace Factories
         private List<EnemyBehaviour> _spawnedEnemies = new();
         public bool IsSpawningAvailable => _spawnedEnemies.Count < factorySo.SpawnLimit;
         public float SpawnInterval => factorySo.SpawnInterval;
+        public float InitialSpawnInterval => factorySo.InitialSpawnInterval;
+
         private IObjectResolver _objectResolver;
         public void SpawnEnemy(CharacterCombatManager playerCombatManager)
         {

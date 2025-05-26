@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using DataSave;
 using DataSave.Runtime;
 using DG.Tweening;
@@ -100,6 +99,7 @@ namespace UI.Screens
             var plusDamageText = $"(+{eventData.Damage - 5})";
             _damageLabel.text = $"{eventData.Damage}{Extensions.ColoredText(plusDamageText, new Color(0.572f, 0.847f, 0.337f, 1f))}";
             ScaleUp(eventData.Stage);
+            SetPriceAndLabel(_gameData.EnhanceButtonData.TemporaryButtonClickedCount);
         }
 
         private void SetPriceAndLabel(int buttonLevel)
@@ -172,14 +172,7 @@ namespace UI.Screens
             {
                 _backgroundImage.style.backgroundImage = new StyleBackground(stage.BackgroundBorderSprite);
                 _innerBackground.style.backgroundImage = new StyleBackground(stage.BackgroundInnerSprite);
-            });
-            tween.Append(DOVirtual.Float(targetSize, initialImageContainer, 0.6f, value =>
-            {
-                _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
-                _imageContainer.style.height = new Length(value, LengthUnit.Pixel);
-            }));
-            tween.OnComplete(() =>
-            {
+                
                 foreach (var star in _stars)
                 {
                     ToolkitUtils.ChangeClasses(star, "", "star-unshown");
@@ -190,6 +183,15 @@ namespace UI.Screens
                     var star = _stars[i];
                     ToolkitUtils.ChangeClasses(star, "star-unshown", "");
                 }
+            });
+            tween.Append(DOVirtual.Float(targetSize, initialImageContainer, 0.6f, value =>
+            {
+                _imageContainer.style.width = new Length(value, LengthUnit.Pixel);
+                _imageContainer.style.height = new Length(value, LengthUnit.Pixel);
+            }));
+            tween.OnComplete(() =>
+            {
+
             
             });
         }

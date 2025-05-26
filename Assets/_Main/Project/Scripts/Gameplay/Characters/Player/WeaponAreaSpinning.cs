@@ -9,7 +9,7 @@ namespace Characters.Player
         {
             transform.DOLocalRotate(
                     new Vector3(0f, 0f, -360),   // 360 derece Z ekseninde
-                    1f,                          // 1 saniyede tamamla
+                    2f,                          // 1 saniyede tamamla
                     RotateMode.FastBeyond360     // 360'ı geçmesine izin ver
                 )
                 .SetEase(Ease.Linear)

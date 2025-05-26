@@ -3,6 +3,7 @@ using Characters;
 using EventBusses;
 using Events;
 using UnityEngine;
+using Utilities.Vibrations;
 using VContainer;
 
 namespace WeaponSystem.RangedWeapons
@@ -40,7 +41,11 @@ namespace WeaponSystem.RangedWeapons
         private void Update()
         {
             _shootCooldown += Time.deltaTime;
-            if(CurrentAttackInterval / 2 < _shootCooldown) modelRenderer.enabled = true;
+            if (CurrentAttackInterval / 2 < _shootCooldown)
+            {
+                Debug.Log("enabled");
+                modelRenderer.enabled = true;
+            }
             if (_shootCooldown >= CurrentAttackInterval)
             {
                 var closestEnemy = ConnectedCombatManager.FindNearestEnemy();
@@ -53,7 +58,7 @@ namespace WeaponSystem.RangedWeapons
         {
             if (_rangedWeaponSo.ShouldDisableAfterEachShot) modelRenderer.enabled = false;
             if (_projectilePool.Count == 0) ExpandPool();
-
+            Vibrations.Soft();
             var projectile = _projectilePool.Dequeue();
             projectile.transform.position = transform.position;
             projectile.transform.rotation = transform.rotation;

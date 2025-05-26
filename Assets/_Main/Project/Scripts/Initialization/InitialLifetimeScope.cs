@@ -22,6 +22,7 @@ namespace Initialization
         {
             builder.RegisterInstance(gameData).AsSelf();
             builder.RegisterInstance(gameDatabase).AsSelf();
+            builder.RegisterEntryPoint<GameManager>();
             builder.RegisterEntryPoint<AddressableStartupLoader>();
             builder.Register<IEventBus, EventBus>(Lifetime.Singleton);
         }

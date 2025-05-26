@@ -3,6 +3,7 @@ using AI.Base;
 using AI.EnemyStates;
 using Characters.Player;
 using Pathfinding;
+using Pathfinding.RVO;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -53,12 +54,12 @@ namespace Characters.Enemy
 
             var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
             var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
-            var dead = new Dead(AnimationController, _collider);
+            var dead = new Dead(AnimationController, _collider, _aiPath, _aiDestinationSetter, GetComponent<RVOController>());
             #endregion
 
             #region State Changing Conditions
 
-            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.5f;
+            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.75f;
             Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f;
             Func<bool> CharacterIsDead() => () => IsCharacterDead;
             #endregion

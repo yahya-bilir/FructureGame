@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.MeleeWeapons.MeleeWeaponSO
   <ObjectName>k__BackingField: Swift Razor
   <ObjectSprite>k__BackingField: {fileID: 598089189, guid: 2743e9e9c1f398846b2640331867a104, type: 3}
-  <AttackInterval>k__BackingField: 0.15
+  <AttackInterval>k__BackingField: 0.1
