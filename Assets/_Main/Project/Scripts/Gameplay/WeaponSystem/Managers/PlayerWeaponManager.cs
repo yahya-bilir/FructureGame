@@ -50,13 +50,13 @@ namespace WeaponSystem.Managers
 
         private void UpgradePlayerDamage(OnUpgradeButtonPressed eventData)
         {
-            RangedWeapon weapon = (RangedWeapon)Weapons.Find(i => i is RangedWeapon);
+            UpgradeableWeapon weapon = (UpgradeableWeapon)Weapons.Find(i => i is UpgradeableWeapon);
 
             if (weapon == null) return;
 
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Damage);
 
-            var upgradeableData = weapon.ObjectUIIdentifierSo as RangedWeaponSO;
+            var upgradeableData = weapon.ObjectUIIdentifierSo as UpgreadableWeaponSO;
             var newDamage = damageData.TemporaryValue + upgradeableData.DamageIncrementOnEachUpgrade;
 
             weapon.SetNewDamage(newDamage);

@@ -177,9 +177,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6281516914729886650}
     - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: parts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: characterProperties
       value: 
       objectReference: {fileID: 11400000, guid: 58ef249ad7abb9e40abd003c04ab996b, type: 2}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: 7f3f74936a9a543aa9862060cb8e6f33, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: 6658e925ebe7f44e3bccf0b1356d0902, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: e282d6bbbabdb47cab9ada5bee5b9d6c, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: ec2bcedb00b624b62b08cafa66e65331, type: 3}
     - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 

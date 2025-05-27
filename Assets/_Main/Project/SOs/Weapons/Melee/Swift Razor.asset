@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4f0a10c20c4365b3fd3e410493af4a, type: 3}
+  m_Name: Swift Razor
+  m_EditorClassIdentifier: Gameplay::WeaponSystem.UpgradableWeaponSO
+  <ObjectName>k__BackingField: Swift Razor
+  <ObjectSprite>k__BackingField: {fileID: 21300000, guid: d146d4d90205c9b46a2de7445fe777e5, type: 3}
+  <AttackInterval>k__BackingField: 0.1
+  <DamageIncrementOnEachUpgrade>k__BackingField: 1
+  <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0

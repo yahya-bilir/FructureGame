@@ -76,7 +76,7 @@ namespace Characters
             _healthBar.DisableOrEnableObjectsVisibility(true);
             await UniTask.WaitForSeconds(2f);
             _isHealthStillRunning = false;
-            _healthBar.DisableOrEnableObjectsVisibility(false);
+            if(_healthBar != null) _healthBar.DisableOrEnableObjectsVisibility(false);
         }
     }
 }

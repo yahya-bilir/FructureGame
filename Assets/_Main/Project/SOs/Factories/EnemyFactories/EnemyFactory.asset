@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
   <SpawnableEnemies>k__BackingField:
   - {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
-  - {fileID: 4113275089465577485, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
-  <SpawnLimit>k__BackingField: 10
-  <SpawnInterval>k__BackingField: 4
+  <SpawnLimit>k__BackingField: 25
+  <SpawnInterval>k__BackingField: 1
   <InitialSpawnInterval>k__BackingField: 1

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      templogo_0: -8479114155708472610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

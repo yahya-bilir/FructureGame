@@ -13,6 +13,7 @@ namespace Characters.Player
     public class PlayerController : Character
     {
         [SerializeField] private Transform weaponCreationPoint;
+        [SerializeField] private Transform pivot;
         [SerializeField] private Transform projectileWeaponCreationPoint;
         
         private DynamicJoystick _joystick;
@@ -34,18 +35,18 @@ namespace Characters.Player
         protected override void Awake()
         {
             base.Awake();
-            _weaponManager = new PlayerWeaponManager(weaponCreationPoint, projectileWeaponCreationPoint, CharacterPropertyManager, CharacterCombatManager);
+            _weaponManager = new PlayerWeaponManager(pivot, projectileWeaponCreationPoint, CharacterPropertyManager, CharacterCombatManager);
         }
 
         protected override void Start()
         {
             base.Start();
             var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed);
-            _playerMovement = new PlayerMovement(GetComponent<Rigidbody2D>(), speed, model.transform);
+            _playerMovement = new PlayerMovement(GetComponent<Rigidbody2D>(), speed, model.transform, weaponCreationPoint);
             _resolver.Inject(_playerMovement);
             _resolver.Inject(_weaponManager);
             
-            EquipWeapon();
+            //EquipWeapon();
         }
 
         [Button]

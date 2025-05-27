@@ -14,17 +14,17 @@ namespace Characters.Player
         private readonly Rigidbody2D _rb;
         private readonly PropertyData _speedData;
         private readonly Transform _transform;
+        private readonly Transform _meleeWeaponField;
         private readonly IObjectResolver _resolver;
-        private readonly Vector3 _initialScale;
         private Character _nearestEnemy;
         private IEventBus _eventBus;
 
-        public PlayerMovement(Rigidbody2D rb, PropertyData speedData, Transform transform)
+        public PlayerMovement(Rigidbody2D rb, PropertyData speedData, Transform transform, Transform meleeWeaponField)
         {
             _rb = rb;
             _speedData = speedData;
             _transform = transform;
-            _initialScale = _transform.localScale;
+            _meleeWeaponField = meleeWeaponField;
         }
 
         [Inject]
@@ -45,9 +45,12 @@ namespace Characters.Player
             var moveInput = new Vector2(_joystick.Horizontal, _joystick.Vertical);
             _rb.linearVelocity = moveInput.normalized * _speedData.TemporaryValue;
 
+            Vector2? facingDirection = null;
+
             if (_nearestEnemy != null && !_nearestEnemy.IsCharacterDead)
             {
                 var directionToEnemy = (_nearestEnemy.transform.position - _transform.position).normalized;
+                facingDirection = directionToEnemy;
 
                 if (directionToEnemy.x > 0.1f)
                     _transform.localEulerAngles = new Vector3(0, 0, 0); // Sağa bak
@@ -56,10 +59,25 @@ namespace Characters.Player
             }
             else if (moveInput != Vector2.zero)
             {
+                facingDirection = moveInput;
+
                 if (moveInput.x > 0.1f)
                     _transform.localEulerAngles = new Vector3(0, 0, 0); // Sağa bak
                 else if (moveInput.x < -0.1f)
                     _transform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
+            }
+
+            // Melee weapon yönlendirme
+            if (facingDirection.HasValue)
+            {
+                var angle = Mathf.Atan2(facingDirection.Value.y, facingDirection.Value.x) * Mathf.Rad2Deg;
+
+                // Eğer sprite yukarı bakıyorsa, +90f gerekebilir. Aksi halde kaldır.
+                //angle -= 90f;
+
+                var targetRotation = Quaternion.Euler(0, 0, angle);
+                _meleeWeaponField.rotation = Quaternion.Lerp(_meleeWeaponField.rotation, targetRotation, Time.deltaTime * 15f);
+
             }
         }
         public void Dispose()

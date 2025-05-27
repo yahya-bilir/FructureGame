@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using AI.Base;
 using AI.EnemyStates;
 using Characters.Player;
+using CommonComponents;
 using Pathfinding;
 using Pathfinding.RVO;
 using PropertySystem;
@@ -18,7 +20,9 @@ namespace Characters.Enemy
         private Transform _playerTransform;
         private CharacterCombatManager _playerCombatManager;
         private Collider2D _collider;
-
+        private CamerasManager _camerasManager;
+        [SerializeField] private List<GameObject> parts;
+        
 
         protected override void GetComponents()
         {
@@ -29,9 +33,10 @@ namespace Characters.Enemy
         }
 
         [Inject]
-        private void Inject(PlayerController playerController)
+        private void Inject(PlayerController playerController, CamerasManager camerasManager)
         {
             _playerTransform = playerController.transform;
+            _camerasManager = camerasManager;
         }
         
         protected override void Start()
@@ -54,13 +59,13 @@ namespace Characters.Enemy
 
             var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
             var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
-            var dead = new Dead(AnimationController, _collider, _aiPath, _aiDestinationSetter, GetComponent<RVOController>());
+            var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts);
             #endregion
 
             #region State Changing Conditions
 
-            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.75f;
-            Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f;
+            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.75f && !IsCharacterDead;
+            Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
             Func<bool> CharacterIsDead() => () => IsCharacterDead;
             #endregion
 

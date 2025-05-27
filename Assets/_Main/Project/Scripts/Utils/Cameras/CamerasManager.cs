@@ -1,7 +1,10 @@
 using System.Collections;
+using MoreMountains.Feedbacks;
+using MoreMountains.FeedbacksForThirdParty;
 using Unity.Cinemachine;
 using UnityEngine;
 using Utilities;
+using VContainer;
 
 namespace CommonComponents
 {
@@ -9,10 +12,11 @@ namespace CommonComponents
     {
         public CinemachineCamera ActivePlayerCam { get; private set; }
         [SerializeField] private CinemachineCamera defaultCamera;
-    
+        private MMF_Player _feedbacks;        
         protected void Awake()
         {
             ChangeActivePlayerCamera(defaultCamera);
+            _feedbacks = GetComponent<MMF_Player>();
         }
 
         public void ChangeActivePlayerCamera(CinemachineCamera camera)
@@ -50,6 +54,11 @@ namespace CommonComponents
             EnableCamera(camera);
             yield return new WaitForSeconds(interval);
             DisableCamera(camera);
+        }
+
+        public void ShakeCamera()
+        {
+            _feedbacks.PlayFeedbacks();
         }
         
     }

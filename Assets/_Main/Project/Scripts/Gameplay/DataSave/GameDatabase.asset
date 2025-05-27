@@ -20,11 +20,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: be4deed56208b0f4fa1e1f2be27bb1c4, type: 2}
     - {fileID: 11400000, guid: ceb55db710217a143a51915cdb4269a8, type: 2}
     <Weapons>k__BackingField:
-    - {fileID: 273383944931532540, guid: 9a9ebe42a947c7241929871bd94c8bd3, type: 3}
-    - {fileID: 990159928383293607, guid: 59d12f4a7fc0b9f4683c12976783aea7, type: 3}
-    - {fileID: 3800886698058640824, guid: 771a481759c333b4a81668d61db2ff0d, type: 3}
-    - {fileID: 8281401237572123449, guid: db7931488cb972b4d9db1efc41782143, type: 3}
-    - {fileID: 5788621927726524214, guid: 5708d5d52ab186c44848509cf893db86, type: 3}
+    - {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
+    - {fileID: 6326623449916593366, guid: 29010c46457474abebd7002d482711e3, type: 3}
+    - {fileID: 3136379562571167290, guid: bffc3843665af47319c6791d151fd880, type: 3}
   <EnhanceButtonDatabase>k__BackingField:
     <InitialEnhancePrice>k__BackingField: 10
     <IncrementOnEachUpgrade>k__BackingField: 1
