@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: <CharacterDataHolder>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5692f229a3d2318429bc4eeca9855d2b, type: 2}
     - target: {fileID: 3316875961002848374, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
       propertyPath: m_Name
       value: Enemy1 Variant

@@ -51,12 +51,12 @@ namespace AI.EnemyStates
                 //partInstance.layer = LayerMask.NameToLayer("Parts");
 
                 // Yakın konuma zıplat
-                Vector2 randomOffset = Random.insideUnitCircle.normalized * Random.Range(0.5f, 1f); // daha küçük radius
+                Vector2 randomOffset = Random.insideUnitCircle.normalized * Random.Range(1f, 2f); // daha küçük radius
                 Vector3 targetPosition = spawnPosition + (Vector3)randomOffset;
 
                 partInstance.transform.DOJump(
                     targetPosition,
-                    jumpPower: 1f,
+                    jumpPower: 2f,
                     numJumps: 1,
                     duration: 0.5f
                 );

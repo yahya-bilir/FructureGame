@@ -13,6 +13,10 @@ PrefabInstance:
       value: Enemy2
       objectReference: {fileID: 0}
     - target: {fileID: -8349771498109442967, guid: b14611867cb404941aaa6f55476185e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8349771498109442967, guid: b14611867cb404941aaa6f55476185e8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 55e197f1b654b36418e08e0df6f9166b, type: 2}
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: b14611867cb404941aaa6f55476185e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096226776284325400, guid: b14611867cb404941aaa6f55476185e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5096226776284325400, guid: b14611867cb404941aaa6f55476185e8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -173,9 +181,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 865721132958996327}
     - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: parts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: characterProperties
       value: 
       objectReference: {fileID: 11400000, guid: e6534110dfe1d47b6bf6f1d12f3d926d, type: 2}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: 85e0599c763b33a40bd2d91e34f1a5ac, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: b5b960841e380114ebe3eb9d95728571, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: 49d46dc3fc1f888468f6a8d379ccb24b, type: 3}
+    - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: 'parts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: 79c7001bf5c467b478a912f8fccd9d29, type: 3}
     - target: {fileID: 5356910590511490258, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 

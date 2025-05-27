@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.MeleeWeapons.MeleeWeapon
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 0}
   modelRenderer: {fileID: 0}
+  attackVfx: {fileID: 6180971529986240388, guid: f21a00493dc21f044b2a200e9a00ceda, type: 3}
 --- !u!1 &8482625577279218958
 GameObject:
   m_ObjectHideFlags: 0

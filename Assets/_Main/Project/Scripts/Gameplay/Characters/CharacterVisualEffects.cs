@@ -13,12 +13,15 @@ namespace Characters
         private readonly CharacterDataHolder _characterDataHolder;
         private ShineEffect _shineEffect;
         private readonly UIPercentageFiller _healthBar;
+        private readonly ParticleSystem _onDeathVfx;
         private bool _isHealthStillRunning;
-        public CharacterVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder, UIPercentageFiller healthBar)
+        public CharacterVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder,
+            UIPercentageFiller healthBar, ParticleSystem onDeathVfx)
         {
             _spriteRenderers = spriteRenderers;
             _characterDataHolder = characterDataHolder;
             _healthBar = healthBar;
+            _onDeathVfx = onDeathVfx;
             Initialize();
         }
 
@@ -53,22 +56,24 @@ namespace Characters
         {
             if (_healthBar != null)
                 _healthBar.DisableOrEnableObjectsVisibility(false);
+            
+            if(_onDeathVfx != null) _onDeathVfx.Play();
+            //await UniTask.WaitForSeconds(_characterDataHolder.ShineDuration + 0.05f);
 
-            await UniTask.WaitForSeconds(_characterDataHolder.ShineDuration + 0.05f);
-
-            foreach (var renderer in _spriteRenderers)
-            {
-                var propertyBlock = new MaterialPropertyBlock();
-                renderer.GetPropertyBlock(propertyBlock);
-                var startColor = Color.white;
-
-                DOVirtual.Color(startColor, new Color(startColor.r, startColor.g, startColor.b, 0f), 1f,
-                    color =>
-                    {
-                        propertyBlock.SetColor("_Color", color);
-                        renderer.SetPropertyBlock(propertyBlock);
-                    });
-            }
+             foreach (var renderer in _spriteRenderers)
+             {
+                 renderer.enabled = false;
+                 // var propertyBlock = new MaterialPropertyBlock();
+                 // renderer.GetPropertyBlock(propertyBlock);
+                 // var startColor = Color.white;
+                 //
+                 // DOVirtual.Color(startColor, new Color(startColor.r, startColor.g, startColor.b, 0f), 1f,
+                 //     color =>
+                 //     {
+                 //         propertyBlock.SetColor("_Color", color);
+                 //         renderer.SetPropertyBlock(propertyBlock);
+                 //     });
+             }
         }
         private async UniTask OnDamageTakenHealthBarDisablingChecker()
         {

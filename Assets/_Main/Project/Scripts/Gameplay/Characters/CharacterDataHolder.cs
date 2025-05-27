@@ -11,6 +11,8 @@ namespace Characters
         [field: SerializeField, ColorUsage(true, true)] public Color ShineColor { get; private set; }
         [field: SerializeField] public float ShineDuration { get; private set; } = .3f;
         
+        [field: SerializeField] public Color OnAttackedVFXColor { get; private set; }
+        
         [Header("Attacking")]
         [field: SerializeField]
         public float AttackingInterval { get; private set; }
