@@ -13,15 +13,17 @@ namespace AI.EnemyStates
         private readonly AIPath _aiPath;
         private readonly Transform _modelTransform;
         private readonly PropertyData _speedPropertyData;
+        private readonly AIDestinationSetter _aiDestinationSetter;
 
         public WalkingTowardsPlayer(CharacterAnimationController animationController, Transform playerTransform,
-            AIPath aiPath, Transform model, PropertyData speedPropertyData)
+            AIPath aiPath, Transform model, PropertyData speedPropertyData, AIDestinationSetter aiDestinationSetter)
         {
             _animationController = animationController;
             _playerTransform = playerTransform;
             _aiPath = aiPath;
             _modelTransform = model;
             _speedPropertyData = speedPropertyData;
+            _aiDestinationSetter = aiDestinationSetter;
         }
 
         public void Tick()
@@ -42,6 +44,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _aiDestinationSetter.target = _playerTransform;
             _animationController.Run();
             _aiPath.canMove = true;
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;

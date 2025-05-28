@@ -1,7 +1,6 @@
 using AI.Base.Interfaces;
 using Characters;
-using Characters.Enemy;
-using Characters.Player;
+using Pathfinding;
 using UnityEngine;
 
 namespace AI.EnemyStates

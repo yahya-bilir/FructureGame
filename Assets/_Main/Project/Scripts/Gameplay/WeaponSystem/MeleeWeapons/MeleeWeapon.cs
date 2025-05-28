@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Characters;
+using Characters.Enemy;
+using Events;
 using UnityEngine;
 using WeaponSystem;
 using WeaponSystem.MeleeWeapons;
@@ -16,7 +18,7 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
         _weaponSo = ObjectUIIdentifierSo as WeaponSO;
         CurrentAttackInterval = _weaponSo.AttackInterval;
     }
-
+    
     private void Update()
     {
         if (_triggeredCharacters.Count == 0) return;
@@ -32,7 +34,8 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
         foreach (var character in _triggeredCharacters)
         {
             character.CharacterCombatManager.GetDamage(Damage);
-
+            EventBus.Publish(new OnEnemyBeingAttacked(character as EnemyBehaviour, transform.position));
+            
             if (attackVfx != null)
             {
                 Vector3 directionToCharacter = character.transform.position - transform.position;

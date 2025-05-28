@@ -59,6 +59,7 @@ namespace Characters.Player
             }
             else if (moveInput != Vector2.zero)
             {
+                _rb.simulated = true; 
                 facingDirection = moveInput;
 
                 if (moveInput.x > 0.1f)
@@ -66,7 +67,10 @@ namespace Characters.Player
                 else if (moveInput.x < -0.1f)
                     _transform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
             }
-
+            else
+            {
+                _rb.simulated = false; 
+            }
             // Melee weapon yönlendirme
             if (facingDirection.HasValue)
             {

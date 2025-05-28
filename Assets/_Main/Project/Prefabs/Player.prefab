@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 1396091774970523385}
   - component: {fileID: 5774221059686897705}
   - component: {fileID: 7961922775795342741}
+  - component: {fileID: 5252343578799291444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6972942769922135643}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7961922775795342741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,10 +173,47 @@ MonoBehaviour:
   model: {fileID: 232710883927109845}
   characterProperties: {fileID: 11400000, guid: 77a964c82de17414992ba0b8ec0441a2, type: 2}
   healthBar: {fileID: 0}
+  onDeathVfx: {fileID: 0}
   weaponCreationPoint: {fileID: 5771060803557974073}
   pivot: {fileID: 97054342643801640}
   projectileWeaponCreationPoint: {fileID: 4121478582482121012}
   meleeWeapon: {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
+--- !u!58 &5252343578799291444
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972942769922135643}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.75}
+  m_Radius: 0.5
 --- !u!1001 &350452354040533352
 PrefabInstance:
   m_ObjectHideFlags: 0

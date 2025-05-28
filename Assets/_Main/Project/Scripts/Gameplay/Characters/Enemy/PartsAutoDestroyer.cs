@@ -32,7 +32,6 @@ public class PartsAutoDestroyer : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
-            Debug.Log("hereeeee");
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / fadeDuration);
             spriteRenderer.color = Color.Lerp(startColor, endColor, t);

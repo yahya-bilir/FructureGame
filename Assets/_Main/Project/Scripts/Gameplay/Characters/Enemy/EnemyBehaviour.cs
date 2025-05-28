@@ -4,6 +4,8 @@ using AI.Base;
 using AI.EnemyStates;
 using Characters.Player;
 using CommonComponents;
+using EventBusses;
+using Events;
 using Pathfinding;
 using Pathfinding.RVO;
 using PropertySystem;
@@ -22,7 +24,7 @@ namespace Characters.Enemy
         private Collider2D _collider;
         private CamerasManager _camerasManager;
         [SerializeField] private List<GameObject> parts;
-        
+
 
         protected override void GetComponents()
         {
@@ -57,8 +59,9 @@ namespace Characters.Enemy
 
             #region States
 
-            var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
+            var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), _aiDestinationSetter);
             var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
+            var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager, _aiDestinationSetter, transform);
             var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts);
             #endregion
 
@@ -66,6 +69,8 @@ namespace Characters.Enemy
 
             Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.75f && !IsCharacterDead;
             Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
+            Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
+            Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
             Func<bool> CharacterIsDead() => () => IsCharacterDead;
             #endregion
 
@@ -73,6 +78,8 @@ namespace Characters.Enemy
 
             _stateMachine.AddTransition(walkingTowardsPlayer, attacking, ReachedPlayer());
             _stateMachine.AddTransition(attacking, walkingTowardsPlayer, PlayerMovedFurther());
+            _stateMachine.AddTransition(fleeing, walkingTowardsPlayer, FleeingEnded());
+            _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
             _stateMachine.AddAnyTransition(dead, CharacterIsDead());
 
             #endregion
@@ -84,5 +91,7 @@ namespace Characters.Enemy
         {
             _stateMachine.Tick();
         }
+        
+
     }
 }

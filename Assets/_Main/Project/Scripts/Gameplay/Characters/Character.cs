@@ -1,4 +1,5 @@
 using System.Linq;
+using Characters.Enemy;
 using DataSave.Runtime;
 using PropertySystem;
 using UI;
@@ -20,7 +21,8 @@ namespace Characters
         private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
         private CharacterVisualEffects _characterVisualEffects;
-        
+        protected CharacterSpeedController CharacterSpeedController;
+
         private SpriteRenderer[] _childrenSpriteRenderers;
         private ShineEffect _shineEffect;
         protected CharacterAnimationController AnimationController;
@@ -39,6 +41,8 @@ namespace Characters
             _characterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx);
             CharacterPropertyManager = new CharacterPropertyManager(characterProperties);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, _characterVisualEffects, this);
+            CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
+
         }
         
         protected virtual void Start()
@@ -50,6 +54,7 @@ namespace Characters
         {
             _resolver.Inject(CharacterCombatManager);
             _resolver.Inject(CharacterPropertyManager);
+            _resolver.Inject(CharacterSpeedController);
             CharacterPropertyManager.Initialize();
         }
 

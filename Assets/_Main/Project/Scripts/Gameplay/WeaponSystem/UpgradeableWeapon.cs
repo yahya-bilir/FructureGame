@@ -11,14 +11,14 @@ namespace WeaponSystem
     {
         public float CurrentAttackInterval { get; protected set; }
         
-        private IEventBus _eventBus;
+        protected IEventBus EventBus;
         protected Color _currentColor;
         
         [Inject]
         private void Inject(IEventBus eventBus)
         {
-            _eventBus = eventBus;
-            _eventBus.Subscribe<OnWeaponUpgraded>(ChangeTintColor);
+            EventBus = eventBus;
+            EventBus.Subscribe<OnWeaponUpgraded>(ChangeTintColor);
         }
         
         private void ChangeTintColor(OnWeaponUpgraded eventData)
@@ -39,7 +39,7 @@ namespace WeaponSystem
 
         private void OnDisable()
         {
-            _eventBus.Unsubscribe<OnWeaponUpgraded>(ChangeTintColor);
+            EventBus.Unsubscribe<OnWeaponUpgraded>(ChangeTintColor);
         }
     }
 }

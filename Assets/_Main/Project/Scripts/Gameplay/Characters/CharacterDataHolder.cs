@@ -12,10 +12,12 @@ namespace Characters
         [field: SerializeField] public float ShineDuration { get; private set; } = .3f;
         
         [field: SerializeField] public Color OnAttackedVFXColor { get; private set; }
-        
+        [field: SerializeField] public float OnAttackedSpeedDivider { get; private set; } = 1f;
+        [field: SerializeField] public float OnAttackedSpeedRecoverTime { get; set; } = 3f;
+
+
         [Header("Attacking")]
         [field: SerializeField]
         public float AttackingInterval { get; private set; }
-        
     }
 }
