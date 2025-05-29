@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e833e3df2c4ed58e8618165e3a154f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::PartsAutoDestroyer
-  delayBeforeFade: 0.5
-  fadeDuration: 1.2
+  delayBeforeMove: 0.75
+  jumpDuration: 0.3
+  jumpPower: 2
 --- !u!96 &8173463345011652283
 TrailRenderer:
   serializedVersion: 3

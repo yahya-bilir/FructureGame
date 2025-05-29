@@ -20,7 +20,7 @@ namespace Characters
         
         private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
-        private CharacterVisualEffects _characterVisualEffects;
+        protected CharacterVisualEffects CharacterVisualEffects;
         protected CharacterSpeedController CharacterSpeedController;
 
         private SpriteRenderer[] _childrenSpriteRenderers;
@@ -38,9 +38,9 @@ namespace Characters
         {
             GetComponents();
             AnimationController = new CharacterAnimationController(_animator);
-            _characterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx);
+            CharacterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx);
             CharacterPropertyManager = new CharacterPropertyManager(characterProperties);
-            CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, _characterVisualEffects, this);
+            CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
 
         }

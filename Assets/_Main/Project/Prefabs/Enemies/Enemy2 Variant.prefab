@@ -65,6 +65,26 @@ PrefabInstance:
       value: Enemy2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: parts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: 'parts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: af867a6c653470d4da343207df6047d3, type: 3}
+    - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: 'parts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: d3b0d363c26f23b478617e39e8c21908, type: 3}
+    - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: 'parts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: 1fe3a9277478d8a40ae3271c6407292a, type: 3}
+    - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: 'parts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7628605573717000114, guid: 70114e22fe2d06a4e80cc867ec304f33, type: 3}
+    - target: {fileID: 7936986455443423426, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 18393b3886c2d334280a97ae29d12fc5, type: 2}

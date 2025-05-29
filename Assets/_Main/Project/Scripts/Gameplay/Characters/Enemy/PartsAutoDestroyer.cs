@@ -1,42 +1,41 @@
 using System.Collections;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
 
 public class PartsAutoDestroyer : MonoBehaviour
 {
-    [SerializeField] private float delayBeforeFade = 0.5f;
-    [SerializeField] private float fadeDuration = 1.2f;
+    [SerializeField] private float delayBeforeMove = 0.5f;
+    [SerializeField] private float jumpDuration = 0.6f;
+    [SerializeField] private float jumpPower = 1.2f;
 
-    private void Start()
+    public void StartFade(Transform playerTrf)
     {
-        StartCoroutine(Fade());
+        StartCoroutine(MoveTowardPlayer(playerTrf));
     }
 
-    private IEnumerator Fade()
+    private IEnumerator MoveTowardPlayer(Transform playerTrf)
     {
-        var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (spriteRenderer == null)
+        yield return new WaitForSeconds(delayBeforeMove);
+
+        if (playerTrf == null)
         {
-            Debug.LogWarning($"Part {name} üzerinde SpriteRenderer bulunamadı.");
+            Debug.LogWarning("Player transform referansı eksik.");
             yield break;
         }
 
-        // Bekleme
-        yield return new WaitForSeconds(delayBeforeFade);
+        transform.parent = playerTrf;
 
-        Color startColor = spriteRenderer.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+        // Hedef yerel pozisyon (örnek: yukarı zıplıyor gibi olsun)
+        Vector3 targetLocalPosition = Vector3.up * 0.5f;
 
-        float elapsed = 0f;
-        while (elapsed < fadeDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / fadeDuration);
-            spriteRenderer.color = Color.Lerp(startColor, endColor, t);
-            yield return null;
-        }
+        transform.DOLocalJump(
+            targetLocalPosition,
+            jumpPower,
+            numJumps: 1,
+            duration: jumpDuration
+        ).SetEase(Ease.InCubic);
+
+        yield return new WaitForSeconds(jumpDuration);
 
         Destroy(gameObject);
     }

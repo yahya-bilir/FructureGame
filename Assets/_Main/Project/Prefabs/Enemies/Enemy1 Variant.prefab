@@ -21,6 +21,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: parts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: 'parts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: 535038100fbde2549add7ce06d000f47, type: 3}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: 'parts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: 006815147c11f6f4ea912b89ee6d5f15, type: 3}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: 'parts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: e2ba77d9ba14ec145a1b16cc545f1f02, type: 3}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+      propertyPath: 'parts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5498749008395438224, guid: 77fa4feaaa395a040a04b188bcef433c, type: 3}
+    - target: {fileID: 3288890064187138102, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 5692f229a3d2318429bc4eeca9855d2b, type: 2}

@@ -12,9 +12,9 @@ namespace Characters
 {
     public class CharacterCombatManager : IDisposable
     {
-        private readonly CharacterPropertyManager _characterPropertyManager;
-        private readonly CharacterVisualEffects _characterVisualEffects;
-        private readonly Character _character;
+        protected readonly CharacterPropertyManager _characterPropertyManager;
+        protected readonly CharacterVisualEffects _characterVisualEffects;
+        protected readonly Character _character;
         private IEventBus _eventBus;
         private CancellationTokenSource _attackStateCts;
         public bool FleeingEnabled { get; private set; }
@@ -34,7 +34,7 @@ namespace Characters
 
         }
         
-        public void GetDamage(float damage)
+        public virtual void GetDamage(float damage)
         {
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;

@@ -62,7 +62,7 @@ namespace Characters.Enemy
             var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), _aiDestinationSetter);
             var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
             var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager, _aiDestinationSetter, transform);
-            var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts);
+            var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts, _playerTransform);
             #endregion
 
             #region State Changing Conditions

@@ -9,12 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 398090640304982821, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 398090640304982821, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 398090640304982822, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 398090640347401279, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 398090640347401279, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
       propertyPath: m_Materials.Array.size
@@ -27,6 +35,14 @@ PrefabInstance:
     - target: {fileID: 398090641686485421, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
       propertyPath: m_Name
       value: Impact_Hit_V2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 398090641686485422, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 398090641686485422, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 398090641686485422, guid: bd3ac97e5c0a427458e6f587a2fdee34, type: 3}
       propertyPath: m_Materials.Array.size
