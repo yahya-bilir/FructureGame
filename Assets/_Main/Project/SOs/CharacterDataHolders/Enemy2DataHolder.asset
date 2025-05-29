@@ -15,7 +15,7 @@ MonoBehaviour:
   <Worth>k__BackingField: 20
   <ShineColor>k__BackingField: {r: 766.99615, g: 766.99615, b: 766.99615, a: 1}
   <ShineDuration>k__BackingField: 0.3
-  <OnAttackedVFXColor>k__BackingField: {r: 0.7490196, g: 0.2509804, b: 0.3529412, a: 1}
+  <OnAttackedVFXColor>k__BackingField: {r: 0.78431374, g: 0.25882354, b: 0.34509805, a: 1}
   <OnAttackedSpeedDivider>k__BackingField: 2
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 1
