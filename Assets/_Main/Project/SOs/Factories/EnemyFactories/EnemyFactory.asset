@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: 1828331750568001118, guid: fde690ab637a54f68825d3fa98db8768, type: 3}
   - {fileID: 7030995552157624148, guid: 63a72990a086948519820366ee579be9, type: 3}
   <SpawnLimit>k__BackingField: 50
-  <SpawnInterval>k__BackingField: 2
+  <SpawnInterval>k__BackingField: 6
   <InitialSpawnInterval>k__BackingField: 1
