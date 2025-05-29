@@ -67,7 +67,7 @@ namespace Characters.Enemy
 
             #region State Changing Conditions
 
-            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 0.75f && !IsCharacterDead;
+            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
             Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
             Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
             Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;

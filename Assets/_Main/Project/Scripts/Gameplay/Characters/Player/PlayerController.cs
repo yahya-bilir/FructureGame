@@ -3,10 +3,7 @@ using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
-using WeaponSystem;
 using WeaponSystem.Managers;
-using WeaponSystem.MeleeWeapons;
-using WeaponSystem.RangedWeapons;
 
 namespace Characters.Player
 {
@@ -15,6 +12,7 @@ namespace Characters.Player
         [SerializeField] private Transform weaponCreationPoint;
         [SerializeField] private Transform pivot;
         [SerializeField] private Transform projectileWeaponCreationPoint;
+        [SerializeField] private ParticleSystem onWeaponUpgradedVFX;
         
         private DynamicJoystick _joystick;
         private PlayerMovement _playerMovement;
@@ -35,7 +33,7 @@ namespace Characters.Player
         protected override void Awake()
         {
             base.Awake();
-            _weaponManager = new PlayerWeaponManager(pivot, projectileWeaponCreationPoint, CharacterPropertyManager, CharacterCombatManager);
+            _weaponManager = new PlayerWeaponManager(pivot, projectileWeaponCreationPoint, CharacterPropertyManager, CharacterCombatManager, onWeaponUpgradedVFX);
         }
 
         protected override void Start()
@@ -60,10 +58,10 @@ namespace Characters.Player
         {
             _playerMovement.Tick();
 
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                EquipWeapon();
-            }
+            // if (Input.GetKeyDown(KeyCode.LeftControl))
+            // {
+            //     EquipWeapon();
+            // }
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Characters
             _healthBar.SetUIPercentage(Mathf.RoundToInt(percentage));
         }
 
-        public async UniTask OnCharacterDied()
+        public virtual async UniTask OnCharacterDied()
         {
             if (_healthBar != null)
                 _healthBar.DisableOrEnableObjectsVisibility(false);

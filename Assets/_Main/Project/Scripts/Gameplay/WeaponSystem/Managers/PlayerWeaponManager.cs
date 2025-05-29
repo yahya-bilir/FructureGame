@@ -17,6 +17,7 @@ namespace WeaponSystem.Managers
     {
         private readonly CharacterPropertyManager _characterPropertyManager;
         private readonly CharacterCombatManager _characterCombatManager;
+        private readonly ParticleSystem _onWeaponUpgradedVFX;
         private readonly Transform _meleeWeaponEquippingField;
         private readonly Transform _rangedWeaponEquippingField;
         private GameData _gameData;
@@ -24,10 +25,13 @@ namespace WeaponSystem.Managers
         private IEventBus _eventBus;
         private IObjectResolver _resolver;
 
-        public PlayerWeaponManager(Transform meleeWeaponEquippingField, Transform rangedWeaponEquippingField, CharacterPropertyManager characterPropertyManager, CharacterCombatManager characterCombatManager)
+        public PlayerWeaponManager(Transform meleeWeaponEquippingField, Transform rangedWeaponEquippingField,
+            CharacterPropertyManager characterPropertyManager, CharacterCombatManager characterCombatManager,
+            ParticleSystem onWeaponUpgradedVFX)
         {
             _characterPropertyManager = characterPropertyManager;
             _characterCombatManager = characterCombatManager;
+            _onWeaponUpgradedVFX = onWeaponUpgradedVFX;
             _meleeWeaponEquippingField = meleeWeaponEquippingField;
             _rangedWeaponEquippingField = rangedWeaponEquippingField;
         }
@@ -53,7 +57,7 @@ namespace WeaponSystem.Managers
             UpgradeableWeapon weapon = (UpgradeableWeapon)Weapons.Find(i => i is UpgradeableWeapon);
 
             if (weapon == null) return;
-
+            
             var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Damage);
 
             var upgradeableData = weapon.ObjectUIIdentifierSo as UpgreadableWeaponSO;
@@ -107,7 +111,7 @@ namespace WeaponSystem.Managers
             var transform = weapon.ObjectUIIdentifierSo is RangedWeaponSO ? _rangedWeaponEquippingField : _meleeWeaponEquippingField;
             SpawnWeapon(weapon, transform);
             UpgradePlayerDamage(null);
-
+            if(_onWeaponUpgradedVFX != null) _onWeaponUpgradedVFX.Play();
         }
 
         private async UniTask InitiateWeapon()

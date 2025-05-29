@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using EventBusses;
+using Events;
 using PropertySystem;
 using UnityEngine;
+using VContainer;
 
 namespace Characters.Tree
 {
@@ -17,6 +20,12 @@ namespace Characters.Tree
             _treeObjects.ForEach(i => i.SetActive(false));
             _treeObjects[0].SetActive(true);
         }
+
+        [Inject]
+        private void Injected()
+        {
+            Debug.Log("Injection happened");
+        }
         
         public override void GetDamage(float damage)
         {
@@ -28,9 +37,8 @@ namespace Characters.Tree
 
         private void SetTreeObjects(int health, int maxHealth)
         {
-            var objectToOpen = maxHealth / health;
-            if(objectToOpen > _treeObjects.Count - 1 || objectToOpen < 0) objectToOpen = _treeObjects.Count - 1;
-            //Debug.Log(objectToOpen + " " + health + " " + maxHealth + " " + _treeObjects.Count);
+            var objectToOpen = maxHealth / health + 1;
+            if(objectToOpen > _treeObjects.Count - 2 || objectToOpen < 0) objectToOpen = _treeObjects.Count - 1;
             _treeObjects.ForEach(i => i.SetActive(false));
             var targetTree = _treeObjects[objectToOpen];
             targetTree.SetActive(true);
@@ -46,9 +54,10 @@ namespace Characters.Tree
         
         protected override async UniTask OnCharacterDied()
         {
-            await base.OnCharacterDied();
-            _character.gameObject.SetActive(false);
-            //GameObject.Destroy(_character.gameObject);
+            //await base.OnCharacterDied();
+            //_character.gameObject.SetActive(false);
+            _eventBus.Publish(new OnCharacterDiedEvent(_character));
+            _treeObjects[^1].SetActive(true);
         }
     }
 }

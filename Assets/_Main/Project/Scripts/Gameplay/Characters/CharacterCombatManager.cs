@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using Characters.Tree;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
@@ -15,7 +16,7 @@ namespace Characters
         protected readonly CharacterPropertyManager _characterPropertyManager;
         protected readonly CharacterVisualEffects _characterVisualEffects;
         protected readonly Character _character;
-        private IEventBus _eventBus;
+        protected IEventBus _eventBus;
         private CancellationTokenSource _attackStateCts;
         public bool FleeingEnabled { get; private set; }
         public Vector3 FleePosition { get; private set; }
@@ -90,19 +91,19 @@ namespace Characters
 
         private async UniTaskVoid BeingAttacked()
         {
-            FleeingEnabled = true;
-            _attackStateCts = new CancellationTokenSource();
-
-            try
-            {
-                await UniTask.WaitForSeconds(3f, cancellationToken: _attackStateCts.Token);
-            }
-            catch (OperationCanceledException)
-            {
-                return;
-            }
-
-            FleeingEnabled = false;
+            // FleeingEnabled = true;
+            // _attackStateCts = new CancellationTokenSource();
+            //
+            // try
+            // {
+            //     await UniTask.WaitForSeconds(3f, cancellationToken: _attackStateCts.Token);
+            // }
+            // catch (OperationCanceledException)
+            // {
+            //     return;
+            // }
+            //
+            // FleeingEnabled = false;
 
         }
 

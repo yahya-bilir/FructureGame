@@ -28,6 +28,7 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
+            //Debug.Log(_aiPath.remainingDistance);
             Vector3 velocity = _aiPath.desiredVelocity;
 
             if (velocity.x > 0.1f)
