@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6568709219933107163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1e-15, y: 1e-15, z: 0}
+  m_LocalScale: {x: 1.1756499, y: 1.1756499, z: 1.1756499}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1545986324217679059}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9f57c08ae28c03f4db01dab3163775b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 2c8c67bc888f8004d9e9684747a5c50c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   ForwardDirection: 1
   TimescaleMode: 0
   Mode: 0
-  TargetTransform: {fileID: 0}
+  TargetTransform: {fileID: 1515866650263263376}
   TargetRectTransform: {fileID: 0}
   ShakeSpeed: 20
   ShakeRange: 0.5
@@ -176,6 +176,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6396033337738188812, guid: f09468810cd764f718aa92f7c9a90152, type: 3}
       propertyPath: managedReferences[2462201658440679507].TargetShaker
+      value: 
+      objectReference: {fileID: 2248940544755881339}
+    - target: {fileID: -6396033337738188812, guid: f09468810cd764f718aa92f7c9a90152, type: 3}
+      propertyPath: managedReferences[2462201922912518231].TargetShaker
       value: 
       objectReference: {fileID: 2248940544755881339}
     - target: {fileID: 476295214253779013, guid: f09468810cd764f718aa92f7c9a90152, type: 3}

@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650e9277d0f04c7295c2c699c4347936, type: 3}
-  m_Name: GameDatabase
+  m_Name: GameDatabase-Backup
   m_EditorClassIdentifier: Gameplay::DataSave.GameDatabase
   <WeaponDatabase>k__BackingField:
     <WeaponStages>k__BackingField:
+    - {fileID: 11400000, guid: 69581cf6fba049f458e79b6cce8739c3, type: 2}
+    - {fileID: 11400000, guid: d0886e296a8318a40837c9fcc1b8275b, type: 2}
+    - {fileID: 11400000, guid: bec07ab8afdc34f4f849b5b03e4ff4fe, type: 2}
+    - {fileID: 11400000, guid: be4deed56208b0f4fa1e1f2be27bb1c4, type: 2}
     - {fileID: 11400000, guid: ceb55db710217a143a51915cdb4269a8, type: 2}
     <Weapons>k__BackingField:
     - {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}

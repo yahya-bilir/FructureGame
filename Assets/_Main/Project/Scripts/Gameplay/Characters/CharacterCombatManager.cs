@@ -45,7 +45,7 @@ namespace Characters
             if(newHealth <= 0) OnCharacterDied().Forget();
         }
         
-        private async UniTask OnCharacterDied()
+        protected virtual async UniTask OnCharacterDied()
         {
             await _characterVisualEffects.OnCharacterDied();
             _eventBus.Publish(new OnCharacterDiedEvent(_character));

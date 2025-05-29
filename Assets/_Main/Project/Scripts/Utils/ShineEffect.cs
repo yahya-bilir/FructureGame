@@ -62,21 +62,35 @@ namespace Utils
             {
                 float t = Mathf.SmoothStep(0f, 1f, elapsed / _shineDuration);
                 Color lerped = Color.Lerp(_shineColor, Color.white, t);
-            
-                foreach (var (sr, block) in _propertyBlocks)
+
+                try
                 {
-                    block.SetColor("_Color", lerped);
-                    sr.SetPropertyBlock(block);
+                    foreach (var (sr, block) in _propertyBlocks)
+                    {
+                        block.SetColor("_Color", lerped);
+                        sr.SetPropertyBlock(block);
+                    }
                 }
+                catch (Exception e)
+                {
+
+                }
+
             
                 elapsed += Time.deltaTime;
                 await UniTask.Yield(PlayerLoopTiming.Update, ct);
             }
-            
-            foreach (var (sr, block) in _propertyBlocks)
+            try
             {
-                block.SetColor("_Color", Color.white);
-                sr.SetPropertyBlock(block);
+                foreach (var (sr, block) in _propertyBlocks)
+                {
+                    block.SetColor("_Color", Color.white);
+                    sr.SetPropertyBlock(block);
+                }
+            }
+            catch (Exception e)
+            {
+
             }
             
             _isShining = false;

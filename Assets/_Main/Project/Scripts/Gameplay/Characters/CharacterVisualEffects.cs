@@ -56,8 +56,12 @@ namespace Characters
         {
             if (_healthBar != null)
                 _healthBar.DisableOrEnableObjectsVisibility(false);
-            
-            if(_onDeathVfx != null) _onDeathVfx.Play();
+
+            if (_onDeathVfx != null)
+            {
+                _onDeathVfx.transform.parent = null;
+                _onDeathVfx.Play();
+            }
             //await UniTask.WaitForSeconds(_characterDataHolder.ShineDuration + 0.05f);
 
              foreach (var renderer in _spriteRenderers)

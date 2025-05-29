@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Characters;
-using Characters.Enemy;
 using Events;
 using UnityEngine;
 using WeaponSystem;
@@ -33,9 +32,6 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
 
         foreach (var character in _triggeredCharacters)
         {
-            character.CharacterCombatManager.GetDamage(Damage);
-            EventBus.Publish(new OnEnemyBeingAttacked(character as EnemyBehaviour, transform.position));
-            
             if (attackVfx != null)
             {
                 Vector3 directionToCharacter = character.transform.position - transform.position;
@@ -49,6 +45,9 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
                 Color vfxColor = character.CharacterDataHolder.OnAttackedVFXColor;
                 SetVfxColor(instantiatedVfx, vfxColor);
             }
+            EventBus.Publish(new OnEnemyBeingAttacked(character, transform.position));
+            
+            character.CharacterCombatManager.GetDamage(Damage);
         }
     }
 

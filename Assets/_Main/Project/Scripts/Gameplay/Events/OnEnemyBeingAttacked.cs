@@ -1,14 +1,14 @@
-﻿using Characters.Enemy;
+﻿using Characters;
 using UnityEngine;
 
 namespace Events
 {
     public class OnEnemyBeingAttacked
     {
-        public EnemyBehaviour AttackedEnemy { get; private set; }
+        public Character AttackedEnemy { get; private set; }
         public Vector3 EnemyBeingAttackedPosition { get; private set; }
 
-        public OnEnemyBeingAttacked(EnemyBehaviour attackedEnemy, Vector3 enemyBeingAttackedPosition)
+        public OnEnemyBeingAttacked(Character attackedEnemy, Vector3 enemyBeingAttackedPosition)
         {
             AttackedEnemy = attackedEnemy;
             EnemyBeingAttackedPosition = enemyBeingAttackedPosition;
