@@ -132,7 +132,7 @@ namespace UI.Screens
 
         private void OnUpgradeButtonPressed()
         {
-            _gameData.CharacterResource.CoinCount -= _currentPrice;
+            _gameData.CharacterResource.CoinCount -= _currentPrice; 
             _gameData.EnhanceButtonData.TemporaryButtonClickedCount++;
             _eventBus.Publish(new OnUpgradeButtonPressed());
         }
