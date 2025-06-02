@@ -18,4 +18,4 @@ MonoBehaviour:
   <OnAttackedVFXColor>k__BackingField: {r: 0.28377873, g: 0.1273585, b: 0.509434, a: 1}
   <OnAttackedSpeedDivider>k__BackingField: 2
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
-  <AttackingInterval>k__BackingField: 1
+  <AttackingInterval>k__BackingField: 0.5

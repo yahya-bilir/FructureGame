@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UI;
 using UnityEngine;
 using Utils;

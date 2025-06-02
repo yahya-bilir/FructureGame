@@ -72,6 +72,13 @@ namespace WeaponSystem.Managers
 
             _characterPropertyManager.SetProperty(PropertyQuery.Damage, newDamage);
 
+            stage = stage < _gameDatabase.WeaponDatabase.WeaponStages.Count
+                ? stage
+                : _gameDatabase.WeaponDatabase.WeaponStages.Count - 1;
+            weaponNumber = weaponNumber < _gameDatabase.WeaponDatabase.Weapons.Count
+                ? weaponNumber
+                : _gameDatabase.WeaponDatabase.Weapons.Count - 1;
+            
             var upgradeData = new OnWeaponUpgraded(
 
                 _gameDatabase.WeaponDatabase.WeaponStages[stage],
@@ -86,7 +93,8 @@ namespace WeaponSystem.Managers
             
             if (eventData == null) return;
             
-            if (stage == 0)
+            if (stage == 0 && _gameData.EnhanceButtonData.TemporaryButtonClickedCount /
+                _gameDatabase.WeaponDatabase.WeaponStages.Count <= _gameDatabase.WeaponDatabase.Weapons.Count - 1)
             {
                 ReplaceWeapon(weaponNumber);
             }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf0e0a8e67341fd8ded70baba58ecb4, type: 3}
+  m_Name: BossFactory
+  m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
+  <SpawnableEnemies>k__BackingField:
+  - {fileID: 1696280517796729765, guid: fadced52d0f8928479e3bb1d1da68c77, type: 3}
+  <SpawnLimit>k__BackingField: 10000
+  <SpawnInterval>k__BackingField: 100
+  <InitialSpawnInterval>k__BackingField: 100

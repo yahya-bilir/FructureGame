@@ -82,7 +82,6 @@ namespace PropertySystem
                         ?.SetValue(copy, propertyData.PermanentValueLevel);
 
                     _propertySaveDatas.Add(copy);
-                    Debug.Log(copy.TemporaryValue);
                 }
             }
         }

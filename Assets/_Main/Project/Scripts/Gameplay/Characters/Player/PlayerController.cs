@@ -2,6 +2,7 @@
 using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 using WeaponSystem.Managers;
 
@@ -19,6 +20,7 @@ namespace Characters.Player
         private PlayerWeaponManager _weaponManager;
         private GameData _gameData;
         private IObjectResolver _resolver;
+        private PlayerDeathController _playerDeathController;
         [Header("Debug")] 
         [SerializeField]private MeleeWeapon meleeWeapon;
         
@@ -34,6 +36,7 @@ namespace Characters.Player
         {
             base.Awake();
             _weaponManager = new PlayerWeaponManager(pivot, projectileWeaponCreationPoint, CharacterPropertyManager, CharacterCombatManager, onWeaponUpgradedVFX);
+            _playerDeathController = new PlayerDeathController(this);
         }
 
         protected override void Start()
@@ -43,7 +46,7 @@ namespace Characters.Player
             _playerMovement = new PlayerMovement(GetComponent<Rigidbody2D>(), speed, model.transform, weaponCreationPoint);
             _resolver.Inject(_playerMovement);
             _resolver.Inject(_weaponManager);
-            
+            _resolver.Inject(_playerDeathController);
             //EquipWeapon();
         }
 

@@ -4,6 +4,7 @@ using MoreMountains.FeedbacksForThirdParty;
 using Unity.Cinemachine;
 using UnityEngine;
 using Utilities;
+using Utilities.Vibrations;
 using VContainer;
 
 namespace CommonComponents
@@ -58,6 +59,7 @@ namespace CommonComponents
 
         public void ShakeCamera()
         {
+            Vibrations.Medium();
             _feedbacks.PlayFeedbacks();
         }
         

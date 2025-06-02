@@ -96,7 +96,7 @@ namespace UI.Screens
             _attackSpeedLabel.text = eventData.AttackSpeed.ToString("F2");
             _levelLabel.text = $"LV. {eventData.Level.ToString()}";
 
-            var plusDamageText = $"(+{eventData.Damage - 5})";
+            var plusDamageText = $"(+{eventData.Damage - 2})";
             _damageLabel.text = $"{eventData.Damage}{Extensions.ColoredText(plusDamageText, new Color(0.572f, 0.847f, 0.337f, 1f))}";
             ScaleUp(eventData.Stage);
             SetPriceAndLabel(_gameData.EnhanceButtonData.TemporaryButtonClickedCount);

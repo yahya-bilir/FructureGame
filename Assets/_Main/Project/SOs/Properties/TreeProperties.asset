@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TreeProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
   <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: Player
+  <EntityId>k__BackingField: 
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 20
-    <TemporaryValue>k__BackingField: 20
+    <PermanentValue>k__BackingField: 50
+    <TemporaryValue>k__BackingField: 50
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 2
     <PermanentValue>k__BackingField: 5
@@ -28,8 +28,8 @@ MonoBehaviour:
     <TemporaryValue>k__BackingField: 3.5
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 1
-    <PermanentValue>k__BackingField: 20
-    <TemporaryValue>k__BackingField: 20
+    <PermanentValue>k__BackingField: 50
+    <TemporaryValue>k__BackingField: 50
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 21
     <PermanentValue>k__BackingField: 10

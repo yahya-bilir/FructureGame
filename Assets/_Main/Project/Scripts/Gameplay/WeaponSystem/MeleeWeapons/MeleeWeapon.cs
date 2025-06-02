@@ -2,6 +2,7 @@
 using Characters;
 using Events;
 using UnityEngine;
+using Utilities.Vibrations;
 using WeaponSystem;
 using WeaponSystem.MeleeWeapons;
 
@@ -49,6 +50,8 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
             
             character.CharacterCombatManager.GetDamage(Damage);
         }
+        
+        Vibrations.Soft();
     }
 
     private void SetVfxColor(ParticleSystem vfx, Color color)

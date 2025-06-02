@@ -40,8 +40,8 @@ namespace UI
             _resolver.Inject(_bottomScreen);
             _resolver.Inject(_coinCollectionSliderScreen);
             //_bottomScreen.InitializeOnStart();
-            _characterResource.CoinCount = 10;
-            _eventBus.Publish(new OnCoinCollectionIncreased(1));
+            _characterResource.CoinCount = 0;
+            _eventBus.Publish(new OnCoinCollectionIncreased(0.5f));
         }
 
         [Button]

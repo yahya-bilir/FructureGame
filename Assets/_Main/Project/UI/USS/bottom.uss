@@ -11,7 +11,7 @@
 
 .image-container {
     flex-grow: 0;
-    width: 60%;
+    width: 70%;
     -unity-text-outline-color: rgba(0, 193, 179, 0.62);
     padding-top: 0;
     height: 75%;

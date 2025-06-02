@@ -13,7 +13,7 @@ namespace Utilities.Vibrations
 
         public static void Haptic(HapticPatterns.PresetType hapticType)
         {
-            if(PlayerPrefs.GetInt("Vibration", 0) == 0) return;
+            //if(PlayerPrefs.GetInt("Vibration", 0) == 0) return;
             HapticPatterns.PlayPreset(hapticType);
 #if UNITY_EDITOR
             Debug.Log($"{hapticType} Triggered!");
