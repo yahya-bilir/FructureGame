@@ -174,13 +174,6 @@
 			"path" : "F:/UnityVersions/6000.2.0a4/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
-			"path" : "GameActivity/CMakeLists.txt"
-		},
-		{
-			"isExternal" : true,
-			"path" : "F:/Unity_Projects/MagicWand/.utmp/RelWithDebInfo/4f2n5t1e/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity/game-activityConfig.cmake"
-		},
-		{
 			"path" : "FramePacing/CMakeLists.txt"
 		},
 		{
