@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c3c24eaa3304fd8b09d1906b08c22c, type: 3}
+  m_Name: homa_data
+  m_EditorClassIdentifier: HomaGames.HomaBelly.Core::HomaGames.HomaBelly.HomaBellyManifestConfiguration
+  configData:
+  - pathHash: -1609317064
+    value: 1Vrh9EGP
+  - pathHash: -876955219
+    value: 51ed7bcda096641
+  - pathHash: 1735753716
+    value: True
+  - pathHash: -255302860
+    value: False
+  - pathHash: -1958298337
+    value: False
+  - pathHash: 891139941
+    value: False
+  - pathHash: 797604042
+    value: True
+  - pathHash: 2070089620
+    value: False
+  - pathHash: -1581320791
+    value: False
+  - pathHash: 2130722965
+    value: False
+  - pathHash: 296716727
+    value: False
+  - pathHash: 647524154
+    value: 33
+  - pathHash: 2099441271
+    value: False
+  - pathHash: 1158911540
+    value: ahec47gi44jk
+  - pathHash: -1790251483
+    value: True
+  - pathHash: 1396189054
+    value: 652fe87c10a9943a6e2764871c27b1be
+  - pathHash: -1555731084
+    value: a0f9d0d76ed934019d0c8e3cfc1390af330cfd9c
+  - pathHash: 1198286589
+    value: 684651154425472
+  - pathHash: 1722449587
+    value: d0c45d4f118ba90de168037c09652038
+  PluginManifestHash: -571400503

@@ -33,6 +33,8 @@ namespace Initialization
             var characterResources = gameData.CharacterResource;
 
             resolver.Inject(characterResources);
+            
+            Debug.unityLogger.logEnabled = false;
         }
     }
 }
