@@ -30,8 +30,8 @@ namespace Characters.Tree
         public override void GetDamage(float damage)
         {
             base.GetDamage(damage);
-            var newHealthAfterDamage = _characterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue;
-            var maxHealth = _characterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue;
+            var newHealthAfterDamage = CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue;
+            var maxHealth = CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue;
             SetTreeObjects( (int) newHealthAfterDamage, (int) maxHealth);
         }
 
@@ -55,9 +55,9 @@ namespace Characters.Tree
         protected override async UniTask OnCharacterDied()
         {
             //await base.OnCharacterDied();
-            _eventBus.Publish(new OnCharacterDiedEvent(_character));
+            EventBus.Publish(new OnCharacterDiedEvent(Character));
             //_treeObjects[^1].SetActive(true);
-            _character.gameObject.SetActive(false);
+            Character.gameObject.SetActive(false);
         }
     }
 }

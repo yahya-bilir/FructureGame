@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Characters.Enemy;
+using Factions;
 using UnityEngine;
 
 namespace Factories
@@ -11,5 +12,6 @@ namespace Factories
         [field: SerializeField] public int SpawnLimit { get; private set; }
         [field: SerializeField] public float SpawnInterval { get; private set; }
         [field: SerializeField] public float InitialSpawnInterval { get; private set; }
+        [field: SerializeField] public Faction Faction { get; private set; }
     }
 }

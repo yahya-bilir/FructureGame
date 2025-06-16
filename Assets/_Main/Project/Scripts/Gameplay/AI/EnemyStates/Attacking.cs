@@ -1,6 +1,5 @@
 using AI.Base.Interfaces;
 using Characters;
-using Pathfinding;
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -9,17 +8,13 @@ namespace AI.EnemyStates
     {
         private readonly CharacterAnimationController _animationController;
         private readonly float _attackingInterval;
-        private readonly CharacterCombatManager _playerCombatManager;
-        private readonly float _attackDamage;
+        private readonly CharacterCombatManager _characterCombatManager;
         private float _attackingTimer;
 
-        public Attacking(CharacterAnimationController animationController, float attackingInterval,
-            CharacterCombatManager playerCombatManager, float attackDamage)
+        public Attacking(CharacterAnimationController animationController, float attackingInterval)
         {
             _animationController = animationController;
             _attackingInterval = attackingInterval;
-            _playerCombatManager = playerCombatManager;
-            _attackDamage = attackDamage;
         }
 
         public void Tick()
@@ -32,9 +27,10 @@ namespace AI.EnemyStates
                 return;
             }
 
+            Debug.Log("Attacking");
             _attackingTimer = 0f;
             _animationController.Attack();
-            _playerCombatManager.GetDamage(_attackDamage);
+
         }
 
         public void OnEnter()

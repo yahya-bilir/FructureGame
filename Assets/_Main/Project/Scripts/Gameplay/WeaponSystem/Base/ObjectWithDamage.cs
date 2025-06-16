@@ -16,9 +16,10 @@ namespace WeaponSystem
         [Button]
         public virtual void SetNewDamage(float damage) => Damage = damage;
 
-        public virtual void Initialize(CharacterCombatManager connectedCombatManager)
+        public virtual void Initialize(CharacterCombatManager connectedCombatManager, float damage)
         {
             ConnectedCombatManager = connectedCombatManager;
+            SetNewDamage(damage);
         }
     }
 }

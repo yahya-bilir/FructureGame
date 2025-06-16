@@ -1,4 +1,5 @@
 using UnityEngine;
+using WeaponSystem;
 
 namespace Characters
 {
@@ -19,5 +20,7 @@ namespace Characters
         [Header("Attacking")]
         [field: SerializeField]
         public float AttackingInterval { get; private set; }
+
+        [field: SerializeField] public ObjectWithDamage Weapon { get; private set; }
     }
 }

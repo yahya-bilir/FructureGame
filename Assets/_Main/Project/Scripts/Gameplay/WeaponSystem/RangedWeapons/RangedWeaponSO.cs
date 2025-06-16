@@ -7,5 +7,6 @@ namespace WeaponSystem.RangedWeapons
     {
         [field: SerializeField] public bool ShouldDisableAfterEachShot { get; private set; }
         [field: SerializeField] public AmmoProjectile ProjectilePrefab { get; private set; }
+
     }
 }

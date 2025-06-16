@@ -785,10 +785,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: e8776dff-c719-413e-aea1-4a5734bef999
+  cloudProjectId: b3bbb629-c094-42eb-a827-6df3d70cb545
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MagicWand
+  projectName: DiceQuest
   organizationId: yahyabilir
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

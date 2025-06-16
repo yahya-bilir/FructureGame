@@ -11,13 +11,10 @@ public class RangedWeapon : UpgradeableWeapon
     private float _shootCooldown;
     private Queue<AmmoProjectile> _projectilePool;
 
-
-
-
-    public override void Initialize(CharacterCombatManager connectedCombatManager)
+    public override void Initialize(CharacterCombatManager connectedCombatManager, float damage)
     {
-        base.Initialize(connectedCombatManager);
         _rangedWeaponSo = ObjectUIIdentifierSo as RangedWeaponSO;
+        base.Initialize(connectedCombatManager, damage);
         CurrentAttackInterval = _rangedWeaponSo.AttackInterval;
         InitializePool();
     }
@@ -43,19 +40,19 @@ public class RangedWeapon : UpgradeableWeapon
     {
         if (_rangedWeaponSo.ShouldDisableAfterEachShot) modelRenderer.enabled = false;
         if (_projectilePool.Count == 0) ExpandPool();
-        Vibrations.Soft();
+        //Vibrations.Soft();
         var projectile = _projectilePool.Dequeue();
         projectile.transform.position = transform.position;
         projectile.transform.rotation = transform.rotation;
-        projectile.SetNewDamage(Damage);
         projectile.gameObject.SetActive(true);
         projectile.SetOwnerAndColor(this, _currentColor);
+        projectile.Initialize(ConnectedCombatManager, Damage);
         projectile.SendProjectileToDirection(character.transform.position - transform.position);
     }
 
     protected override void ApplyUpgradeEffects()
     {
-        CurrentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
+        //CurrentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
     }
 
     #region Pool
@@ -63,7 +60,7 @@ public class RangedWeapon : UpgradeableWeapon
     private void InitializePool()
     {
         _projectilePool = new Queue<AmmoProjectile>();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 10; i++)
         {
             var projectile = Instantiate(_rangedWeaponSo.ProjectilePrefab);
             projectile.gameObject.SetActive(false);

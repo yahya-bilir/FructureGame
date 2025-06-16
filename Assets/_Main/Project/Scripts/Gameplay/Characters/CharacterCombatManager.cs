@@ -5,6 +5,7 @@ using Characters.Tree;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using Factions;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -13,63 +14,64 @@ namespace Characters
 {
     public class CharacterCombatManager : IDisposable
     {
-        protected readonly CharacterPropertyManager _characterPropertyManager;
-        protected readonly CharacterVisualEffects _characterVisualEffects;
-        protected readonly Character _character;
-        protected IEventBus _eventBus;
+        protected readonly CharacterPropertyManager CharacterPropertyManager;
+        protected readonly CharacterVisualEffects CharacterVisualEffects;
+        public readonly Character Character;
+        protected IEventBus EventBus;
         private CancellationTokenSource _attackStateCts;
         public bool FleeingEnabled { get; private set; }
         public Vector3 FleePosition { get; private set; }
+        public Character LastFoundEnemy { get; private set; }
+        
         public CharacterCombatManager(CharacterPropertyManager characterPropertyManager, CharacterVisualEffects characterVisualEffects, Character character)
         {
-            _characterPropertyManager = characterPropertyManager;
-            _characterVisualEffects = characterVisualEffects;
-            _character = character;
+            CharacterPropertyManager = characterPropertyManager;
+            CharacterVisualEffects = characterVisualEffects;
+            Character = character;
         }
         
         [Inject]
         private void Inject(IEventBus eventBus)
         {
-            _eventBus = eventBus;
-            _eventBus.Subscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
+            EventBus = eventBus;
+            //EventBus.Subscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
 
         }
         
         public virtual void GetDamage(float damage)
         {
-            var damageData = _characterPropertyManager.GetProperty(PropertyQuery.Health);
+            var damageData = CharacterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
-            _characterPropertyManager.SetProperty(PropertyQuery.Health, newHealth);
+            CharacterPropertyManager.SetProperty(PropertyQuery.Health, newHealth);
             //Debug.Log(newHealth);
-            _characterVisualEffects.OnCharacterTookDamage(newHealth, _characterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
+            CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
             
             if(newHealth <= 0) OnCharacterDied().Forget();
         }
         
         protected virtual async UniTask OnCharacterDied()
         {
-            await _characterVisualEffects.OnCharacterDied();
-            _eventBus.Publish(new OnCharacterDiedEvent(_character));
+            await CharacterVisualEffects.OnCharacterDied();
+            EventBus.Publish(new OnCharacterDiedEvent(Character));
         }
 
         public Character FindNearestEnemy()
         {
-            var range = _characterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
-            var origin = _character.transform.position;
+            //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
+            var origin = Character.transform.position;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, range, LayerMask.GetMask("Enemy"));
+            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));
 
-            if (hits.Length == 0)
-                return null;
+            if (hits.Length == 0) return null;
 
             var nearest = hits
+                .Select(c => c.GetComponent<Character>())
+                .Where(c => c != null && c.Faction != Character.Faction && !c.IsCharacterDead) // Karakterin kendi faction'ı dışındakiler
                 .OrderBy(c => Vector2.Distance(origin, c.transform.position))
                 .FirstOrDefault();
 
-            if (nearest == null) return null;
-            var component = nearest.GetComponent<Character>();
-            _eventBus.Publish(new OnNearbyEnemyFoundEvent(component));
-            return component;
+            LastFoundEnemy = nearest;
+            return nearest;
         }
         
         private void OnEnemyBeingAttacked(OnEnemyBeingAttacked eventData)
@@ -86,24 +88,24 @@ namespace Characters
             var fleeTarget = currentPosition + directionAwayFromAttacker * 5; // örnek olarak 3 birim uzaklaş
 
             FleePosition = fleeTarget;
-            BeingAttacked().Forget();
+            //BeingAttacked().Forget();
         }
 
         private async UniTaskVoid BeingAttacked()
         {
-            // FleeingEnabled = true;
-            // _attackStateCts = new CancellationTokenSource();
-            //
-            // try
-            // {
-            //     await UniTask.WaitForSeconds(3f, cancellationToken: _attackStateCts.Token);
-            // }
-            // catch (OperationCanceledException)
-            // {
-            //     return;
-            // }
-            //
-            // FleeingEnabled = false;
+            FleeingEnabled = true;
+            _attackStateCts = new CancellationTokenSource();
+            
+            try
+            {
+                await UniTask.WaitForSeconds(3f, cancellationToken: _attackStateCts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+            
+            FleeingEnabled = false;
 
         }
 
@@ -115,7 +117,7 @@ namespace Characters
 
         public void Dispose()
         {
-            _eventBus.Unsubscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
+           // EventBus.Unsubscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
         }
     }
 }

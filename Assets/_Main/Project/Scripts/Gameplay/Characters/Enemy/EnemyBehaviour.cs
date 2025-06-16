@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using AI.Base;
 using AI.EnemyStates;
-using Characters.Player;
 using CommonComponents;
-using EventBusses;
-using Events;
 using Pathfinding;
-using Pathfinding.RVO;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -20,7 +16,6 @@ namespace Characters.Enemy
         private AIDestinationSetter _aiDestinationSetter;
         private AIPath _aiPath;
         private Transform _playerTransform;
-        private CharacterCombatManager _playerCombatManager;
         private Collider2D _collider;
         private CamerasManager _camerasManager;
         [SerializeField] private List<GameObject> parts;
@@ -46,51 +41,49 @@ namespace Characters.Enemy
             SetStates();
         }
 
-        public void InitializeOnSpawn(CharacterCombatManager playerCombatManager)
-        {
-            _aiDestinationSetter.target = _playerTransform;
-            _playerCombatManager = playerCombatManager;
-        }
-        
         private void SetStates()
         {
             _stateMachine = new StateMachine();
 
             #region States
 
-            var walkingTowardsPlayer = new WalkingTowardsPlayer(AnimationController, _playerTransform, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), _aiDestinationSetter);
-            var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval, _playerCombatManager, CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
+            var waitingEnemyToArrive = new Waiting();
+            var searchingForEnemy = new SearchingForEnemy();
+            var walkingTowardsPlayer = new WalkingTowardsEnemy(AnimationController, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder);
+            var attacking = new Attacking(AnimationController, CharacterDataHolder.AttackingInterval);
             var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager, _aiDestinationSetter, transform);
             var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts, _playerTransform);
             #endregion
 
             #region State Changing Conditions
 
-            Func<bool> ReachedPlayer() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
-            Func<bool> PlayerMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
+            Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
+            Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
             Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
             Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
             Func<bool> CharacterIsDead() => () => IsCharacterDead;
+            Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
+
             #endregion
 
             #region Transitions
 
-            _stateMachine.AddTransition(walkingTowardsPlayer, attacking, ReachedPlayer());
-            _stateMachine.AddTransition(attacking, walkingTowardsPlayer, PlayerMovedFurther());
+            _stateMachine.AddTransition(searchingForEnemy, walkingTowardsPlayer, FoundEnemyNearby());
+            _stateMachine.AddTransition(walkingTowardsPlayer, attacking, ReachedEnemy());
+            _stateMachine.AddTransition(attacking, walkingTowardsPlayer, EnemyMovedFurther());
             _stateMachine.AddTransition(fleeing, walkingTowardsPlayer, FleeingEnded());
             _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
             _stateMachine.AddAnyTransition(dead, CharacterIsDead());
-
+            
+            
             #endregion
             
-            _stateMachine.SetState(walkingTowardsPlayer);
+            _stateMachine.SetState(searchingForEnemy);
         }
         
         private void Update()
         {
             _stateMachine.Tick();
         }
-        
-
     }
 }

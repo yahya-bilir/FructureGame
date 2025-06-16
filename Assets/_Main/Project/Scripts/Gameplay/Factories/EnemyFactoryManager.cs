@@ -10,14 +10,18 @@ namespace Factories
     public class EnemyFactoryManager : MonoBehaviour
     {
         [SerializeField] private List<EnemyFactory> enemyFactories;
-        private CharacterCombatManager _playerCombatManager;
         private IObjectResolver _resolver;
         [Inject]
         private void Inject(IObjectResolver resolver)
         {
             _resolver = resolver;
+            var characters = FindObjectsOfType<Character>();
+            foreach (var chr in characters)
+            {
+                _resolver.Inject(chr);
+            }
         }
-
+        
         private void Start()
         {
             foreach (var enemyFactory in enemyFactories)
@@ -33,16 +37,26 @@ namespace Factories
     
             if (factory.IsSpawningAvailable)
             {
-                factory.SpawnEnemy(_playerCombatManager);
+                factory.SpawnEnemy();
             }
 
             while (factory.IsSpawningAvailable)
             {
                 await UniTask.WaitForSeconds(factory.SpawnInterval);
-                factory.SpawnEnemy(_playerCombatManager);
+                factory.SpawnEnemy();
             }
         }
-        
-        
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                var characters = FindObjectsOfType<Character>();
+                foreach (var chr in characters)
+                {
+                    _resolver.Inject(chr);
+                }
+            }
+        }
     }
 }

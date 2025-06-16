@@ -223,7 +223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1396091774970523385}
   - component: {fileID: 5774221059686897705}
-  - component: {fileID: 7961922775795342741}
   - component: {fileID: 5252343578799291444}
   m_Layer: 0
   m_Name: Player
@@ -278,28 +277,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7961922775795342741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6972942769922135643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec54cad71d043b0a913e8b331cecfc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Gameplay::Player.PlayerController
-  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: e746185e91e2a104986f53f302b73626, type: 2}
-  model: {fileID: 232710883927109845}
-  characterProperties: {fileID: 11400000, guid: 77a964c82de17414992ba0b8ec0441a2, type: 2}
-  healthBar: {fileID: 0}
-  onDeathVfx: {fileID: 0}
-  weaponCreationPoint: {fileID: 5771060803557974073}
-  pivot: {fileID: 97054342643801640}
-  projectileWeaponCreationPoint: {fileID: 4121478582482121012}
-  onWeaponUpgradedVFX: {fileID: 1043451774417701401}
-  meleeWeapon: {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
 --- !u!58 &5252343578799291444
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -520,11 +497,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552bb69f606ab574d916af038ec1d49a, type: 3}
---- !u!198 &1043451774417701401 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19882686, guid: 552bb69f606ab574d916af038ec1d49a, type: 3}
-  m_PrefabInstance: {fileID: 1043451774431946919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1043451774431880457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 462254, guid: 552bb69f606ab574d916af038ec1d49a, type: 3}

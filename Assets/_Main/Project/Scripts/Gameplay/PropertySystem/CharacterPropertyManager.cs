@@ -21,9 +21,10 @@ namespace PropertySystem
         private void Inject(GameData gameData)
         {
             _gameData = gameData;
+            Initialize();
         }
 
-        public void Initialize()
+        private void Initialize()
         {
             if (_characterProperties.IsSaveable)
             {
