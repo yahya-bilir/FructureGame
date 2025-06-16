@@ -10,20 +10,16 @@ namespace Factories
     public class EnemyFactoryManager : MonoBehaviour
     {
         [SerializeField] private List<EnemyFactory> enemyFactories;
-        private PlayerController _playerController;
         private CharacterCombatManager _playerCombatManager;
         private IObjectResolver _resolver;
         [Inject]
-        private void Inject(PlayerController playerController, IObjectResolver resolver)
+        private void Inject(IObjectResolver resolver)
         {
-            _playerController = playerController;
             _resolver = resolver;
         }
 
         private void Start()
         {
-            _playerCombatManager = _playerController.CharacterCombatManager;
-
             foreach (var enemyFactory in enemyFactories)
             {
                 enemyFactory.Initialize(_resolver);

@@ -35,9 +35,8 @@ namespace Characters.Enemy
         }
 
         [Inject]
-        private void Inject(PlayerController playerController, CamerasManager camerasManager)
+        private void Inject(CamerasManager camerasManager)
         {
-            _playerTransform = playerController.transform;
             _camerasManager = camerasManager;
         }
         

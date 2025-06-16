@@ -28,7 +28,6 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<TreeFactoryManager>();
-            builder.RegisterComponentInHierarchy<PlayerController>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterInstance(playerProperties).AsSelf();

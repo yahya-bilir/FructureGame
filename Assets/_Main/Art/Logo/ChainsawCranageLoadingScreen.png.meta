@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChainsawCranageLoadingScreen_0: 2674286833483749102
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
