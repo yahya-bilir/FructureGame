@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace AI.EnemyStates
 {
-    public class Attacking : IState
+    public class MeleeAttacking : IState
     {
         private readonly CharacterAnimationController _animationController;
         private readonly float _attackingInterval;
         private readonly CharacterCombatManager _characterCombatManager;
         private float _attackingTimer;
 
-        public Attacking(CharacterAnimationController animationController, float attackingInterval)
+        public MeleeAttacking(CharacterAnimationController animationController, float attackingInterval)
         {
             _animationController = animationController;
             _attackingInterval = attackingInterval;
