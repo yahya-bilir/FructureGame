@@ -147,14 +147,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: DaggerAmmo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3626204024890543117, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5357672865402763331}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7782334424452473972}
   m_SourcePrefab: {fileID: 100100000, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+--- !u!1 &2524038127036583080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+  m_PrefabInstance: {fileID: 8369137337747011794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7782334424452473972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524038127036583080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfd35268b8c4b04abd6bc3bb187e19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.ArrowAmmo
+  <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
+  modelRenderer: {fileID: 3282239462763646960}
+  jumpPower: 2
+  jumpCount: 1
 --- !u!4 &6166387557984753420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}

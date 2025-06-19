@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AI.Base;
 using AI.Base.Interfaces;
 using AI.EnemyStates;
@@ -18,9 +17,7 @@ public abstract class EnemyBehaviour : Character
     protected AIDestinationSetter _aiDestinationSetter;
     protected Collider2D _collider;
     protected CamerasManager _camerasManager;
-
-    [SerializeField] private List<GameObject> parts;
-
+    
     protected IState walkingState;
     protected IState attackingState;
 
@@ -54,7 +51,7 @@ public abstract class EnemyBehaviour : Character
         attackingState = CreateAttackingState(); 
 
         var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager, _aiDestinationSetter, transform);
-        var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, parts, transform);
+        var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, CharacterDataHolder.OnDeathParts, transform);
 
         // --- Geçiş Koşulları ---
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
@@ -82,7 +79,7 @@ public abstract class EnemyBehaviour : Character
             CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder);
     }
 
-    protected abstract IState CreateAttackingState();
+    protected abstract BaseAttacking CreateAttackingState();
 
     // 🔁 Ek state geçişleri için override edilebilir
     protected virtual void AddCustomStatesAndTransitions(StateMachine sm) { }

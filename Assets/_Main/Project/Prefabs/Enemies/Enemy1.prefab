@@ -237,6 +237,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 6281516914729886650}
+    - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: characterProperties
+      value: 
+      objectReference: {fileID: 11400000, guid: 58ef249ad7abb9e40abd003c04ab996b, type: 2}
+    - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: <CharacterDataHolder>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 0017d809fbcd731429e6706c60baee84, type: 2}
     - target: {fileID: 3857543460695671801, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.852

@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 8847675084653503570}
   - component: {fileID: 6768302183001923526}
   - component: {fileID: 477923832591692675}
-  - component: {fileID: 5356910590511490258}
+  - component: {fileID: 3293211154790333860}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -372,7 +372,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.25
---- !u!114 &5356910590511490258
+--- !u!114 &3293211154790333860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,9 +381,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5328889510459864210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0294a02cf21044e1ae0ee0f7445b91f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Gameplay::AI.EnemyBehaviour.EnemyBehaviour
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
   <CharacterDataHolder>k__BackingField: {fileID: 0}
   model: {fileID: 0}
   characterProperties: {fileID: 0}

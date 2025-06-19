@@ -1,7 +1,7 @@
 ﻿using UI;
 using UnityEngine;
 
-namespace WeaponSystem.RangedWeapons
+namespace WeaponSystem.AmmoSystem
 {
     [CreateAssetMenu(fileName = "AmmoProjectile", menuName = "Scriptable Objects/Weapons/Ammo Projectile", order = 3)]
     public class AmmoProjectileSO : ObjectUIIdentifierSO

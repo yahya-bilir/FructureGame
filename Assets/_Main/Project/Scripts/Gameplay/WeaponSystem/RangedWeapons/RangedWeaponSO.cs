@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using WeaponSystem.AmmoSystem;
 
 namespace WeaponSystem.RangedWeapons
 {
@@ -6,7 +7,7 @@ namespace WeaponSystem.RangedWeapons
     public class RangedWeaponSO : UpgreadableWeaponSO
     {
         [field: SerializeField] public bool ShouldDisableAfterEachShot { get; private set; }
-        [field: SerializeField] public AmmoProjectile ProjectilePrefab { get; private set; }
+        [field: SerializeField] public AmmoBase ProjectilePrefab { get; private set; }
 
     }
 }

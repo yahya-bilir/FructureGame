@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using WeaponSystem;
 
@@ -6,6 +7,8 @@ namespace Characters
     [CreateAssetMenu(fileName = "CharacterDataHolder", menuName = "Scriptable Objects/Character Data Holder", order = 0)]
     public class CharacterDataHolder : ScriptableObject
     {
+        [field: SerializeField] public List<GameObject> OnDeathParts { get; private set; }
+        
         [field: SerializeField] public int Worth { get; private set; }
         
         [Header("Shining")]

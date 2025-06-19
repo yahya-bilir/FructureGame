@@ -5,9 +5,9 @@ namespace Characters.Enemy
 {
     public class MeleeEnemy : EnemyBehaviour
     {
-        protected override IState CreateAttackingState()
+        protected override BaseAttacking CreateAttackingState()
         {
-            return new MeleeAttacking(AnimationController, CharacterDataHolder.AttackingInterval);
+            return new MeleeAttacking(AnimationController, CharacterDataHolder.AttackingInterval, CharacterCombatManager);
         }
     }
 }

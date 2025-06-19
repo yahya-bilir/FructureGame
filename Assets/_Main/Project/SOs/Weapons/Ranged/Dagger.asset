@@ -15,8 +15,8 @@ MonoBehaviour:
   <ObjectName>k__BackingField: Rusty Dagger
   <ObjectSprite>k__BackingField: {fileID: 21300000, guid: aa53902b430b06f4f846f6c6b5361a53, type: 3}
   <AttackInterval>k__BackingField: 1.1
-  <MinimumRange>k__BackingField: 25
+  <MinimumRange>k__BackingField: 10
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.05
   <ShouldDisableAfterEachShot>k__BackingField: 0
-  <ProjectilePrefab>k__BackingField: {fileID: 5077803391781909727, guid: 03d1ffa63be46434389650184decbe12, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: -7782334424452473972, guid: 03d1ffa63be46434389650184decbe12, type: 3}

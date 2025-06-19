@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Characters;
 using UnityEngine;
-using Utilities.Vibrations;
 using WeaponSystem;
+using WeaponSystem.AmmoSystem;
 using WeaponSystem.RangedWeapons;
 
 public class RangedWeapon : UpgradeableWeapon
 {
     private RangedWeaponSO _rangedWeaponSo;
     private float _shootCooldown;
-    private Queue<AmmoProjectile> _projectilePool;
+    private Queue<AmmoBase> _projectilePool;
 
     public override void Initialize(CharacterCombatManager connectedCombatManager, float damage)
     {
@@ -22,10 +22,6 @@ public class RangedWeapon : UpgradeableWeapon
     private void Update()
     {
         _shootCooldown += Time.deltaTime;
-        if (CurrentAttackInterval / 2 < _shootCooldown)
-        {
-            modelRenderer.enabled = true;
-        }
 
         if (_shootCooldown >= CurrentAttackInterval)
         {
@@ -34,32 +30,41 @@ public class RangedWeapon : UpgradeableWeapon
             Shoot(closestEnemy);
             _shootCooldown = 0;
         }
+        else if (_shootCooldown >= CurrentAttackInterval / 2)
+        {
+            modelRenderer.enabled = true;
+        }
     }
 
     private void Shoot(Character character)
     {
-        if (_rangedWeaponSo.ShouldDisableAfterEachShot) modelRenderer.enabled = false;
-        if (_projectilePool.Count == 0) ExpandPool();
-        //Vibrations.Soft();
-        var projectile = _projectilePool.Dequeue();
-        projectile.transform.position = transform.position;
-        projectile.transform.rotation = transform.rotation;
-        projectile.gameObject.SetActive(true);
-        projectile.SetOwnerAndColor(this, _currentColor);
-        projectile.Initialize(ConnectedCombatManager, Damage);
-        projectile.SendProjectileToDirection(character.transform.position - transform.position);
+        if (_rangedWeaponSo.ShouldDisableAfterEachShot)
+            modelRenderer.enabled = false;
+
+        if (_projectilePool.Count == 0)
+            ExpandPool();
+
+        var ammo = _projectilePool.Dequeue();
+        ammo.transform.SetParent(null); // herhangi bir parent'tan ayrılıyor
+        ammo.transform.position = transform.position;
+        ammo.transform.rotation = transform.rotation;
+        ammo.gameObject.SetActive(true);
+
+        ammo.SetOwnerAndColor(this, _currentColor);
+        ammo.Initialize(ConnectedCombatManager, Damage);
+        ammo.FireAt(character); // ✅ FireAt(Character) polimorfik çağrı
     }
 
     protected override void ApplyUpgradeEffects()
     {
-        //CurrentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
+        // Örn: CurrentAttackInterval -= _rangedWeaponSo.AttackSpeedUpgradeOnEachIncrement;
     }
 
     #region Pool
 
     private void InitializePool()
     {
-        _projectilePool = new Queue<AmmoProjectile>();
+        _projectilePool = new Queue<AmmoBase>();
         for (int i = 0; i < 10; i++)
         {
             var projectile = Instantiate(_rangedWeaponSo.ProjectilePrefab);
@@ -68,7 +73,7 @@ public class RangedWeapon : UpgradeableWeapon
         }
     }
 
-    public void ReturnProjectileToPool(AmmoProjectile projectile)
+    public void ReturnProjectileToPool(AmmoBase projectile)
     {
         _projectilePool.Enqueue(projectile);
     }
