@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AI.Base.Interfaces;
 using Characters;
+using Characters.Enemy;
 using CommonComponents;
 using DG.Tweening;
 using Pathfinding;

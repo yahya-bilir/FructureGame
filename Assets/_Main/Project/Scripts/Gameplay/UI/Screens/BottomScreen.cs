@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DataSave;
 using DataSave.Runtime;
 using DG.Tweening;
 using EventBusses;
@@ -32,7 +31,7 @@ namespace UI.Screens
 
         private bool _increasing = true;
         private GameData _gameData;
-        private GameDatabase _gameDatabase;
+        private Database.GameDatabase _gameDatabase;
         private IEventBus _eventBus;
         private int _currentPrice;
         private bool _isAnimationPlaying;
@@ -66,7 +65,7 @@ namespace UI.Screens
         }
         
         [Inject]
-        private void Inject(GameData gameData, GameDatabase gameDatabase, IEventBus eventBus)
+        private void Inject(GameData gameData, Database.GameDatabase gameDatabase, IEventBus eventBus)
         {
             _gameData = gameData;
             _gameDatabase = gameDatabase;

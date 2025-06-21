@@ -30,25 +30,12 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-            //Debug.Log(_aiPath.remainingDistance);
-            Vector3 velocity = _aiPath.desiredVelocity;
-
-            if (velocity.x > 0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 0, 0); // Sağa bak
-            }
-            else if (velocity.x < -0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 180, 0); // Sola bak
-            }
-            
-            Debug.Log("Walking");
-        }
-
-        public void OnEnter()
-        {
             var enemy = _characterCombatManager.LastFoundEnemy;
-            if (enemy == null) return;
+            if (enemy == null)
+            {
+                _aiPath.canMove = false;
+                return;
+            }
 
             var castedWeapon = (WeaponSO)_characterDataHolder.Weapon.ObjectUIIdentifierSo;
             float minimumRange = castedWeapon.MinimumRange;
@@ -58,9 +45,8 @@ namespace AI.EnemyStates
 
             float currentDistance = Vector3.Distance(selfPosition, enemyPosition);
 
-            if (currentDistance > minimumRange + 0.1f) // Ufak tolerans payı ekliyoruz
+            if (currentDistance > minimumRange + 0.1f)
             {
-                // Yeterince yakın değilse: doğru pozisyona yürü
                 var direction = (enemyPosition - selfPosition).normalized;
                 var targetPosition = enemyPosition - direction * minimumRange;
                 _aiPath.destination = targetPosition;
@@ -68,11 +54,24 @@ namespace AI.EnemyStates
             }
             else
             {
-                // Zaten yeterince yakınsa: hiç hareket etme
                 _aiPath.canMove = false;
-                _aiPath.destination = selfPosition; // Hedef kendin olsun, yerinde kal
+                _aiPath.destination = selfPosition;
             }
 
+            Vector3 velocity = _aiPath.desiredVelocity;
+            if (velocity.x > 0.1f)
+            {
+                _modelTransform.localEulerAngles = new Vector3(0, 0, 0);
+            }
+            else if (velocity.x < -0.1f)
+            {
+                _modelTransform.localEulerAngles = new Vector3(0, 180, 0);
+            }
+        }
+
+
+        public void OnEnter()
+        {
             _animationController.Run();
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
         }

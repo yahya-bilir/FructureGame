@@ -1,17 +1,43 @@
 using Characters;
+using EventBusses;
+using Events;
 
 public class MeleeAttacking : BaseAttacking
 {
     private readonly CharacterCombatManager _combatManager;
+    private readonly IEventBus _eventBus;
+    private readonly float _damage;
 
-    public MeleeAttacking(CharacterAnimationController animationController, float interval, CharacterCombatManager combatManager)
+    public MeleeAttacking(CharacterAnimationController animationController, float interval,
+        CharacterCombatManager combatManager, IEventBus eventBus, float damage)
         : base(animationController, interval)
     {
         _combatManager = combatManager;
+        _eventBus = eventBus;
+        _damage = damage;
     }
 
     protected override void OnAttack()
     {
         //_combatManager.TryDealMeleeDamage();
+    }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        _eventBus.Subscribe<OnEnemyAttacked>(OnEnemyAttacked);
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        _eventBus.Unsubscribe<OnEnemyAttacked>(OnEnemyAttacked);
+    }
+
+    private void OnEnemyAttacked(OnEnemyAttacked attackedEnemy)
+    {
+        var lastFoundEnemy = _combatManager.LastFoundEnemy;
+        if(lastFoundEnemy == null && lastFoundEnemy.IsCharacterDead) return;
+        lastFoundEnemy.CharacterCombatManager.GetDamage(_damage);
     }
 }

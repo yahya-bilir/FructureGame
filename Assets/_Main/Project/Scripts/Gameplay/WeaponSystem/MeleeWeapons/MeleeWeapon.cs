@@ -72,21 +72,21 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
 
     private void TryProcessTrigger(Collider2D other, bool isEntering)
     {
-        if (!other.CompareTag("Enemy")) return;
-
-        var enemy = other.GetComponent<Character>();
-        if (enemy == null) return;
-
-        if (isEntering)
-        {
-            if (_triggeredCharacters.Contains(enemy)) return;
-            _triggeredCharacters.Add(enemy);
-        }
-        else
-        {
-            if (!_triggeredCharacters.Contains(enemy)) return;
-            _triggeredCharacters.Remove(enemy);
-        }
+        // if (!other.CompareTag("Enemy")) return;
+        //
+        // var enemy = other.GetComponent<Character>();
+        // if (enemy == null) return;
+        //
+        // if (isEntering)
+        // {
+        //     if (_triggeredCharacters.Contains(enemy)) return;
+        //     _triggeredCharacters.Add(enemy);
+        // }
+        // else
+        // {
+        //     if (!_triggeredCharacters.Contains(enemy)) return;
+        //     _triggeredCharacters.Remove(enemy);
+        // }
     }
 
     protected override void ApplyUpgradeEffects()

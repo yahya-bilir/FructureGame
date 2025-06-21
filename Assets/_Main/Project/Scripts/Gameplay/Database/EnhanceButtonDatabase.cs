@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DataSave
+namespace Database
 {
     [Serializable]
     public struct EnhanceButtonDatabase

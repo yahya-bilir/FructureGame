@@ -42,7 +42,7 @@ namespace Characters
         {
             var damageData = CharacterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
-            CharacterPropertyManager.SetProperty(PropertyQuery.Health, newHealth);
+            CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.Health, newHealth);
             //Debug.Log(newHealth);
             CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
             

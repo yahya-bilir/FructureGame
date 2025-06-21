@@ -1,6 +1,4 @@
 using System.Linq;
-using Characters.Enemy;
-using DataSave.Runtime;
 using Factions;
 using PropertySystem;
 using UI;
@@ -16,7 +14,7 @@ namespace Characters
         public CharacterCombatManager CharacterCombatManager { get; protected set; }
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
         [SerializeField] protected GameObject model;
-        [SerializeField] private CharacterProperties characterProperties;
+        [field: SerializeField] public CharacterPropertiesSO CharacterPropertiesSo { get; private set; }
         [SerializeField] protected UIPercentageFiller healthBar;
         [SerializeField] protected ParticleSystem onDeathVfx;
         [SerializeField] private Transform weaponEquippingField;
@@ -35,20 +33,20 @@ namespace Characters
         protected CharacterAnimationController AnimationController;
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
         
-        private IObjectResolver _resolver;
+        protected IObjectResolver Resolver;
 
         
         [Inject]
         private void Inject(IObjectResolver resolver)
         {
-            _resolver = resolver;
+            Resolver = resolver;
         }
         protected virtual void Awake()
         {
             GetComponents();
             AnimationController = new CharacterAnimationController(_animator);
             CharacterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx);
-            CharacterPropertyManager = new CharacterPropertyManager(characterProperties);
+            CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
             CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon);
@@ -61,10 +59,10 @@ namespace Characters
 
         private void ResolveOrInitializeCreatedObjects()
         {
-            _resolver.Inject(CharacterPropertyManager);
-            _resolver.Inject(CharacterCombatManager);
-            _resolver.Inject(CharacterSpeedController);
-            _resolver.Inject(CharacterWeaponManager);
+            Resolver.Inject(CharacterPropertyManager);
+            Resolver.Inject(CharacterCombatManager);
+            Resolver.Inject(CharacterSpeedController);
+            Resolver.Inject(CharacterWeaponManager);
         }
 
         protected virtual void GetComponents()

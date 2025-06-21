@@ -24,8 +24,6 @@ public abstract class BaseAttacking : IState
 
         _attackingTimer = 0f;
         _animationController.Attack();
-
-        OnAttack(); // 🔁 Alt sınıfa özgü davranış
     }
 
     protected abstract void OnAttack();

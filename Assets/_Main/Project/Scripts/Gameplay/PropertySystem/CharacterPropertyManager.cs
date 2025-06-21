@@ -8,13 +8,13 @@ namespace PropertySystem
 {
     public class CharacterPropertyManager
     {
-        private readonly CharacterProperties _characterProperties;
+        private readonly CharacterPropertiesSO _characterPropertiesSo;
         private List<PropertyData> _propertySaveDatas = new();
         private GameData _gameData;
 
-        public CharacterPropertyManager(CharacterProperties characterProperties)
+        public CharacterPropertyManager(CharacterPropertiesSO characterPropertiesSo)
         {
-            _characterProperties = characterProperties;
+            _characterPropertiesSo = characterPropertiesSo;
         }
 
         [Inject]
@@ -26,13 +26,13 @@ namespace PropertySystem
 
         private void Initialize()
         {
-            if (_characterProperties.IsSaveable)
+            if (_characterPropertiesSo.IsSaveable)
             {
                 ReadFromGameData();
                 return;
             }
             
-            _propertySaveDatas = _characterProperties.PropertySaveDatas
+            _propertySaveDatas = _characterPropertiesSo.PropertySaveDatas
                 .Select(p => new PropertyData(p.PropertyQuery, p.PermanentValue, p.TemporaryValue))
                 .ToList();
 
@@ -44,17 +44,23 @@ namespace PropertySystem
             return data;
         }
 
-        public void SetProperty(PropertyQuery query,  float temporaryValue, float permanentValue = 0)
+        public void SetPropertyTemporarily(PropertyQuery query,  float temporaryValue)
         {
             var data = GetProperty(query);
-            data.SetDataInternally(permanentValue == 0 ? data.PermanentValue : permanentValue, temporaryValue);
-            if (!_characterProperties.IsSaveable) return;
-            SaveToGameData(data);
+            data.SetDataInternally(data.PermanentValue, temporaryValue);
+        }
+        
+        public void SetPropertyPermanently(PropertyQuery query, float newPermanentValue)
+        {
+            var data = GetProperty(query);
+            data.SetDataInternally(newPermanentValue, newPermanentValue);
+            if (!_characterPropertiesSo.IsSaveable) return;
+            SaveToGameData(data); // sadece permanent veriyi kaydet
         }
         
         private void SaveToGameData(PropertyData data)
         {
-            var saveData = _gameData.PropertySaves.GetProperty(data, _characterProperties.EntityId);
+            var saveData = _gameData.PropertySaves.GetProperty(data, _characterPropertiesSo.EntityId);
             saveData.PropertyData.SetDataInternally(data.PermanentValue, data.PermanentValue);
             _gameData.PropertySaves.SaveProperty(saveData);
         }
@@ -63,10 +69,10 @@ namespace PropertySystem
         {
             _propertySaveDatas.Clear();
 
-            foreach (var t in _characterProperties.PropertySaveDatas)
+            foreach (var t in _characterPropertiesSo.PropertySaveDatas)
             {
                 var propertyData = _gameData.PropertySaves
-                    .GetProperty(t, _characterProperties.EntityId)?
+                    .GetProperty(t, _characterPropertiesSo.EntityId)?
                     .PropertyData;
 
                 if (propertyData != null)

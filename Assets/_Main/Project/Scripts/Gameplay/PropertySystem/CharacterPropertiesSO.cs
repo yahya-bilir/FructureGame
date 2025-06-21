@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using PropertySystem;
 using UnityEngine;
 
-namespace DataSave.Runtime
+namespace PropertySystem
 {
     [CreateAssetMenu(fileName = "CharacterProperties", menuName = "Scriptable Objects/Character Properties")]
-    public class CharacterProperties : ScriptableObject
+    public class CharacterPropertiesSO : ScriptableObject
     {
-        [field: SerializeField] public bool IsSaveable { get; private set; }
+        [field: SerializeField] public bool IsSaveable { get; private set; } = true;
         [field: SerializeField] public string EntityId { get; private set; }
         [field: SerializeField] public List<PropertyData> PropertySaveDatas { get; private set; }
     }

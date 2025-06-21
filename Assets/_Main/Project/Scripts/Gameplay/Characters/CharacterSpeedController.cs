@@ -1,12 +1,12 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
-using PropertySystem;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using PropertySystem;
 using VContainer;
 
-namespace Characters.Enemy
+namespace Characters
 {
     public class CharacterSpeedController
     {
@@ -48,7 +48,7 @@ namespace Characters.Enemy
             var originalSpeed = speed.TemporaryValue;
 
             var newSpeedValue = originalSpeed / _dataHolder.OnAttackedSpeedDivider;
-            _characterPropertyManager.SetProperty(PropertyQuery.Speed, newSpeedValue);
+            _characterPropertyManager.SetPropertyTemporarily(PropertyQuery.Speed, newSpeedValue);
 
             try
             {
@@ -61,7 +61,7 @@ namespace Characters.Enemy
                 return;
             }
 
-            _characterPropertyManager.SetProperty(PropertyQuery.Speed, originalSpeed);
+            _characterPropertyManager.SetPropertyTemporarily(PropertyQuery.Speed, originalSpeed);
             _isInAttackedState = false;
         }
 

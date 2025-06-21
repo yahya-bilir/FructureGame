@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponSystem;
 
-namespace DataSave
+namespace Database
 {
     [Serializable]
     public struct WeaponDatabase

@@ -1,42 +1,45 @@
 using System.Collections;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-public class PartsAutoDestroyer : MonoBehaviour
+namespace Characters.Enemy
 {
-    [SerializeField] private float delayBeforeMove = 0.5f;
-    [SerializeField] private float jumpDuration = 0.6f;
-    [SerializeField] private float jumpPower = 1.2f;
-
-    public void StartFade(Transform playerTrf)
+    public class PartsAutoDestroyer : MonoBehaviour
     {
-        StartCoroutine(MoveTowardPlayer(playerTrf));
-    }
+        [SerializeField] private float delayBeforeMove = 0.5f;
+        [SerializeField] private float jumpDuration = 0.6f;
+        [SerializeField] private float jumpPower = 1.2f;
 
-    private IEnumerator MoveTowardPlayer(Transform playerTrf)
-    {
-        yield return new WaitForSeconds(delayBeforeMove);
-
-        if (playerTrf == null)
+        public void StartFade(Transform playerTrf)
         {
-            Debug.LogWarning("Player transform referansı eksik.");
-            yield break;
+            StartCoroutine(MoveTowardPlayer(playerTrf));
         }
 
-        transform.parent = playerTrf;
+        private IEnumerator MoveTowardPlayer(Transform playerTrf)
+        {
+            yield return new WaitForSeconds(delayBeforeMove);
 
-        // Hedef yerel pozisyon (örnek: yukarı zıplıyor gibi olsun)
-        Vector3 targetLocalPosition = Vector3.up * 0.5f;
+            if (playerTrf == null)
+            {
+                Debug.LogWarning("Player transform referansı eksik.");
+                yield break;
+            }
 
-        transform.DOLocalJump(
-            targetLocalPosition,
-            jumpPower,
-            numJumps: 1,
-            duration: jumpDuration
-        ).SetEase(Ease.InCubic);
+            transform.parent = playerTrf;
 
-        yield return new WaitForSeconds(jumpDuration);
+            // Hedef yerel pozisyon (örnek: yukarı zıplıyor gibi olsun)
+            Vector3 targetLocalPosition = Vector3.up * 0.5f;
 
-        Destroy(gameObject);
+            transform.DOLocalJump(
+                targetLocalPosition,
+                jumpPower,
+                numJumps: 1,
+                duration: jumpDuration
+            ).SetEase(Ease.InCubic);
+
+            yield return new WaitForSeconds(jumpDuration);
+
+            Destroy(gameObject);
+        }
     }
 }

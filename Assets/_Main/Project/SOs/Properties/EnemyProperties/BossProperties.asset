@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af6e59aad3e430680c831eecfdfa75c, type: 3}
   m_Name: BossProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
-  <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: 
+  <IsSaveable>k__BackingField: 1
+  <EntityId>k__BackingField: Boss
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
     <PermanentValue>k__BackingField: 250

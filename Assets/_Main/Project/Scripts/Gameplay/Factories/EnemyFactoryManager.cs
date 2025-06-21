@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Characters;
-using Characters.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
@@ -44,18 +43,6 @@ namespace Factories
             {
                 await UniTask.WaitForSeconds(factory.SpawnInterval);
                 factory.SpawnEnemy();
-            }
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                var characters = FindObjectsOfType<Character>();
-                foreach (var chr in characters)
-                {
-                    _resolver.Inject(chr);
-                }
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using DataSave;
-using DataSave.Runtime;
+﻿using DataSave.Runtime;
 using EventBusses;
 using UnityEngine;
 using VContainer;
@@ -10,7 +9,7 @@ namespace Initialization
     public class InitialLifetimeScope : LifetimeScope
     {
         [SerializeField] private GameData gameData;
-        [SerializeField] private GameDatabase gameDatabase;
+        [SerializeField] private Database.GameDatabase gameDatabase;
 
         protected override void Awake()
         {
