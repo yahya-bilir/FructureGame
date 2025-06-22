@@ -1,6 +1,8 @@
 using System.Linq;
+using Characters.Transforming;
 using Factions;
 using PropertySystem;
+using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using Utils;
@@ -34,12 +36,14 @@ namespace Characters
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
         
         protected IObjectResolver Resolver;
+        private CharacterTransformManager _characterTransformManager;
 
         
         [Inject]
-        private void Inject(IObjectResolver resolver)
+        private void Inject(IObjectResolver resolver, CharacterTransformManager characterTransformManager)
         {
             Resolver = resolver;
+            _characterTransformManager = characterTransformManager;
         }
         protected virtual void Awake()
         {
@@ -75,5 +79,21 @@ namespace Characters
         {
             Faction = currentFaction;
         }
+        
+        [Button(ButtonSizes.Medium)]
+        private void TryUpgradeFromEditor()
+        {
+#if UNITY_EDITOR
+            if (_characterTransformManager != null)
+            {
+                _characterTransformManager.TryUpgradeCharacter(this);
+            }
+            else
+            {
+                Debug.LogWarning("CharacterTransformManager not injected.");
+            }
+#endif
+        }
     }
+    
 }

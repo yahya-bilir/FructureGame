@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314a874ee719449383b34d7368876ea7, type: 3}
+  m_Name: 2CharacterUpgradePathSO
+  m_EditorClassIdentifier: Gameplay::Characters.Transforming.CharacterTransformPathSO
+  <SequentialTransformableCharacters>k__BackingField:
+  - {fileID: 5350342064384588096, guid: c979a2186def89c4fac0ebc9ad65ca96, type: 3}
+  - {fileID: 6841264919151217019, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}

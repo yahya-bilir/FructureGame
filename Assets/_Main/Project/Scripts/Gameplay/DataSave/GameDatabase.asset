@@ -26,3 +26,8 @@ MonoBehaviour:
   <EnhanceButtonDatabase>k__BackingField:
     <InitialEnhancePrice>k__BackingField: 10
     <IncrementOnEachUpgrade>k__BackingField: 1
+  <CharacterTransformPathDatabase>k__BackingField:
+    <CharacterUpgradePaths>k__BackingField:
+    - {fileID: 11400000, guid: 48e725a743db0ec4b9df242b515c7ef0, type: 2}
+    - {fileID: 11400000, guid: 5dde6a1cbf12ea140a4e44f77af3ccaf, type: 2}
+    - {fileID: 11400000, guid: bd5a311ab787e9145afae772b98bceee, type: 2}

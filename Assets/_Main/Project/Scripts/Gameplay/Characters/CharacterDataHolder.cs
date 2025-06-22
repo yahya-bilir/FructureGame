@@ -21,7 +21,7 @@ namespace Characters
 
 
         [Header("Attacking")]
-        [field: SerializeField]
+        [field: SerializeField] 
         public float AttackingInterval { get; private set; }
 
         [field: SerializeField] public ObjectWithDamage Weapon { get; private set; }

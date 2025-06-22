@@ -344,9 +344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Characters.Tree.Tree
   <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: b1e46b17b78dc0049876a9cc514e505d, type: 2}
   model: {fileID: 6833633032605078580}
-  characterProperties: {fileID: 11400000, guid: b0a6995335f4e334ebea5adc1d32547e, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: b0a6995335f4e334ebea5adc1d32547e, type: 2}
   healthBar: {fileID: 0}
   onDeathVfx: {fileID: 8034139695766283223}
+  weaponEquippingField: {fileID: 0}
+  <Faction>k__BackingField: 0
   treeParts:
   - {fileID: 1211283068924704679}
   - {fileID: 2531503498454310017}

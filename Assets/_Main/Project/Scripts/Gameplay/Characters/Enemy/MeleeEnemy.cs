@@ -14,9 +14,9 @@ namespace Characters.Enemy
             _eventBus = eventBus;
         }
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
             _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
             Resolver.Inject(_attackAnimationCaller);
         }

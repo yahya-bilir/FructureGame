@@ -11,12 +11,14 @@ namespace Characters.Transforming
     {
         private CharacterTransformPathDatabase _transformPathDatabase;
         private IEventBus _eventBus;
+        private IObjectResolver _resolver;
 
         [Inject]
-        private void Inject(GameDatabase database, IEventBus eventBus)
+        private void Inject(GameDatabase database, IEventBus eventBus, IObjectResolver resolver)
         {
             _transformPathDatabase = database.CharacterTransformPathDatabase;
             _eventBus = eventBus;
+            _resolver = resolver;
         }
         
         public void TryUpgradeCharacters(List<Character> characters)
@@ -25,24 +27,36 @@ namespace Characters.Transforming
 
             foreach (var character in characters)
             {
-                var currentId = character.CharacterPropertiesSo.EntityId;
+                var currentId = character.CharacterPropertiesSo?.EntityId;
+                if (string.IsNullOrEmpty(currentId))
+                    continue;
 
                 foreach (var path in _transformPathDatabase.CharacterUpgradePaths)
                 {
                     var sequence = path.SequentialTransformableCharacters;
-                    var index = sequence.FindIndex(c => c.CharacterPropertiesSo.EntityId == currentId);
+                    if (sequence == null || sequence.Count < 2)
+                        continue;
 
-                    if (index != -1 && index < sequence.Count - 1)
-                    {
-                        var nextCharacterPrefab = sequence[index + 1];
-                        upgradePairs.Add((character, nextCharacterPrefab));
-                        break;
-                    }
+                    var index = sequence.FindIndex(c =>
+                        c != null &&
+                        c.CharacterPropertiesSo != null &&
+                        c.CharacterPropertiesSo.EntityId == currentId);
+
+                    if (index == -1 || index >= sequence.Count - 1)
+                        continue;
+
+                    var nextCharacterPrefab = sequence[index + 1];
+                    if (nextCharacterPrefab == null)
+                        continue;
+
+                    upgradePairs.Add((character, nextCharacterPrefab));
+                    break;
                 }
             }
 
             UpgradeCharacters(upgradePairs);
         }
+
 
         public void TryUpgradeCharacter(Character character)
         {
@@ -63,6 +77,7 @@ namespace Characters.Transforming
             var rotation = currentCharacter.transform.rotation;
 
             var newCharacter = Object.Instantiate(nextCharacterPrefab, position, rotation);
+            _resolver.Inject(newCharacter);
             newCharacter.InitializeOnSpawn(currentCharacter.Faction);
 
             _eventBus.Publish(new OnCharacterUpgraded(currentCharacter, newCharacter));

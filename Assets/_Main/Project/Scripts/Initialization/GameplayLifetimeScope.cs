@@ -1,11 +1,9 @@
-﻿using Characters.Player;
-using Characters.Transforming;
+﻿using Characters.Transforming;
 using CommonComponents;
-using DataSave.Runtime;
 using Factories;
 using PropertySystem;
 using UI;
-using UI.Screens;
+using UI.PerksAndDraggables;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -16,6 +14,7 @@ namespace Initialization
     public class GameplayLifetimeScope : LifetimeScope
     {
         [FormerlySerializedAs("playerProperties")] [SerializeField] private CharacterPropertiesSO playerPropertiesSo;
+        [SerializeField] private RectTransform bottomHalf;
         
         protected override void Awake()
         {
@@ -33,8 +32,10 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<TreeFactoryManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();
+            builder.RegisterComponentInHierarchy<BottomPerkManager>();
             builder.Register<CharacterTransformManager>(Lifetime.Singleton);
             builder.RegisterInstance(playerPropertiesSo).AsSelf();
+            builder.RegisterInstance(bottomHalf).AsSelf();
         }
     }
 }

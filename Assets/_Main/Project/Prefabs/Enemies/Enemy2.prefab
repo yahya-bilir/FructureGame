@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 5096226776284325400, guid: b14611867cb404941aaa6f55476185e8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 55e197f1b654b36418e08e0df6f9166b, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f57c08ae28c03f4db01dab3163775b1, type: 2}
     - target: {fileID: 6769370334496419857, guid: b14611867cb404941aaa6f55476185e8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
   <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: 2c64ec6f11c2c489aa4d7ff876d0ea26, type: 2}
   model: {fileID: 865721132958996327}
-  characterProperties: {fileID: 11400000, guid: e6534110dfe1d47b6bf6f1d12f3d926d, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: e6534110dfe1d47b6bf6f1d12f3d926d, type: 2}
   healthBar: {fileID: 6600985371891367527}
   onDeathVfx: {fileID: 6588488916737409334}
   weaponEquippingField: {fileID: 8070027899260922094}
