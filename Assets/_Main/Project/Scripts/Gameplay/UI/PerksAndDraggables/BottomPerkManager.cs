@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events.ClickableEvents;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
 namespace UI.PerksAndDraggables
@@ -22,6 +22,15 @@ namespace UI.PerksAndDraggables
             _eventBus = eventBus;
         }
 
+        private void Start()
+        {
+            //debug purpose
+            foreach (var drg in FindObjectsByType<Draggable>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+            {
+                TransferDraggableToBottom(drg);
+            }
+        }
+
         private void OnEnable()
         {
             _eventBus.Subscribe<OnDraggableStartedBeingDragged>(OnDraggableStartedBeingDragged);
@@ -38,17 +47,35 @@ namespace UI.PerksAndDraggables
 
         private void OnDraggableStartedBeingDragged(OnDraggableStartedBeingDragged eventData)
         {
+            var draggable = eventData.Draggable;
+            foreach (var connectedTransform in _clickableAndConnectedTransforms)
+            {
+                if (connectedTransform.Clickable == draggable)
+                {
+                    connectedTransform.ParentTransform.SetParent(transform.parent);
+                    continue;
+                }
+                
+                Draggable drg = connectedTransform.Clickable as Draggable;
+                if (drg != null) drg.SendDraggableToConnectedTransform().Forget();
+            }
             
         }        
         private void OnDraggableStoppedBeingDragged(OnDraggableStoppedBeingDragged eventData)
         {
-            
+            foreach (var connectedTransform in _clickableAndConnectedTransforms)
+            {
+                connectedTransform.ParentTransform.SetParent(transform);
+                Draggable drg = connectedTransform.Clickable as Draggable;
+                if (drg != null) drg.SendDraggableToConnectedTransform().Forget();
+            }
         }
 
         private void OnClickableDestroyed(OnClickableDestroyed eventData)
         {
             if(eventData.Clickable is not Draggable) return;
-            
+            _clickableAndConnectedTransforms.Remove(
+                _clickableAndConnectedTransforms.Find(i => i.Clickable == eventData.Clickable));
         }
 
         [Button(ButtonSizes.Medium)]
@@ -58,19 +85,17 @@ namespace UI.PerksAndDraggables
             GameObject newHolder = Instantiate(holder, transform);
 
             // 2. Draggable'ın parent'ını yeni holder olarak ayarla
-            draggable.transform.SetParent(newHolder.transform);
+            //draggable.transform.SetParent(newHolder.transform);
 
             // 3. ConnectedTransform olarak set et
             draggable.SetConnectedTransform(newHolder.transform);
 
             // 4. Draggable'ı bağlı transformuna gönder
-            draggable.SendDraggableToConnectedTransform();
+            draggable.SendDraggableToConnectedTransform().Forget();
 
             // 5. Listeye ekle
             var clickableTransformPair = new ClickableAndConnectedTransform(newHolder.transform, draggable);
             _clickableAndConnectedTransforms.Add(clickableTransformPair);
         }
-
-
     }
 }

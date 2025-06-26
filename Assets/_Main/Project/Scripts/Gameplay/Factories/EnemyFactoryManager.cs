@@ -45,5 +45,10 @@ namespace Factories
                 factory.SpawnEnemy();
             }
         }
+
+        public void SpawnEnemy(Character character, Vector2 position)
+        {
+            
+        }
     }
 }

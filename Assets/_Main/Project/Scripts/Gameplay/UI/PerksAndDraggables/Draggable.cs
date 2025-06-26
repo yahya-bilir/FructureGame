@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using EventBusses;
 using Events.ClickableEvents;
 using UnityEngine;
@@ -17,8 +18,9 @@ namespace UI.PerksAndDraggables
 
         //todo sonradan false'a çek
         private bool _isDraggingEnabled = true;
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             cardPart.SetActive(true);
             draggableCircle.SetActive(false);
         }
@@ -37,6 +39,7 @@ namespace UI.PerksAndDraggables
             var seq = DOTween.Sequence();
             seq.SetId(GetHashCode());
             seq.Append(cardPart.transform.DOScale(cardPart.transform.localScale * 1.1f, 0.15f));
+            EventBus.Publish(new OnDraggableStartedBeingDragged(this));
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -53,7 +56,7 @@ namespace UI.PerksAndDraggables
         {
             if(!_isDraggingEnabled) return;
 
-            if (CheckIfInBottomHalf(eventData.position))
+            if (!CheckIfInBottomHalf(eventData.position))
             {
                 Vector3 screenPos = eventData.position;
                 screenPos.z = 10f;
@@ -70,7 +73,7 @@ namespace UI.PerksAndDraggables
         private void OnDragEndedOnBottomHalf()
         {
             cardPart.transform.DOScale(Vector3.one, 0.15f);
-            SendDraggableToConnectedTransform();
+            EventBus.Publish(new OnDraggableStoppedBeingDragged(this));
         }
 
         private bool CheckIfInBottomHalf(Vector2 pos)
@@ -80,15 +83,21 @@ namespace UI.PerksAndDraggables
 
         protected virtual void OnDragEndedOnScene(Vector2 worldPos)
         {
+            clickableActionSo.OnDragEndedOnScene(worldPos);
+            
             EventBus.Publish(new OnClickableDestroyed(this));
+            
+            Destroy(gameObject);
         }
 
         public void SetConnectedTransform(Transform trf) => _connectedTransform = trf;
 
-        public void SendDraggableToConnectedTransform()
+        public async UniTask SendDraggableToConnectedTransform()
         {
             _isDraggingEnabled = false;
-            transform.DOMove(_connectedTransform.position, 0.25f).OnComplete(() => _isDraggingEnabled = true);
+            await UniTask.WaitForSeconds(0.1f);
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(_connectedTransform.position, 0.25f).OnComplete(() => _isDraggingEnabled = true));
         }
     }
 }

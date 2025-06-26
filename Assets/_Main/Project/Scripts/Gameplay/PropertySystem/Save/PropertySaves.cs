@@ -23,7 +23,7 @@ namespace PropertySystem.Save
             else
             {
                 PropertySaveDatas.Add(saveData);
-                Debug.Log(saveData);
+//                Debug.Log(saveData);
             }
         }
 

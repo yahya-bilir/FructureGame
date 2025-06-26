@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 1061643715406531724}
   - component: {fileID: 2082530343695399014}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: CuttableTree
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

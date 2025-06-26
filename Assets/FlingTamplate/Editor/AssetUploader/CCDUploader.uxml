@@ -1,0 +1,25 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements"
+             xmlns:editor="UnityEditor.UIElements"
+             noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style
+        src="project://database/Assets/FlingTamplate/Editor/AssetUploader/CCDUploader.uss?fileID=7433441132597879392&amp;guid=8408011021c5a5e478dbef4b43531fd0&amp;type=3#CCDUploader" />
+    <engine:VisualElement style="padding: 10px;">
+        <engine:Label text="Unity CCD Service Config" class="header" />
+        <engine:TextField name="KeyIdField" label="Key ID" />
+        <engine:TextField name="SecretKeyField" label="Secret Key" password="false" />
+        <engine:TextField name="ProjectIdField" label="Project ID" style="background-color: rgba(255, 255, 255, 0);" />
+        <engine:DropdownField name="EnvDropdown" label="Environment" />
+        <engine:Label name="EnvInfoLabel" text="Selected: None" style="display: none;" />
+        <engine:DropdownField name="BucketDropdown" label="Bucket" />
+        <engine:Label name="BucketInfoLabel" text="Selected: None" style="display: none;" />
+        <engine:TextField name="EnvIdField" label="Environment ID" readonly="true"
+                          style="background-color: rgb(128, 128, 128);" />
+        <engine:TextField name="BucketIdField" label="Bucket ID" readonly="true"
+                          style="background-color: rgb(128, 128, 128);" />
+        <engine:TextField name="RemotePathField" label="Remote Path" readonly="true"
+                          style="background-color: rgb(128, 128, 128);" />
+        <engine:Button name="UploadButton" text="Upload File" />
+        <engine:Button name="SetRemotePathButton" text="Set Remote Path" />
+        <engine:Label name="StatusLabel" class="status-label" />
+    </engine:VisualElement>
+</engine:UXML>

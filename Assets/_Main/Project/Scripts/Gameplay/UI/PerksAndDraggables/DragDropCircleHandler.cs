@@ -13,6 +13,7 @@ namespace UI.PerksAndDraggables
         [SerializeField] private Camera cam;
         private IEventBus _eventBus;
         private Image _image;
+  
         [Inject]
         private void Inject(IEventBus eventBus)
         {
@@ -30,7 +31,6 @@ namespace UI.PerksAndDraggables
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
-
         }
         
         public void OnEndDrag(PointerEventData eventData)
