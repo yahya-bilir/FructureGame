@@ -1,6 +1,7 @@
 ﻿using Characters.Transforming;
 using CommonComponents;
 using Factories;
+using IslandSystem;
 using PropertySystem;
 using UI;
 using UI.PerksAndDraggables;
@@ -28,6 +29,7 @@ namespace Initialization
             
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
+            builder.RegisterComponentInHierarchy<IslandManager>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<TreeFactoryManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();

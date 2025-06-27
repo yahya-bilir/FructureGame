@@ -1,11 +1,10 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MoreMountains.Feedbacks;
-using MoreMountains.FeedbacksForThirdParty;
 using Unity.Cinemachine;
 using UnityEngine;
-using Utilities;
 using Utilities.Vibrations;
-using VContainer;
 
 namespace CommonComponents
 {
@@ -61,6 +60,12 @@ namespace CommonComponents
         {
             Vibrations.Medium();
             _feedbacks.PlayFeedbacks();
+        }
+
+        public async UniTask MoveCameraToPos(Vector3 pos)
+        {
+            ActivePlayerCam.transform.DOMove(pos, 0.5f);
+            await UniTask.WaitForSeconds(0.5f);
         }
         
     }
