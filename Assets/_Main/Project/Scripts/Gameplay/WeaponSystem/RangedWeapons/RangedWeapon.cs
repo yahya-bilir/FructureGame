@@ -45,6 +45,11 @@ public class RangedWeapon : UpgradeableWeapon
             ExpandPool();
 
         var ammo = _projectilePool.Dequeue();
+        if (ammo == null)
+        {
+            Debug.LogError("Ammo is null");
+            return;
+        }
         ammo.transform.SetParent(null); // herhangi bir parent'tan ayrılıyor
         ammo.transform.position = transform.position;
         ammo.transform.rotation = transform.rotation;
@@ -85,6 +90,7 @@ public class RangedWeapon : UpgradeableWeapon
             var projectile = Instantiate(_rangedWeaponSo.ProjectilePrefab);
             projectile.gameObject.SetActive(false);
             _projectilePool.Enqueue(projectile);
+            Debug.LogError("Pool expanded");
         }
     }
 

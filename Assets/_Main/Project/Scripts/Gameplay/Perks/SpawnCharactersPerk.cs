@@ -1,4 +1,5 @@
 ﻿using Characters;
+using Cysharp.Threading.Tasks;
 using Factories;
 using Perks.Base;
 using UnityEngine;
@@ -6,7 +7,7 @@ using VContainer;
 
 namespace Perks
 {
-    [CreateAssetMenu(fileName = "UpgradeCharactersPerk", menuName = "Scriptable Objects/Perks/Spawn Characters Perk")]
+    [CreateAssetMenu(fileName = "SpawnCharactersPerk", menuName = "Scriptable Objects/Perks/Spawn Characters Perk")]
     public class SpawnCharactersPerk : ClickableActionSo
     {
         [SerializeField] private Character characterToSpawn;
@@ -26,11 +27,18 @@ namespace Perks
         public override void OnDragEndedOnScene(Vector2 worldPos)
         {
             var spawnCount = Random.Range(min, max);
-            for (int i = 0; i < spawnCount; i++)
+            SpawnCharacters(worldPos, spawnCount).Forget();
+
+        }
+
+        private async UniTask SpawnCharacters(Vector2 worldPos, int count)
+        {
+            for (int i = 0; i < count; i++)
             {
-                var spawnPosition = worldPos + Random.insideUnitCircle * 2f;
-                _enemyFactoryManager.SpawnEnemy(characterToSpawn, spawnPosition);
+                var spawnPosition = worldPos + Random.insideUnitCircle * 1f;
+                _enemyFactoryManager.SpawnPlayerArmyCharacter(characterToSpawn, spawnPosition);
                 Debug.Log($"Spawned {characterToSpawn.name} at {spawnPosition}");
+                await UniTask.WaitForSeconds(0.05f);
             }
         }
     }

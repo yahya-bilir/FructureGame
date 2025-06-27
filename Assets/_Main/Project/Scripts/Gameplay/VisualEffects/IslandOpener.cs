@@ -8,10 +8,17 @@ namespace VisualEffects
     {
         private Scaler _scaler;
         private RateChanger _rateChanger;
+        [SerializeField] private GameObject enemiesContainer;
+        
         private void Awake()
         {
             _scaler = GetComponentInChildren<Scaler>();
             _rateChanger = GetComponentInChildren<RateChanger>();
+        }
+
+        private void Start()
+        {
+            enemiesContainer.SetActive(false);
         }
 
         [Button]
@@ -24,7 +31,8 @@ namespace VisualEffects
         {
             _rateChanger.FadeOutRateOverTime();
             await UniTask.WaitForSeconds(1f);
-            _scaler.ScaleUpInOrder();
+            await _scaler.ScaleUp();
+            enemiesContainer.SetActive(true);
         }
     }
 }

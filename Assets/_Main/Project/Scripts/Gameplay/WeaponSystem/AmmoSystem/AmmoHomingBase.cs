@@ -44,8 +44,8 @@ namespace WeaponSystem.AmmoSystem
 
         protected override void TryProcessTrigger(Collider2D other, bool isEntering)
         {
-            if (!isEntering) return;
-            Debug.Log($"Homing ammo hit something: {other.name}");
+            //if (!isEntering) return;
+            //Debug.Log($"Homing ammo hit something: {other.name}");
         }
     }
 }

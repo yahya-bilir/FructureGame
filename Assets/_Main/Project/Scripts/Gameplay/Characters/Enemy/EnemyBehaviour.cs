@@ -33,6 +33,7 @@ public abstract class EnemyBehaviour : Character
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
         _aiPath = GetComponent<AIPath>();
         _collider = GetComponent<Collider2D>();
+        
     }
 
     protected override void Start()
@@ -45,8 +46,8 @@ public abstract class EnemyBehaviour : Character
     {
         _stateMachine = new StateMachine();
 
-        var waiting = new Waiting();
-        var searching = new SearchingForEnemy();
+        var waiting = new Waiting(_collider);
+        var searching = new SearchingForEnemy(_collider);
         walkingState = CreateWalkingState();
         attackingState = CreateAttackingState(); 
 
@@ -60,17 +61,24 @@ public abstract class EnemyBehaviour : Character
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> CharacterIsDead() => () => IsCharacterDead;
-
+        Func<bool> OnFightStarted() => () => true;
+        Func<bool> EnemyDied() => () =>
+            CharacterCombatManager.LastFoundEnemy != null && CharacterCombatManager.LastFoundEnemy.IsCharacterDead && 
+            !IsCharacterDead;
+        
+        _stateMachine.AddTransition(waiting, searching, OnFightStarted());
         _stateMachine.AddTransition(searching, walkingState, FoundEnemyNearby());
         _stateMachine.AddTransition(walkingState, attackingState, ReachedEnemy());
         _stateMachine.AddTransition(attackingState, walkingState, EnemyMovedFurther());
+        _stateMachine.AddTransition(walkingState, searching, EnemyDied());
+        _stateMachine.AddTransition(attackingState, searching, EnemyDied());
         _stateMachine.AddTransition(fleeing, walkingState, FleeingEnded());
         _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
         _stateMachine.AddAnyTransition(dead, CharacterIsDead());
 
         AddCustomStatesAndTransitions(_stateMachine);
 
-        _stateMachine.SetState(searching);
+        _stateMachine.SetState(waiting);
     }
 
     protected virtual IState CreateWalkingState()
@@ -81,7 +89,6 @@ public abstract class EnemyBehaviour : Character
 
     protected abstract BaseAttacking CreateAttackingState();
 
-    // 🔁 Ek state geçişleri için override edilebilir
     protected virtual void AddCustomStatesAndTransitions(StateMachine sm) { }
 
     private void Update()

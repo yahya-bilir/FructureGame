@@ -27,7 +27,6 @@ namespace Perks
                 if (character != null)
                 {
                     characters.Add(character);
-                    Debug.Log($"Character found: {character.name}");
                 }
             }
             

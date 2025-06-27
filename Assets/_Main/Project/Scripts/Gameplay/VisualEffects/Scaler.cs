@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace VisualEffects
@@ -23,14 +22,9 @@ namespace VisualEffects
                 }
             }
         }
+        
 
-        [Button]
-        public void ScaleUpInOrder()
-        {
-            ScaleUp().Forget();
-        }
-
-        private async UniTask ScaleUp()
+        public async UniTask ScaleUp()
         {
             foreach (var transformHolder in transforms)
             {
@@ -42,6 +36,8 @@ namespace VisualEffects
 
                 await UniTask.WaitForSeconds(transformHolder.WaitForSeconds);
             }
+
+            await UniTask.WaitForSeconds(0.25f);
         }
     }
 

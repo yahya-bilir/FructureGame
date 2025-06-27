@@ -8,6 +8,8 @@ namespace Factories
 {
     public class EnemyFactoryManager : MonoBehaviour
     {
+        [SerializeField] private EnemyFactory playerArmyFactory;
+        
         [SerializeField] private List<EnemyFactory> enemyFactories;
         private IObjectResolver _resolver;
         [Inject]
@@ -23,6 +25,7 @@ namespace Factories
         
         private void Start()
         {
+            playerArmyFactory.Initialize(_resolver);
             foreach (var enemyFactory in enemyFactories)
             {
                 enemyFactory.Initialize(_resolver);
@@ -46,9 +49,9 @@ namespace Factories
             }
         }
 
-        public void SpawnEnemy(Character character, Vector2 position)
+        public void SpawnPlayerArmyCharacter(Character character, Vector2 position)
         {
-            
+            playerArmyFactory.SpawnEnemy(character, position);
         }
     }
 }

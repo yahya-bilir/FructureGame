@@ -15,7 +15,7 @@ namespace Factories
         [SerializeField] private EnemyFactorySO factorySo;
         [SerializeField] private Transform spawnPoint;
         
-        private List<EnemyBehaviour> _spawnedEnemies = new();
+        private List<Character> _spawnedEnemies = new();
         public bool IsSpawningAvailable => _spawnedEnemies.Count < factorySo.SpawnLimit;
         public float SpawnInterval => factorySo.SpawnInterval;
         public float InitialSpawnInterval => factorySo.InitialSpawnInterval;
@@ -26,6 +26,14 @@ namespace Factories
             var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
             var enemyPrefab = factorySo.SpawnableEnemies[random];
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            _objectResolver.InjectGameObject(enemy.gameObject);
+            _spawnedEnemies.Add(enemy);
+            enemy.InitializeOnSpawn(factorySo.Faction);
+        }        
+        
+        public void SpawnEnemy(Character characterToSpawn, Vector2 spawnPosition)
+        {
+            var enemy = GameObject.Instantiate(characterToSpawn, spawnPosition, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             _spawnedEnemies.Add(enemy);
             enemy.InitializeOnSpawn(factorySo.Faction);

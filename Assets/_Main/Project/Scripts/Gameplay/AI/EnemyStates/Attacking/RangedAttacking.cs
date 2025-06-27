@@ -1,4 +1,5 @@
 using Characters;
+using UnityEngine;
 
 public class RangedAttacking : BaseAttacking
 {
@@ -13,5 +14,11 @@ public class RangedAttacking : BaseAttacking
     protected override void OnAttack()
     {
         //_combatManager.TryShootProjectile();
+    }
+
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log("Ranged Attacking");
     }
 }

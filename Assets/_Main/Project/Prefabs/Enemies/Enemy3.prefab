@@ -227,6 +227,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 88c6d20af2ea4ba40a4aedb1aa5211bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 416406672090801179}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 88c6d20af2ea4ba40a4aedb1aa5211bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 780156237742280580}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 88c6d20af2ea4ba40a4aedb1aa5211bc, type: 3}
 --- !u!4 &5506464304166924572 stripped
 Transform:
@@ -260,6 +263,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &780156237742280580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675176637022579071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1134e97c42734e8ab852bcaeb538b522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.AttackAnimationCaller
 --- !u!1001 &6849740670059016213
 PrefabInstance:
   m_ObjectHideFlags: 0

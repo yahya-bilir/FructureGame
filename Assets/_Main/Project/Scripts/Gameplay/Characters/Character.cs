@@ -37,13 +37,15 @@ namespace Characters
         
         protected IObjectResolver Resolver;
         private CharacterTransformManager _characterTransformManager;
+        private AttackAnimationCaller _attackAnimationCaller;
 
-        
+
         [Inject]
         private void Inject(IObjectResolver resolver, CharacterTransformManager characterTransformManager)
         {
             Resolver = resolver;
             _characterTransformManager = characterTransformManager;
+            
         }
         protected virtual void Awake()
         {
@@ -53,7 +55,7 @@ namespace Characters
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
-            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon);
+            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
         }
         
         protected virtual void Start()
@@ -67,12 +69,15 @@ namespace Characters
             Resolver.Inject(CharacterCombatManager);
             Resolver.Inject(CharacterSpeedController);
             Resolver.Inject(CharacterWeaponManager);
+            Resolver.Inject(_attackAnimationCaller);
         }
 
         protected virtual void GetComponents()
         {
             _animator = model.GetComponent<Animator>();
             _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
+
         }
         
         public void InitializeOnSpawn(Faction currentFaction)

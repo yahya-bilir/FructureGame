@@ -33,9 +33,9 @@ namespace AI.EnemyStates
         public void Tick()
         {
             _deathTimer += Time.deltaTime;
-            if (_deathTimer >= 1f)
+            if (_deathTimer >= 0.1f)
             {
-                GameObject.Destroy(_collider2D.gameObject);
+                _collider2D.gameObject.SetActive(false);
             }
         }
 

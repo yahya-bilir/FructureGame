@@ -183,8 +183,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.53, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3857543460695671801}
   - {fileID: 5056002974860654701}
@@ -386,12 +386,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
   <CharacterDataHolder>k__BackingField: {fileID: 0}
   model: {fileID: 0}
-  characterProperties: {fileID: 0}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 0}
   healthBar: {fileID: 9216950705273674359}
   onDeathVfx: {fileID: 9159553285030847782}
   weaponEquippingField: {fileID: 5443789219053800702}
   <Faction>k__BackingField: 0
-  parts: []
 --- !u!1001 &543930361597416012
 PrefabInstance:
   m_ObjectHideFlags: 0
