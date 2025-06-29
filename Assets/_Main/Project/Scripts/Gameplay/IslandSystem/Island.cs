@@ -38,17 +38,18 @@ namespace IslandSystem
             _scaler = GetComponentInChildren<Scaler>();
             _rateChanger = GetComponentInChildren<RateChanger>();
             _islandOpeningUI = GetComponentInChildren<IslandOpeningUI>();
-            _islandOpeningSystem = new IslandOpeningSystem(_camerasManager, _rateChanger,
-                enemiesContainer, _scaler, cameraPositioner, _eventBus, this);
         }
 
         private void Start()
         {
+            _islandOpeningSystem = new IslandOpeningSystem(_camerasManager, _rateChanger,
+                enemiesContainer, _scaler, cameraPositioner, _eventBus, this);
+            
             _islandOpeningSystem.Initialize();
             _resolver.Inject(_islandOpeningUI);
             _islandOpeningUI.Initialize(this);
         }
-        
+
         [Button]
         private void OnIslandFinished()
         {
@@ -58,6 +59,11 @@ namespace IslandSystem
         public void MakeIslandAvailable()
         {
             _islandOpeningUI.MakeIslandAvailable();
+        }
+        
+        public void StartIslandOpeningActions()
+        {
+            _islandOpeningUI.StartIslandOpeningActions();
         }
         
     }

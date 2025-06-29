@@ -15,13 +15,18 @@ namespace IslandSystem
         {
             _objectResolver = objectResolver;
         }
-        private void Start()
+        private void Awake()
         {
             _objectResolver.Inject(firstIsland);
             foreach (var island in allIslands)
             {
                 _objectResolver.Inject(island);
             }
+        }
+
+        private void Start()
+        {
+            firstIsland.StartIslandOpeningActions();
         }
     }
 }

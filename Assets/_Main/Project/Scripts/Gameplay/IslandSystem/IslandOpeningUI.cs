@@ -6,7 +6,7 @@ using VContainer;
 
 namespace IslandSystem
 {
-    public class IslandOpeningUI : MonoBehaviour
+    public class IslandOpeningUI : MonoBehaviour 
     {
         private bool _availableToOpen;
         private IEventBus _eventBus;
@@ -35,15 +35,9 @@ namespace IslandSystem
         {
             DisableIslandOpeningUI();
         }
+        
 
-        private void OnMouseDown()
-        {
-            if (!_availableToOpen) return;
-            Debug.Log("Mouse down");
-            StartIslandOpeningActions();
-        }
-
-        private void StartIslandOpeningActions()
+        public void StartIslandOpeningActions()
         {
             DisableIslandOpeningUI();
             _eventBus.Publish(new OnIslandSelected(_island));
@@ -58,6 +52,13 @@ namespace IslandSystem
         private void OnDisable()
         {
             _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
+        }
+
+        public void OnMouseDown()
+        {
+            if (!_availableToOpen) return;
+            Debug.Log("Mouse down");
+            StartIslandOpeningActions();
         }
     }
 }
