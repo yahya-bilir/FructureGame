@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CommonComponents;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events.IslandEvents;
 using Sirenix.OdinInspector;
@@ -19,11 +20,15 @@ namespace IslandSystem
         private IEventBus _eventBus;
         private IObjectResolver _resolver;
         
-        [SerializeField] private List<IslandsAndColliders> nextIslandsToBeAvailable;
+        [SerializeField] private List<Island> nextIslandsToBeAvailable;
+        [SerializeField] private List<GameObject> collidersToDisableWhenSelected;
         [SerializeField] private Transform cameraPositioner;
         [SerializeField] private GameObject enemiesContainer;
 
         private IslandOpeningSystem _islandOpeningSystem;
+
+        [SerializeField] private IslandsAndColliders i;
+        
         
         [Inject]
         private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver)
@@ -38,13 +43,13 @@ namespace IslandSystem
             _scaler = GetComponentInChildren<Scaler>();
             _rateChanger = GetComponentInChildren<RateChanger>();
             _islandOpeningUI = GetComponentInChildren<IslandOpeningUI>();
+
         }
 
         private void Start()
         {
             _islandOpeningSystem = new IslandOpeningSystem(_camerasManager, _rateChanger,
-                enemiesContainer, _scaler, cameraPositioner, _eventBus, this);
-            
+                enemiesContainer, _scaler, cameraPositioner, _eventBus, this, collidersToDisableWhenSelected);
             _islandOpeningSystem.Initialize();
             _resolver.Inject(_islandOpeningUI);
             _islandOpeningUI.Initialize(this);
@@ -54,16 +59,20 @@ namespace IslandSystem
         private void OnIslandFinished()
         {
             _eventBus.Publish(new OnIslandFinished(this));
+            foreach (var nextIslands in nextIslandsToBeAvailable)
+            {
+                nextIslands.MakeIslandAvailable();
+            }
         }
         
-        public void MakeIslandAvailable()
+        private void MakeIslandAvailable()
         {
             _islandOpeningUI.MakeIslandAvailable();
         }
         
         public void StartIslandOpeningActions()
         {
-            _islandOpeningUI.StartIslandOpeningActions();
+            _islandOpeningUI.StartIslandOpeningActions().Forget();
         }
         
     }
@@ -72,6 +81,6 @@ namespace IslandSystem
     public struct IslandsAndColliders
     {
         [field: SerializeField] public Island IslandToBeAvailable { get; private set; }
-        [field: SerializeField] public Collider2D ColliderToDisable { get; private set; }
+        [field: SerializeField] public List<GameObject> ColliderObjectsToDisable { get; private set; }
     }
 }

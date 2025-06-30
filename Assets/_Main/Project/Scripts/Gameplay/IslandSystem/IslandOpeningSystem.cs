@@ -18,10 +18,11 @@ namespace IslandSystem
         private readonly Transform _cameraPositioner;
         private readonly IEventBus _eventBus;
         private readonly Island _island;
+        private readonly List<GameObject> _collidersToDisableWhenSelected;
 
         public IslandOpeningSystem(CamerasManager camerasManager,
             RateChanger rateChanger, GameObject enemiesContainer, Scaler scaler, Transform cameraPositioner,
-            IEventBus eventBus, Island island)
+            IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected)
         {
             _camerasManager = camerasManager;
             _rateChanger = rateChanger;
@@ -30,6 +31,7 @@ namespace IslandSystem
             _cameraPositioner = cameraPositioner;
             _eventBus = eventBus;
             _island = island;
+            _collidersToDisableWhenSelected = collidersToDisableWhenSelected;
         }
 
         public void Initialize()
@@ -38,20 +40,21 @@ namespace IslandSystem
             _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);
 
         }
-
+        
         private void OnIslandSelected(OnIslandSelected eventData)
         {
             if(eventData.SelectedIsland != _island) return;
             OpenIslandUp().Forget();
         }
 
-        public async UniTask OpenIslandUp()
+        private async UniTask OpenIslandUp()
         {
             await _camerasManager.MoveCameraToPos(_cameraPositioner.position);
             _rateChanger.FadeOutRateOverTime();
             await UniTask.WaitForSeconds(1f);
             await _scaler.ScaleUp();
-            _enemiesContainer.SetActive(true);
+            _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
+            if(_enemiesContainer != null) _enemiesContainer.SetActive(true);
             _eventBus.Publish(new OnIslandStarted(_island));
         }
 

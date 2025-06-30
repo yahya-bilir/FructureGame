@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using EventBusses;
 using Events.IslandEvents;
@@ -33,20 +35,21 @@ namespace IslandSystem
 
         private void OnIslandSelected(OnIslandSelected eventData)
         {
-            DisableIslandOpeningUI();
+            DisableIslandOpeningUI().Forget();
         }
         
 
-        public void StartIslandOpeningActions()
+        public async UniTask StartIslandOpeningActions()
         {
-            DisableIslandOpeningUI();
+            await DisableIslandOpeningUI();
             _eventBus.Publish(new OnIslandSelected(_island));
         }
 
-        private void DisableIslandOpeningUI()
+        private async UniTask DisableIslandOpeningUI()
         {
             _availableToOpen = false;
             transform.DOScale(Vector3.zero, 0.2f);
+            await UniTask.WaitForSeconds(0.2f);
         }
 
         private void OnDisable()
@@ -58,7 +61,7 @@ namespace IslandSystem
         {
             if (!_availableToOpen) return;
             Debug.Log("Mouse down");
-            StartIslandOpeningActions();
+            StartIslandOpeningActions().Forget();
         }
     }
 }

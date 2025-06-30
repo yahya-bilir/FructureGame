@@ -8,6 +8,7 @@ namespace IslandSystem
     {
         [SerializeField] private Island firstIsland;
         [SerializeField] private List<Island> allIslands;
+        
         private IObjectResolver _objectResolver;
 
         [Inject]
