@@ -45,7 +45,7 @@ public abstract class EnemyBehaviour : Character
     private void SetupStates()
     {
         _stateMachine = new StateMachine();
-
+        
         var waiting = new Waiting(_collider);
         var searching = new SearchingForEnemy(_collider);
         walkingState = CreateWalkingState();

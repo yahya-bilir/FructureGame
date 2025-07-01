@@ -16,7 +16,6 @@ namespace Initialization
     {
         [FormerlySerializedAs("playerProperties")] [SerializeField] private CharacterPropertiesSO playerPropertiesSo;
         [SerializeField] private RectTransform bottomHalf;
-        
         protected override void Awake()
         {
             base.Awake();
@@ -35,6 +34,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterComponentInHierarchy<BottomPerkManager>();
+            builder.RegisterComponentInHierarchy<AstarPath>();
             builder.Register<CharacterTransformManager>(Lifetime.Singleton);
             builder.RegisterInstance(playerPropertiesSo).AsSelf();
             builder.RegisterInstance(bottomHalf).AsSelf();

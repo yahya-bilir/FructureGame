@@ -26,9 +26,6 @@ namespace IslandSystem
         [SerializeField] private GameObject enemiesContainer;
 
         private IslandOpeningSystem _islandOpeningSystem;
-
-        [SerializeField] private IslandsAndColliders i;
-        
         
         [Inject]
         private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver)
@@ -70,17 +67,12 @@ namespace IslandSystem
             _islandOpeningUI.MakeIslandAvailable();
         }
         
+        [Button]
+        
         public void StartIslandOpeningActions()
         {
             _islandOpeningUI.StartIslandOpeningActions().Forget();
         }
         
-    }
-
-    [Serializable]
-    public struct IslandsAndColliders
-    {
-        [field: SerializeField] public Island IslandToBeAvailable { get; private set; }
-        [field: SerializeField] public List<GameObject> ColliderObjectsToDisable { get; private set; }
     }
 }
