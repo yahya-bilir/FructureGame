@@ -55,7 +55,7 @@ namespace Characters.Tree
         protected override async UniTask OnCharacterDied()
         {
             //await base.OnCharacterDied();
-            EventBus.Publish(new OnCharacterDiedEvent(Character));
+            EventBus.Publish(new OnCharacterDied(Character));
             //_treeObjects[^1].SetActive(true);
             Character.gameObject.SetActive(false);
         }

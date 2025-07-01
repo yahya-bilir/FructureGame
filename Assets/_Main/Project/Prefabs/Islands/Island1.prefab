@@ -471,6 +471,59 @@ MonoBehaviour:
   legacyMode: 0
   legacyUseWorldSpace: 0
   setTagCompatibility: -1
+--- !u!1 &3015985430656437574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3173602964239197485}
+  - component: {fileID: 8842968363684990478}
+  m_Layer: 0
+  m_Name: NextIslandJumpingArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3173602964239197485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015985430656437574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8628415145711422363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8842968363684990478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015985430656437574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.066507, y: 1.5608156, z: 1}
+  m_Center: {x: 0.040668488, y: 3.4794521, z: 0}
 --- !u!1 &3473301211345623714
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +648,9 @@ Transform:
   - {fileID: 7668066653328918854}
   - {fileID: 9182923616918244193}
   - {fileID: 604223395235439883}
+  - {fileID: 4406150896971058223}
+  - {fileID: 3173602964239197485}
+  - {fileID: 2938444766309593666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978259354932999781
@@ -613,6 +669,9 @@ MonoBehaviour:
   collidersToDisableWhenSelected: []
   cameraPositioner: {fileID: 9182923616918244193}
   enemiesContainer: {fileID: 1423604162662140082}
+  formationAnchor: {fileID: 4406150896971058223}
+  nextIslandJumpingPos: {fileID: 8842968363684990478}
+  placingPosCollider: {fileID: 7375760747341327621}
 --- !u!114 &7578065704630110774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +821,84 @@ MonoBehaviour:
   legacyMode: 0
   legacyUseWorldSpace: 0
   setTagCompatibility: -1
+--- !u!1 &4742036570366979336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2938444766309593666}
+  - component: {fileID: 7375760747341327621}
+  m_Layer: 0
+  m_Name: PlacingPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2938444766309593666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742036570366979336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8628415145711422363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7375760747341327621
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742036570366979336}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.024522305, y: 0.31878996}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.0706983, y: 2.5857744}
+  m_EdgeRadius: 0
 --- !u!1 &4836920753865398866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1170,37 @@ Transform:
   - {fileID: 1751590985198741785}
   - {fileID: 9116435792852252227}
   - {fileID: 6085358445040699188}
+  m_Father: {fileID: 8628415145711422363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8925204821146867976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4406150896971058223}
+  m_Layer: 0
+  m_Name: JumpingAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4406150896971058223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925204821146867976}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 8628415145711422363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9064528840116962343
@@ -1364,6 +1532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1429,6 +1601,10 @@ PrefabInstance:
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_Name
       value: Enemy2 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1496,6 +1672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1561,6 +1741,10 @@ PrefabInstance:
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_Name
       value: Enemy2 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1689,6 +1873,10 @@ PrefabInstance:
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_Name
       value: Enemy2 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2203,6 +2391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2268,6 +2460,10 @@ PrefabInstance:
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_Name
       value: Enemy2 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2335,6 +2531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2400,6 +2600,10 @@ PrefabInstance:
     - target: {fileID: 7801336291748483062, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_Name
       value: Enemy3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801336291748483062, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2533,6 +2737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7801336291748483062, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2598,6 +2806,10 @@ PrefabInstance:
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_Name
       value: Enemy2 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

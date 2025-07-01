@@ -29,7 +29,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<DynamicJoystick>();
             builder.RegisterComponentInHierarchy<IslandManager>();
-            builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
+            builder.RegisterComponentInHierarchy<EnemyManager>();
             builder.RegisterComponentInHierarchy<TreeFactoryManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();

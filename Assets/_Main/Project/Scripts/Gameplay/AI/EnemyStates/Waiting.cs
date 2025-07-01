@@ -1,4 +1,5 @@
 ﻿using AI.Base.Interfaces;
+using EventBusses;
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -7,7 +8,7 @@ namespace AI.EnemyStates
     {
         private readonly Collider2D _connectedCollider;
 
-        public Waiting(Collider2D connectedCollider)
+        public Waiting(Collider2D connectedCollider, IEventBus eventBus)
         {
             _connectedCollider = connectedCollider;
         }

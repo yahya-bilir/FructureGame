@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acc19bc5819497c92df540160588535, type: 3}
   m_Name: Enemy3DataHolder 1
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
+  <OnDeathParts>k__BackingField: []
   <Worth>k__BackingField: 30
   <ShineColor>k__BackingField: {r: 766.99615, g: 766.99615, b: 766.99615, a: 1}
   <ShineDuration>k__BackingField: 0.3
@@ -19,4 +20,5 @@ MonoBehaviour:
   <OnAttackedSpeedDivider>k__BackingField: 2
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 0.5
+  <Order>k__BackingField: 2
   <Weapon>k__BackingField: {fileID: 990159928383293607, guid: 59d12f4a7fc0b9f4683c12976783aea7, type: 3}

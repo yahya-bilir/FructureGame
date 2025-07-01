@@ -3,6 +3,8 @@ using AI.Base;
 using AI.Base.Interfaces;
 using AI.EnemyStates;
 using CommonComponents;
+using EventBusses;
+using IslandSystem;
 using Pathfinding;
 using PropertySystem;
 using UnityEngine;
@@ -18,13 +20,17 @@ public abstract class EnemyBehaviour : Character
     protected Collider2D _collider;
     protected CamerasManager _camerasManager;
     
-    protected IState walkingState;
+    protected IState walkingToEnemy;
     protected IState attackingState;
+    private IEventBus _eventBus;
+    private IslandManager _islandManager;
 
     [Inject]
-    private void Inject(CamerasManager camerasManager)
+    private void Inject(CamerasManager camerasManager, IEventBus eventBus, IslandManager islandManager)
     {
         _camerasManager = camerasManager;
+        _eventBus = eventBus;
+        _islandManager = islandManager;
     }
 
     protected override void GetComponents()
@@ -46,39 +52,48 @@ public abstract class EnemyBehaviour : Character
     {
         _stateMachine = new StateMachine();
         
-        var waiting = new Waiting(_collider);
+        var waiting = new Waiting(_collider, _eventBus);
+        var walkingTowardsJumpingPosition = new WalkingTowardsJumpingPosition(AnimationController, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterIslandController);
+        var jumpingToPosition = new JumpingToPosition(CharacterIslandController, _aiPath, model.transform, this, AnimationController);
         var searching = new SearchingForEnemy(_collider);
-        walkingState = CreateWalkingState();
+        walkingToEnemy = CreateWalkingState();
         attackingState = CreateAttackingState(); 
 
         var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager, _aiDestinationSetter, transform);
         var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, CharacterDataHolder.OnDeathParts, transform);
 
-        // --- Geçiş Koşulları ---
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
         Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
+        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.5f && !IsCharacterDead;
         Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> CharacterIsDead() => () => IsCharacterDead;
-        Func<bool> OnFightStarted() => () => true;
+        Func<bool> OnFightStarted() => () => _islandManager.FightCanStart && !IsCharacterDead;
         Func<bool> EnemyDied() => () =>
             CharacterCombatManager.LastFoundEnemy != null && CharacterCombatManager.LastFoundEnemy.IsCharacterDead && 
             !IsCharacterDead;
-        
+        Func<bool> IslandChanged() => () => CharacterIslandController.PreviousIsland != CharacterIslandController.NextIsland && !IsCharacterDead;
+
         _stateMachine.AddTransition(waiting, searching, OnFightStarted());
-        _stateMachine.AddTransition(searching, walkingState, FoundEnemyNearby());
-        _stateMachine.AddTransition(walkingState, attackingState, ReachedEnemy());
-        _stateMachine.AddTransition(attackingState, walkingState, EnemyMovedFurther());
-        _stateMachine.AddTransition(walkingState, searching, EnemyDied());
+        _stateMachine.AddTransition(searching, walkingToEnemy, FoundEnemyNearby());
+        _stateMachine.AddTransition(walkingToEnemy, attackingState, ReachedEnemy());
+        _stateMachine.AddTransition(attackingState, walkingToEnemy, EnemyMovedFurther());
+        _stateMachine.AddTransition(walkingToEnemy, searching, EnemyDied());
         _stateMachine.AddTransition(attackingState, searching, EnemyDied());
-        _stateMachine.AddTransition(fleeing, walkingState, FleeingEnded());
+        _stateMachine.AddTransition(fleeing, walkingToEnemy, FleeingEnded());
+        _stateMachine.AddTransition(searching, walkingTowardsJumpingPosition, IslandChanged());
+        _stateMachine.AddTransition(walkingTowardsJumpingPosition, jumpingToPosition, ReachedJumpingPosition());
+        _stateMachine.AddTransition(jumpingToPosition, waiting, OnFightStarted());
+        
         _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
         _stateMachine.AddAnyTransition(dead, CharacterIsDead());
 
         AddCustomStatesAndTransitions(_stateMachine);
 
+
         _stateMachine.SetState(waiting);
+        
     }
 
     protected virtual IState CreateWalkingState()

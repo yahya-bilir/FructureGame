@@ -17,7 +17,7 @@ namespace Characters.Tree
         private void Inject(IEventBus eventBus)
         {
             _eventBus = eventBus;
-            _eventBus.Subscribe<OnCharacterDiedEvent>(OnCharacterDied);
+            _eventBus.Subscribe<OnCharacterDied>(OnCharacterDied);
         }
         protected override void Awake()
         {
@@ -28,9 +28,9 @@ namespace Characters.Tree
             _colliders = GetComponents<Collider2D>();
         }
 
-        private void OnCharacterDied(OnCharacterDiedEvent eventData)
+        private void OnCharacterDied(OnCharacterDied data)
         {
-            if (eventData.Character != this)
+            if (data.Character != this)
             {
                 return;
             }
@@ -41,7 +41,7 @@ namespace Characters.Tree
         }
         private void OnDisable()
         {
-            _eventBus.Unsubscribe<OnCharacterDiedEvent>(OnCharacterDied);
+            _eventBus.Unsubscribe<OnCharacterDied>(OnCharacterDied);
 
         }
     }

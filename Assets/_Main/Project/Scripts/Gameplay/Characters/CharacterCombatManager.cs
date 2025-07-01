@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
 using Factions;
+using IslandSystem;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -19,6 +20,7 @@ namespace Characters
         public readonly Character Character;
         protected IEventBus EventBus;
         private CancellationTokenSource _attackStateCts;
+        private IslandManager _islandManager;
         public bool FleeingEnabled { get; private set; }
         public Vector3 FleePosition { get; private set; }
         public Character LastFoundEnemy { get; private set; }
@@ -31,9 +33,10 @@ namespace Characters
         }
         
         [Inject]
-        private void Inject(IEventBus eventBus)
+        private void Inject(IEventBus eventBus, IslandManager islandManager)
         {
             EventBus = eventBus;
+            _islandManager = islandManager;
             //EventBus.Subscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
 
         }
@@ -52,12 +55,17 @@ namespace Characters
         protected virtual async UniTask OnCharacterDied()
         {
             await CharacterVisualEffects.OnCharacterDied();
-            EventBus.Publish(new OnCharacterDiedEvent(Character));
+            EventBus.Publish(new OnCharacterDied(Character));
         }
 
         public Character FindNearestEnemy()
         {
             //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
+            if (!_islandManager.FightCanStart)
+            {
+                LastFoundEnemy = null;
+                return null;
+            }
             var origin = Character.transform.position;
 
             Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));

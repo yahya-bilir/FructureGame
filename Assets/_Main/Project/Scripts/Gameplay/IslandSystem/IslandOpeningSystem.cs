@@ -19,10 +19,12 @@ namespace IslandSystem
         private readonly IEventBus _eventBus;
         private readonly Island _island;
         private readonly List<GameObject> _collidersToDisableWhenSelected;
+        private readonly IslandJumpingActions _islandJumpingActions;
 
         public IslandOpeningSystem(CamerasManager camerasManager,
             RateChanger rateChanger, GameObject enemiesContainer, Scaler scaler, Transform cameraPositioner,
-            IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected)
+            IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected,
+            IslandJumpingActions islandJumpingActions)
         {
             _camerasManager = camerasManager;
             _rateChanger = rateChanger;
@@ -32,6 +34,7 @@ namespace IslandSystem
             _eventBus = eventBus;
             _island = island;
             _collidersToDisableWhenSelected = collidersToDisableWhenSelected;
+            _islandJumpingActions = islandJumpingActions;
         }
 
         public void Initialize()
@@ -54,6 +57,7 @@ namespace IslandSystem
             await UniTask.WaitForSeconds(1f);
             await _scaler.ScaleUp();
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
+            await _islandJumpingActions.WaitForCharacterJumps();
             if(_enemiesContainer != null) _enemiesContainer.SetActive(true);
             _eventBus.Publish(new OnIslandStarted(_island));
         }

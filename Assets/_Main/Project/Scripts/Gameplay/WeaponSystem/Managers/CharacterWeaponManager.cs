@@ -41,12 +41,12 @@ namespace WeaponSystem.Managers
         private void SetAfterInjection()
         {
             SpawnWeapon(_weaponPrefabToSpawn, _weaponEquippingField);
-            _eventBus.Subscribe<OnCharacterDiedEvent>(OnCharacterDied);
+            _eventBus.Subscribe<OnCharacterDied>(OnCharacterDied);
         }
 
-        private void OnCharacterDied(OnCharacterDiedEvent eventData)
+        private void OnCharacterDied(OnCharacterDied data)
         {
-            if(eventData.Character != _character) return;
+            if(data.Character != _character) return;
             if (_spawnedWeapon != null)
             {
                 GameObject.Destroy(_spawnedWeapon);

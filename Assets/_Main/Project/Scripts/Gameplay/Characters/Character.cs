@@ -1,6 +1,8 @@
 using System.Linq;
+using Characters.Enemy;
 using Characters.Transforming;
 using Factions;
+using IslandSystem;
 using PropertySystem;
 using Sirenix.OdinInspector;
 using UI;
@@ -30,11 +32,12 @@ namespace Characters
         protected CharacterVisualEffects CharacterVisualEffects;
         protected CharacterSpeedController CharacterSpeedController;
         protected CharacterWeaponManager CharacterWeaponManager;
+        public CharacterIslandController CharacterIslandController { get; private set; }
         protected SpriteRenderer[] _childrenSpriteRenderers;
         private ShineEffect _shineEffect;
         protected CharacterAnimationController AnimationController;
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
-        
+
         protected IObjectResolver Resolver;
         private CharacterTransformManager _characterTransformManager;
         private AttackAnimationCaller _attackAnimationCaller;
@@ -47,6 +50,7 @@ namespace Characters
             _characterTransformManager = characterTransformManager;
             
         }
+
         protected virtual void Awake()
         {
             GetComponents();
@@ -56,8 +60,9 @@ namespace Characters
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
             CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
+            CharacterIslandController = new CharacterIslandController(this);
         }
-        
+
         protected virtual void Start()
         {
             ResolveOrInitializeCreatedObjects();
@@ -77,9 +82,8 @@ namespace Characters
             _animator = model.GetComponent<Animator>();
             _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
-
         }
-        
+
         public void InitializeOnSpawn(Faction currentFaction)
         {
             Faction = currentFaction;

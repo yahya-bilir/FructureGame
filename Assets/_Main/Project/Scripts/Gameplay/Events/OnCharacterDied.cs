@@ -2,11 +2,11 @@
 
 namespace Events
 {
-    public class OnCharacterDiedEvent
+    public class OnCharacterDied
     {
         public Character Character { get; }
 
-        public OnCharacterDiedEvent(Character character)
+        public OnCharacterDied(Character character)
         {
             Character = character;
         }
