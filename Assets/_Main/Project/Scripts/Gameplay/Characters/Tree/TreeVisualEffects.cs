@@ -9,7 +9,9 @@ namespace Characters.Tree
     {
         private readonly ParticleSystem _onDeathVfx;
 
-        public TreeVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder, UIPercentageFiller healthBar, ParticleSystem onDeathVfx) : base(spriteRenderers, characterDataHolder, healthBar, onDeathVfx)
+        public TreeVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder,
+            UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
+            CharacterAnimationController characterAnimationController) : base(spriteRenderers, characterDataHolder, healthBar, onDeathVfx, character, characterAnimationController)
         {
             _onDeathVfx = onDeathVfx;
         }

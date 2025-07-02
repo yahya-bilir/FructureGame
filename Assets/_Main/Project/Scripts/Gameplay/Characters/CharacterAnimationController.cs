@@ -38,6 +38,11 @@ namespace Characters
             _animator.SetBool(RunHash, false);
         }
 
+        public void Spawn()
+        {
+            
+        }
+
         public void DisableAnimator() => _animator.enabled = false;
         public void EnableAnimator() => _animator.enabled = true;
     }

@@ -56,6 +56,7 @@ namespace WeaponSystem.Managers
 
         private void SpawnWeapon(ObjectWithDamage weapon, Transform spawnField)
         {
+            if(weapon == null) return;
             _spawnedWeapon = GameObject.Instantiate(weapon, spawnField.position, Quaternion.identity, spawnField);
             _spawnedWeapon.transform.localEulerAngles = Vector3.zero;
             _spawnedWeapon.Initialize(_characterCombatManager, _characterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);

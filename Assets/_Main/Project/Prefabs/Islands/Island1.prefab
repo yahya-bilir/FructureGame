@@ -480,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3173602964239197485}
-  - component: {fileID: 8842968363684990478}
+  - component: {fileID: 3811583363261839742}
   m_Layer: 0
   m_Name: NextIslandJumpingArea
   m_TagString: Untagged
@@ -503,13 +503,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8628415145711422363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8842968363684990478
-BoxCollider:
+--- !u!61 &3811583363261839742
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3015985430656437574}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -518,12 +521,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.066507, y: 1.5608156, z: 1}
-  m_Center: {x: 0.040668488, y: 3.4794521, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.007830143, y: 2.9840767}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.0873594, y: 0.9481797}
+  m_EdgeRadius: 0
 --- !u!1 &3473301211345623714
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,10 +692,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::VisualEffects.IslandOpener
   nextIslandsToBeAvailable: []
   collidersToDisableWhenSelected: []
+  openingSections:
+  - <Enemies>k__BackingField:
+    - {fileID: 7105075622302438267}
+    - {fileID: 8259587016353529480}
+  - <Enemies>k__BackingField:
+    - {fileID: 5986991096937146452}
+    - {fileID: 6667960012920297666}
+    - {fileID: 7013536487243682577}
+    - {fileID: 2526943646826039826}
+    - {fileID: 2696455393015305378}
+    - {fileID: 4239907680214700449}
+    - {fileID: 7481481956910120590}
+    - {fileID: 2926566644363684433}
+    - {fileID: 6007459310964975904}
   cameraPositioner: {fileID: 9182923616918244193}
-  enemiesContainer: {fileID: 1423604162662140082}
   formationAnchor: {fileID: 4406150896971058223}
-  nextIslandJumpingPos: {fileID: 8842968363684990478}
+  nextIslandJumpingPos: {fileID: 3811583363261839742}
   placingPosCollider: {fileID: 7375760747341327621}
 --- !u!114 &7578065704630110774
 MonoBehaviour:
@@ -887,7 +925,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.024522305, y: 0.31878996}
+  m_Offset: {x: 0.03153944, y: 0.91268754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -897,7 +935,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.0706983, y: 2.5857744}
+  m_Size: {x: 3.647594, y: 2.0072942}
   m_EdgeRadius: 0
 --- !u!1 &4836920753865398866
 GameObject:
@@ -1534,7 +1572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1546,6 +1584,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
   m_PrefabInstance: {fileID: 1344386241933620784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6007459310964975904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 1344386241933620784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!1001 &1360334403386177348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1604,7 +1653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1616,6 +1665,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
   m_PrefabInstance: {fileID: 1360334403386177348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5986991096937146452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 1360334403386177348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!1001 &2125604524995479506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1674,7 +1734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1686,6 +1746,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
   m_PrefabInstance: {fileID: 2125604524995479506}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6667960012920297666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 2125604524995479506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!1001 &2351976346053807105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1744,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1756,6 +1827,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
   m_PrefabInstance: {fileID: 2351976346053807105}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7013536487243682577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 2351976346053807105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!1001 &2415162024360832644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1876,7 +1958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1888,6 +1970,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
   m_PrefabInstance: {fileID: 2748709197248012702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7481481956910120590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 2748709197248012702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!1001 &3264632846673011504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2393,13 +2486,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+--- !u!114 &2526943646826039826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 7126789849556784386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!4 &7694177957478083883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
@@ -2463,13 +2567,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+--- !u!114 &2696455393015305378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 7250034145610632114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!4 &7835432298055807899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
@@ -2533,13 +2648,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+--- !u!114 &2926566644363684433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 7596359378924729665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!4 &7010968920918969704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
@@ -2603,13 +2729,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7801336291748483062, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+--- !u!114 &7105075622302438267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 577649154166769344, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+  m_PrefabInstance: {fileID: 7682706081800623547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
 --- !u!4 &7168494595660952294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 713239589633402717, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
@@ -2739,13 +2876,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7801336291748483062, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+--- !u!114 &8259587016353529480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 577649154166769344, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+  m_PrefabInstance: {fileID: 8834877715254638664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
 --- !u!4 &8322130778320035605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 713239589633402717, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
@@ -2809,13 +2957,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892068151368487042, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+--- !u!114 &4239907680214700449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+  m_PrefabInstance: {fileID: 8872616635587612337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1457e2621684fba8ad820ea7b747993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.MeleeEnemy
 --- !u!4 &8287074525536188056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}

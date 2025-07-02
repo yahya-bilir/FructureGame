@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UI;
 using UnityEngine;
 using Utils;
@@ -13,14 +14,19 @@ namespace Characters
         private ShineEffect _shineEffect;
         private readonly UIPercentageFiller _healthBar;
         private readonly ParticleSystem _onDeathVfx;
+        private readonly Character _character;
+        private readonly CharacterAnimationController _characterAnimationController;
         private bool _isHealthStillRunning;
         public CharacterVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder,
-            UIPercentageFiller healthBar, ParticleSystem onDeathVfx)
+            UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
+            CharacterAnimationController characterAnimationController)
         {
             _spriteRenderers = spriteRenderers;
             _characterDataHolder = characterDataHolder;
             _healthBar = healthBar;
             _onDeathVfx = onDeathVfx;
+            _character = character;
+            _characterAnimationController = characterAnimationController;
             Initialize();
         }
 
@@ -85,6 +91,23 @@ namespace Characters
             await UniTask.WaitForSeconds(2f);
             _isHealthStillRunning = false;
             if(_healthBar != null) _healthBar.DisableOrEnableObjectsVisibility(false);
+        }
+
+        public void SpawnCharacter()
+        {
+            //_characterAnimationController.DisableAnimator();
+            var originalScale = _character.transform.localScale;
+            _character.transform.localScale = Vector3.zero;
+
+            // DOTween ile sanki yerden çıkıyormuş gibi ölçeği büyüt
+            _character.transform.DOScale(originalScale, 0.1f)
+                .SetEase(Ease.OutBack) // Tatlı bir geri zıplama efekti verir
+                .OnComplete(() =>
+                {
+                    // Ölçeklenme tamamlanınca animasyon tetikle
+                    //_characterAnimationController.EnableAnimator();
+                    _characterAnimationController.Spawn();
+                });
         }
     }
 }

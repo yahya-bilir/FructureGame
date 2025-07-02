@@ -32,53 +32,55 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _characterAnimationController.DisableAnimator();
+
             _aiPath.canMove = false;
 
             Vector2 jumpTarget = _characterIslandController.GetNextIslandLandingPosition();
             float jumpDuration = 0.5f;
-            float scaleUp = 1.2f;
+            float hangTime = 0.1f;
+            float scaleUp = 2.25f;
 
             Vector3 originalScale = _modelTransform.localScale;
 
-            // DOTween Sequence
-            var jumpSequence = DG.Tweening.DOTween.Sequence();
+            Vector2 peakPosition = new Vector2(
+                jumpTarget.x,
+                jumpTarget.y - 0.5f // Sabit yükselme miktarı
+            );
 
-            // 1) Zıplama pozisyonuna hareket
+            var jumpSequence = DOTween.Sequence();
+
             jumpSequence.Append(
                 _enemyBehaviour.transform
-                    .DOMove(jumpTarget, jumpDuration)
+                    .DOMove(peakPosition, jumpDuration / 2f)
                     .SetEase(Ease.OutQuad)
             );
 
-            // 2) Scale animasyonu aynı anda (Join)
             jumpSequence.Join(
-                _modelTransform
-                    .DOScale(originalScale * scaleUp, jumpDuration / 2f)
-                    .SetEase(Ease.OutQuad)
+                _modelTransform.DOScale(originalScale * scaleUp, jumpDuration / 2f).SetEase(Ease.OutQuad)
             );
+            
+            jumpSequence.AppendInterval(hangTime);
 
-            // 3) Scale geri dönüş (Append)
             jumpSequence.Append(
-                _modelTransform
-                    .DOScale(originalScale, jumpDuration / 2f)
+                _enemyBehaviour.transform
+                    .DOMove(new Vector3(jumpTarget.x, jumpTarget.y, _enemyBehaviour.transform.position.z), jumpDuration / 2f)
                     .SetEase(Ease.InQuad)
             );
 
-            // 4) Tamamlanınca StopJumping çağır
+            jumpSequence.Join(_modelTransform.DOScale(originalScale, jumpDuration / 2f).SetEase(Ease.InQuad));
+
             jumpSequence.OnComplete(() =>
             {
+                _characterAnimationController.EnableAnimator();
                 _characterIslandController.StopJumping();
             });
-
-            // Opsiyonel: Jump animasyonu tetikle
-            //_characterAnimationController.Jump();
         }
 
-
+        
 
         public void OnExit()
         {
-
         }
     }
 }

@@ -5,48 +5,59 @@ using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events.IslandEvents;
 using UnityEngine;
+using Utilities;
 using VisualEffects;
 
 namespace IslandSystem
 {
     public class IslandOpeningSystem : IDisposable
     {
-        private readonly CamerasManager _camerasManager;
-        private readonly RateChanger _rateChanger;
-        private readonly GameObject _enemiesContainer;
-        private readonly Scaler _scaler;
         private readonly Transform _cameraPositioner;
+        private readonly CamerasManager _camerasManager;
+        private readonly List<GameObject> _collidersToDisableWhenSelected;
+        private readonly List<OpeningSection> _openingSection;
         private readonly IEventBus _eventBus;
         private readonly Island _island;
-        private readonly List<GameObject> _collidersToDisableWhenSelected;
         private readonly IslandJumpingActions _islandJumpingActions;
+        private readonly RateChanger _rateChanger;
+        private readonly Scaler _scaler;
 
-        public IslandOpeningSystem(CamerasManager camerasManager,
-            RateChanger rateChanger, GameObject enemiesContainer, Scaler scaler, Transform cameraPositioner,
-            IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected,
-            IslandJumpingActions islandJumpingActions)
+        public IslandOpeningSystem(CamerasManager camerasManager, RateChanger rateChanger,
+            List<OpeningSection> openingSection, Scaler scaler, Transform cameraPositioner, IEventBus eventBus,
+            Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions)
         {
             _camerasManager = camerasManager;
             _rateChanger = rateChanger;
-            _enemiesContainer = enemiesContainer;
+            _openingSection = openingSection;
             _scaler = scaler;
             _cameraPositioner = cameraPositioner;
             _eventBus = eventBus;
             _island = island;
             _collidersToDisableWhenSelected = collidersToDisableWhenSelected;
-            _islandJumpingActions = islandJumpingActions;
+            _islandJumpingActions = jumpingActions;
         }
+
+        public void Dispose()
+        {
+            _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
+        }
+
 
         public void Initialize()
         {
-            _enemiesContainer.SetActive(false);
+            foreach (var section in _openingSection)
+            {
+                foreach (var enemy in section.Enemies)
+                {
+                    enemy.gameObject.SetActive(false);
+                }
+            }
             _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);
-
         }
-        
+
         private void OnIslandSelected(OnIslandSelected eventData)
         {
-            if(eventData.SelectedIsland != _island) return;
+            if (eventData.SelectedIsland != _island) return;
             OpenIslandUp().Forget();
         }
 
@@ -58,13 +69,21 @@ namespace IslandSystem
             await _scaler.ScaleUp();
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             await _islandJumpingActions.WaitForCharacterJumps();
-            if(_enemiesContainer != null) _enemiesContainer.SetActive(true);
-            _eventBus.Publish(new OnIslandStarted(_island));
-        }
+            
+            // var rng = new System.Random();
+            // rng.Shuffle(_openingSection);
+            
+            foreach (var section in _openingSection)
+            {
+                foreach (var enemy in section.Enemies)
+                {
+                    enemy.gameObject.SetActive(true);
+                    enemy.CharacterVisualEffects.SpawnCharacter();
+                }
+                await UniTask.WaitForSeconds(0.25f);
+            }
 
-        public void Dispose()
-        {
-            _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
+            _eventBus.Publish(new OnIslandStarted(_island));
         }
     }
 }

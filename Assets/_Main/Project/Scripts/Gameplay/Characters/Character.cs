@@ -29,11 +29,11 @@ namespace Characters
         
         private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
-        protected CharacterVisualEffects CharacterVisualEffects;
+        public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
         protected CharacterSpeedController CharacterSpeedController;
-        protected CharacterWeaponManager CharacterWeaponManager;
+        private CharacterWeaponManager _characterWeaponManager;
         public CharacterIslandController CharacterIslandController { get; private set; }
-        protected SpriteRenderer[] _childrenSpriteRenderers;
+        protected SpriteRenderer[] ChildrenSpriteRenderers;
         private ShineEffect _shineEffect;
         protected CharacterAnimationController AnimationController;
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
@@ -55,11 +55,11 @@ namespace Characters
         {
             GetComponents();
             AnimationController = new CharacterAnimationController(_animator);
-            CharacterVisualEffects = new CharacterVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx);
+            CharacterVisualEffects = new CharacterVisualEffects(ChildrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx, this, AnimationController);
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
-            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
+            _characterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
             CharacterIslandController = new CharacterIslandController(this);
         }
 
@@ -73,14 +73,14 @@ namespace Characters
             Resolver.Inject(CharacterPropertyManager);
             Resolver.Inject(CharacterCombatManager);
             Resolver.Inject(CharacterSpeedController);
-            Resolver.Inject(CharacterWeaponManager);
+            Resolver.Inject(_characterWeaponManager);
             Resolver.Inject(_attackAnimationCaller);
         }
 
         protected virtual void GetComponents()
         {
             _animator = model.GetComponent<Animator>();
-            _childrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            ChildrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
         }
 

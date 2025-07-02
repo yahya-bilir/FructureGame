@@ -21,15 +21,14 @@ namespace IslandSystem
 
         [SerializeField] private List<Island> nextIslandsToBeAvailable;
         [SerializeField] private List<GameObject> collidersToDisableWhenSelected;
+        [SerializeField] private List<OpeningSection> openingSections;
         [SerializeField] private Transform cameraPositioner;
-        [SerializeField] private GameObject enemiesContainer;
 
         [SerializeField] private Transform formationAnchor;
         [SerializeField] private Collider2D nextIslandJumpingPos;
         [SerializeField] private Collider2D placingPosCollider;
 
         private IslandOpeningSystem _islandOpeningSystem;
-
         public IslandJumpingActions JumpingActions { get; private set; }
 
         [Inject]
@@ -54,7 +53,7 @@ namespace IslandSystem
             JumpingActions = new IslandJumpingActions(nextIslandJumpingPos, formationAnchor, this, placingPosCollider);
             _islandOpeningSystem = new IslandOpeningSystem(
                 _camerasManager, _rateChanger,
-                enemiesContainer, _scaler, cameraPositioner,
+                openingSections, _scaler, cameraPositioner,
                 _eventBus, this, collidersToDisableWhenSelected, JumpingActions);
 
             _islandOpeningSystem.Initialize();

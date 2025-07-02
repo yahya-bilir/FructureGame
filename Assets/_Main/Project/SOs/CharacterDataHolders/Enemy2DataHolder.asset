@@ -21,4 +21,4 @@ MonoBehaviour:
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 0.5
   <Order>k__BackingField: 1
-  <Weapon>k__BackingField: {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
+  <Weapon>k__BackingField: {fileID: 0}

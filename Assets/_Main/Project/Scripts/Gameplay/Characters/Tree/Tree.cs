@@ -23,8 +23,8 @@ namespace Characters.Tree
         {
             base.Awake();
             CharacterCombatManager = new TreeCombatManager(CharacterPropertyManager, CharacterVisualEffects, this, treeParts);
-            CharacterVisualEffects = new TreeVisualEffects(_childrenSpriteRenderers.ToList(), CharacterDataHolder,
-                healthBar, onDeathVfx);
+            CharacterVisualEffects = new TreeVisualEffects(ChildrenSpriteRenderers.ToList(), CharacterDataHolder,
+                healthBar, onDeathVfx, this, AnimationController);
             _colliders = GetComponents<Collider2D>();
         }
 

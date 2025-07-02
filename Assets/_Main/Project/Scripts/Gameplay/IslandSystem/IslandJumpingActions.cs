@@ -14,29 +14,34 @@ namespace IslandSystem
 {
     public class IslandJumpingActions : IDisposable
     {
-        private readonly Collider2D _jumpingPosCollider;
+        private readonly Dictionary<Character, Vector2> _characterTargetPositions = new();
         private readonly Transform _formationAnchor;
         private readonly Island _island;
-        private readonly Collider2D _placingPosCollider;
 
         private readonly Vector2[] _jumpAreaCorners = new Vector2[4];
         private readonly Vector2[,] _jumpAreaEdges = new Vector2[4, 2];
-        private bool _jumpAreaCached = false;
-
-        private readonly Dictionary<Character, Vector2> _characterTargetPositions = new();
+        private readonly Collider2D _jumpingPosCollider;
         private readonly Dictionary<int, float> _layerRadius = new();
         private readonly Dictionary<int, float> _layerYOffsets = new();
+        private readonly Collider2D _placingPosCollider;
         private IEventBus _eventBus;
+        private bool _jumpAreaCached;
         private List<Character> _playerCharacters;
 
-        public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island, Collider2D placingPosCollider)
+        public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island,
+            Collider2D placingPosCollider)
         {
             _jumpingPosCollider = jumpingPosCollider;
             _formationAnchor = formationAnchor;
             _island = island;
             _placingPosCollider = placingPosCollider;
         }
-        
+
+        public void Dispose()
+        {
+            _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
+        }
+
         [Inject]
         private void Inject(IEventBus eventBus, EnemyManager enemyManager)
         {
@@ -53,27 +58,31 @@ namespace IslandSystem
                 return;
             }
 
-            Bounds bounds = _jumpingPosCollider.bounds;
+            var bounds = _jumpingPosCollider.bounds;
 
             _jumpAreaCorners[0] = new Vector2(bounds.min.x, bounds.min.y);
             _jumpAreaCorners[1] = new Vector2(bounds.max.x, bounds.min.y);
             _jumpAreaCorners[2] = new Vector2(bounds.max.x, bounds.max.y);
             _jumpAreaCorners[3] = new Vector2(bounds.min.x, bounds.max.y);
 
-            _jumpAreaEdges[0, 0] = _jumpAreaCorners[0]; _jumpAreaEdges[0, 1] = _jumpAreaCorners[1];
-            _jumpAreaEdges[1, 0] = _jumpAreaCorners[1]; _jumpAreaEdges[1, 1] = _jumpAreaCorners[2];
-            _jumpAreaEdges[2, 0] = _jumpAreaCorners[2]; _jumpAreaEdges[2, 1] = _jumpAreaCorners[3];
-            _jumpAreaEdges[3, 0] = _jumpAreaCorners[3]; _jumpAreaEdges[3, 1] = _jumpAreaCorners[0];
+            if (_jumpAreaEdges != null)
+            {
+                _jumpAreaEdges[0, 0] = _jumpAreaCorners[0];
+                _jumpAreaEdges[0, 1] = _jumpAreaCorners[1];
+                _jumpAreaEdges[1, 0] = _jumpAreaCorners[1];
+                _jumpAreaEdges[1, 1] = _jumpAreaCorners[2];
+                _jumpAreaEdges[2, 0] = _jumpAreaCorners[2];
+                _jumpAreaEdges[2, 1] = _jumpAreaCorners[3];
+                _jumpAreaEdges[3, 0] = _jumpAreaCorners[3];
+                _jumpAreaEdges[3, 1] = _jumpAreaCorners[0];
+            }
 
             _jumpAreaCached = true;
         }
 
         public async UniTask WaitForCharacterJumps()
         {
-            while (_playerCharacters.Any(i => i.CharacterIslandController.IsJumping))
-            {
-                await UniTask.Yield();
-            }
+            while (_playerCharacters.Any(i => i.CharacterIslandController.IsJumping)) await UniTask.Yield();
         }
 
         public Vector2 GetJumpPosition(Vector2 startPos)
@@ -84,16 +93,16 @@ namespace IslandSystem
                 CacheJumpArea();
             }
 
-            Vector2 closestPoint = startPos;
-            float minDistance = float.MaxValue;
+            var closestPoint = startPos;
+            var minDistance = float.MaxValue;
 
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
-                Vector2 a = _jumpAreaEdges[i, 0];
-                Vector2 b = _jumpAreaEdges[i, 1];
-                Vector2 projection = ProjectPointOnLineSegment(a, b, startPos);
+                var a = _jumpAreaEdges[i, 0];
+                var b = _jumpAreaEdges[i, 1];
+                var projection = ProjectPointOnLineSegment(a, b, startPos);
 
-                float dist = Vector2.Distance(startPos, projection);
+                var dist = Vector2.Distance(startPos, projection);
                 if (dist < minDistance)
                 {
                     minDistance = dist;
@@ -185,50 +194,74 @@ namespace IslandSystem
                 return;
             }
 
-            Bounds bounds = _placingPosCollider.bounds;
+            var bounds = _placingPosCollider.bounds;
 
-            float minSpacing = 0.5f;
-            float maxSpacing = 1.0f;
-
-            float spacing = Mathf.Lerp(minSpacing, maxSpacing, Mathf.Clamp01(playerCharacters.Count / 50f));
+            var minSpacing = 1f;
+            var maxSpacing = 1.5f;
+            var spacing = Mathf.Lerp(minSpacing, maxSpacing, Mathf.Clamp01(playerCharacters.Count / 50f));
 
             List<Vector2> placedPoints = new();
-
-            int triesPerCharacter = 30;
+            var triesPerCharacter = 30;
 
             foreach (var character in playerCharacters)
             {
-                bool placed = false;
+                Vector2 startPos = character.transform.position;
 
-                for (int attempt = 0; attempt < triesPerCharacter; attempt++)
-                {
-                    float x = Random.Range(bounds.min.x, bounds.max.x);
-                    float y = Random.Range(bounds.min.y, bounds.max.y);
-                    Vector2 candidate = new Vector2(x, y);
+                // 1) Karşı hedef tahmini
+                var dir = ((Vector2)_formationAnchor.position - startPos).normalized;
+                var dist = 2.0f; // parametrelenebilir
+                var candidate = startPos + dir * dist;
 
-                    bool overlaps = false;
-                    foreach (var p in placedPoints)
+                // Collider sınırına uydur
+                candidate.x = Mathf.Clamp(candidate.x, bounds.min.x, bounds.max.x);
+                candidate.y = Mathf.Clamp(candidate.y, bounds.min.y, bounds.max.y);
+
+                var overlaps = false;
+                foreach (var p in placedPoints)
+                    if (Vector2.Distance(candidate, p) < spacing)
                     {
-                        if (Vector2.Distance(candidate, p) < spacing)
+                        overlaps = true;
+                        break;
+                    }
+
+                if (!overlaps)
+                {
+                    _characterTargetPositions[character] = candidate;
+                    placedPoints.Add(candidate);
+                    continue;
+                }
+
+                // 2) Poisson-style sapmalar
+                var placed = false;
+                for (var attempt = 0; attempt < triesPerCharacter; attempt++)
+                {
+                    var offset = Random.insideUnitCircle * spacing; // spacing radius kadar dairede yayıl
+                    var altCandidate = candidate + offset;
+
+                    altCandidate.x = Mathf.Clamp(altCandidate.x, bounds.min.x, bounds.max.x);
+                    altCandidate.y = Mathf.Clamp(altCandidate.y, bounds.min.y, bounds.max.y);
+
+                    overlaps = false;
+                    foreach (var p in placedPoints)
+                        if (Vector2.Distance(altCandidate, p) < spacing)
                         {
                             overlaps = true;
                             break;
                         }
-                    }
 
                     if (!overlaps)
                     {
-                        _characterTargetPositions[character] = candidate;
-                        placedPoints.Add(candidate);
+                        _characterTargetPositions[character] = altCandidate;
+                        placedPoints.Add(altCandidate);
                         placed = true;
                         break;
                     }
                 }
 
-                // Eğer yerleştirilemediyse zorla
+                // 3) Fallback random
                 if (!placed)
                 {
-                    Vector2 fallback = new Vector2(
+                    var fallback = new Vector2(
                         Random.Range(bounds.min.x, bounds.max.x),
                         Random.Range(bounds.min.y, bounds.max.y)
                     );
@@ -239,11 +272,8 @@ namespace IslandSystem
         }
 
 
-
-
-
         /// <summary>
-        /// Belirli bir karakterin landing pozisyonunu döner.
+        ///     Belirli bir karakterin landing pozisyonunu döner.
         /// </summary>
         public Vector2 GetLandingPosForCharacter(Character c)
         {
@@ -252,12 +282,12 @@ namespace IslandSystem
 
         private Vector2 ProjectPointOnLineSegment(Vector2 a, Vector2 b, Vector2 p)
         {
-            Vector2 ab = b - a;
-            float abSquared = Vector2.Dot(ab, ab);
+            var ab = b - a;
+            var abSquared = Vector2.Dot(ab, ab);
             if (abSquared == 0) return a;
 
-            Vector2 ap = p - a;
-            float t = Mathf.Clamp01(Vector2.Dot(ap, ab) / abSquared);
+            var ap = p - a;
+            var t = Mathf.Clamp01(Vector2.Dot(ap, ab) / abSquared);
             return a + t * ab;
         }
 
@@ -266,12 +296,6 @@ namespace IslandSystem
             if (eventData.SelectedIsland != _island) return;
 
             GenerateFormationPositions(_playerCharacters);
-        }
-
-        public void Dispose()
-        {
-            _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
-
         }
     }
 }
