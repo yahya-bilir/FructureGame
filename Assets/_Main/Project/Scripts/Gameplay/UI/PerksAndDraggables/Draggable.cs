@@ -13,16 +13,26 @@ namespace UI.PerksAndDraggables
         [SerializeField] private GameObject draggableCircle;
         [SerializeField] private GameObject cardPart;
         private RectTransform _bottomHalf;
+        private RectTransform _card;
         private Transform _connectedTransform;
+        private float _radius;
         protected IEventBus EventBus;
 
         //todo sonradan false'a çek
         private bool _isDraggingEnabled = true;
+
         protected override void Start()
         {
             base.Start();
             cardPart.SetActive(true);
             draggableCircle.SetActive(false);
+            
+            Vector2 sizeDelta = draggableCircle.GetComponent<RectTransform>().sizeDelta;
+            float pixelsPerUnit = Screen.height / (Camera.main.orthographicSize * 2);
+
+            float worldWidth = sizeDelta.x / pixelsPerUnit;
+            float worldHeight = sizeDelta.y / pixelsPerUnit;
+            _radius = Mathf.Sqrt(worldWidth * worldWidth + worldHeight * worldHeight) / 2f;
         }
         
         [Inject]
@@ -49,6 +59,7 @@ namespace UI.PerksAndDraggables
             var isOnBottomHalf = CheckIfInBottomHalf(eventData.position);
             cardPart.SetActive(isOnBottomHalf);
             draggableCircle.SetActive(!isOnBottomHalf);
+            if(draggableCircle.activeInHierarchy) clickableActionSo.OnDrag(GetWorldPos(eventData), _radius);
         }
 
 
@@ -58,16 +69,22 @@ namespace UI.PerksAndDraggables
 
             if (!CheckIfInBottomHalf(eventData.position))
             {
-                Vector3 screenPos = eventData.position;
-                screenPos.z = 10f;
-
-                Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-                worldPos.z = 0f; 
-                OnDragEndedOnScene(worldPos);
+                var screenPos = GetWorldPos(eventData);
+                OnDragEndedOnScene(screenPos);
                 return;
             }
             
             OnDragEndedOnBottomHalf();
+        }
+
+        private Vector3 GetWorldPos(PointerEventData eventData)
+        {
+            Vector3 screenPos = eventData.position;
+            screenPos.z = 10f;
+            
+            var worldPos =  Camera.main.ScreenToWorldPoint(screenPos);
+            worldPos.z = 0f;
+            return worldPos;
         }
 
         private void OnDragEndedOnBottomHalf()
@@ -83,7 +100,7 @@ namespace UI.PerksAndDraggables
 
         protected virtual void OnDragEndedOnScene(Vector2 worldPos)
         {
-            clickableActionSo.OnDragEndedOnScene(worldPos);
+            clickableActionSo.OnDragEndedOnScene(worldPos, _radius);
             
             EventBus.Publish(new OnClickableDestroyed(this));
             

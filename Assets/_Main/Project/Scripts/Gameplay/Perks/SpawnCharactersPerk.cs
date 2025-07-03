@@ -17,25 +17,25 @@ namespace Perks
         [SerializeField] private int max;
         
         private EnemyManager _enemyManager;
-        
+
         [Inject]
         private void Inject(EnemyManager enemyManager)
         {
             _enemyManager = enemyManager;
         }
         
-        public override void OnDragEndedOnScene(Vector2 worldPos)
+        public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
             var spawnCount = Random.Range(min, max);
-            SpawnCharacters(worldPos, spawnCount).Forget();
+            SpawnCharacters(worldPos, spawnCount, radius).Forget();
 
         }
 
-        private async UniTask SpawnCharacters(Vector2 worldPos, int count)
+        private async UniTask SpawnCharacters(Vector2 worldPos, int count, float radius)
         {
             for (int i = 0; i < count; i++)
             {
-                var spawnPosition = worldPos + Random.insideUnitCircle * 1f;
+                var spawnPosition = worldPos + Random.insideUnitCircle * radius;
                 _enemyManager.SpawnPlayerArmyCharacter(characterToSpawn, spawnPosition);
                 Debug.Log($"Spawned {characterToSpawn.name} at {spawnPosition}");
                 await UniTask.WaitForSeconds(0.05f);

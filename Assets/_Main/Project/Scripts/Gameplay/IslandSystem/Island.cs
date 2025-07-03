@@ -29,14 +29,16 @@ namespace IslandSystem
         [SerializeField] private Collider2D placingPosCollider;
 
         private IslandOpeningSystem _islandOpeningSystem;
+        private CloudMovementManager _cloudManager;
         public IslandJumpingActions JumpingActions { get; private set; }
 
         [Inject]
-        private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver)
+        private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver, CloudMovementManager cloudManager)
         {
             _camerasManager = camerasManager;
             _eventBus = eventBus;
             _resolver = resolver;
+            _cloudManager = cloudManager;
 
         }
 
@@ -54,7 +56,7 @@ namespace IslandSystem
             _islandOpeningSystem = new IslandOpeningSystem(
                 _camerasManager, _rateChanger,
                 openingSections, _scaler, cameraPositioner,
-                _eventBus, this, collidersToDisableWhenSelected, JumpingActions);
+                _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager);
 
             _islandOpeningSystem.Initialize();
 

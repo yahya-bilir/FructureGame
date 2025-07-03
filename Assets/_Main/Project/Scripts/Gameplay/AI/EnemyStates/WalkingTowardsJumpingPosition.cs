@@ -1,6 +1,7 @@
 ﻿using AI.Base.Interfaces;
 using Characters;
 using Characters.Enemy;
+using Cysharp.Threading.Tasks;
 using Pathfinding;
 using PropertySystem;
 using UnityEngine;
@@ -43,6 +44,15 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            WaitForCloudActionsToComplete().Forget();
+        }
+        public void OnExit()
+        {
+        }
+
+        private async UniTask WaitForCloudActionsToComplete()
+        {
+            await UniTask.WaitForSeconds(0.5f);
             _aiPath.destination = _characterIslandController.GetJumpingPosition();
             _aiPath.SearchPath();
             _animationController.Run();
@@ -50,9 +60,6 @@ namespace AI.EnemyStates
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
 
             _characterIslandController.StartJumpingActions();
-        }
-        public void OnExit()
-        {
         }
     }
 }

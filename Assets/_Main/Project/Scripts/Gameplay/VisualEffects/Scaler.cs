@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -8,10 +7,17 @@ namespace VisualEffects
 {
     public class Scaler : MonoBehaviour
     {
+        [SerializeField] private List<GameObject> objectsToOpenDirectly;
+        
         [SerializeField] private List<TransformHolder> transforms;
 
         private void Start()
         {
+            foreach (var objectToOpen in objectsToOpenDirectly)
+            {
+                objectToOpen.SetActive(false);
+            }
+            
             foreach (var transformHolder in transforms)
             {
                 transformHolder.InitialScales = new List<Vector3>();
@@ -22,10 +28,18 @@ namespace VisualEffects
                 }
             }
         }
-        
+
+        public void ActivateObjects()
+        {
+            foreach (var objectToOpen in objectsToOpenDirectly)
+            {
+                objectToOpen.SetActive(true);
+            }
+        }
 
         public async UniTask ScaleUp()
         {
+
             foreach (var transformHolder in transforms)
             {
                 for (var i = 0; i < transformHolder.Transforms.Count; i++)
@@ -39,13 +53,5 @@ namespace VisualEffects
 
             await UniTask.WaitForSeconds(0.25f);
         }
-    }
-
-    [Serializable]
-    public class TransformHolder
-    {
-        [field: SerializeField] public List<Transform> Transforms { get; private set; }
-        public List<Vector3> InitialScales { get; set; }
-        [field: SerializeField] public float WaitForSeconds { get; private set; }
     }
 }

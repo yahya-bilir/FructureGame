@@ -64,8 +64,23 @@ namespace CommonComponents
 
         public async UniTask MoveCameraToPos(Vector3 pos)
         {
-            ActivePlayerCam.transform.DOMove(pos, 0.5f);
+            //ActivePlayerCam.transform.DOMove(pos, 0.5f);
+            ActivePlayerCam.transform.position = pos;
             await UniTask.WaitForSeconds(0.5f);
+        }
+
+        public void ToggleLensSize(float newLensSize)
+        {
+            var initialSize = ActivePlayerCam.Lens.OrthographicSize;
+            ActivePlayerCam.Lens.OrthographicSize = newLensSize;
+            
+            var seq = DOTween.Sequence();
+            
+            // seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize, newLensSize, 0.2f,
+            //     value => ActivePlayerCam.Lens.OrthographicSize = value).SetEase(Ease.OutBack));
+            
+            seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize,  initialSize, 1f,
+                value => ActivePlayerCam.Lens.OrthographicSize = value).SetEase(Ease.OutBack));
         }
         
     }

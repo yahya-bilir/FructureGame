@@ -15,7 +15,7 @@ namespace AI.EnemyStates
         public void Tick()
         {
             Debug.Log("Searching for enemy");
-            _connectedCollider.isTrigger = true;
+            _connectedCollider.isTrigger = false;
         }
 
         public void OnEnter()

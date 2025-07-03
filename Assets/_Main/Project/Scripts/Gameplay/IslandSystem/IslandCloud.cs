@@ -1,5 +1,5 @@
-﻿using EventBusses;
-using Events.IslandEvents;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace IslandSystem
@@ -7,27 +7,57 @@ namespace IslandSystem
     public class IslandCloud : MonoBehaviour
     {
         [SerializeField] private Transform cloudInnerPosition;
+        private Vector3 _cloudOuterPosition;
+        // private IEventBus _eventBus;
+        // public int İ { get; private set; }
+        //
+        // [Inject]
+        // private void Inject(IEventBus eventBus)
+        // {
+        //     _eventBus = eventBus;
+        // }
+        //
+        private void Awake()
+        {
+            _cloudOuterPosition = transform.position;
+            transform.position = cloudInnerPosition.position;
+
+        }
         
-        private IEventBus _eventBus;
+        //
+        // private void OnEnable()
+        // {
+        //     _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);   
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
+        // }
+        //
+        // private void OnIslandSelected(OnIslandSelected eventData)
+        // {
+        //     PerformCloudActions().Forget();
+        // }
 
-        private void Inject(IEventBus eventBus)
+        public async UniTask PerformCloudActions()
         {
-            _eventBus = eventBus;
+            await CloseCloud();
+           // await UniTask.Delay();
+            await OpenCloud();
         }
 
-        private void OnEnable()
+        private async UniTask CloseCloud()
         {
-            _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);   
-        }
-
-        private void OnDisable()
+            if(transform.position == cloudInnerPosition.position) return;
+            transform.DOMove(cloudInnerPosition.position, 0.6f);
+            await UniTask.Delay(600 + 750);
+        }        
+        
+        private async UniTask OpenCloud()
         {
-            _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
-        }
-
-        private void OnIslandSelected(OnIslandSelected eventData)
-        {
-            
+            transform.DOMove(_cloudOuterPosition, 0.6f);
+            //await UniTask.Delay(200);
         }
     }
 }

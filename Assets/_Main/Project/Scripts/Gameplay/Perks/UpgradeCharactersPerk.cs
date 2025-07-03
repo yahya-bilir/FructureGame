@@ -10,14 +10,14 @@ namespace Perks
     [CreateAssetMenu(fileName = "UpgradeCharactersPerk", menuName = "Scriptable Objects/Perks/Upgrade Characters Perk")]
     public class UpgradeCharactersPerk : ClickableActionSo
     {
-        [SerializeField] private float radius;
         private CharacterTransformManager _characterTransformManager;
+        
         [Inject]
         private void Inject(CharacterTransformManager characterTransformManager)
         {
             _characterTransformManager = characterTransformManager;
         }
-        public override void OnDragEndedOnScene(Vector2 worldPos)
+        public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);
             var characters = new List<Character>();

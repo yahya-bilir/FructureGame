@@ -35,6 +35,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterComponentInHierarchy<BottomPerkManager>();
             builder.RegisterComponentInHierarchy<AstarPath>();
+            builder.RegisterComponentInHierarchy<CloudMovementManager>();
             builder.Register<CharacterTransformManager>(Lifetime.Singleton);
             builder.RegisterInstance(playerPropertiesSo).AsSelf();
             builder.RegisterInstance(bottomHalf).AsSelf();

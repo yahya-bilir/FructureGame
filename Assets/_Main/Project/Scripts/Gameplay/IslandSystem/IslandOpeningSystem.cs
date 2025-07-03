@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events.IslandEvents;
 using UnityEngine;
-using Utilities;
 using VisualEffects;
 
 namespace IslandSystem
@@ -19,12 +18,14 @@ namespace IslandSystem
         private readonly IEventBus _eventBus;
         private readonly Island _island;
         private readonly IslandJumpingActions _islandJumpingActions;
+        private readonly CloudMovementManager _cloudMovementManager;
         private readonly RateChanger _rateChanger;
         private readonly Scaler _scaler;
 
         public IslandOpeningSystem(CamerasManager camerasManager, RateChanger rateChanger,
             List<OpeningSection> openingSection, Scaler scaler, Transform cameraPositioner, IEventBus eventBus,
-            Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions)
+            Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions,
+            CloudMovementManager cloudMovementManager)
         {
             _camerasManager = camerasManager;
             _rateChanger = rateChanger;
@@ -35,6 +36,7 @@ namespace IslandSystem
             _island = island;
             _collidersToDisableWhenSelected = collidersToDisableWhenSelected;
             _islandJumpingActions = jumpingActions;
+            _cloudMovementManager = cloudMovementManager;
         }
 
         public void Dispose()
@@ -63,9 +65,12 @@ namespace IslandSystem
 
         private async UniTask OpenIslandUp()
         {
-            await _camerasManager.MoveCameraToPos(_cameraPositioner.position);
-            _rateChanger.FadeOutRateOverTime();
-            await UniTask.WaitForSeconds(1f);
+            await _cloudMovementManager.StartCloudActions();
+            _camerasManager.MoveCameraToPos(_cameraPositioner.position).Forget();
+            _scaler.ActivateObjects();
+            //_rateChanger.FadeOutRateOverTime();
+            //await UniTask.WaitForSeconds(1f);
+            _camerasManager.ToggleLensSize(8f);
             await _scaler.ScaleUp();
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             await _islandJumpingActions.WaitForCharacterJumps();
