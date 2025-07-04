@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c90fd3fbf41f5bd2db4250ec2d34f, type: 3}
   m_Name: MultiplyCharactersPerk
   m_EditorClassIdentifier: Gameplay::Perks.MultiplyCharactersPerk
+  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: 1f722537062ca4518aa742678f0b3ab9, type: 2}

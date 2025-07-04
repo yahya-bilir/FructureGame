@@ -23,7 +23,12 @@ namespace Perks
         {
             _enemyManager = enemyManager;
         }
-        
+
+        public void OnSelected()
+        {
+            
+        }
+
         public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
             var spawnCount = Random.Range(min, max);

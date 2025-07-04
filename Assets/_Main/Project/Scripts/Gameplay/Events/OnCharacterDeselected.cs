@@ -1,4 +1,5 @@
-﻿using UnityEngine.TextCore.Text;
+﻿
+using Characters;
 
 namespace Events
 {

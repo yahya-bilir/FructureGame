@@ -16,14 +16,13 @@ namespace UI.PerksAndDraggables
         private RectTransform _card;
         private Transform _connectedTransform;
         private float _radius;
-        protected IEventBus EventBus;
 
-        //todo sonradan false'a çek
-        private bool _isDraggingEnabled = true;
+        private bool _isDraggingEnabled;
 
         protected override void Start()
         {
             base.Start();
+            _isDraggingEnabled = false;
             cardPart.SetActive(true);
             draggableCircle.SetActive(false);
             
@@ -36,10 +35,9 @@ namespace UI.PerksAndDraggables
         }
         
         [Inject]
-        private void Inject(RectTransform bottomHalf, IEventBus eventBus)
+        private void Inject(RectTransform bottomHalf)
         {
             _bottomHalf = bottomHalf;
-            EventBus = eventBus;
         }
 
 

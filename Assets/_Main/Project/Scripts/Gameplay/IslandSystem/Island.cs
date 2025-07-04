@@ -30,6 +30,8 @@ namespace IslandSystem
 
         private IslandOpeningSystem _islandOpeningSystem;
         private CloudMovementManager _cloudManager;
+        private IslandCharactersController _islandCharactersController;
+        private IslandCameraMovementManager _islandCameraMovementManager;
         public IslandJumpingActions JumpingActions { get; private set; }
 
         [Inject]
@@ -39,7 +41,6 @@ namespace IslandSystem
             _eventBus = eventBus;
             _resolver = resolver;
             _cloudManager = cloudManager;
-
         }
 
         private void Awake()
@@ -53,15 +54,19 @@ namespace IslandSystem
         private void Start()
         {
             JumpingActions = new IslandJumpingActions(nextIslandJumpingPos, formationAnchor, this, placingPosCollider);
+            _islandCharactersController = new IslandCharactersController(openingSections, _eventBus, this);
+            _islandCameraMovementManager = new IslandCameraMovementManager(cameraPositioner, _camerasManager, _eventBus, this);
             _islandOpeningSystem = new IslandOpeningSystem(
-                _camerasManager, _rateChanger,
-                openingSections, _scaler, cameraPositioner,
-                _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager);
+                _islandCameraMovementManager, _rateChanger,
+                _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController);
+
 
             _islandOpeningSystem.Initialize();
 
             _resolver.Inject(_islandOpeningUI);
             _resolver.Inject(JumpingActions);
+            _islandCharactersController.Initialize();
+            _islandCameraMovementManager.Initialize();
             _islandOpeningUI.Initialize(this);
 
             JumpingActions.CacheJumpArea();

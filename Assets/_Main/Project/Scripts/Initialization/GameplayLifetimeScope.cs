@@ -5,6 +5,7 @@ using IslandSystem;
 using PropertySystem;
 using UI;
 using UI.PerksAndDraggables;
+using UI.PerksAndDraggables.PerkManagers;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -34,6 +35,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();
             builder.RegisterComponentInHierarchy<BottomPerkManager>();
+            builder.RegisterComponentInHierarchy<MiddlePerkManager>();
             builder.RegisterComponentInHierarchy<AstarPath>();
             builder.RegisterComponentInHierarchy<CloudMovementManager>();
             builder.Register<CharacterTransformManager>(Lifetime.Singleton);

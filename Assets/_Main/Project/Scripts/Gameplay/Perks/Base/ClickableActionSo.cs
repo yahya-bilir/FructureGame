@@ -11,6 +11,7 @@ namespace Perks.Base
     {
         protected List<Character> Characters = new List<Character>();
         protected List<Character> ExCharacters = new List<Character>();
+        [field: SerializeField] public ClickableActionInfo ClickableActionInfo { get; private set; }
 
         private IEventBus _eventBus;
         
@@ -24,6 +25,7 @@ namespace Perks.Base
         public virtual void OnDrag(Vector2 worldPos, float radius)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);
+            ExCharacters = new List<Character>(Characters);
             Characters = new List<Character>();
             foreach (var hit in hits)
             {
@@ -38,12 +40,16 @@ namespace Perks.Base
         protected void SelectCharacters()
         {
             Characters.ForEach(i => _eventBus.Publish(new OnCharacterSelected(i)));
-            
         }
 
         protected void DeselectCharacters()
         {
-            
+            var toDeselect = ExCharacters.FindAll(c => !Characters.Contains(c));
+
+            foreach (var character in toDeselect)
+            {
+                _eventBus.Publish(new OnCharacterDeselected(character));
+            }
         }
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a39fa98f8fc4181b190abe34ed6ba3a, type: 3}
   m_Name: UpgradeCharactersPerk
   m_EditorClassIdentifier: Gameplay::Perks.UpgradeCharactersPerk
-  radius: 5
+  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: 3587906945460459a920803da2776eea, type: 2}

@@ -74,6 +74,7 @@ namespace Characters
             Resolver.Inject(CharacterCombatManager);
             Resolver.Inject(CharacterSpeedController);
             Resolver.Inject(_characterWeaponManager);
+            Resolver.Inject(CharacterVisualEffects);
             Resolver.Inject(_attackAnimationCaller);
         }
 

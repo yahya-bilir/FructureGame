@@ -1,4 +1,5 @@
 ﻿using UI.PerksAndDraggables;
+using UI.PerksAndDraggables.PerkManagers;
 using UnityEngine;
 using VContainer;
 
@@ -7,16 +8,19 @@ namespace Perks.Base
     public class DraggablePerk : Draggable
     {
         protected BottomPerkManager BottomPerkManager;
-        
+        protected MiddlePerkManager MiddlePerkManager;
+
         [Inject]
-        private void Inject(BottomPerkManager bottomPerkManager)
+        private void Inject(BottomPerkManager bottomPerkManager, MiddlePerkManager middlePerkManager)
         {
             BottomPerkManager = bottomPerkManager;
+            MiddlePerkManager = middlePerkManager;
         }
-
+        
         public override void OnClickedSuccessfully()
         {
-            //TODO send it to bottom half
+            MiddlePerkManager.RemoveClickableFromList(this);
+            BottomPerkManager.TransferDraggableToBottom(this);
         }
     }
 }

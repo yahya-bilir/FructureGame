@@ -49,7 +49,7 @@ namespace IslandSystem
 
         private async UniTask CloseCloud()
         {
-            if(transform.position == cloudInnerPosition.position) return;
+            if(Vector3.Distance(transform.position, cloudInnerPosition.position) <= 5f) return;
             transform.DOMove(cloudInnerPosition.position, 0.6f);
             await UniTask.Delay(600 + 750);
         }        

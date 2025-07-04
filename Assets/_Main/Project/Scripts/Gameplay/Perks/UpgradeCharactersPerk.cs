@@ -17,6 +17,19 @@ namespace Perks
         {
             _characterTransformManager = characterTransformManager;
         }
+
+        public override void OnDrag(Vector2 worldPos, float radius)
+        {
+            base.OnDrag(worldPos, radius);
+            SelectCharacters();
+            DeselectCharacters();
+        }
+
+        public void OnSelected()
+        {
+            
+        }
+
         public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);

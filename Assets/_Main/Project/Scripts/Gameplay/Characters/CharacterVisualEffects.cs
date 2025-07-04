@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using EventBusses;
+using Events;
 using UI;
 using UnityEngine;
 using Utils;
+using VContainer;
 
 namespace Characters
 {
-    public class CharacterVisualEffects
+    public class CharacterVisualEffects : IDisposable
     {
         private readonly List<SpriteRenderer> _spriteRenderers;
         private readonly CharacterDataHolder _characterDataHolder;
@@ -17,6 +21,8 @@ namespace Characters
         private readonly Character _character;
         private readonly CharacterAnimationController _characterAnimationController;
         private bool _isHealthStillRunning;
+        private IEventBus _eventBus;
+
         public CharacterVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder,
             UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
             CharacterAnimationController characterAnimationController)
@@ -28,6 +34,14 @@ namespace Characters
             _character = character;
             _characterAnimationController = characterAnimationController;
             Initialize();
+        }
+
+        [Inject]
+        private void Inject(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+            _eventBus.Subscribe<OnCharacterSelected>(OnCharacterSelected);
+            _eventBus.Subscribe<OnCharacterDeselected>(OnCharacterDeselected);
         }
 
         private void Initialize()
@@ -84,6 +98,7 @@ namespace Characters
                  //     });
              }
         }
+
         private async UniTask OnDamageTakenHealthBarDisablingChecker()
         {
             _isHealthStillRunning = true;
@@ -108,6 +123,24 @@ namespace Characters
                     //_characterAnimationController.EnableAnimator();
                     _characterAnimationController.Spawn();
                 });
+        }
+
+        private void OnCharacterDeselected(OnCharacterDeselected eventData)
+        {
+            if(eventData.DeselectedCharacter != _character) return;
+            //todo burada secimi kaldir
+        }
+
+        private void OnCharacterSelected(OnCharacterSelected eventData)
+        {
+            if(eventData.SelectedCharacter != _character) return;
+            //todo burada sec
+        }
+
+        public void Dispose()
+        {
+            _eventBus.Unsubscribe<OnCharacterSelected>(OnCharacterSelected);
+            _eventBus.Unsubscribe<OnCharacterDeselected>(OnCharacterDeselected);
         }
     }
 }

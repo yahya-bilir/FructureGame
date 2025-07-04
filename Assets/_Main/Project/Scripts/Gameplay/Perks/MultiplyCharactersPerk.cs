@@ -25,10 +25,16 @@ namespace Perks
         
         public override void OnDrag(Vector2 worldPos, float radius)
         {
+            base.OnDrag(worldPos, radius);
             SelectCharacters();
             DeselectCharacters();
         }
-        
+
+        public void OnSelected()
+        {
+            
+        }
+
         public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
             CopyCharacters(worldPos, Characters, radius).Forget();

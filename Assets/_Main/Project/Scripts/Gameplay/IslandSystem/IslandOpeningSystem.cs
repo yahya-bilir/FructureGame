@@ -11,49 +11,38 @@ namespace IslandSystem
 {
     public class IslandOpeningSystem : IDisposable
     {
-        private readonly Transform _cameraPositioner;
-        private readonly CamerasManager _camerasManager;
+        private readonly IslandCameraMovementManager _islandCameraMovementManager;
         private readonly List<GameObject> _collidersToDisableWhenSelected;
-        private readonly List<OpeningSection> _openingSection;
         private readonly IEventBus _eventBus;
         private readonly Island _island;
         private readonly IslandJumpingActions _islandJumpingActions;
         private readonly CloudMovementManager _cloudMovementManager;
+        private readonly IslandCharactersController _islandCharactersController;
         private readonly RateChanger _rateChanger;
         private readonly Scaler _scaler;
 
-        public IslandOpeningSystem(CamerasManager camerasManager, RateChanger rateChanger,
-            List<OpeningSection> openingSection, Scaler scaler, Transform cameraPositioner, IEventBus eventBus,
-            Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions,
-            CloudMovementManager cloudMovementManager)
+        public IslandOpeningSystem(IslandCameraMovementManager islandCameraMovementManager, RateChanger rateChanger,
+            Scaler scaler, IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions,
+            CloudMovementManager cloudMovementManager, IslandCharactersController islandCharactersController)
         {
-            _camerasManager = camerasManager;
+            _islandCameraMovementManager = islandCameraMovementManager;
             _rateChanger = rateChanger;
-            _openingSection = openingSection;
             _scaler = scaler;
-            _cameraPositioner = cameraPositioner;
             _eventBus = eventBus;
             _island = island;
             _collidersToDisableWhenSelected = collidersToDisableWhenSelected;
             _islandJumpingActions = jumpingActions;
             _cloudMovementManager = cloudMovementManager;
+            _islandCharactersController = islandCharactersController;
         }
 
         public void Dispose()
         {
             _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
         }
-
-
+        
         public void Initialize()
         {
-            foreach (var section in _openingSection)
-            {
-                foreach (var enemy in section.Enemies)
-                {
-                    enemy.gameObject.SetActive(false);
-                }
-            }
             _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);
         }
 
@@ -66,27 +55,18 @@ namespace IslandSystem
         private async UniTask OpenIslandUp()
         {
             await _cloudMovementManager.StartCloudActions();
-            _camerasManager.MoveCameraToPos(_cameraPositioner.position).Forget();
+            _islandCameraMovementManager.OnIslandSelected();
             _scaler.ActivateObjects();
             //_rateChanger.FadeOutRateOverTime();
             //await UniTask.WaitForSeconds(1f);
-            _camerasManager.ToggleLensSize(8f);
             await _scaler.ScaleUp();
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             await _islandJumpingActions.WaitForCharacterJumps();
             
             // var rng = new System.Random();
             // rng.Shuffle(_openingSection);
-            
-            foreach (var section in _openingSection)
-            {
-                foreach (var enemy in section.Enemies)
-                {
-                    enemy.gameObject.SetActive(true);
-                    enemy.CharacterVisualEffects.SpawnCharacter();
-                }
-                await UniTask.WaitForSeconds(0.25f);
-            }
+
+            await _islandCharactersController.ActivateSections();
 
             _eventBus.Publish(new OnIslandStarted(_island));
         }
