@@ -62,7 +62,7 @@ namespace IslandSystem
             await _scaler.ScaleUp();
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             await _islandJumpingActions.WaitForCharacterJumps();
-            
+            Debug.Log("Sections will be activated");
             // var rng = new System.Random();
             // rng.Shuffle(_openingSection);
 

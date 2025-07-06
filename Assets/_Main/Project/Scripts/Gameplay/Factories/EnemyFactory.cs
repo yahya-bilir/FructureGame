@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Characters;
 using Characters.Enemy;
+using IslandSystem;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -16,11 +17,10 @@ namespace Factories
         [SerializeField] private Transform spawnPoint;
         
         [field: SerializeField] public List<Character> SpawnedEnemies { get; private set; }
-        public bool IsSpawningAvailable => SpawnedEnemies.Count < factorySo.SpawnLimit;
-        public float SpawnInterval => factorySo.SpawnInterval;
-        public float InitialSpawnInterval => factorySo.InitialSpawnInterval;
 
         private IObjectResolver _objectResolver;
+        private IslandManager _islandManager;
+
         public void SpawnEnemy()
         {
             var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
@@ -37,8 +37,28 @@ namespace Factories
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
             enemy.InitializeOnSpawn(factorySo.Faction);
+            enemy.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
+            enemy.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
         }
 
-        public void Initialize(IObjectResolver objectResolver) => _objectResolver = objectResolver;
+        public void Initialize(IObjectResolver objectResolver, IslandManager islandManager)
+        {
+            _objectResolver = objectResolver;
+            _islandManager = islandManager;
+        }
+
+        public bool RemoveEnemyIfPossibe(Character character)
+        {
+            return SpawnedEnemies.Contains(character) && SpawnedEnemies.Remove(character);
+        }
+
+        public void ReplaceEnemy(Character newCharacter, Character oldCharacter)
+        {
+            if(!RemoveEnemyIfPossibe(oldCharacter)) return;
+            SpawnedEnemies.Add(newCharacter);
+            newCharacter.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
+            newCharacter.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
+
+        }
     }
 }

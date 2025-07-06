@@ -1,7 +1,9 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using EventBusses;
 using Events.ClickableEvents;
+using Events.IslandEvents;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -40,6 +42,17 @@ namespace UI.PerksAndDraggables
             _bottomHalf = bottomHalf;
         }
 
+        private void OnEnable()
+        {
+            EventBus.Subscribe<OnAllClickablesClicked>(OnAllClickablesClicked);
+        }
+
+        private void OnAllClickablesClicked(OnAllClickablesClicked eventData)
+        {
+            Debug.Log("OnAllClickablesClicked");
+            _isDraggingEnabled = true;
+        }
+
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -52,6 +65,7 @@ namespace UI.PerksAndDraggables
 
         public void OnDrag(PointerEventData eventData)
         {
+            Debug.Log(_isDraggingEnabled + " Dragging");
             if(!_isDraggingEnabled) return;
             transform.position = eventData.position;
             var isOnBottomHalf = CheckIfInBottomHalf(eventData.position);
@@ -100,7 +114,7 @@ namespace UI.PerksAndDraggables
         {
             clickableActionSo.OnDragEndedOnScene(worldPos, _radius);
             
-            EventBus.Publish(new OnClickableDestroyed(this));
+            EventBus.Publish(new OnDraggableDroppedToScene(this));
             
             Destroy(gameObject);
         }
@@ -109,10 +123,15 @@ namespace UI.PerksAndDraggables
 
         public async UniTask SendDraggableToConnectedTransform()
         {
-            _isDraggingEnabled = false;
             await UniTask.WaitForSeconds(0.1f);
-            var sequence = DOTween.Sequence();
-            sequence.Append(transform.DOMove(_connectedTransform.position, 0.25f).OnComplete(() => _isDraggingEnabled = true));
+            transform.DOMove(_connectedTransform.position, 0.25f);
+            await UniTask.WaitForSeconds(0.25f);
+            //.OnComplete(() => _isDraggingEnabled = true);
+        }
+
+        private void OnDisable()
+        {
+            EventBus.Unsubscribe<OnAllClickablesClicked>(OnAllClickablesClicked);
         }
     }
 }

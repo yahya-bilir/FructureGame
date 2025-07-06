@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CommonComponents;
 using Cysharp.Threading.Tasks;
@@ -22,7 +23,8 @@ namespace IslandSystem
         [SerializeField] private List<Island> nextIslandsToBeAvailable;
         [SerializeField] private List<GameObject> collidersToDisableWhenSelected;
         [SerializeField] private List<OpeningSection> openingSections;
-        [SerializeField] private Transform cameraPositioner;
+        [SerializeField] private Transform mainCameraPosition;
+        [SerializeField] private Transform cardSelectionCameraPosition;
 
         [SerializeField] private Transform formationAnchor;
         [SerializeField] private Collider2D nextIslandJumpingPos;
@@ -32,15 +34,19 @@ namespace IslandSystem
         private CloudMovementManager _cloudManager;
         private IslandCharactersController _islandCharactersController;
         private IslandCameraMovementManager _islandCameraMovementManager;
+        private IslandManager _islandManager;
         public IslandJumpingActions JumpingActions { get; private set; }
 
         [Inject]
-        private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver, CloudMovementManager cloudManager)
+        private void Inject(CamerasManager camerasManager, IEventBus eventBus, IObjectResolver resolver, CloudMovementManager cloudManager, IslandManager islandManager)
         {
             _camerasManager = camerasManager;
             _eventBus = eventBus;
             _resolver = resolver;
             _cloudManager = cloudManager;
+            _islandManager = islandManager;
+            _eventBus.Subscribe<OnIslandFinished>(OnIslandFinished);
+
         }
 
         private void Awake()
@@ -50,12 +56,16 @@ namespace IslandSystem
             _islandOpeningUI = GetComponentInChildren<IslandOpeningUI>();
 
         }
+        private void OnDisable()
+        {
+            _eventBus.Unsubscribe<OnIslandFinished>(OnIslandFinished);
+        }
 
         private void Start()
         {
             JumpingActions = new IslandJumpingActions(nextIslandJumpingPos, formationAnchor, this, placingPosCollider);
             _islandCharactersController = new IslandCharactersController(openingSections, _eventBus, this);
-            _islandCameraMovementManager = new IslandCameraMovementManager(cameraPositioner, _camerasManager, _eventBus, this);
+            _islandCameraMovementManager = new IslandCameraMovementManager(mainCameraPosition, _camerasManager, _eventBus, this, cardSelectionCameraPosition, _islandManager);
             _islandOpeningSystem = new IslandOpeningSystem(
                 _islandCameraMovementManager, _rateChanger,
                 _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController);
@@ -73,10 +83,9 @@ namespace IslandSystem
         }
 
         [Button]
-        private void OnIslandFinished()
+        private void OnIslandFinished(OnIslandFinished eventData)
         {
-            _eventBus.Publish(new OnIslandFinished(this));
-
+            if(eventData.FinishedIsland != this) return;
             foreach (var nextIsland in nextIslandsToBeAvailable)
             {
                 nextIsland.MakeIslandAvailable();

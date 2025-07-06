@@ -30,7 +30,6 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-
             var velocity = _aiPath.desiredVelocity;
             if (velocity.x > 0.1f)
             {
@@ -44,22 +43,25 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _aiPath.canMove = false;
             WaitForCloudActionsToComplete().Forget();
         }
         public void OnExit()
         {
+            Debug.Log("exited" + " " + _aiPath.canMove);
         }
 
         private async UniTask WaitForCloudActionsToComplete()
         {
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(1);
+            Debug.Log("waited");
             _aiPath.destination = _characterIslandController.GetJumpingPosition();
             _aiPath.SearchPath();
             _animationController.Run();
             _aiPath.canMove = true;
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
-
             _characterIslandController.StartJumpingActions();
         }
+        
     }
 }

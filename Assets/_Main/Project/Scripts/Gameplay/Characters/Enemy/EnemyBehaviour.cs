@@ -52,10 +52,10 @@ public abstract class EnemyBehaviour : Character
     {
         _stateMachine = new StateMachine();
         
-        var waiting = new Waiting(_collider, _eventBus);
+        var waiting = new Waiting(_collider, _eventBus, _aiPath);
         var walkingTowardsJumpingPosition = new WalkingTowardsJumpingPosition(AnimationController, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterIslandController);
         var jumpingToPosition = new JumpingToPosition(CharacterIslandController, _aiPath, model.transform, this, AnimationController);
-        var searching = new SearchingForEnemy(_collider);
+        var searching = new SearchingForEnemy(_collider, _aiPath);
         walkingToEnemy = CreateWalkingState();
         attackingState = CreateAttackingState(); 
 
@@ -64,7 +64,7 @@ public abstract class EnemyBehaviour : Character
 
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
         Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
-        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.5f && !IsCharacterDead;
+        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.5f && !IsCharacterDead && _aiPath.canMove;
         Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
@@ -99,7 +99,7 @@ public abstract class EnemyBehaviour : Character
     protected virtual IState CreateWalkingState()
     {
         return new WalkingTowardsEnemy(AnimationController, _aiPath, model.transform,
-            CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder);
+            CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder, _collider);
     }
 
     protected abstract BaseAttacking CreateAttackingState();

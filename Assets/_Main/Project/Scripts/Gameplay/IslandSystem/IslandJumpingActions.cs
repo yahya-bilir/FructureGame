@@ -26,7 +26,7 @@ namespace IslandSystem
         private readonly Collider2D _placingPosCollider;
         private IEventBus _eventBus;
         private bool _jumpAreaCached;
-        private List<Character> _playerCharacters;
+        private EnemyFactory _playerCharacters;
 
         public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island,
             Collider2D placingPosCollider)
@@ -47,7 +47,7 @@ namespace IslandSystem
         {
             _eventBus = eventBus;
             _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);
-            _playerCharacters = enemyManager.PlayerArmyFactory.SpawnedEnemies;
+            _playerCharacters = enemyManager.PlayerArmyFactory;
         }
 
         public void CacheJumpArea()
@@ -82,7 +82,7 @@ namespace IslandSystem
 
         public async UniTask WaitForCharacterJumps()
         {
-            while (_playerCharacters.Any(i => i.CharacterIslandController.IsJumping)) await UniTask.Yield();
+            while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.IsJumping)) await UniTask.Yield();
         }
 
         public Vector2 GetJumpPosition(Vector2 startPos)
@@ -295,7 +295,7 @@ namespace IslandSystem
         {
             if (eventData.SelectedIsland != _island) return;
 
-            GenerateFormationPositions(_playerCharacters);
+            GenerateFormationPositions(_playerCharacters.SpawnedEnemies);
         }
     }
 }

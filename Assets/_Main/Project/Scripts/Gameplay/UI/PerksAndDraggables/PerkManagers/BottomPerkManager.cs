@@ -10,14 +10,14 @@ namespace UI.PerksAndDraggables.PerkManagers
         {
             EventBus.Subscribe<OnDraggableStartedBeingDragged>(OnDraggableStartedBeingDragged);
             EventBus.Subscribe<OnDraggableStoppedBeingDragged>(OnDraggableStoppedBeingDragged);
-            EventBus.Subscribe<OnClickableDestroyed>(OnClickableDestroyed);
+            EventBus.Subscribe<OnDraggableDroppedToScene>(OnDraggableDroppedToScene);
         }
 
         private void OnDisable()
         {
             EventBus.Unsubscribe<OnDraggableStartedBeingDragged>(OnDraggableStartedBeingDragged);
             EventBus.Unsubscribe<OnDraggableStoppedBeingDragged>(OnDraggableStoppedBeingDragged);
-            EventBus.Unsubscribe<OnClickableDestroyed>(OnClickableDestroyed);
+            EventBus.Unsubscribe<OnDraggableDroppedToScene>(OnDraggableDroppedToScene);
         }
 
         private void OnDraggableStartedBeingDragged(OnDraggableStartedBeingDragged eventData)
@@ -32,7 +32,10 @@ namespace UI.PerksAndDraggables.PerkManagers
                 }
                 
                 Draggable drg = connectedTransform.Clickable as Draggable;
-                if (drg != null) drg.SendDraggableToConnectedTransform().Forget();
+                if (drg != null)
+                {
+                    drg.SendDraggableToConnectedTransform().Forget();
+                }
             }
             
         }        
@@ -42,15 +45,17 @@ namespace UI.PerksAndDraggables.PerkManagers
             {
                 connectedTransform.ParentTransform.SetParent(transform);
                 Draggable drg = connectedTransform.Clickable as Draggable;
-                if (drg != null) drg.SendDraggableToConnectedTransform().Forget();
+                if (drg != null)
+                {
+                    drg.SendDraggableToConnectedTransform().Forget();
+                }
             }
         }
 
-        private void OnClickableDestroyed(OnClickableDestroyed eventData)
+        private void OnDraggableDroppedToScene(OnDraggableDroppedToScene eventData)
         {
-            if(eventData.Clickable is not Draggable) return;
             ClickableAndConnectedTransforms.Remove(
-                ClickableAndConnectedTransforms.Find(i => i.Clickable == eventData.Clickable));
+                ClickableAndConnectedTransforms.Find(i => i.Clickable == eventData.Draggable));
         }
 
         [Button(ButtonSizes.Medium)]

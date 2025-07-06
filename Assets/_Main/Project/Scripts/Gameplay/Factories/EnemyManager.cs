@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using Characters;
+﻿using Characters;
 using EventBusses;
+using Events;
 using Events.IslandEvents;
+using IslandSystem;
 using UnityEngine;
 using VContainer;
 
@@ -11,20 +12,20 @@ namespace Factories
     {
         [field: SerializeField] public EnemyFactory PlayerArmyFactory { get; private set; }
         private IObjectResolver _resolver;
-        private List<Character> _allCharacters;
         private IEventBus _eventBus;
+        private IslandManager _islandManager;
 
         [Inject]
-        private void Inject(IObjectResolver resolver, IEventBus eventBus)
+        private void Inject(IObjectResolver resolver, IEventBus eventBus, IslandManager islandManager)
         {
             _resolver = resolver;
             _eventBus = eventBus;
+            _islandManager = islandManager;
         }
 
         private void Awake()
         {
-            _allCharacters = new List<Character>(FindObjectsOfType<Character>());
-            foreach (var chr in _allCharacters)
+            foreach (var chr in FindObjectsOfType<Character>())
             {
                 _resolver.Inject(chr);
             }
@@ -34,12 +35,24 @@ namespace Factories
         {
             _eventBus.Subscribe<OnIslandSelected>(OnIslandSelected);
             _eventBus.Subscribe<OnIslandStarted>(OnIslandStarted);
+            _eventBus.Subscribe<OnCharacterDied>(OnCharacterDied);
+            _eventBus.Subscribe<OnCharacterUpgraded>(OnCharacterUpgraded);
 
+        }
+
+        private void OnCharacterUpgraded(OnCharacterUpgraded eventData)
+        {
+            PlayerArmyFactory.ReplaceEnemy(eventData.AddedCharacter, eventData.DestroyedCharacter);
+        }
+
+        private void OnCharacterDied(OnCharacterDied eventData)
+        {
+            PlayerArmyFactory.RemoveEnemyIfPossibe(eventData.Character);
         }
 
         private void OnIslandSelected(OnIslandSelected eventData)
         {
-            foreach (var chr in _allCharacters)
+            foreach (var chr in PlayerArmyFactory.SpawnedEnemies)
             {
                 chr.CharacterIslandController.SetNextIsland(eventData.SelectedIsland);
             }
@@ -47,7 +60,7 @@ namespace Factories
         
         private void OnIslandStarted(OnIslandStarted eventData)
         {
-            foreach (var chr in _allCharacters)
+            foreach (var chr in PlayerArmyFactory.SpawnedEnemies)
             {
                 chr.CharacterIslandController.SetPreviousIsland(eventData.StartedIsland);
             }
@@ -55,7 +68,7 @@ namespace Factories
 
         private void Start()
         {
-            PlayerArmyFactory.Initialize(_resolver);
+            PlayerArmyFactory.Initialize(_resolver, _islandManager);
         }
 
         public void SpawnPlayerArmyCharacter(Character character, Vector2 position)
@@ -67,7 +80,8 @@ namespace Factories
         {
             _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
             _eventBus.Unsubscribe<OnIslandStarted>(OnIslandStarted);
-
+            _eventBus.Unsubscribe<OnCharacterDied>(OnCharacterDied);
+            _eventBus.Unsubscribe<OnCharacterUpgraded>(OnCharacterUpgraded);
         }
     }
 }

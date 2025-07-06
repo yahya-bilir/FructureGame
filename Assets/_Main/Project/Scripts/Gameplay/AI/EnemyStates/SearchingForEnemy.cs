@@ -1,4 +1,5 @@
 ﻿using AI.Base.Interfaces;
+using Pathfinding;
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -6,10 +7,12 @@ namespace AI.EnemyStates
     public class SearchingForEnemy : IState
     {
         private readonly Collider2D _connectedCollider;
+        private readonly AIPath _aiPath;
 
-        public SearchingForEnemy(Collider2D connectedCollider)
+        public SearchingForEnemy(Collider2D connectedCollider, AIPath aiPath)
         {
             _connectedCollider = connectedCollider;
+            _aiPath = aiPath;
         }
 
         public void Tick()
@@ -20,6 +23,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _aiPath.canMove = false;
         }
 
         public void OnExit()

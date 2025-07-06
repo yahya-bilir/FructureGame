@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using EventBusses;
 using Events.ClickableEvents;
+using Events.IslandEvents;
 using Perks;
 using Perks.Base;
 using TMPro;
@@ -42,9 +43,9 @@ namespace UI.PerksAndDraggables
 
         protected virtual void Start()
         {
-            Resolver.Inject(clickableActionSo);
+            Resolver.Inject(clickableActionSo); 
             _clickableUIManager.Initialize();
-            EventBus.Publish(new OnClickableCreated(this));
+            //EventBus.Publish(new OnClickableCreated(this));
             
             var localScale = transform.localScale;
             transform.localScale = Vector3.zero;
@@ -60,7 +61,10 @@ namespace UI.PerksAndDraggables
             IsClickable = false;
             OnClickedSuccessfully();
         }
-        
-        public abstract void OnClickedSuccessfully();
+
+        protected virtual void OnClickedSuccessfully()
+        {
+            EventBus.Publish(new OnClickableClicked(this));
+        }
     }
 }

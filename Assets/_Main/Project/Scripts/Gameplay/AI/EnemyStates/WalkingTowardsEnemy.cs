@@ -15,10 +15,11 @@ namespace AI.EnemyStates
         private readonly PropertyData _speedPropertyData;
         private readonly CharacterCombatManager _characterCombatManager;
         private readonly CharacterDataHolder _characterDataHolder;
+        private readonly Collider2D _collider;
 
         public WalkingTowardsEnemy(CharacterAnimationController animationController,
             AIPath aiPath, Transform model, PropertyData speedPropertyData,
-            CharacterCombatManager characterCombatManager, CharacterDataHolder characterDataHolder)
+            CharacterCombatManager characterCombatManager, CharacterDataHolder characterDataHolder, Collider2D collider)
         {
             _animationController = animationController;
             _aiPath = aiPath;
@@ -26,6 +27,7 @@ namespace AI.EnemyStates
             _speedPropertyData = speedPropertyData;
             _characterCombatManager = characterCombatManager;
             _characterDataHolder = characterDataHolder;
+            _collider = collider;
         }
 
         public void Tick()
@@ -75,6 +77,7 @@ namespace AI.EnemyStates
         {
             _animationController.Run();
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
+            _collider.isTrigger = true;
         }
 
 

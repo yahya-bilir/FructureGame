@@ -26,3 +26,5 @@ MonoBehaviour:
     Values: []
   ToggleList:
   - homagames.homabelly.bundle_best_practice_alert_shown
+  - homagames.development_mode_enabled_on_first_install
+  - homagames.debug_override_enabled_on_first_install

@@ -64,8 +64,8 @@ namespace CommonComponents
 
         public async UniTask MoveCameraToPos(Vector3 pos)
         {
-            //ActivePlayerCam.transform.DOMove(pos, 0.5f);
-            ActivePlayerCam.transform.position = pos;
+            ActivePlayerCam.transform.DOMove(pos, 0.5f);
+            //ActivePlayerCam.transform.position = pos;
             await UniTask.WaitForSeconds(0.5f);
         }
 

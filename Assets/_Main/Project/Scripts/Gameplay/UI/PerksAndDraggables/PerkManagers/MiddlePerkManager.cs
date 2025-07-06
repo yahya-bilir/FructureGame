@@ -6,15 +6,6 @@ namespace UI.PerksAndDraggables.PerkManagers
 {
     public class MiddlePerkManager : PerkManager
     {
-        private void Start()
-        {
-            //debug purpose
-            foreach (var clickable in FindObjectsByType<Draggable>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
-            {
-                //PlaceClickableToAppropriatePosition(clickable);
-            }
-        }
-        
         private void OnEnable()
         {
             EventBus.Subscribe<OnClickableCreated>(OnClickableCreated);
@@ -40,6 +31,13 @@ namespace UI.PerksAndDraggables.PerkManagers
 
             draggable.SetConnectedTransform(newHolder.transform);
             draggable.SendDraggableToConnectedTransform().Forget();
+            
+            foreach (var clickableAndConnectedTransform in ClickableAndConnectedTransforms)
+            {
+                if(clickableAndConnectedTransform.Clickable == draggable) continue;
+                var drg = clickableAndConnectedTransform.Clickable as Draggable;
+                drg.SendDraggableToConnectedTransform().Forget();
+            }
         }
 
         public void RemoveClickableFromList(Clickable clickable)
