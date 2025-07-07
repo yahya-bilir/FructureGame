@@ -7,7 +7,7 @@ namespace Characters.Enemy
         protected override BaseAttacking CreateAttackingState()
         {
             return new RangedAttacking(AnimationController, CharacterDataHolder.AttackingInterval,
-                CharacterCombatManager, _eventBus, CharacterWeaponManager);
+                CharacterCombatManager, _eventBus, CharacterWeaponManager, model);
             
         }
     }

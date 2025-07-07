@@ -64,8 +64,8 @@ public abstract class EnemyBehaviour : Character
         var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, CharacterDataHolder.OnDeathParts, transform);
 
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
-        Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 0.2f && !IsCharacterDead;
-        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.35f && !IsCharacterDead && _aiPath.canMove;
+        Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 0.25f && !IsCharacterDead;
+        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 1f && !IsCharacterDead && _aiPath.canMove;
         Func<bool> CanJump() => () => !IsCharacterDead && CharacterIslandController.CanJump;
         Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 0.25f && !IsCharacterDead;
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;

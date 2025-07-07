@@ -1,6 +1,7 @@
 using Characters;
 using EventBusses;
 using Events;
+using UnityEngine;
 
 public class MeleeAttacking : BaseAttacking
 {
@@ -9,8 +10,8 @@ public class MeleeAttacking : BaseAttacking
     private readonly float _damage;
 
     public MeleeAttacking(CharacterAnimationController animationController, float interval,
-        CharacterCombatManager combatManager, IEventBus eventBus, float damage)
-        : base(animationController, interval)
+        CharacterCombatManager combatManager, IEventBus eventBus, float damage, GameObject model)
+        : base(animationController, interval, combatManager, model)
     {
         _combatManager = combatManager;
         _eventBus = eventBus;

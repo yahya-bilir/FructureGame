@@ -11,8 +11,9 @@ public class RangedAttacking : BaseAttacking
     private readonly CharacterWeaponManager _characterWeaponManager;
 
     public RangedAttacking(CharacterAnimationController animationController, float interval,
-        CharacterCombatManager combatManager, IEventBus eventBus, CharacterWeaponManager characterWeaponManager)
-        : base(animationController, interval)
+        CharacterCombatManager combatManager, IEventBus eventBus, CharacterWeaponManager characterWeaponManager,
+        GameObject model)
+        : base(animationController, interval, combatManager, model)
     {
         _combatManager = combatManager;
         _eventBus = eventBus;
