@@ -75,12 +75,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b07a39c5eb2e5c46bf19c7960702f38
-    m_Address: Assets/_Main/Art/Characters/Main Character.psb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a55524d3ef3dea546945bfed90cb334e
     m_Address: Assets/_Main/Art/Environment/BGWithoutTree.png
     m_ReadOnly: 0
@@ -89,12 +83,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab7c3c6693b33f2469287e5df33dbb73
     m_Address: Assets/_Main/Art/Characters/Boss@2x.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b14611867cb404941aaa6f55476185e8
-    m_Address: Assets/_Main/Art/Characters/Enemy2.psb
     m_ReadOnly: 0
     m_SerializedLabels:
     - default

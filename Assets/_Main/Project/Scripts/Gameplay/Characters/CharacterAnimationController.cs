@@ -8,6 +8,8 @@ namespace Characters
         private static readonly int RunHash = Animator.StringToHash("Run");
         private static readonly int WalkHash = Animator.StringToHash("Walk");
         private static readonly int AttackHash = Animator.StringToHash("Attack");
+        private static readonly int JumpHash = Animator.StringToHash("Jump");
+        private static readonly int HitHash = Animator.StringToHash("Hit");
 
         public CharacterAnimationController(Animator animator)
         {
@@ -27,8 +29,10 @@ namespace Characters
 
         public void Idle()
         {
-            _animator.SetBool(WalkHash, false);
+            _animator.SetBool(AttackHash, false);
             _animator.SetBool(RunHash, false);
+            _animator.SetBool(JumpHash, false);
+            _animator.SetBool(WalkHash, false);
         }
 
 
@@ -40,10 +44,15 @@ namespace Characters
 
         public void Spawn()
         {
-            
+            Idle();
         }
 
         public void DisableAnimator() => _animator.enabled = false;
         public void EnableAnimator() => _animator.enabled = true;
+
+        public void GetHit()
+        {
+            _animator.Play(HitHash);
+        }
     }
 }

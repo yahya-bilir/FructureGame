@@ -42,7 +42,6 @@ namespace Perks
             {
                 var spawnPosition = worldPos + Random.insideUnitCircle * radius;
                 _enemyManager.SpawnPlayerArmyCharacter(characterToSpawn, spawnPosition);
-                Debug.Log($"Spawned {characterToSpawn.name} at {spawnPosition}");
                 await UniTask.WaitForSeconds(0.05f);
             }
         }

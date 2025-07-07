@@ -29,7 +29,8 @@ namespace IslandSystem
         [SerializeField] private Transform formationAnchor;
         [SerializeField] private Collider2D nextIslandJumpingPos;
         [SerializeField] private Collider2D placingPosCollider;
-
+        [SerializeField] private List<IslandCloud> islandClouds;
+        
         private IslandOpeningSystem _islandOpeningSystem;
         private CloudMovementManager _cloudManager;
         private IslandCharactersController _islandCharactersController;
@@ -68,7 +69,7 @@ namespace IslandSystem
             _islandCameraMovementManager = new IslandCameraMovementManager(mainCameraPosition, _camerasManager, _eventBus, this, cardSelectionCameraPosition, _islandManager);
             _islandOpeningSystem = new IslandOpeningSystem(
                 _islandCameraMovementManager, _rateChanger,
-                _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController);
+                _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController, islandClouds);
 
 
             _islandOpeningSystem.Initialize();

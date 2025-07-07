@@ -9,6 +9,7 @@ namespace Characters.Enemy
         public Island NextIsland { get; private set; }
         public Island PreviousIsland { get; private set; }
         public bool IsJumping { get; private set; }
+        public bool WalkingToJumpingPosition { get; private set; }
         public CharacterIslandController(Character character)
         {
             _character = character;
@@ -34,14 +35,10 @@ namespace Characters.Enemy
             return PreviousIsland != null ? PreviousIsland.JumpingActions.GetJumpPosition(_character.transform.position) : (Vector2)_character.transform.position;
         }
         
-        public void StartJumpingActions()
-        {
-            IsJumping = true;
-        }
-        
-        public void StopJumping()
-        {
-            IsJumping = false;
-        }
+        public void StartWalkingToJumpingPosition() => WalkingToJumpingPosition = true;
+        public void StopWalkingToJumpingPosition() => WalkingToJumpingPosition = false;
+        public void StartJumpingActions() => IsJumping = true;
+
+        public void StopJumping() => IsJumping = false;
     }
 }

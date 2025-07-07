@@ -27,6 +27,7 @@ namespace IslandSystem
         private IEventBus _eventBus;
         private bool _jumpAreaCached;
         private EnemyFactory _playerCharacters;
+        public bool JumpingCanStart { get; private set; }
 
         public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island,
             Collider2D placingPosCollider)
@@ -82,8 +83,25 @@ namespace IslandSystem
 
         public async UniTask WaitForCharacterJumps()
         {
-            while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.IsJumping)) await UniTask.Yield();
+            while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.IsJumping))
+            {
+                await UniTask.Yield();
+            }
+
+            JumpingCanStart = false;
+        }        
+        
+        public async UniTask WaitForCharactersToGetIntoJumpingPosition()
+        {
+            while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.WalkingToJumpingPosition))
+            {
+                await UniTask.Yield();
+            }
+
+            JumpingCanStart = true;
         }
+        
+        
 
         public Vector2 GetJumpPosition(Vector2 startPos)
         {

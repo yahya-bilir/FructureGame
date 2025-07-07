@@ -40,10 +40,10 @@ namespace IslandSystem
             _camerasManager.MoveCameraToPos(_cardSelectionCameraPosition.position).Forget();
         }
 
-        public void OnIslandSelected()
+        public async UniTask OnIslandSelected()
         {
-            _camerasManager.MoveCameraToPos(_mainCameraPosition.position).Forget();
             _camerasManager.ToggleLensSize(8f);
+            await _camerasManager.MoveCameraToPos(_mainCameraPosition.position);
         }
         
         

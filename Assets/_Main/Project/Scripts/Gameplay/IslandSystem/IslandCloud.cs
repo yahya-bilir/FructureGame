@@ -8,6 +8,7 @@ namespace IslandSystem
     {
         [SerializeField] private Transform cloudInnerPosition;
         private Vector3 _cloudOuterPosition;
+        private SpriteRenderer _cloudOuterSpriteRenderer;
         // private IEventBus _eventBus;
         // public int İ { get; private set; }
         //
@@ -19,8 +20,9 @@ namespace IslandSystem
         //
         private void Awake()
         {
-            _cloudOuterPosition = transform.position;
-            transform.position = cloudInnerPosition.position;
+            _cloudOuterSpriteRenderer = GetComponent<SpriteRenderer>();
+            //_cloudOuterPosition = transform.position;
+            //transform.position = cloudInnerPosition.position;
 
         }
         
@@ -54,10 +56,14 @@ namespace IslandSystem
             await UniTask.Delay(600 + 750);
         }        
         
-        private async UniTask OpenCloud()
+        public async UniTask OpenCloud()
         {
-            transform.DOMove(_cloudOuterPosition, 0.6f);
-            //await UniTask.Delay(200);
+            transform.DOMove(cloudInnerPosition.position, 1f);
+            DOVirtual.Color(_cloudOuterSpriteRenderer.color, new Color(1, 1, 1, 0), 0.6f, (value) =>
+            {
+                _cloudOuterSpriteRenderer.color = value;
+            });
+            await UniTask.WaitForSeconds(0.75f);
         }
     }
 }
