@@ -10,7 +10,7 @@ namespace IslandSystem
 {
     public class IslandManager : MonoBehaviour
     {
-        [SerializeField] private Island firstIsland;
+        [field: SerializeField] public Island firstIsland {get; private set;}
         [SerializeField] private List<Island> allIslands;
         public bool FightCanStart { get; private set; }
 

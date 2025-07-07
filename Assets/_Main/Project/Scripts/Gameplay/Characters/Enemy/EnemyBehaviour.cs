@@ -22,7 +22,7 @@ public abstract class EnemyBehaviour : Character
     
     protected IState walkingToEnemy;
     protected IState attackingState;
-    private IEventBus _eventBus;
+    protected IEventBus _eventBus;
     private IslandManager _islandManager;
     private Rigidbody2D _rigidbody2D;
 
@@ -65,13 +65,13 @@ public abstract class EnemyBehaviour : Character
 
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
         Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 0.2f && !IsCharacterDead;
-        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.5f && !IsCharacterDead && _aiPath.canMove;
-        Func<bool> CanJump() => () => !IsCharacterDead && CharacterIslandController.IsJumping && CharacterIslandController.NextIsland.JumpingActions.JumpingCanStart;
-        Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
+        Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.35f && !IsCharacterDead && _aiPath.canMove;
+        Func<bool> CanJump() => () => !IsCharacterDead && CharacterIslandController.CanJump;
+        Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 0.25f && !IsCharacterDead;
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> CharacterIsDead() => () => IsCharacterDead;
-        Func<bool> OnFightStarted() => () => _islandManager.FightCanStart && !IsCharacterDead;
+        Func<bool> OnFightStarted() => () => _islandManager.FightCanStart && !IsCharacterDead && !CharacterIslandController.IsJumping;
         Func<bool> EnemyDied() => () =>
             CharacterCombatManager.LastFoundEnemy != null && CharacterCombatManager.LastFoundEnemy.IsCharacterDead && 
             !IsCharacterDead;

@@ -7,6 +7,8 @@ using WeaponSystem.RangedWeapons;
 
 public class RangedWeapon : UpgradeableWeapon
 {
+    [SerializeField] private Transform projectileCreationPoint;
+    
     private RangedWeaponSO _rangedWeaponSo;
     private float _shootCooldown;
     private Queue<AmmoBase> _projectilePool;
@@ -21,25 +23,25 @@ public class RangedWeapon : UpgradeableWeapon
 
     private void Update()
     {
-        _shootCooldown += Time.deltaTime;
-
-        if (_shootCooldown >= CurrentAttackInterval)
-        {
-            var closestEnemy = ConnectedCombatManager.FindNearestEnemy();
-            if (closestEnemy == null) return;
-            Shoot(closestEnemy);
-            _shootCooldown = 0;
-        }
-        else if (_shootCooldown >= CurrentAttackInterval / 2)
-        {
-            modelRenderer.enabled = true;
-        }
+//         _shootCooldown += Time.deltaTime;
+//
+//         if (_shootCooldown >= CurrentAttackInterval)
+//         {
+//             var closestEnemy = ConnectedCombatManager.FindNearestEnemy();
+//             if (closestEnemy == null) return;
+//             Shoot(closestEnemy);
+//             _shootCooldown = 0;
+//         }
+//         else if (_shootCooldown >= CurrentAttackInterval / 2)
+//         {
+// //            modelRenderer.enabled = true;
+//         }
     }
 
-    private void Shoot(Character character)
+    public void Shoot(Character character)
     {
-        if (_rangedWeaponSo.ShouldDisableAfterEachShot)
-            modelRenderer.enabled = false;
+        // if (_rangedWeaponSo.ShouldDisableAfterEachShot)
+        //     modelRenderer.enabled = false;
 
         if (_projectilePool.Count == 0)
             ExpandPool();
@@ -51,7 +53,7 @@ public class RangedWeapon : UpgradeableWeapon
             return;
         }
         ammo.transform.SetParent(null); // herhangi bir parent'tan ayrılıyor
-        ammo.transform.position = transform.position;
+        ammo.transform.position = projectileCreationPoint.position;
         ammo.transform.rotation = transform.rotation;
         ammo.gameObject.SetActive(true);
 

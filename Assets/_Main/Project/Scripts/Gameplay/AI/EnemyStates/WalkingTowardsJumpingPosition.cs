@@ -55,14 +55,13 @@ namespace AI.EnemyStates
 
         private async UniTask WaitForCloudActionsToComplete()
         {
-            await UniTask.WaitForSeconds(1);
-            Debug.Log("waited");
+            //await UniTask.WaitForSeconds(1);
+            //Debug.Log("waited");
             _aiPath.destination = _characterIslandController.GetJumpingPosition();
             _aiPath.SearchPath();
             _animationController.Run();
             _aiPath.canMove = true;
             _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
-            _characterIslandController.StartJumpingActions();
         }
         
     }

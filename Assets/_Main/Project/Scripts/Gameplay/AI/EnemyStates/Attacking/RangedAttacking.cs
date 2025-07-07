@@ -1,20 +1,50 @@
 using Characters;
+using EventBusses;
+using Events;
 using UnityEngine;
+using WeaponSystem.Managers;
 
 public class RangedAttacking : BaseAttacking
 {
     private readonly CharacterCombatManager _combatManager;
+    private readonly IEventBus _eventBus;
+    private readonly CharacterWeaponManager _characterWeaponManager;
 
-    public RangedAttacking(CharacterAnimationController animationController, float interval, CharacterCombatManager combatManager)
+    public RangedAttacking(CharacterAnimationController animationController, float interval,
+        CharacterCombatManager combatManager, IEventBus eventBus, CharacterWeaponManager characterWeaponManager)
         : base(animationController, interval)
     {
         _combatManager = combatManager;
+        _eventBus = eventBus;
+        _characterWeaponManager = characterWeaponManager;
     }
 
     protected override void OnAttack()
     {
-        //_combatManager.TryShootProjectile();
+        
     }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        _eventBus.Subscribe<OnEnemyAttacked>(OnEnemyAttacked);
+    }
+
+    private void OnEnemyAttacked(OnEnemyAttacked eventData)
+    {
+        if(eventData.AttackedCharacter != _combatManager.Character) return;
+        var lastFoundEnemy = _combatManager.LastFoundEnemy;
+        if(lastFoundEnemy == null && lastFoundEnemy.IsCharacterDead) return;
+        var item = _characterWeaponManager.SpawnedWeapon as RangedWeapon;
+        item.Shoot(_combatManager.LastFoundEnemy);
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        _eventBus.Unsubscribe<OnEnemyAttacked>(OnEnemyAttacked);
+    }
+
 
     public override void Tick()
     {

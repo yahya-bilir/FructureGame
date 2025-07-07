@@ -59,7 +59,7 @@ namespace CommonComponents
         public void ShakeCamera()
         {
             Vibrations.Medium();
-            _feedbacks.PlayFeedbacks();
+            //_feedbacks.PlayFeedbacks();
         }
 
         public async UniTask MoveCameraToPos(Vector3 pos)

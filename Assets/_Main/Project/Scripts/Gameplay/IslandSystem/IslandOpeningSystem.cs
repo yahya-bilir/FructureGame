@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CommonComponents;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events.IslandEvents;
@@ -19,6 +18,7 @@ namespace IslandSystem
         private readonly CloudMovementManager _cloudMovementManager;
         private readonly IslandCharactersController _islandCharactersController;
         private readonly List<IslandCloud> _islandClouds;
+        private readonly IslandManager _islandManager;
         private readonly RateChanger _rateChanger;
         private readonly Scaler _scaler;
 
@@ -26,7 +26,7 @@ namespace IslandSystem
             Scaler scaler, IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected,
             IslandJumpingActions jumpingActions,
             CloudMovementManager cloudMovementManager, IslandCharactersController islandCharactersController,
-            List<IslandCloud> islandClouds)
+            List<IslandCloud> islandClouds, IslandManager islandManager)
         {
             _islandCameraMovementManager = islandCameraMovementManager;
             _rateChanger = rateChanger;
@@ -38,6 +38,7 @@ namespace IslandSystem
             _cloudMovementManager = cloudMovementManager;
             _islandCharactersController = islandCharactersController;
             _islandClouds = islandClouds;
+            _islandManager = islandManager;
         }
 
         public void Dispose()
@@ -58,9 +59,18 @@ namespace IslandSystem
 
         private async UniTask OpenIslandUp()
         {
-            _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition().Forget();
-            await _islandCameraMovementManager.OnIslandSelected();
+            await UniTask.WaitForSeconds(0.1f);
+
+            if(_island != _islandManager.firstIsland)
+            {
+                Debug.Log("waiting for characters to get into jumpiong pos");
+                await _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition();
+                await _islandCameraMovementManager.OnIslandSelected();
+            } 
+            
+
             //await _cloudMovementManager.StartCloudActions();
+
             await UniTask.WhenAll(
                 _islandClouds.ConvertAll(cloud => cloud.OpenCloud())
             );
@@ -69,8 +79,19 @@ namespace IslandSystem
             //await UniTask.WaitForSeconds(1f);
             await _scaler.ScaleUp();
             await UniTask.WaitForSeconds(1f);
-            await _islandJumpingActions.WaitForCharacterJumps();
+            
+            if(_island != _islandManager.firstIsland)
+            {
+                Debug.Log("waiting for characters to jump");
+                await _islandJumpingActions.MakeCharacterJump();
+
+                await _islandJumpingActions.WaitForCharacterJumps();
+                await _islandCameraMovementManager.OnIslandOpenedCompletely();
+
+                //await _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition();
+            }
             //_collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
+
             Debug.Log("Sections will be activated");
             // var rng = new System.Random();
             // rng.Shuffle(_openingSection);

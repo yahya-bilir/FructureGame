@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.16
       objectReference: {fileID: 0}
     - target: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 585546626260416553, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 4708866132489194928, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
+      propertyPath: <Faction>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField

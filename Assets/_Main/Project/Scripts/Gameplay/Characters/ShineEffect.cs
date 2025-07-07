@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Characters;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -10,16 +11,19 @@ namespace Utils
     {
         private readonly List<SpriteRenderer> _spriteRenderers;
         private readonly float _shineDuration;
+        private readonly Character _character;
         private readonly Color _shineColor = new Color(2.5f, 2.5f, 1.5f, 1f);
 
         private readonly Dictionary<SpriteRenderer, MaterialPropertyBlock> _propertyBlocks;
         private CancellationTokenSource _source;
         private bool _isShining;
 
-        public ShineEffect(List<SpriteRenderer> spriteRenderers, Color shineColor, float shineDuration)
+        public ShineEffect(List<SpriteRenderer> spriteRenderers, Color shineColor, float shineDuration,
+            Character character)
         {
             _spriteRenderers = spriteRenderers;
             _shineDuration = shineDuration;
+            _character = character;
             _shineColor = shineColor;
             _propertyBlocks = new Dictionary<SpriteRenderer, MaterialPropertyBlock>();
             SetupPropertyBlocks();
@@ -39,6 +43,7 @@ namespace Utils
 
         public void Shine()
         {
+            if(_character.IsCharacterDead) return;
             if (_isShining) return;
 
             _source?.Cancel();

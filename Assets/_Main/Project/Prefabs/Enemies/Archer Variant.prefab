@@ -16,13 +16,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 577649154166769344, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+      propertyPath: <Faction>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 713239589633402717, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.11
       objectReference: {fileID: 0}
     - target: {fileID: 713239589633402717, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 713239589633402717, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_LocalPosition.z

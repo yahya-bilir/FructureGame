@@ -21,6 +21,7 @@ namespace IslandSystem
         private void Awake()
         {
             _cloudOuterSpriteRenderer = GetComponent<SpriteRenderer>();
+            _cloudOuterSpriteRenderer.enabled = true;
             //_cloudOuterPosition = transform.position;
             //transform.position = cloudInnerPosition.position;
 

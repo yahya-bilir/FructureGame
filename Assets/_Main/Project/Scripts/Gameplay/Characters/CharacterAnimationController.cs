@@ -52,7 +52,7 @@ namespace Characters
 
         public void GetHit()
         {
-            _animator.Play(HitHash);
+            _animator.SetTrigger(HitHash);
         }
     }
 }

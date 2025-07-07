@@ -32,6 +32,10 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            Debug.Log("jumping", _enemyBehaviour);
+
+            _characterIslandController.StartJumpingActions();
+
             _characterAnimationController.DisableAnimator();
 
             _aiPath.canMove = false;
@@ -81,6 +85,8 @@ namespace AI.EnemyStates
 
         public void OnExit()
         {
+            Debug.Log("jumping disabled", _enemyBehaviour);
+            _characterIslandController.SetCanJumpDisabled();
         }
     }
 }

@@ -63,12 +63,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 88c6d20af2ea4ba40a4aedb1aa5211bc
-    m_Address: Assets/_Main/Art/Characters/Enemy3.psb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c094c7a9277643e2884b47c7acf6234
     m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy1 Variant.prefab
     m_ReadOnly: 0

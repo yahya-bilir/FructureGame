@@ -14,9 +14,9 @@ namespace WeaponSystem.AmmoSystem
 
             if (TryGetComponent(out TrailRenderer trail))
             {
-                color.a /= 2;
-                trail.startColor = color;
-                trail.endColor = color;
+                // color.a /= 2;
+                // trail.startColor = color;
+                // trail.endColor = color;
             }
         }
 

@@ -14,7 +14,7 @@ namespace WeaponSystem.Managers
         private readonly Transform _weaponEquippingField;
         private IObjectResolver _resolver;
         private readonly ObjectWithDamage _weaponPrefabToSpawn;
-        private ObjectWithDamage _spawnedWeapon;
+        public ObjectWithDamage SpawnedWeapon { get; private set; }
         private readonly Character _character;
         private IEventBus _eventBus;
 
@@ -47,9 +47,9 @@ namespace WeaponSystem.Managers
         private void OnCharacterDied(OnCharacterDied data)
         {
             if(data.Character != _character) return;
-            if (_spawnedWeapon != null)
+            if (SpawnedWeapon != null)
             {
-                GameObject.Destroy(_spawnedWeapon);
+                GameObject.Destroy(SpawnedWeapon);
             }
         }
 
@@ -57,10 +57,10 @@ namespace WeaponSystem.Managers
         private void SpawnWeapon(ObjectWithDamage weapon, Transform spawnField)
         {
             if(weapon == null) return;
-            _spawnedWeapon = GameObject.Instantiate(weapon, spawnField.position, Quaternion.identity, spawnField);
-            _spawnedWeapon.transform.localEulerAngles = Vector3.zero;
-            _spawnedWeapon.Initialize(_characterCombatManager, _characterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
-            _resolver.Inject(_spawnedWeapon);
+            SpawnedWeapon = GameObject.Instantiate(weapon, spawnField.position, Quaternion.identity, spawnField);
+            SpawnedWeapon.transform.localEulerAngles = Vector3.zero;
+            SpawnedWeapon.Initialize(_characterCombatManager, _characterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
+            _resolver.Inject(SpawnedWeapon);
         }
     }
 }

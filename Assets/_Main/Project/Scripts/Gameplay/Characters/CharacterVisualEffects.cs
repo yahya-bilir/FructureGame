@@ -46,13 +46,13 @@ namespace Characters
 
         private void Initialize()
         {
-            _shineEffect = new ShineEffect(_spriteRenderers, _characterDataHolder.ShineColor, _characterDataHolder.ShineDuration);
+            _shineEffect = new ShineEffect(_spriteRenderers, _characterDataHolder.ShineColor, _characterDataHolder.ShineDuration, _character);
         }
 
 
         public void OnCharacterTookDamage(float newHealth, float maxHealth)
         {
-            //_shineEffect.Shine();
+            _shineEffect.Shine();
             
             
             if(_healthBar == null) return;

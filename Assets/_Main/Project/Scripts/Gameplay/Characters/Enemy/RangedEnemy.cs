@@ -1,3 +1,5 @@
+using WeaponSystem.Managers;
+
 namespace Characters.Enemy
 {
     public class RangedEnemy : EnemyBehaviour
@@ -5,7 +7,7 @@ namespace Characters.Enemy
         protected override BaseAttacking CreateAttackingState()
         {
             return new RangedAttacking(AnimationController, CharacterDataHolder.AttackingInterval,
-                CharacterCombatManager);
+                CharacterCombatManager, _eventBus, CharacterWeaponManager);
             
         }
     }

@@ -16,9 +16,11 @@ namespace IslandSystem
         private readonly Island _island;
         private readonly Transform _cardSelectionCameraPosition;
         private readonly IslandManager _islandManager;
+        private readonly Transform _openingCameraPosition;
 
         public IslandCameraMovementManager(Transform mainCameraPosition, CamerasManager camerasManager,
-            IEventBus eventBus, Island island, Transform cardSelectionCameraPosition, IslandManager islandManager)
+            IEventBus eventBus, Island island, Transform cardSelectionCameraPosition, IslandManager islandManager,
+            Transform openingCameraPosition)
         {
             _mainCameraPosition = mainCameraPosition;
             _camerasManager = camerasManager;
@@ -26,6 +28,7 @@ namespace IslandSystem
             _island = island;
             _cardSelectionCameraPosition = cardSelectionCameraPosition;
             _islandManager = islandManager;
+            _openingCameraPosition = openingCameraPosition;
         }
 
         public void Initialize()
@@ -43,6 +46,12 @@ namespace IslandSystem
         public async UniTask OnIslandSelected()
         {
             _camerasManager.ToggleLensSize(8f);
+            await _camerasManager.MoveCameraToPos(_openingCameraPosition.position);
+        }        
+        
+        public async UniTask OnIslandOpenedCompletely()
+        {
+            //_camerasManager.ToggleLensSize(8f);
             await _camerasManager.MoveCameraToPos(_mainCameraPosition.position);
         }
         

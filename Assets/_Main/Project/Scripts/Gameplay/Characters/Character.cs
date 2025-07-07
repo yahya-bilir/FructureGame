@@ -31,7 +31,7 @@ namespace Characters
         protected CharacterPropertyManager CharacterPropertyManager;
         public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
         protected CharacterSpeedController CharacterSpeedController;
-        private CharacterWeaponManager _characterWeaponManager;
+        protected CharacterWeaponManager CharacterWeaponManager;
         public CharacterIslandController CharacterIslandController { get; private set; }
         protected SpriteRenderer[] ChildrenSpriteRenderers;
         private ShineEffect _shineEffect;
@@ -59,7 +59,7 @@ namespace Characters
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
-            _characterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
+            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
             CharacterIslandController = new CharacterIslandController(this);
         }
 
@@ -73,7 +73,7 @@ namespace Characters
             Resolver.Inject(CharacterPropertyManager);
             Resolver.Inject(CharacterCombatManager);
             Resolver.Inject(CharacterSpeedController);
-            Resolver.Inject(_characterWeaponManager);
+            Resolver.Inject(CharacterWeaponManager);
             Resolver.Inject(CharacterVisualEffects);
             Resolver.Inject(_attackAnimationCaller);
         }

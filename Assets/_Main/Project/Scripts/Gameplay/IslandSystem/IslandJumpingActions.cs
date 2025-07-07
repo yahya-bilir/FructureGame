@@ -28,6 +28,7 @@ namespace IslandSystem
         private bool _jumpAreaCached;
         private EnemyFactory _playerCharacters;
         public bool JumpingCanStart { get; private set; }
+        private readonly List<Vector2> _jumpingTakenPoints = new();
 
         public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island,
             Collider2D placingPosCollider)
@@ -100,36 +101,96 @@ namespace IslandSystem
 
             JumpingCanStart = true;
         }
+
+        public async UniTask MakeCharacterJump()
+        {
+            foreach (var character in _playerCharacters.SpawnedEnemies)
+            {
+                character.CharacterIslandController.SetCanJumpEnabled();
+                await UniTask.WaitForSeconds(0.05f);
+            }
+        }
         
         
 
         public Vector2 GetJumpPosition(Vector2 startPos)
+{
+    if (!_jumpAreaCached)
+    {
+        Debug.LogWarning("Jump area not cached! Caching now.");
+        CacheJumpArea();
+    }
+
+    float minSpacing = 0.5f; // agentlar arası min mesafe
+    float dist;
+    Vector2 candidate = startPos;
+    float minDistance = float.MaxValue;
+
+    // 1) En yakın kenar noktası bul
+    for (int i = 0; i < 4; i++)
+    {
+        var a = _jumpAreaEdges[i, 0];
+        var b = _jumpAreaEdges[i, 1];
+        var projection = ProjectPointOnLineSegment(a, b, startPos);
+
+        dist = Vector2.Distance(startPos, projection);
+        if (dist < minDistance)
         {
-            if (!_jumpAreaCached)
-            {
-                Debug.LogWarning("Jump area not cached! Caching now.");
-                CacheJumpArea();
-            }
-
-            var closestPoint = startPos;
-            var minDistance = float.MaxValue;
-
-            for (var i = 0; i < 4; i++)
-            {
-                var a = _jumpAreaEdges[i, 0];
-                var b = _jumpAreaEdges[i, 1];
-                var projection = ProjectPointOnLineSegment(a, b, startPos);
-
-                var dist = Vector2.Distance(startPos, projection);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    closestPoint = projection;
-                }
-            }
-
-            return closestPoint;
+            minDistance = dist;
+            candidate = projection;
         }
+    }
+
+    // 2) Bu nokta başka biri tarafından alınmış mı?
+    bool overlaps = false;
+    foreach (var p in _jumpingTakenPoints)
+    {
+        if (Vector2.Distance(candidate, p) < minSpacing)
+        {
+            overlaps = true;
+            break;
+        }
+    }
+
+    if (!overlaps)
+    {
+        _jumpingTakenPoints.Add(candidate);
+        return candidate;
+    }
+
+    // 3) Alternatif: Kenar boyunca sağa sola kayarak alternatif nokta dene
+    int tries = 20;
+    for (int attempt = 0; attempt < tries; attempt++)
+    {
+        int edgeIndex = Random.Range(0, 4);
+        var a = _jumpAreaEdges[edgeIndex, 0];
+        var b = _jumpAreaEdges[edgeIndex, 1];
+
+        float t = Random.Range(0f, 1f);
+        Vector2 altCandidate = Vector2.Lerp(a, b, t);
+
+        // spacing kontrolü
+        overlaps = false;
+        foreach (var p in _jumpingTakenPoints)
+        {
+            if (Vector2.Distance(altCandidate, p) < minSpacing)
+            {
+                overlaps = true;
+                break;
+            }
+        }
+
+        if (!overlaps)
+        {
+            _jumpingTakenPoints.Add(altCandidate);
+            return altCandidate;
+        }
+    }
+
+    // 4) Fallback: StartPos döndür
+    Debug.LogWarning("No unique jump start point found, fallback to startPos");
+    return startPos;
+}
 
 // private void GenerateFormationPositions(List<Character> playerCharacters)
 // {

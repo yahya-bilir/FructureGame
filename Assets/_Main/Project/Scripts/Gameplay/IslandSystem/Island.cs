@@ -25,7 +25,10 @@ namespace IslandSystem
         [SerializeField] private List<OpeningSection> openingSections;
         [SerializeField] private Transform mainCameraPosition;
         [SerializeField] private Transform cardSelectionCameraPosition;
-
+        [SerializeField] private Transform openingCameraPosition;
+        
+        
+        
         [SerializeField] private Transform formationAnchor;
         [SerializeField] private Collider2D nextIslandJumpingPos;
         [SerializeField] private Collider2D placingPosCollider;
@@ -66,10 +69,10 @@ namespace IslandSystem
         {
             JumpingActions = new IslandJumpingActions(nextIslandJumpingPos, formationAnchor, this, placingPosCollider);
             _islandCharactersController = new IslandCharactersController(openingSections, _eventBus, this);
-            _islandCameraMovementManager = new IslandCameraMovementManager(mainCameraPosition, _camerasManager, _eventBus, this, cardSelectionCameraPosition, _islandManager);
+            _islandCameraMovementManager = new IslandCameraMovementManager(mainCameraPosition, _camerasManager, _eventBus, this, cardSelectionCameraPosition, _islandManager, openingCameraPosition);
             _islandOpeningSystem = new IslandOpeningSystem(
                 _islandCameraMovementManager, _rateChanger,
-                _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController, islandClouds);
+                _scaler, _eventBus, this, collidersToDisableWhenSelected, JumpingActions, _cloudManager, _islandCharactersController, islandClouds, _islandManager);
 
 
             _islandOpeningSystem.Initialize();

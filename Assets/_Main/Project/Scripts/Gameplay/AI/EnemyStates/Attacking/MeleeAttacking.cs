@@ -36,6 +36,7 @@ public class MeleeAttacking : BaseAttacking
 
     private void OnEnemyAttacked(OnEnemyAttacked attackedEnemy)
     {
+        if(attackedEnemy.AttackedCharacter != _combatManager.Character) return;
         var lastFoundEnemy = _combatManager.LastFoundEnemy;
         if(lastFoundEnemy == null && lastFoundEnemy.IsCharacterDead) return;
         lastFoundEnemy.CharacterCombatManager.GetDamage(_damage);
