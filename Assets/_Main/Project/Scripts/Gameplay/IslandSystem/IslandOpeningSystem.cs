@@ -18,12 +18,15 @@ namespace IslandSystem
         private readonly IslandJumpingActions _islandJumpingActions;
         private readonly CloudMovementManager _cloudMovementManager;
         private readonly IslandCharactersController _islandCharactersController;
+        private readonly List<IslandCloud> _islandClouds;
         private readonly RateChanger _rateChanger;
         private readonly Scaler _scaler;
 
         public IslandOpeningSystem(IslandCameraMovementManager islandCameraMovementManager, RateChanger rateChanger,
-            Scaler scaler, IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected, IslandJumpingActions jumpingActions,
-            CloudMovementManager cloudMovementManager, IslandCharactersController islandCharactersController)
+            Scaler scaler, IEventBus eventBus, Island island, List<GameObject> collidersToDisableWhenSelected,
+            IslandJumpingActions jumpingActions,
+            CloudMovementManager cloudMovementManager, IslandCharactersController islandCharactersController,
+            List<IslandCloud> islandClouds)
         {
             _islandCameraMovementManager = islandCameraMovementManager;
             _rateChanger = rateChanger;
@@ -34,6 +37,7 @@ namespace IslandSystem
             _islandJumpingActions = jumpingActions;
             _cloudMovementManager = cloudMovementManager;
             _islandCharactersController = islandCharactersController;
+            _islandClouds = islandClouds;
         }
 
         public void Dispose()
@@ -54,14 +58,19 @@ namespace IslandSystem
 
         private async UniTask OpenIslandUp()
         {
-            await _cloudMovementManager.StartCloudActions();
-            _islandCameraMovementManager.OnIslandSelected();
+            _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition().Forget();
+            await _islandCameraMovementManager.OnIslandSelected();
+            //await _cloudMovementManager.StartCloudActions();
+            await UniTask.WhenAll(
+                _islandClouds.ConvertAll(cloud => cloud.OpenCloud())
+            );
             _scaler.ActivateObjects();
             //_rateChanger.FadeOutRateOverTime();
             //await UniTask.WaitForSeconds(1f);
             await _scaler.ScaleUp();
-            _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
+            await UniTask.WaitForSeconds(1f);
             await _islandJumpingActions.WaitForCharacterJumps();
+            //_collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             Debug.Log("Sections will be activated");
             // var rng = new System.Random();
             // rng.Shuffle(_openingSection);

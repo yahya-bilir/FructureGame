@@ -16,8 +16,8 @@ MonoBehaviour:
   <EntityId>k__BackingField: Enemy2
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 15
-    <TemporaryValue>k__BackingField: 15
+    <PermanentValue>k__BackingField: 100
+    <TemporaryValue>k__BackingField: 100
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 20
     <PermanentValue>k__BackingField: 2

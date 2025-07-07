@@ -10,7 +10,7 @@ namespace WeaponSystem.AmmoSystem
         public void SetOwnerAndColor(RangedWeapon owner, Color color)
         {
             _ownerWeapon = owner;
-            modelRenderer.material.SetColor("_OuterOutlineColor", color);
+            //modelRenderer.material.SetColor("_OuterOutlineColor", color);
 
             if (TryGetComponent(out TrailRenderer trail))
             {

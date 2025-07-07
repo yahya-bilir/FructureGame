@@ -24,6 +24,7 @@ public abstract class EnemyBehaviour : Character
     protected IState attackingState;
     private IEventBus _eventBus;
     private IslandManager _islandManager;
+    private Rigidbody2D _rigidbody2D;
 
     [Inject]
     private void Inject(CamerasManager camerasManager, IEventBus eventBus, IslandManager islandManager)
@@ -39,7 +40,7 @@ public abstract class EnemyBehaviour : Character
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
         _aiPath = GetComponent<AIPath>();
         _collider = GetComponent<Collider2D>();
-        
+        _rigidbody2D =  GetComponent<Rigidbody2D>();
     }
 
     protected override void Start()
@@ -52,10 +53,10 @@ public abstract class EnemyBehaviour : Character
     {
         _stateMachine = new StateMachine();
         
-        var waiting = new Waiting(_collider, _eventBus, _aiPath);
+        var waiting = new Waiting(_collider, _eventBus, _aiPath, AnimationController);
         var walkingTowardsJumpingPosition = new WalkingTowardsJumpingPosition(AnimationController, _aiPath, model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterIslandController);
         var jumpingToPosition = new JumpingToPosition(CharacterIslandController, _aiPath, model.transform, this, AnimationController);
-        var searching = new SearchingForEnemy(_collider, _aiPath);
+        var searching = new SearchingForEnemy(_collider, _aiPath, _rigidbody2D, AnimationController);
         walkingToEnemy = CreateWalkingState();
         attackingState = CreateAttackingState(); 
 
@@ -63,8 +64,9 @@ public abstract class EnemyBehaviour : Character
         var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager, CharacterDataHolder.OnDeathParts, transform);
 
         Func<bool> FoundEnemyNearby() => () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
-        Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 1f && !IsCharacterDead;
+        Func<bool> ReachedEnemy() => () => _aiPath.remainingDistance < 0.2f && !IsCharacterDead;
         Func<bool> ReachedJumpingPosition() => () => _aiPath.remainingDistance <= 0.5f && !IsCharacterDead && _aiPath.canMove;
+        Func<bool> CanJump() => () => !IsCharacterDead && CharacterIslandController.IsJumping && CharacterIslandController.NextIsland.JumpingActions.JumpingCanStart;
         Func<bool> EnemyMovedFurther() => () => _aiPath.remainingDistance > 1f && !IsCharacterDead;
         Func<bool> IsFleeingEnabled() => () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
         Func<bool> FleeingEnded() => () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
@@ -83,8 +85,10 @@ public abstract class EnemyBehaviour : Character
         _stateMachine.AddTransition(attackingState, searching, EnemyDied());
         _stateMachine.AddTransition(fleeing, walkingToEnemy, FleeingEnded());
         _stateMachine.AddTransition(searching, walkingTowardsJumpingPosition, IslandChanged());
-        _stateMachine.AddTransition(walkingTowardsJumpingPosition, jumpingToPosition, ReachedJumpingPosition());
-        _stateMachine.AddTransition(jumpingToPosition, waiting, OnFightStarted());
+        //_stateMachine.AddTransition(walkingTowardsJumpingPosition, jumpingToPosition, ReachedJumpingPosition());
+        _stateMachine.AddTransition(walkingTowardsJumpingPosition, waiting, ReachedJumpingPosition());
+        _stateMachine.AddTransition(waiting, jumpingToPosition, CanJump());
+        _stateMachine.AddTransition(jumpingToPosition, searching, OnFightStarted());
         
         _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
         _stateMachine.AddAnyTransition(dead, CharacterIsDead());

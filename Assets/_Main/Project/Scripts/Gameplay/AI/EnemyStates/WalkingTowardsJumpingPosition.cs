@@ -43,12 +43,14 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _characterIslandController.StartWalkingToJumpingPosition();
             _aiPath.canMove = false;
             WaitForCloudActionsToComplete().Forget();
         }
         public void OnExit()
         {
             Debug.Log("exited" + " " + _aiPath.canMove);
+            _characterIslandController.StopWalkingToJumpingPosition();
         }
 
         private async UniTask WaitForCloudActionsToComplete()

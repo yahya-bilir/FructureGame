@@ -52,12 +52,12 @@ namespace Characters
 
         public void OnCharacterTookDamage(float newHealth, float maxHealth)
         {
-            _shineEffect.Shine();
+            //_shineEffect.Shine();
             
             
-            if(_healthBar == null) return; 
-                
-                
+            if(_healthBar == null) return;
+
+            _characterAnimationController.GetHit();
             SetHealthBarValue(newHealth, maxHealth);
             
             if(_isHealthStillRunning) return;
