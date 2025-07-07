@@ -207,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1751590985198741785
 Transform:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6085358445040699188
 Transform:
   m_ObjectHideFlags: 0
@@ -868,7 +868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9116435792852252227
 Transform:
   m_ObjectHideFlags: 0
@@ -1060,17 +1060,7 @@ MonoBehaviour:
     - {fileID: 8183078835880050627}
     - {fileID: 8219124823017866182}
     - {fileID: 9221396967063376460}
-    <WaitForSeconds>k__BackingField: 0.25
-  - <Transforms>k__BackingField:
-    - {fileID: 2790636680200484747}
-    - {fileID: 1751590985198741785}
-    <WaitForSeconds>k__BackingField: 0.25
-  - <Transforms>k__BackingField:
-    - {fileID: 9116435792852252227}
-    <WaitForSeconds>k__BackingField: 0.2
-  - <Transforms>k__BackingField:
-    - {fileID: 6085358445040699188}
-    <WaitForSeconds>k__BackingField: 0.1
+    <WaitForSeconds>k__BackingField: 1
 --- !u!1 &3831612532344549544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2790636680200484747
 Transform:
   m_ObjectHideFlags: 0
@@ -2122,11 +2112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8769575785702852622, guid: 096f2b5261eb1044db92333f7fb046b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2
+      value: -1.95
       objectReference: {fileID: 0}
     - target: {fileID: 8769575785702852622, guid: 096f2b5261eb1044db92333f7fb046b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.94
+      value: -2.78
       objectReference: {fileID: 0}
     - target: {fileID: 8769575785702852622, guid: 096f2b5261eb1044db92333f7fb046b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3628,7 +3618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8769575785702852622, guid: 096f2b5261eb1044db92333f7fb046b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.19
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 8769575785702852622, guid: 096f2b5261eb1044db92333f7fb046b8, type: 3}
       propertyPath: m_LocalPosition.z
