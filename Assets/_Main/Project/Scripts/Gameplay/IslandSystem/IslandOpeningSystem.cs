@@ -71,10 +71,12 @@ namespace IslandSystem
 
             //await _cloudMovementManager.StartCloudActions();
 
+            _scaler.ActivateObjects();
+            await _islandCharactersController.ActivateSections();
+            
             await UniTask.WhenAll(
                 _islandClouds.ConvertAll(cloud => cloud.OpenCloud())
             );
-            _scaler.ActivateObjects();
             //_rateChanger.FadeOutRateOverTime();
             //await UniTask.WaitForSeconds(1f);
             await _scaler.ScaleUp();
@@ -92,11 +94,10 @@ namespace IslandSystem
             }
             //_collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
 
-            Debug.Log("Sections will be activated");
+            //Debug.Log("Sections will be activated");
             // var rng = new System.Random();
             // rng.Shuffle(_openingSection);
 
-            await _islandCharactersController.ActivateSections();
 
             _eventBus.Publish(new OnIslandStarted(_island));
         }
