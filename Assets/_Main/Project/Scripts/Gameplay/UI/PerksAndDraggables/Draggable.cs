@@ -4,6 +4,8 @@ using DG.Tweening;
 using EventBusses;
 using Events.ClickableEvents;
 using Events.IslandEvents;
+using TMPro;
+using UI.PerksAndDraggables.PerkManagers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -20,6 +22,14 @@ namespace UI.PerksAndDraggables
         private float _radius;
 
         private bool _isDraggingEnabled;
+
+        [SerializeField] private TextMeshProUGUI draggableCircleText;
+        
+        protected override void Awake()
+        {
+            ClickableUIManager = new DraggableUIManager(clickableActionSo.ClickableActionInfo, mainImageHolder, titleTextHolder, descHolder,
+                draggableCircleText);
+        }
 
         protected override void Start()
         {

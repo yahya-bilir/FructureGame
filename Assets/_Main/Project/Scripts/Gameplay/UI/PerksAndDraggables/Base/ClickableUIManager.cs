@@ -1,5 +1,4 @@
 using Perks;
-using Perks.Base;
 using TMPro;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ namespace UI.PerksAndDraggables
 {
     public class ClickableUIManager
     {
-        private readonly ClickableActionInfo _clickableActionInfo;
+        protected readonly ClickableActionInfo ClickableActionInfo;
         private readonly Image _mainImageHolder;
         private readonly TextMeshProUGUI _titleTextHolder;
         private readonly TextMeshProUGUI _descHolder;
@@ -15,7 +14,7 @@ namespace UI.PerksAndDraggables
         public ClickableUIManager(ClickableActionInfo clickableActionInfo, Image mainImageHolder,
             TextMeshProUGUI titleTextHolder, TextMeshProUGUI descHolder)
         {
-            _clickableActionInfo = clickableActionInfo;
+            ClickableActionInfo = clickableActionInfo;
             _mainImageHolder = mainImageHolder;
             _titleTextHolder = titleTextHolder;
             _descHolder = descHolder;
@@ -23,12 +22,11 @@ namespace UI.PerksAndDraggables
 
         public void Initialize()
         {
-            _clickableActionInfo.Info = _clickableActionInfo.ReadOnlyInfoAreaToFormat;
+            ClickableActionInfo.Info = ClickableActionInfo.ReadOnlyInfoAreaToFormat;
             
-            _mainImageHolder.sprite = _clickableActionInfo.Icon;
-            _titleTextHolder.text = _clickableActionInfo.Name;
-            _descHolder.text = _clickableActionInfo.Info;
+            _mainImageHolder.sprite = ClickableActionInfo.Icon;
+            _titleTextHolder.text = ClickableActionInfo.Name;
+            _descHolder.text = ClickableActionInfo.Info;
         }
-        
     }
 }

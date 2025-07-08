@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ae06f0fe3054df7bd35107f220e4e7a, type: 3}
-  m_Name: SpawnEnemy2Perk
+  m_Name: SpawnKnight
   m_EditorClassIdentifier: Gameplay::Perks.SpawnCharactersPerk
-  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: 918158c03dd5d4914bf49a35a3b52a96, type: 2}
-  characterToSpawn: {fileID: 4753250614938312464, guid: 6ef149f677ede46f9bbf2fe8ccc5ae73, type: 3}
-  min: 5
-  max: 7
+  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: f9321d11ee0165c4a84b1b159e7390a8, type: 2}
+  characterToSpawn: {fileID: 4753250614938312464, guid: 9ad8656f7a981f6428fcfc65ba476ce5, type: 3}
+  min: 1

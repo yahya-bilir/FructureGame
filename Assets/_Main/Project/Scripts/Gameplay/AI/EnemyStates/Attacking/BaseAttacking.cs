@@ -28,7 +28,7 @@ public abstract class BaseAttacking : IState
             _attackingTimer += Time.deltaTime;
             return;
         }
-
+        
         _attackingTimer = 0f;
 
         var lastFoundEnemy = _combatManager.LastFoundEnemy;
@@ -45,13 +45,17 @@ public abstract class BaseAttacking : IState
                 _modelTransform.localEulerAngles = new Vector3(0, 180, 0);
             }
         }
-
+        
         _animationController.Attack();
+
     }
 
     protected abstract void OnAttack();
 
-    public virtual void OnEnter() { }
+    public virtual void OnEnter()
+    {
+        //_animationController.Attack();
+    }
 
     public virtual void OnExit() { }
 }

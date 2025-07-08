@@ -59,12 +59,12 @@ namespace IslandSystem
         
         public async UniTask OpenCloud()
         {
-            transform.DOMove(cloudInnerPosition.position, 1f);
-            DOVirtual.Color(_cloudOuterSpriteRenderer.color, new Color(1, 1, 1, 0), 0.6f, (value) =>
+            transform.DOMove(cloudInnerPosition.position, 1.25f);
+            DOVirtual.Color(_cloudOuterSpriteRenderer.color, new Color(1, 1, 1, 0), 1.25f, (value) =>
             {
                 _cloudOuterSpriteRenderer.color = value;
             });
-            await UniTask.WaitForSeconds(0.75f);
+            await UniTask.WaitForSeconds(1.25f);
         }
     }
 }

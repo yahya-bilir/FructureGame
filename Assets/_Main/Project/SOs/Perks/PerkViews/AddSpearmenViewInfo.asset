@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfea4ac04d754107938dd683176f9001, type: 3}
   m_Name: AddSpearmenViewInfo
   m_EditorClassIdentifier: Gameplay::Perks.ClickableActionInfo
-  <Icon>k__BackingField: {fileID: 598089189, guid: 2743e9e9c1f398846b2640331867a104, type: 3}
-  <Name>k__BackingField: Add 6 Spearmen
-  <ReadOnlyInfoAreaToFormat>k__BackingField: Add 6 Spearmen
+  <ShouldResize>k__BackingField: 1
+  <Icon>k__BackingField: {fileID: 1703048815439621133, guid: 411366cb45c7a20498737653dc41177a, type: 3}
+  <Name>k__BackingField: Add 2 Spearmen
+  <ReadOnlyInfoAreaToFormat>k__BackingField: Add 2 Spearmen

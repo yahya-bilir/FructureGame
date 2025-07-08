@@ -21,6 +21,7 @@ namespace Characters
         protected IEventBus EventBus;
         private CancellationTokenSource _attackStateCts;
         private IslandManager _islandManager;
+        private EnemyTargetingManager _enemyTargetingManager;
         public bool FleeingEnabled { get; private set; }
         public Vector3 FleePosition { get; private set; }
         public Character LastFoundEnemy { get; private set; }
@@ -33,10 +34,11 @@ namespace Characters
         }
         
         [Inject]
-        private void Inject(IEventBus eventBus, IslandManager islandManager)
+        private void Inject(IEventBus eventBus, IslandManager islandManager, EnemyTargetingManager enemyTargetingManager)
         {
             EventBus = eventBus;
             _islandManager = islandManager;
+            _enemyTargetingManager = enemyTargetingManager;
             //EventBus.Subscribe<OnEnemyBeingAttacked>(OnEnemyBeingAttacked);
 
         }
@@ -60,27 +62,24 @@ namespace Characters
 
         public Character FindNearestEnemy()
         {
-            //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
             if (!_islandManager.FightCanStart)
             {
                 LastFoundEnemy = null;
                 return null;
             }
-            var origin = Character.transform.position;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));
+            var bestEnemy = _enemyTargetingManager.FindBestEnemy(Character.transform.position, Character.Faction, 50f);
 
-            if (hits.Length == 0) return null;
+            LastFoundEnemy = bestEnemy;
 
-            var nearest = hits
-                .Select(c => c.GetComponent<Character>())
-                .Where(c => c != null && c.Faction != Character.Faction && !c.IsCharacterDead) // Karakterin kendi faction'ı dışındakiler
-                .OrderBy(c => Vector2.Distance(origin, c.transform.position))
-                .FirstOrDefault();
+            if (bestEnemy != null)
+            {
+                _enemyTargetingManager.RegisterTarget(Character, bestEnemy);
+            }
 
-            LastFoundEnemy = nearest;
-            return nearest;
+            return bestEnemy;
         }
+
         
         private void OnEnemyBeingAttacked(OnEnemyBeingAttacked eventData)
         {

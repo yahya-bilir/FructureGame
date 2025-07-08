@@ -1,4 +1,5 @@
-﻿using Characters.Transforming;
+﻿using Characters;
+using Characters.Transforming;
 using CommonComponents;
 using Factories;
 using IslandSystem;
@@ -40,6 +41,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<AstarPath>();
             builder.RegisterComponentInHierarchy<CloudMovementManager>();
             builder.Register<CharacterTransformManager>(Lifetime.Singleton);
+            builder.Register<EnemyTargetingManager>(Lifetime.Singleton);
             builder.RegisterInstance(playerPropertiesSo).AsSelf();
             builder.RegisterInstance(bottomHalf).AsSelf();
         }

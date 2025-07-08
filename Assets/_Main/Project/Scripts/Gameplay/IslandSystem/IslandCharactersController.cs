@@ -62,7 +62,7 @@ namespace IslandSystem
                     enemy.CharacterVisualEffects.SpawnCharacter();
                 }
 
-                await UniTask.WaitForSeconds(0.25f);
+                await UniTask.WaitForSeconds(0.1f);
             }
         }
 

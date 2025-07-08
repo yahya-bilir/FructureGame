@@ -14,7 +14,7 @@ namespace Perks
         
         [Header("Spawn Range")]
         [SerializeField] private int min;
-        [SerializeField] private int max;
+        //[SerializeField] private int max;
         
         private EnemyManager _enemyManager;
 
@@ -31,8 +31,8 @@ namespace Perks
 
         public override void OnDragEndedOnScene(Vector2 worldPos, float radius)
         {
-            var spawnCount = Random.Range(min, max);
-            SpawnCharacters(worldPos, spawnCount, radius).Forget();
+            //var spawnCount = Random.Range(min, max);
+            SpawnCharacters(worldPos, min, radius).Forget();
 
         }
 

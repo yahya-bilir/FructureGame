@@ -51,7 +51,7 @@ namespace VisualEffects
                 await UniTask.WaitForSeconds(transformHolder.WaitForSeconds);
             }
 
-            await UniTask.WaitForSeconds(0.25f);
+            //await UniTask.WaitForSeconds(0.25f);
         }
     }
 }

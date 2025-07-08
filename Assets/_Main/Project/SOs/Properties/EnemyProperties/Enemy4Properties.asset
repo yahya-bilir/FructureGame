@@ -16,16 +16,16 @@ MonoBehaviour:
   <EntityId>k__BackingField: Enemy3
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 100
-    <TemporaryValue>k__BackingField: 100
+    <PermanentValue>k__BackingField: 15
+    <TemporaryValue>k__BackingField: 15
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 20
     <PermanentValue>k__BackingField: 1
     <TemporaryValue>k__BackingField: 1
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 1
-    <PermanentValue>k__BackingField: 100
-    <TemporaryValue>k__BackingField: 100
+    <PermanentValue>k__BackingField: 15
+    <TemporaryValue>k__BackingField: 15
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 2
     <PermanentValue>k__BackingField: 2

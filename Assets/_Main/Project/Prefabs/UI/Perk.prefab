@@ -65,6 +65,7 @@ MonoBehaviour:
   descHolder: {fileID: 6516559688446145438}
   draggableCircle: {fileID: 7339149856486636460}
   cardPart: {fileID: 6601112099548565221}
+  draggableCircleText: {fileID: 3529891744400402346}
 --- !u!1001 &100908735227055575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,6 +163,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e740a0d666ce52749aea8f53cce62339, type: 3}
+--- !u!114 &3529891744400402346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3574395904618179197, guid: e740a0d666ce52749aea8f53cce62339, type: 3}
+  m_PrefabInstance: {fileID: 100908735227055575}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &7339149856486636460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7259690574508193403, guid: e740a0d666ce52749aea8f53cce62339, type: 3}

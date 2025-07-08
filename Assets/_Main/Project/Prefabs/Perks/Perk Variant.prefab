@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 8614694235561418972, guid: d429b09d6d1d7db4abc346f01adb507a, type: 3}
       propertyPath: clickableActionSo
       value: 
-      objectReference: {fileID: 11400000, guid: 6c35c9f9a0c994e478bfbc99608537be, type: 2}
+      objectReference: {fileID: 11400000, guid: f06321f3f3457c0418e036a5d4e7b109, type: 2}
     - target: {fileID: 8614694235561418972, guid: d429b09d6d1d7db4abc346f01adb507a, type: 3}
       propertyPath: draggableActionSo
       value: 

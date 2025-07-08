@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.UpgradableWeaponSO
   <ObjectName>k__BackingField: Chained Torment
   <ObjectSprite>k__BackingField: {fileID: 21300000, guid: 2c8c67bc888f8004d9e9684747a5c50c, type: 3}
-  <AttackInterval>k__BackingField: 0.1
+  <AttackInterval>k__BackingField: 5
+  <MinimumRange>k__BackingField: 0.2
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0

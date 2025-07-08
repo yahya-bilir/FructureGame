@@ -21,10 +21,10 @@ namespace UI.PerksAndDraggables
         protected IEventBus EventBus;
 
         [Header("UI")]
-        [SerializeField] private Image mainImageHolder;
-        [SerializeField] private TextMeshProUGUI titleTextHolder;
-        [SerializeField] private TextMeshProUGUI descHolder;
-        private ClickableUIManager _clickableUIManager;
+        [SerializeField] protected Image mainImageHolder;
+        [SerializeField] protected TextMeshProUGUI titleTextHolder;
+        [SerializeField] protected TextMeshProUGUI descHolder;
+        protected ClickableUIManager ClickableUIManager;
 
 
         [Inject]
@@ -35,16 +35,16 @@ namespace UI.PerksAndDraggables
 
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            _clickableUIManager = new ClickableUIManager(clickableActionSo.ClickableActionInfo, mainImageHolder, titleTextHolder, descHolder);
+            ClickableUIManager = new ClickableUIManager(clickableActionSo.ClickableActionInfo, mainImageHolder, titleTextHolder, descHolder);
         }
 
 
         protected virtual void Start()
         {
             Resolver.Inject(clickableActionSo); 
-            _clickableUIManager.Initialize();
+            ClickableUIManager.Initialize();
             //EventBus.Publish(new OnClickableCreated(this));
             
             var localScale = transform.localScale;

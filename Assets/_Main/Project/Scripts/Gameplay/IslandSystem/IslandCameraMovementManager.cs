@@ -40,18 +40,25 @@ namespace IslandSystem
         {
             if(_islandManager.CurrentIsland != _island) return;
             Debug.Log("camera happened");
+            _camerasManager.ToggleLensSize(6.49f);
+
             _camerasManager.MoveCameraToPos(_cardSelectionCameraPosition.position).Forget();
         }
 
         public async UniTask OnIslandSelected()
         {
-            _camerasManager.ToggleLensSize(8f);
+            _camerasManager.ToggleLensSize(6.49f);
             await _camerasManager.MoveCameraToPos(_openingCameraPosition.position);
         }        
         
         public async UniTask OnIslandOpenedCompletely()
         {
-            //_camerasManager.ToggleLensSize(8f);
+            _camerasManager.ToggleLensSize(5f);
+            await _camerasManager.MoveCameraToPos(_mainCameraPosition.position);
+        }        
+        
+        public async UniTask GoToMainPositionForCloudOpening()
+        {
             await _camerasManager.MoveCameraToPos(_mainCameraPosition.position);
         }
         

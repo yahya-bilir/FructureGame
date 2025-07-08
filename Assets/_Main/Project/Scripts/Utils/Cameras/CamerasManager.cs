@@ -72,15 +72,15 @@ namespace CommonComponents
         public void ToggleLensSize(float newLensSize)
         {
             var initialSize = ActivePlayerCam.Lens.OrthographicSize;
-            ActivePlayerCam.Lens.OrthographicSize = newLensSize;
+            //ActivePlayerCam.Lens.OrthographicSize = newLensSize;
             
             var seq = DOTween.Sequence();
             
-            // seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize, newLensSize, 0.2f,
-            //     value => ActivePlayerCam.Lens.OrthographicSize = value).SetEase(Ease.OutBack));
-            
-            seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize,  initialSize, 1f,
+            seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize, newLensSize, 0.5f,
                 value => ActivePlayerCam.Lens.OrthographicSize = value).SetEase(Ease.OutBack));
+            
+            // seq.Append(DOVirtual.Float(ActivePlayerCam.Lens.OrthographicSize,  initialSize, 1f,
+            //     value => ActivePlayerCam.Lens.OrthographicSize = value).SetEase(Ease.OutBack));
         }
         
     }

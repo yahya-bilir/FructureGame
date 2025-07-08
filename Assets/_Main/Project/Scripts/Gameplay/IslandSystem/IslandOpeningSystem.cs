@@ -59,34 +59,34 @@ namespace IslandSystem
 
         private async UniTask OpenIslandUp()
         {
-            await UniTask.WaitForSeconds(0.1f);
+            await UniTask.WaitForSeconds(0.05f);
 
             if(_island != _islandManager.firstIsland)
             {
                 Debug.Log("waiting for characters to get into jumpiong pos");
                 await _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition();
-                await _islandCameraMovementManager.OnIslandSelected();
+                await _islandCameraMovementManager.GoToMainPositionForCloudOpening();
             } 
-            
-
             //await _cloudMovementManager.StartCloudActions();
 
             _scaler.ActivateObjects();
-            await _islandCharactersController.ActivateSections();
+            _islandCharactersController.ActivateSections().Forget();
             
             await UniTask.WhenAll(
                 _islandClouds.ConvertAll(cloud => cloud.OpenCloud())
             );
+
+            await _islandCameraMovementManager.OnIslandSelected();
             //_rateChanger.FadeOutRateOverTime();
             //await UniTask.WaitForSeconds(1f);
-            await _scaler.ScaleUp();
-            await UniTask.WaitForSeconds(1f);
+            _scaler.ScaleUp().Forget();
+            //await UniTask.WaitForSeconds(1f);
+            
             
             if(_island != _islandManager.firstIsland)
             {
                 Debug.Log("waiting for characters to jump");
                 await _islandJumpingActions.MakeCharacterJump();
-
                 await _islandJumpingActions.WaitForCharacterJumps();
                 await _islandCameraMovementManager.OnIslandOpenedCompletely();
 

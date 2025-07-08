@@ -107,7 +107,7 @@ namespace IslandSystem
             foreach (var character in _playerCharacters.SpawnedEnemies)
             {
                 character.CharacterIslandController.SetCanJumpEnabled();
-                await UniTask.WaitForSeconds(0.05f);
+                await UniTask.WaitForSeconds(0.01f);
             }
         }
         

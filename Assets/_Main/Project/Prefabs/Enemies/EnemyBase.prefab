@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 6768302183001923526}
   - component: {fileID: 477923832591692675}
   - component: {fileID: 3293211154790333860}
+  - component: {fileID: 8387739220339902349}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -233,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 1073741824
-  radius: 0.25
+  radius: 0.33
   height: 2
   canMove: 0
   maxSpeed: 1
@@ -241,10 +242,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.2
+  endReachedDistance: 0.3
   whenCloseToDestination: 0
   rvoDensityBehavior:
-    enabled: 1
+    enabled: 0
     densityThreshold: 0.5
     returnAfterBeingPushedAway: 0
     progressAverage: 0
@@ -287,12 +288,12 @@ MonoBehaviour:
   lockWhenNotMoving: 0
   agentTimeHorizon: 2
   obstacleTimeHorizon: 0.5
-  maxNeighbours: 10
+  maxNeighbours: 250
   layer: 1
   collidesWith: -1
   wallAvoidForce: 1
   wallAvoidFalloff: 1
-  priority: 0.5
+  priority: 1
   debug: 0
 --- !u!114 &8847675084653503570
 MonoBehaviour:
@@ -391,6 +392,18 @@ MonoBehaviour:
   onDeathVfx: {fileID: 9159553285030847782}
   weaponEquippingField: {fileID: 5443789219053800702}
   <Faction>k__BackingField: 0
+--- !u!210 &8387739220339902349
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328889510459864210}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_SortAtRoot: 0
 --- !u!1001 &543930361597416012
 PrefabInstance:
   m_ObjectHideFlags: 0
