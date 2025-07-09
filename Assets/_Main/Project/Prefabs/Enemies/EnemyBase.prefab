@@ -234,16 +234,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 1073741824
-  radius: 0.33
-  height: 2
+  radius: 0.25
+  height: 1
   canMove: 0
   maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.3
-  whenCloseToDestination: 0
+  endReachedDistance: 0.2
+  whenCloseToDestination: 1
   rvoDensityBehavior:
     enabled: 0
     densityThreshold: 0.5

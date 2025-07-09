@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
+using Water2D;
 
 namespace Initialization
 {
@@ -35,6 +36,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<TreeFactoryManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<WeaponChanging>();
+            builder.RegisterComponentInHierarchy<ModernWater2D>();
             builder.RegisterComponentInHierarchy<BottomPerkManager>();
             builder.RegisterComponentInHierarchy<MiddlePerkManager>();
             builder.RegisterComponentInHierarchy<PerkCreator>();
