@@ -61,9 +61,9 @@ namespace Characters.Enemy
             var waiting = new Waiting(_collider, _eventBus, _aiPath, AnimationController);
             var walkingTowardsJumpingPosition = new WalkingTowardsJumpingPosition(AnimationController, _aiPath,
                 model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterIslandController,
-                _collider);
+                _collider, _rigidbody2D);
             var jumpingToPosition = new JumpingToPosition(CharacterIslandController, _aiPath, model.transform, this,
-                AnimationController, _collider);
+                AnimationController, _collider, _rigidbody2D);
             var searching = new SearchingForEnemy(_collider, _aiPath, _rigidbody2D, AnimationController);
             walkingToEnemy = CreateWalkingState();
             attackingState = CreateAttackingState();
@@ -80,12 +80,12 @@ namespace Characters.Enemy
 
             Func<bool> ReachedEnemy()
             {
-                return () => _aiPath.remainingDistance < _aiPath.endReachedDistance && !IsCharacterDead;
+                return () => (_aiPath.remainingDistance <= _aiPath.endReachedDistance || !_aiPath.canMove) && !IsCharacterDead;
             }
 
             Func<bool> ReachedJumpingPosition()
             {
-                return () => _aiPath.remainingDistance <= 0.1f && !IsCharacterDead && _aiPath.canMove;
+                return () => _aiPath.remainingDistance <= 0.25f && !IsCharacterDead && _aiPath.canMove;
             }
 
             Func<bool> CanJump()
@@ -95,7 +95,7 @@ namespace Characters.Enemy
 
             Func<bool> EnemyMovedFurther()
             {
-                return () => _aiPath.remainingDistance > _aiPath.endReachedDistance + 0.1f && !IsCharacterDead;
+                return () => _aiPath.remainingDistance >= _aiPath.endReachedDistance + 0.25f && !IsCharacterDead;
             }
 
             Func<bool> IsFleeingEnabled()
@@ -122,8 +122,8 @@ namespace Characters.Enemy
             Func<bool> EnemyDied()
             {
                 return () =>
-                    CharacterCombatManager.LastFoundEnemy != null &&
-                    CharacterCombatManager.LastFoundEnemy.IsCharacterDead &&
+                    (CharacterCombatManager.LastFoundEnemy == null ||
+                    CharacterCombatManager.LastFoundEnemy.IsCharacterDead) &&
                     !IsCharacterDead;
             }
 
@@ -159,7 +159,7 @@ namespace Characters.Enemy
         {
             return new WalkingTowardsEnemy(AnimationController, _aiPath, model.transform,
                 CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder,
-                _collider);
+                _collider, _aiDestinationSetter, _rigidbody2D);
         }
 
         protected abstract BaseAttacking CreateAttackingState();

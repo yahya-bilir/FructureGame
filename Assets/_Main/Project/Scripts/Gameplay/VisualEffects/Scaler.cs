@@ -23,6 +23,8 @@ namespace VisualEffects
 
         [SerializeField] private ModernWater2D _moderWater2D;
 
+        [SerializeField] private List<SpriteRenderer> flowersAndStones;
+
         
         // [Inject]
         // private void Inject(ModernWater2D modernWater2D)
@@ -38,6 +40,9 @@ namespace VisualEffects
             {
                 islandObject.obj.SetActive(false);
             }
+
+            var emptyColor = new Color(1, 1, 1, 0);
+            flowersAndStones.ForEach(i => i.color = emptyColor);
         }
 
         [Button]
@@ -73,6 +78,11 @@ namespace VisualEffects
         public async UniTask ScaleUp()
         {
 
+            foreach (var flowersAndStone in flowersAndStones)
+            {
+                DOVirtual.Color(flowersAndStone.color, Color.white, 1f, value => flowersAndStone.color = value);    
+            }
+            
             foreach (var transformHolder in transforms)
             {
                 for (var i = 0; i < transformHolder.Transforms.Count; i++)

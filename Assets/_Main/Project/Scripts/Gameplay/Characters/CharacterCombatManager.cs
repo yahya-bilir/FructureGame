@@ -60,26 +60,49 @@ namespace Characters
             EventBus.Publish(new OnCharacterDied(Character));
         }
 
+        // public Character FindNearestEnemy()
+        // {
+        //     if (!_islandManager.FightCanStart)
+        //     {
+        //         LastFoundEnemy = null;
+        //         return null;
+        //     }
+        //
+        //     var bestEnemy = _enemyTargetingManager.FindBestEnemy(Character.transform.position, Character.Faction, 50f);
+        //
+        //     LastFoundEnemy = bestEnemy;
+        //
+        //     if (bestEnemy != null)
+        //     {
+        //         _enemyTargetingManager.RegisterTarget(Character, bestEnemy);
+        //     }
+        //
+        //     return bestEnemy;
+        // }
+
         public Character FindNearestEnemy()
         {
+            //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
             if (!_islandManager.FightCanStart)
             {
                 LastFoundEnemy = null;
                 return null;
             }
+            var origin = Character.transform.position;
 
-            var bestEnemy = _enemyTargetingManager.FindBestEnemy(Character.transform.position, Character.Faction, 50f);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));
 
-            LastFoundEnemy = bestEnemy;
+            if (hits.Length == 0) return null;
 
-            if (bestEnemy != null)
-            {
-                _enemyTargetingManager.RegisterTarget(Character, bestEnemy);
-            }
+            var nearest = hits
+                .Select(c => c.GetComponent<Character>())
+                .Where(c => c != null && c.Faction != Character.Faction && !c.IsCharacterDead) // Karakterin kendi faction'ı dışındakiler
+                .OrderBy(c => Vector2.Distance(origin, c.transform.position))
+                .FirstOrDefault();
 
-            return bestEnemy;
+            LastFoundEnemy = nearest;
+            return nearest;
         }
-
         
         private void OnEnemyBeingAttacked(OnEnemyBeingAttacked eventData)
         {

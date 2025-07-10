@@ -16,11 +16,12 @@ namespace AI.EnemyStates
         private readonly EnemyBehaviour _enemyBehaviour;
         private readonly CharacterAnimationController _characterAnimationController;
         private readonly Collider2D _collider;
+        private readonly Rigidbody2D _rigidbody2D;
         private Vector2 _jumpTarget;
         private float _timer;
         public JumpingToPosition(CharacterIslandController characterIslandController, AIPath aiPath,
             Transform modelTransform, EnemyBehaviour enemyBehaviour,
-            CharacterAnimationController characterAnimationController, Collider2D collider)
+            CharacterAnimationController characterAnimationController, Collider2D collider, Rigidbody2D rigidbody2D)
         {
             _characterIslandController = characterIslandController;
             _aiPath = aiPath;
@@ -28,6 +29,7 @@ namespace AI.EnemyStates
             _enemyBehaviour = enemyBehaviour;
             _characterAnimationController = characterAnimationController;
             _collider = collider;
+            _rigidbody2D = rigidbody2D;
         }
 
         public void Tick()
@@ -37,17 +39,22 @@ namespace AI.EnemyStates
                 _timer += Time.deltaTime;
                 return;
             }
-            
-            if(_aiPath.reachedDestination) _characterIslandController.StopJumping();
+
+            if (_aiPath.remainingDistance <= 2f)
+            {
+                _characterIslandController.StopJumping();
+                //_aiPath.canMove = false;
+                
+            }
         }
 
         public void OnEnter()
         {
             Debug.Log("jumping", _enemyBehaviour);
-            _collider.isTrigger = true;
+            _collider.isTrigger = false;
             _characterIslandController.StartJumpingActions();
             _characterAnimationController.Run();
-            _aiPath.canMove = true;
+            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
 
             Vector2 startPos = _enemyBehaviour.transform.position;
             _jumpTarget = _characterIslandController.GetNextIslandLandingPosition();
@@ -58,6 +65,8 @@ namespace AI.EnemyStates
 
             Vector3 originalScale = _modelTransform.localScale;
             _aiPath.destination = _jumpTarget;
+            _aiPath.canMove = true;
+            
             // Sola doğru basit bir arch: X lineer, Y parabolik
             //JumpAsync(startPos, jumpTarget, jumpDuration, hangTime, originalScale, scaleUp).Forget();
         }
@@ -101,8 +110,10 @@ namespace AI.EnemyStates
 
         public void OnExit()
         {
-            _collider.isTrigger = false;
+            //_collider.isTrigger = false;
             Debug.Log("jumping disabled", _enemyBehaviour);
+ //           _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+            _timer = 0f;
             _characterIslandController.SetCanJumpDisabled();
         }
     }

@@ -223,8 +223,9 @@ MonoBehaviour:
   apexAngle: 45
   endAngle: -10
   apexTime: 0.5
-  arcFactor: 0.33
-  minArcHeight: 1
+  arcFactor: 0.25
+  minArcHeight: 0.15
+  arcCurvePower: 0.1
 --- !u!4 &6166387557984753420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}

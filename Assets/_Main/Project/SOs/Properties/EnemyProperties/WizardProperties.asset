@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af6e59aad3e430680c831eecfdfa75c, type: 3}
   m_Name: WizardProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
-  <IsSaveable>k__BackingField: 1
+  <IsSaveable>k__BackingField: 0
   <EntityId>k__BackingField: Enemy1
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 8
-    <TemporaryValue>k__BackingField: 8
+    <PermanentValue>k__BackingField: 2
+    <TemporaryValue>k__BackingField: 2
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 20
-    <PermanentValue>k__BackingField: 1
-    <TemporaryValue>k__BackingField: 1
+    <PermanentValue>k__BackingField: 2.25
+    <TemporaryValue>k__BackingField: 2.25
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 1
-    <PermanentValue>k__BackingField: 8
-    <TemporaryValue>k__BackingField: 8
+    <PermanentValue>k__BackingField: 2
+    <TemporaryValue>k__BackingField: 2
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 2
     <PermanentValue>k__BackingField: 1

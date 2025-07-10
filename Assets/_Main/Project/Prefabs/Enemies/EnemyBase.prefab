@@ -243,7 +243,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   endReachedDistance: 0.2
-  whenCloseToDestination: 1
+  whenCloseToDestination: 0
   rvoDensityBehavior:
     enabled: 0
     densityThreshold: 0.5
@@ -256,7 +256,7 @@ MonoBehaviour:
   enableRotation: 0
   autoRepath:
     mode: 2
-    period: 0.5
+    period: 0.1
     sensitivity: 10
     maximumPeriod: 2
     visualizeSensitivity: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   centerBackingField: 1
   locked: 0
   lockWhenNotMoving: 0
-  agentTimeHorizon: 2
-  obstacleTimeHorizon: 0.5
+  agentTimeHorizon: 10
+  obstacleTimeHorizon: 10
   maxNeighbours: 250
   layer: 1
   collidesWith: -1
@@ -333,7 +333,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4

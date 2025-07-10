@@ -41,6 +41,7 @@ namespace IslandSystem
             if(_islandManager.CurrentIsland != _island) return;
             Debug.Log("camera happened");
             _camerasManager.ToggleLensSize(6.49f);
+            //_camerasManager.ToggleLensSize(5f);
 
             _camerasManager.MoveCameraToPos(_cardSelectionCameraPosition.position).Forget();
         }
@@ -48,6 +49,7 @@ namespace IslandSystem
         public async UniTask OnIslandSelected()
         {
             _camerasManager.ToggleLensSize(6.49f);
+            //_camerasManager.ToggleLensSize(5f);
             await _camerasManager.MoveCameraToPos(_openingCameraPosition.position);
         }        
         

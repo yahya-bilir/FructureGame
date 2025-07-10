@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 3f6c65e805d0fd04c8d860fa399c92e6, type: 2}
+    - target: {fileID: 8259553172246581102, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
+      propertyPath: detailedGizmos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8438421121961799481, guid: 733e62c9738d94a9cad55ab61265809b, type: 3}
       propertyPath: m_IsActive
       value: 1

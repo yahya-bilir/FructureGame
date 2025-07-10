@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.AmmoProjectileSO
   <ObjectName>k__BackingField: Axe Ammo
   <ObjectSprite>k__BackingField: {fileID: 0}
-  <Speed>k__BackingField: 15
+  <Speed>k__BackingField: 7

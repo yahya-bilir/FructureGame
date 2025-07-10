@@ -15,6 +15,6 @@ MonoBehaviour:
   <ObjectName>k__BackingField: Swift Razor
   <ObjectSprite>k__BackingField: {fileID: 21300000, guid: d146d4d90205c9b46a2de7445fe777e5, type: 3}
   <AttackInterval>k__BackingField: 5
-  <MinimumRange>k__BackingField: 0.2
+  <MinimumRange>k__BackingField: 0
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0

@@ -16,10 +16,11 @@ namespace AI.EnemyStates
         private readonly PropertyData _speedPropertyData;
         private readonly CharacterIslandController _characterIslandController;
         private readonly Collider2D _collider;
+        private readonly Rigidbody2D _rigidbody2D;
 
         public WalkingTowardsJumpingPosition(CharacterAnimationController animationController, AIPath aiPath,
             Transform modelTransform, PropertyData speedPropertyData,
-            CharacterIslandController characterIslandController, Collider2D collider)
+            CharacterIslandController characterIslandController, Collider2D collider, Rigidbody2D rigidbody2D)
         {
             _animationController = animationController;
             _aiPath = aiPath;
@@ -27,6 +28,7 @@ namespace AI.EnemyStates
             _speedPropertyData = speedPropertyData;
             _characterIslandController = characterIslandController;
             _collider = collider;
+            _rigidbody2D = rigidbody2D;
         }
 
 
@@ -48,7 +50,7 @@ namespace AI.EnemyStates
             _characterIslandController.StartWalkingToJumpingPosition();
             _aiPath.canMove = false;
             _collider.isTrigger = true;
-            
+            _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
             WaitForCloudActionsToComplete().Forget();
         }
         public void OnExit()
@@ -56,7 +58,6 @@ namespace AI.EnemyStates
             Debug.Log("exited" + " " + _aiPath.canMove);
             _characterIslandController.StopWalkingToJumpingPosition();
             //_collider.isTrigger = false;
-            
         }
 
         private async UniTask WaitForCloudActionsToComplete()
@@ -69,7 +70,7 @@ namespace AI.EnemyStates
             _aiPath.SearchPath();
             _animationController.Run();
             _aiPath.canMove = true;
-            _aiPath.maxSpeed = _speedPropertyData.TemporaryValue * 2.25f;
+            _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
         }
         
     }
