@@ -173,10 +173,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 477923832591692675, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
-      propertyPath: m_Radius
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 544267190636125075, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -247,11 +243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3857543460695671801, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.852
+      value: 1.331
       objectReference: {fileID: 0}
     - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.217
+      value: 0.26199996
       objectReference: {fileID: 0}
     - target: {fileID: 5328889510459864210, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_Name
@@ -291,11 +287,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443789219053800702, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.61
+      value: 1.089
       objectReference: {fileID: 0}
     - target: {fileID: 6529076676168097242, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: radius
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159553285030847801, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.47899997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

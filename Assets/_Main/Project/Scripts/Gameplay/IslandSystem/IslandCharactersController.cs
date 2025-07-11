@@ -4,6 +4,7 @@ using Characters;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using UnityEngine.SceneManagement;
 
 namespace IslandSystem
 {
@@ -13,13 +14,15 @@ namespace IslandSystem
         private readonly List<OpeningSection> _openingSections;
         private readonly IEventBus _eventBus;
         private readonly Island _island;
+        private readonly bool _isFirstIsland;
         private List<Character> _characters = new();
 
-        public IslandCharactersController(List<OpeningSection> openingSections, IEventBus eventBus, Island island)
+        public IslandCharactersController(List<OpeningSection> openingSections, IEventBus eventBus, Island island, bool isFirstIsland)
         {
             _openingSections = openingSections;
             _eventBus = eventBus;
             _island = island;
+            _isFirstIsland = isFirstIsland;
         }
 
         public void Initialize()
@@ -41,7 +44,12 @@ namespace IslandSystem
             if(!_characters.Contains(character)) return;
             _characters.Remove(character);
             
-            if(_characters.Count > 0) return;
+            if(_characters.Count != 0) return;
+            if (_isFirstIsland)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                return;
+            }
             _eventBus.Publish(new OnAllIslandEnemiesKilled(_island));
         }
 

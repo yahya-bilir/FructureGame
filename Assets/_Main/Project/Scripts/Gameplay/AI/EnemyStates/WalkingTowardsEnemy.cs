@@ -46,7 +46,7 @@ namespace AI.EnemyStates
                 return;
             }
             
-            Debug.Log("Walking towards enemy| Remaining Distance: " + _aiPath.remainingDistance);
+            //Debug.Log("Walking towards enemy| Remaining Distance: " + _aiPath.remainingDistance);
             var castedWeapon = (WeaponSO)_characterDataHolder.Weapon.ObjectUIIdentifierSo;
             float minimumRange = castedWeapon.MinimumRange;
 

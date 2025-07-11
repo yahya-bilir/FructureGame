@@ -40,7 +40,7 @@ namespace AI.EnemyStates
                 return;
             }
 
-            if (_aiPath.remainingDistance <= 2f)
+            if (_aiPath.remainingDistance <= 4f)
             {
                 _characterIslandController.StopJumping();
                 //_aiPath.canMove = false;

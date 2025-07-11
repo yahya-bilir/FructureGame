@@ -80,7 +80,6 @@ namespace IslandSystem
             _eventBus.Unsubscribe<OnIslandSelected>(OnIslandSelected);
             _eventBus.Unsubscribe<OnCharacterDied>(OnCharacterDied);
             _eventBus.Unsubscribe<OnAllPerksSelected>(OnAllPerksSelected);
-
         }
     }
 }

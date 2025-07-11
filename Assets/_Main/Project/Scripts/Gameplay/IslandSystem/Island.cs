@@ -18,7 +18,8 @@ namespace IslandSystem
         private CamerasManager _camerasManager;
         private IEventBus _eventBus;
         private IObjectResolver _resolver;
-
+        [SerializeField] private bool isFirstIsland;
+        
         [SerializeField] private List<Island> nextIslandsToBeAvailable;
         [SerializeField] private List<GameObject> collidersToDisableWhenSelected;
         [SerializeField] private List<OpeningSection> openingSections;
@@ -71,7 +72,7 @@ namespace IslandSystem
         {
             
             JumpingActions = new IslandJumpingActions(nextIslandJumpingPos, formationAnchor, this, placingPosCollider);
-            _islandCharactersController = new IslandCharactersController(openingSections, _eventBus, this);
+            _islandCharactersController = new IslandCharactersController(openingSections, _eventBus, this, isFirstIsland);
             _islandCameraMovementManager = new IslandCameraMovementManager(mainCameraPosition, _camerasManager, _eventBus, this, cardSelectionCameraPosition, _islandManager, openingCameraPosition);
             _islandOpeningSystem = new IslandOpeningSystem(
                 _islandCameraMovementManager, _rateChanger,
