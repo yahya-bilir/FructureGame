@@ -21,14 +21,13 @@ namespace IslandSystem
         private readonly Vector2[] _jumpAreaCorners = new Vector2[4];
         private readonly Vector2[,] _jumpAreaEdges = new Vector2[4, 2];
         private readonly Collider2D _jumpingPosCollider;
+        private readonly List<Vector2> _jumpingTakenPoints = new();
         private readonly Dictionary<int, float> _layerRadius = new();
         private readonly Dictionary<int, float> _layerYOffsets = new();
         private readonly Collider2D _placingPosCollider;
         private IEventBus _eventBus;
         private bool _jumpAreaCached;
         private EnemyFactory _playerCharacters;
-        public bool JumpingCanStart { get; private set; }
-        private readonly List<Vector2> _jumpingTakenPoints = new();
 
         public IslandJumpingActions(Collider2D jumpingPosCollider, Transform formationAnchor, Island island,
             Collider2D placingPosCollider)
@@ -38,6 +37,8 @@ namespace IslandSystem
             _island = island;
             _placingPosCollider = placingPosCollider;
         }
+
+        public bool JumpingCanStart { get; private set; }
 
         public void Dispose()
         {
@@ -85,19 +86,15 @@ namespace IslandSystem
         public async UniTask WaitForCharacterJumps()
         {
             while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.IsJumping))
-            {
                 await UniTask.Yield();
-            }
 
             JumpingCanStart = false;
-        }        
-        
+        }
+
         public async UniTask WaitForCharactersToGetIntoJumpingPosition()
         {
             while (_playerCharacters.SpawnedEnemies.Any(i => i.CharacterIslandController.WalkingToJumpingPosition))
-            {
                 await UniTask.Yield();
-            }
 
             JumpingCanStart = true;
         }
@@ -110,8 +107,7 @@ namespace IslandSystem
                 await UniTask.WaitForSeconds(0.01f);
             }
         }
-        
-        
+
 
         public Vector2 GetJumpPosition(Vector2 startPos)
         {
@@ -121,96 +117,90 @@ namespace IslandSystem
                 CacheJumpArea();
             }
 
-            var closestPoint = startPos;
-            var minDistance = float.MaxValue;
+            var bounds = _jumpingPosCollider.bounds;
 
-            for (var i = 0; i < 4; i++)
-            {
-                var a = _jumpAreaEdges[i, 0];
-                var b = _jumpAreaEdges[i, 1];
-                var projection = ProjectPointOnLineSegment(a, b, startPos);
+            var minSpacing = 0.5f; // minimum mesafe
+            var distForward = 1.5f; // ne kadar ileri yürüsün
 
-                var dist = Vector2.Distance(startPos, projection);
-                if (dist < minDistance)
+            // 1) Dümdüz ileri yön
+            var dir = ((Vector2)_formationAnchor.position - startPos).normalized;
+            dir.x = 0; // sadece Y aksı
+
+            var candidate = startPos + dir * distForward;
+
+            // Clamp to collider
+            candidate.x = Mathf.Clamp(candidate.x, bounds.min.x, bounds.max.x);
+            candidate.y = Mathf.Clamp(candidate.y, bounds.min.y, bounds.max.y);
+
+            // Spacing check
+            var overlaps = false;
+            foreach (var p in _jumpingTakenPoints)
+                if (Vector2.Distance(candidate, p) < minSpacing)
                 {
-                    minDistance = dist;
-                    closestPoint = projection;
+                    overlaps = true;
+                    break;
+                }
+
+            if (!overlaps)
+            {
+                _jumpingTakenPoints.Add(candidate);
+                return candidate;
+            }
+
+            // 2) Alternatif: Y ekseninde kaydırma
+            var tries = 10;
+            for (var attempt = 0; attempt < tries; attempt++)
+            {
+                var yOffset = Random.Range(-0.5f, 0.5f); // +/- Y kayması
+                var altCandidate = candidate + new Vector2(0, yOffset);
+
+                altCandidate.x = Mathf.Clamp(altCandidate.x, bounds.min.x, bounds.max.x);
+                altCandidate.y = Mathf.Clamp(altCandidate.y, bounds.min.y, bounds.max.y);
+
+                overlaps = false;
+                foreach (var p in _jumpingTakenPoints)
+                    if (Vector2.Distance(altCandidate, p) < minSpacing)
+                    {
+                        overlaps = true;
+                        break;
+                    }
+
+                if (!overlaps)
+                {
+                    _jumpingTakenPoints.Add(altCandidate);
+                    return altCandidate;
                 }
             }
 
-            return closestPoint;
+            // 3) Alternatif: X aksı sapması
+            for (var attempt = 0; attempt < tries; attempt++)
+            {
+                var xOffset = Random.Range(-0.3f, 0.3f);
+                var altCandidate = candidate + new Vector2(xOffset, 0);
+
+                altCandidate.x = Mathf.Clamp(altCandidate.x, bounds.min.x, bounds.max.x);
+                altCandidate.y = Mathf.Clamp(altCandidate.y, bounds.min.y, bounds.max.y);
+
+                overlaps = false;
+                foreach (var p in _jumpingTakenPoints)
+                    if (Vector2.Distance(altCandidate, p) < minSpacing)
+                    {
+                        overlaps = true;
+                        break;
+                    }
+
+                if (!overlaps)
+                {
+                    _jumpingTakenPoints.Add(altCandidate);
+                    return altCandidate;
+                }
+            }
+
+            // Fallback
+            Debug.LogWarning("No unique jump start found, fallback to anchor.");
+            return _formationAnchor.position;
         }
 
-// private void GenerateFormationPositions(List<Character> playerCharacters)
-// {
-//     _characterTargetPositions.Clear();
-//
-//     var groupedByOrder = playerCharacters
-//         .GroupBy(c => c.CharacterDataHolder.Order)
-//         .ToList();
-//
-//     var uniqueOrders = groupedByOrder.Select(g => g.Key).OrderBy(o => o).ToList();
-//     int totalLayers = uniqueOrders.Count;
-//
-//     float baseYOffset = -2.0f;
-//     float layerSpacing = 1.0f; // Katmanlar arası mesafe
-//
-//     float totalHeight = totalLayers * layerSpacing;
-//     float startY = baseYOffset - (totalHeight / 2f) + layerSpacing / 2f;
-//
-//     foreach (var group in groupedByOrder)
-//     {
-//         int orderValue = group.Key;
-//         int orderIndex = uniqueOrders.IndexOf(orderValue);
-//
-//         int count = group.Count();
-//         float yOffset = startY - orderIndex * layerSpacing;
-//
-//         // === GRID + ARC PARAMETRELER ===
-//         int colCount = Mathf.CeilToInt(Mathf.Sqrt(count));
-//         int rowCount = Mathf.CeilToInt((float)count / colCount);
-//
-//         float colSpacing = 0.7f + orderIndex * 0.1f;  // X ekseni yayılma
-//         float rowSpacing = 0.5f;                      // Y ekseni alt satır aralığı
-//
-//         // Hafif yay: Arc açısı
-//         float arcAngle = 90f;  // 90 derece yay
-//         float arcRadius = 2.0f + orderIndex * 0.5f;
-//
-//         int i = 0;
-//         for (int row = 0; row < rowCount; row++)
-//         {
-//             for (int col = 0; col < colCount; col++)
-//             {
-//                 if (i >= count) break;
-//
-//                 // === ARC SPREAD ===
-//                 float arcStep = arcAngle / Mathf.Max(colCount - 1, 1);
-//                 float startAngle = -arcAngle / 2f;
-//
-//                 float angle = startAngle + col * arcStep;
-//                 float angleRad = angle * Mathf.Deg2Rad;
-//
-//                 // X: yay + grid yayılma
-//                 float x = Mathf.Sin(angleRad) * arcRadius + (col - (colCount - 1) / 2f) * colSpacing;
-//
-//                 // Y: katman offset + row spacing
-//                 float y = yOffset - (row * rowSpacing) + Mathf.Cos(angleRad) * arcRadius * 0.1f;
-//
-//                 // Hafif random scatter:
-//                 x += Random.Range(-0.05f, 0.05f);
-//                 y += Random.Range(-0.05f, 0.05f);
-//
-//                 Vector2 localOffset = new Vector2(x, y);
-//                 Vector2 finalPos = (Vector2)_formationAnchor.position + localOffset;
-//
-//                 _characterTargetPositions[group.ElementAt(i)] = finalPos;
-//
-//                 i++;
-//             }
-//         }
-//     }
-// }
 
         private void GenerateFormationPositions(List<Character> playerCharacters)
         {

@@ -19,12 +19,7 @@ public class RangedAttacking : BaseAttacking
         _eventBus = eventBus;
         _characterWeaponManager = characterWeaponManager;
     }
-
-    protected override void OnAttack()
-    {
-        
-    }
-
+    
     public override void OnEnter()
     {
         base.OnEnter();
@@ -44,12 +39,5 @@ public class RangedAttacking : BaseAttacking
     {
         base.OnExit();
         _eventBus.Unsubscribe<OnEnemyAttacked>(OnEnemyAttacked);
-    }
-
-
-    public override void Tick()
-    {
-        base.Tick();
-        Debug.Log("Ranged Attacking");
     }
 }

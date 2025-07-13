@@ -6,6 +6,7 @@ using CommonComponents;
 using EventBusses;
 using IslandSystem;
 using Pathfinding;
+using Pathfinding.RVO;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -18,17 +19,27 @@ namespace Characters.Enemy
         protected AIPath _aiPath;
         protected CamerasManager _camerasManager;
         protected Collider2D _collider;
+        private EnemyMovementController _enemyMovementController;
         protected IEventBus _eventBus;
         private IslandManager _islandManager;
         private Rigidbody2D _rigidbody2D;
+        private RVOController _rvoController;
         protected StateMachine _stateMachine;
         protected IState attackingState;
 
         protected IState walkingToEnemy;
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+        }
+
         protected override void Start()
         {
             base.Start();
+            _enemyMovementController = new EnemyMovementController(_aiPath, _rvoController, _aiDestinationSetter,
+                _collider, _rigidbody2D, AnimationController, this, model, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
             SetupStates();
         }
 
@@ -52,19 +63,18 @@ namespace Characters.Enemy
             _aiPath = GetComponent<AIPath>();
             _collider = GetComponent<Collider2D>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _rvoController = GetComponent<RVOController>();
         }
 
         private void SetupStates()
         {
             _stateMachine = new StateMachine();
 
-            var waiting = new Waiting(_collider, _eventBus, _aiPath, AnimationController);
-            var walkingTowardsJumpingPosition = new WalkingTowardsJumpingPosition(AnimationController, _aiPath,
-                model.transform, CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterIslandController,
-                _collider, _rigidbody2D);
-            var jumpingToPosition = new JumpingToPosition(CharacterIslandController, _aiPath, model.transform, this,
-                AnimationController, _collider, _rigidbody2D);
-            var searching = new SearchingForEnemy(_collider, _aiPath, _rigidbody2D, AnimationController);
+            var waiting = new Waiting(_enemyMovementController);
+            var walkingTowardsJumpingPosition =
+                new WalkingTowardsJumpingPosition(CharacterIslandController, _enemyMovementController, model.transform);
+            var jumpingToPosition = new JumpingToPosition(CharacterIslandController, this, _enemyMovementController);
+            var searching = new SearchingForEnemy(_enemyMovementController);
             walkingToEnemy = CreateWalkingState();
             attackingState = CreateAttackingState();
 
@@ -80,7 +90,8 @@ namespace Characters.Enemy
 
             Func<bool> ReachedEnemy()
             {
-                return () => (_aiPath.remainingDistance <= _aiPath.endReachedDistance || !_aiPath.canMove) && !IsCharacterDead;
+                return () =>
+                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance || !_aiPath.canMove) && !IsCharacterDead;
             }
 
             Func<bool> ReachedJumpingPosition()
@@ -123,7 +134,7 @@ namespace Characters.Enemy
             {
                 return () =>
                     (CharacterCombatManager.LastFoundEnemy == null ||
-                    CharacterCombatManager.LastFoundEnemy.IsCharacterDead) &&
+                     CharacterCombatManager.LastFoundEnemy.IsCharacterDead) &&
                     !IsCharacterDead;
             }
 
@@ -141,7 +152,6 @@ namespace Characters.Enemy
             _stateMachine.AddTransition(attackingState, searching, EnemyDied());
             _stateMachine.AddTransition(fleeing, walkingToEnemy, FleeingEnded());
             _stateMachine.AddTransition(searching, walkingTowardsJumpingPosition, IslandChanged());
-            //_stateMachine.AddTransition(walkingTowardsJumpingPosition, jumpingToPosition, ReachedJumpingPosition());
             _stateMachine.AddTransition(walkingTowardsJumpingPosition, waiting, ReachedJumpingPosition());
             _stateMachine.AddTransition(waiting, jumpingToPosition, CanJump());
             _stateMachine.AddTransition(jumpingToPosition, searching, OnFightStarted());
@@ -157,9 +167,7 @@ namespace Characters.Enemy
 
         protected virtual IState CreateWalkingState()
         {
-            return new WalkingTowardsEnemy(AnimationController, _aiPath, model.transform,
-                CharacterPropertyManager.GetProperty(PropertyQuery.Speed), CharacterCombatManager, CharacterDataHolder,
-                _collider, _aiDestinationSetter, _rigidbody2D);
+            return new WalkingTowardsEnemy(CharacterCombatManager, CharacterDataHolder, _enemyMovementController, model.transform);
         }
 
         protected abstract BaseAttacking CreateAttackingState();

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Characters;
 using Characters.Enemy;
+using EventBusses;
+using Events;
 using IslandSystem;
 using UnityEngine;
 using VContainer;
@@ -20,6 +22,7 @@ namespace Factories
 
         private IObjectResolver _objectResolver;
         private IslandManager _islandManager;
+        private IEventBus _eventBus;
 
         public void SpawnEnemy()
         {
@@ -39,12 +42,14 @@ namespace Factories
             enemy.InitializeOnSpawn(factorySo.Faction);
             enemy.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
             enemy.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
+            _eventBus.Publish(new OnCharacterSpawned(enemy, _islandManager.firstIsland));
         }
 
-        public void Initialize(IObjectResolver objectResolver, IslandManager islandManager)
+        public void Initialize(IObjectResolver objectResolver, IslandManager islandManager, IEventBus eventBus)
         {
             _objectResolver = objectResolver;
             _islandManager = islandManager;
+            _eventBus =  eventBus;
         }
 
         public bool RemoveEnemyIfPossibe(Character character)
@@ -58,6 +63,7 @@ namespace Factories
             SpawnedEnemies.Add(newCharacter);
             newCharacter.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
             newCharacter.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
+            _eventBus.Publish(new OnCharacterSpawned(newCharacter, _islandManager.firstIsland));
 
         }
     }

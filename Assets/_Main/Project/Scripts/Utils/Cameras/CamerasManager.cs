@@ -59,14 +59,14 @@ namespace CommonComponents
         public void ShakeCamera()
         {
             Vibrations.Medium();
-            //_feedbacks.PlayFeedbacks();
+            _feedbacks.PlayFeedbacks();
         }
 
-        public async UniTask MoveCameraToPos(Vector3 pos)
+        public async UniTask MoveCameraToPos(Vector3 pos, float speed = 0.5f)
         {
-            ActivePlayerCam.transform.DOMove(pos, 0.5f);
+            ActivePlayerCam.transform.DOMove(pos, speed);
             //ActivePlayerCam.transform.position = pos;
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(speed);
         }
 
         public void ToggleLensSize(float newLensSize)

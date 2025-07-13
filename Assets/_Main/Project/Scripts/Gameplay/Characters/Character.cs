@@ -42,7 +42,6 @@ namespace Characters
         private CharacterTransformManager _characterTransformManager;
         private AttackAnimationCaller _attackAnimationCaller;
 
-
         [Inject]
         private void Inject(IObjectResolver resolver, CharacterTransformManager characterTransformManager)
         {

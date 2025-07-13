@@ -50,7 +50,7 @@ namespace IslandSystem
         {
             _camerasManager.ToggleLensSize(6.49f);
             //_camerasManager.ToggleLensSize(5f);
-            await _camerasManager.MoveCameraToPos(_openingCameraPosition.position);
+            await _camerasManager.MoveCameraToPos(_openingCameraPosition.position, 3.5f);
         }        
         
         public async UniTask OnIslandOpenedCompletely()

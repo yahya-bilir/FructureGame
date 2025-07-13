@@ -18,11 +18,6 @@ public class MeleeAttacking : BaseAttacking
         _damage = damage;
     }
 
-    protected override void OnAttack()
-    {
-        //_combatManager.TryDealMeleeDamage();
-    }
-
     public override void OnEnter()
     {
         base.OnEnter();

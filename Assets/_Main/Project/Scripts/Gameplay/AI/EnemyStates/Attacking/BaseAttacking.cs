@@ -50,12 +50,7 @@ public abstract class BaseAttacking : IState
 
     }
 
-    protected abstract void OnAttack();
-
-    public virtual void OnEnter()
-    {
-        //_animationController.Attack();
-    }
+    public virtual void OnEnter() { }
 
     public virtual void OnExit() { }
 }

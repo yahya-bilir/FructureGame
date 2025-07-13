@@ -29,6 +29,7 @@ namespace IslandSystem
         {
             DeactivateSections();
             _eventBus.Subscribe<OnCharacterDied>(OnCharacterDied);
+            _eventBus.Subscribe<OnCharacterSpawned>(OnCharacterSpawned);
             foreach (var openingSection in _openingSections)
             {
                 foreach (var enemy in openingSection.Enemies)
@@ -74,9 +75,16 @@ namespace IslandSystem
             }
         }
 
+        private void OnCharacterSpawned(OnCharacterSpawned eventData)
+        {
+            if(eventData.SpawnedIsland != _island) return;
+            _characters.Add(eventData.SpawnedCharacter);
+        }
+
         public void Dispose()
         {
             _eventBus.Unsubscribe<OnCharacterDied>(OnCharacterDied);
+            _eventBus.Subscribe<OnCharacterSpawned>(OnCharacterSpawned);
         }
     }
 }

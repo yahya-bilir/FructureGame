@@ -65,6 +65,8 @@ namespace IslandSystem
             _astarPath.Scan();
             await UniTask.WaitForSeconds(0.05f);
 
+            _islandCameraMovementManager.OnIslandSelected().Forget();
+            
             if(_island != _islandManager.firstIsland)
             {
                 Debug.Log("waiting for characters to get into jumpiong pos");
@@ -73,7 +75,6 @@ namespace IslandSystem
             } 
             //await _cloudMovementManager.StartCloudActions();
 
-            await _islandCameraMovementManager.OnIslandSelected();
             await _scaler.SpawnIslandObjects();
             //_scaler.ActivateObjects();
             _islandCharactersController.ActivateSections().Forget();

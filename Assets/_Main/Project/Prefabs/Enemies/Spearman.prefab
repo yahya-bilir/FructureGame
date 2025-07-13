@@ -104,10 +104,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.6539999
       objectReference: {fileID: 0}
-    - target: {fileID: 6529076676168097242, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
-      propertyPath: endReachedDistance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 9159553285030847801, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.6539999

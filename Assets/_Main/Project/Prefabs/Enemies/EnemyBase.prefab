@@ -243,7 +243,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.2
+  endReachedDistance: 0.4
   whenCloseToDestination: 0
   rvoDensityBehavior:
     enabled: 0
@@ -256,11 +256,11 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 0
   autoRepath:
-    mode: 2
-    period: 0.1
+    mode: 1
+    period: 0.001
     sensitivity: 10
     maximumPeriod: 2
-    visualizeSensitivity: 0
+    visualizeSensitivity: 1
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.1

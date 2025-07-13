@@ -68,7 +68,7 @@ namespace Factories
 
         private void Start()
         {
-            PlayerArmyFactory.Initialize(_resolver, _islandManager);
+            PlayerArmyFactory.Initialize(_resolver, _islandManager, _eventBus);
         }
 
         public void SpawnPlayerArmyCharacter(Character character, Vector2 position)

@@ -1,76 +1,41 @@
 ﻿using AI.Base.Interfaces;
-using Characters;
 using Characters.Enemy;
-using Cysharp.Threading.Tasks;
-using Pathfinding;
-using PropertySystem;
 using UnityEngine;
 
 namespace AI.EnemyStates
 {
     public class WalkingTowardsJumpingPosition : IState
     {
-        private readonly CharacterAnimationController _animationController;
-        private readonly AIPath _aiPath;
-        private readonly Transform _modelTransform;
-        private readonly PropertyData _speedPropertyData;
         private readonly CharacterIslandController _characterIslandController;
-        private readonly Collider2D _collider;
-        private readonly Rigidbody2D _rigidbody2D;
+        private readonly EnemyMovementController _enemyMovementController;
+        private readonly Transform _modelTransform;
 
-        public WalkingTowardsJumpingPosition(CharacterAnimationController animationController, AIPath aiPath,
-            Transform modelTransform, PropertyData speedPropertyData,
-            CharacterIslandController characterIslandController, Collider2D collider, Rigidbody2D rigidbody2D)
+        public WalkingTowardsJumpingPosition(CharacterIslandController characterIslandController,
+            EnemyMovementController enemyMovementController, Transform modelTransform)
         {
-            _animationController = animationController;
-            _aiPath = aiPath;
-            _modelTransform = modelTransform;
-            _speedPropertyData = speedPropertyData;
             _characterIslandController = characterIslandController;
-            _collider = collider;
-            _rigidbody2D = rigidbody2D;
+            _enemyMovementController = enemyMovementController;
+            _modelTransform = modelTransform;
         }
 
 
         public void Tick()
         {
-            var velocity = _aiPath.desiredVelocity;
-            if (velocity.x > 0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 0, 0);
-            }
-            else if (velocity.x < -0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 180, 0);
-            }
+            Debug.Log("Walking Towards Jumping Position");
         }
 
         public void OnEnter()
         {
+            _enemyMovementController.ToggleRVO(false);
             _characterIslandController.StartWalkingToJumpingPosition();
-            _aiPath.canMove = false;
-            _collider.isTrigger = true;
-            _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-            WaitForCloudActionsToComplete().Forget();
+            //var dest = (Vector2) _modelTransform.position +  new Vector2(0, 4.5f);
+            var dest = _characterIslandController.GetJumpingPosition();
+            _enemyMovementController.MoveCharacter(dest, false);
+            
         }
         public void OnExit()
         {
-            Debug.Log("exited" + " " + _aiPath.canMove);
             _characterIslandController.StopWalkingToJumpingPosition();
-            //_collider.isTrigger = false;
-        }
-
-        private async UniTask WaitForCloudActionsToComplete()
-        {
-            //await UniTask.WaitForSeconds(1);
-            //Debug.Log("waited");
-            var dest = _characterIslandController.GetJumpingPosition();
-            dest = (Vector2) _modelTransform.position +  new Vector2(0, 4.5f);
-            _aiPath.destination = dest;
-            _aiPath.SearchPath();
-            _animationController.Run();
-            _aiPath.canMove = true;
-            _aiPath.maxSpeed = _speedPropertyData.TemporaryValue;
         }
         
     }

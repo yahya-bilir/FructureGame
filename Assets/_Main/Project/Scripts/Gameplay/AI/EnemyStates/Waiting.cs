@@ -1,23 +1,16 @@
 ﻿using AI.Base.Interfaces;
-using Characters;
-using EventBusses;
-using Pathfinding;
+using Characters.Enemy;
 using UnityEngine;
 
 namespace AI.EnemyStates
 {
     public class Waiting : IState
     {
-        private readonly Collider2D _connectedCollider;
-        private readonly AIPath _aiPath;
-        private readonly CharacterAnimationController _animationController;
+        private readonly EnemyMovementController _enemyMovementController;
 
-        public Waiting(Collider2D connectedCollider, IEventBus eventBus, AIPath aiPath,
-            CharacterAnimationController animationController)
+        public Waiting(EnemyMovementController enemyMovementController)
         {
-            _connectedCollider = connectedCollider;
-            _aiPath = aiPath;
-            _animationController = animationController;
+            _enemyMovementController = enemyMovementController;
         }
 
         public void Tick()
@@ -27,9 +20,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
-            _connectedCollider.isTrigger = false;
-            _aiPath.canMove = false;
-            _animationController.Idle();
+            _enemyMovementController.StopCharacter(true);
         }
 
         public void OnExit()
