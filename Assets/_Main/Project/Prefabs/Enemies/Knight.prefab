@@ -140,9 +140,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3193616598637468729, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
   m_PrefabInstance: {fileID: 2626239520176989200}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &6588488916737409334 stripped
+--- !u!198 &2431164062553665462 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9159553285030847782, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 418689871872854950, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
   m_PrefabInstance: {fileID: 2626239520176989200}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6600985371891367527 stripped
@@ -182,7 +182,7 @@ MonoBehaviour:
   model: {fileID: 4599263989733222231}
   <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: e9f913eecf0bf3d458a73b15b059268d, type: 2}
   healthBar: {fileID: 6600985371891367527}
-  onDeathVfx: {fileID: 6588488916737409334}
+  onDeathVfx: {fileID: 2431164062553665462}
   weaponEquippingField: {fileID: 8070027899260922094}
   <Faction>k__BackingField: 0
 --- !u!4 &8070027899260922094 stripped

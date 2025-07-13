@@ -2389,6 +2389,10 @@ MonoBehaviour:
   collidersToDisableWhenSelected: []
   openingSections:
   - <Enemies>k__BackingField:
+    - {fileID: 2333873717660438102}
+    - {fileID: 4465447973886717842}
+    - {fileID: 4604870208514856925}
+  - <Enemies>k__BackingField:
     - {fileID: 3104004067122147912}
     - {fileID: 4348138604570312350}
     - {fileID: 6907662379179268394}
@@ -4995,7 +4999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075304795292055316, guid: 63a72990a086948519820366ee579be9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5007,6 +5011,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 546780119244480447, guid: 63a72990a086948519820366ee579be9, type: 3}
   m_PrefabInstance: {fileID: 4147977887551384063}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4604870208514856925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 465941038882782754, guid: 63a72990a086948519820366ee579be9, type: 3}
+  m_PrefabInstance: {fileID: 4147977887551384063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
 --- !u!1001 &4291701342912844208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5061,7 +5076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075304795292055316, guid: 63a72990a086948519820366ee579be9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5073,6 +5088,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 546780119244480447, guid: 63a72990a086948519820366ee579be9, type: 3}
   m_PrefabInstance: {fileID: 4291701342912844208}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4465447973886717842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 465941038882782754, guid: 63a72990a086948519820366ee579be9, type: 3}
+  m_PrefabInstance: {fileID: 4291701342912844208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
 --- !u!1001 &4786293103186720717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5758,7 +5784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4230811810388492365, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6850213946917120230, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5805,6 +5831,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
+--- !u!114 &2333873717660438102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6841264919151217019, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}
+  m_PrefabInstance: {fileID: 9120523673753405229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e9130027d645e684e74a847428fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Characters.Enemy.RangedEnemy
 --- !u!4 &2414565738447056843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6850213946917120230, guid: 8c094c7a9277643e2884b47c7acf6234, type: 3}

@@ -70,6 +70,7 @@ namespace IslandSystem
             if(_island != _islandManager.firstIsland)
             {
                 Debug.Log("waiting for characters to get into jumpiong pos");
+                await UniTask.WaitForSeconds(0.25f);
                 await _islandJumpingActions.WaitForCharactersToGetIntoJumpingPosition();
                 //await _islandCameraMovementManager.GoToMainPositionForCloudOpening();
             } 

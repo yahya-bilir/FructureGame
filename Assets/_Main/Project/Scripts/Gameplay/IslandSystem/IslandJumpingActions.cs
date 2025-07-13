@@ -119,86 +119,44 @@ namespace IslandSystem
 
             var bounds = _jumpingPosCollider.bounds;
 
-            var minSpacing = 0.5f; // minimum mesafe
-            var distForward = 1.5f; // ne kadar ileri yürüsün
+            float spacing = 0.5f; // min spacing
+            int maxTries = 30;
 
-            // 1) Dümdüz ileri yön
-            var dir = ((Vector2)_formationAnchor.position - startPos).normalized;
-            dir.x = 0; // sadece Y aksı
+            // 1) Düz Y yönü
+            Vector2 dir = ((Vector2)_formationAnchor.position - startPos).normalized;
+            dir.x = 0; // sadece Y
 
-            var candidate = startPos + dir * distForward;
+            // 2) Hedef band: startPos + Y yönünde collider içindeki min-max Y clamp
+            float targetY = Mathf.Clamp(startPos.y + dir.y * 2f, bounds.min.y, bounds.max.y);
 
-            // Clamp to collider
-            candidate.x = Mathf.Clamp(candidate.x, bounds.min.x, bounds.max.x);
-            candidate.y = Mathf.Clamp(candidate.y, bounds.min.y, bounds.max.y);
-
-            // Spacing check
-            var overlaps = false;
-            foreach (var p in _jumpingTakenPoints)
-                if (Vector2.Distance(candidate, p) < minSpacing)
-                {
-                    overlaps = true;
-                    break;
-                }
-
-            if (!overlaps)
+            for (int attempt = 0; attempt < maxTries; attempt++)
             {
-                _jumpingTakenPoints.Add(candidate);
-                return candidate;
-            }
+                // X rastgele collider genişliği içinde
+                float randomX = Random.Range(bounds.min.x, bounds.max.x);
 
-            // 2) Alternatif: Y ekseninde kaydırma
-            var tries = 10;
-            for (var attempt = 0; attempt < tries; attempt++)
-            {
-                var yOffset = Random.Range(-0.5f, 0.5f); // +/- Y kayması
-                var altCandidate = candidate + new Vector2(0, yOffset);
+                Vector2 candidate = new Vector2(randomX, targetY);
 
-                altCandidate.x = Mathf.Clamp(altCandidate.x, bounds.min.x, bounds.max.x);
-                altCandidate.y = Mathf.Clamp(altCandidate.y, bounds.min.y, bounds.max.y);
-
-                overlaps = false;
-                foreach (var p in _jumpingTakenPoints)
-                    if (Vector2.Distance(altCandidate, p) < minSpacing)
-                    {
-                        overlaps = true;
-                        break;
-                    }
+                // spacing check
+                bool overlaps = _jumpingTakenPoints.Any(p => Vector2.Distance(candidate, p) < spacing);
 
                 if (!overlaps)
                 {
-                    _jumpingTakenPoints.Add(altCandidate);
-                    return altCandidate;
+                    _jumpingTakenPoints.Add(candidate);
+                    return candidate;
                 }
+
+                // Y de biraz sapabilir
+                targetY = Mathf.Clamp(targetY + Random.Range(-0.2f, 0.2f), bounds.min.y, bounds.max.y);
             }
 
-            // 3) Alternatif: X aksı sapması
-            for (var attempt = 0; attempt < tries; attempt++)
-            {
-                var xOffset = Random.Range(-0.3f, 0.3f);
-                var altCandidate = candidate + new Vector2(xOffset, 0);
+            // fallback: random içerde
+            Vector2 fallback = new Vector2(
+                Random.Range(bounds.min.x, bounds.max.x),
+                Random.Range(bounds.min.y, bounds.max.y)
+            );
 
-                altCandidate.x = Mathf.Clamp(altCandidate.x, bounds.min.x, bounds.max.x);
-                altCandidate.y = Mathf.Clamp(altCandidate.y, bounds.min.y, bounds.max.y);
-
-                overlaps = false;
-                foreach (var p in _jumpingTakenPoints)
-                    if (Vector2.Distance(altCandidate, p) < minSpacing)
-                    {
-                        overlaps = true;
-                        break;
-                    }
-
-                if (!overlaps)
-                {
-                    _jumpingTakenPoints.Add(altCandidate);
-                    return altCandidate;
-                }
-            }
-
-            // Fallback
-            Debug.LogWarning("No unique jump start found, fallback to anchor.");
-            return _formationAnchor.position;
+            _jumpingTakenPoints.Add(fallback);
+            return fallback;
         }
 
 

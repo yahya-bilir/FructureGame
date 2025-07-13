@@ -88,6 +88,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8755645550096311888}
     - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: onDeathVfx
+      value: 
+      objectReference: {fileID: 2339781603913560258}
+    - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: characterProperties
       value: 
       objectReference: {fileID: 11400000, guid: 1c6a40512041a490ea5a36c67aa26d5c, type: 2}
@@ -167,6 +171,11 @@ PrefabInstance:
       addedObject: {fileID: 7586969885657480755}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+--- !u!198 &2339781603913560258 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 418689871872854950, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_PrefabInstance: {fileID: 2717903410778864484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7178009012198753033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
