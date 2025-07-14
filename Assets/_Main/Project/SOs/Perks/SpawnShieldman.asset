@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ae06f0fe3054df7bd35107f220e4e7a, type: 3}
-  m_Name: SpawnArcher
+  m_Name: SpawnShieldman
   m_EditorClassIdentifier: Gameplay::Perks.SpawnCharactersPerk
-  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: 80ed7a24abbaac2479025ed6305b738e, type: 2}
-  characterToSpawn: {fileID: 577649154166769344, guid: 163e4160b7bf69342bbb5d08d0dd9ccd, type: 3}
+  <ClickableActionInfo>k__BackingField: {fileID: 11400000, guid: 6e7b1aa3f9c24d14f9ad074305e3d047, type: 2}
+  characterToSpawn: {fileID: 4753250614938312464, guid: 29dca8b6c9665a34d9db1397985d23ca, type: 3}
   min: 2
