@@ -91,12 +91,12 @@ namespace Characters.Enemy
             Func<bool> ReachedEnemy()
             {
                 return () =>
-                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance || !_aiPath.canMove) && !IsCharacterDead;
+                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance + 0.2f || !_aiPath.canMove) && !IsCharacterDead;
             }
 
             Func<bool> ReachedJumpingPosition()
             {
-                return () => _aiPath.remainingDistance <= 0.25f && !IsCharacterDead && _aiPath.canMove;
+                return () => _aiPath.remainingDistance <= 0.35f && !IsCharacterDead && _aiPath.canMove && walkingTowardsJumpingPosition.Timer > 0.25f;
             }
 
             Func<bool> CanJump()

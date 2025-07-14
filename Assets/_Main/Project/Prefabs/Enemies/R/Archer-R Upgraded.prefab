@@ -131,6 +131,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.053000152
       objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 5328889510459864210, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_Name
       value: Archer-R Upgraded
@@ -245,6 +257,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2683273111323787216, guid: 2d00e96850af0e64e983880aafc42da8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440601398363085118, guid: 2d00e96850af0e64e983880aafc42da8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6072474
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440601398363085118, guid: 2d00e96850af0e64e983880aafc42da8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440601398363085118, guid: 2d00e96850af0e64e983880aafc42da8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.79451275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440601398363085118, guid: 2d00e96850af0e64e983880aafc42da8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 105.219
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -286,7 +318,7 @@ Animator:
   m_GameObject: {fileID: 7596451766227185302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 7c98200711a139042aaa73ad9a631408, type: 2}
+  m_Controller: {fileID: 22100000, guid: 25830134289e61b4aa8ef31e4e30b5c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

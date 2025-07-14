@@ -109,7 +109,7 @@ ScriptedImporter:
       height: 112
     spriteID: 5f97a9335b31aba4db77e93915c6780f
     spriteBone:
-    - name: right_arm
+    - name: right_hand
       guid: c76e2ab76f92dde4ea20adb55da7f31f
       position: {x: 37.979248, y: 76.70813, z: 0}
       rotation: {x: 0, y: 0, z: -0.5524301, w: 0.8335593}
@@ -415,7 +415,7 @@ ScriptedImporter:
       height: 111
     spriteID: b78fad59db6f28e4c9f4e2de6a024d4d
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 85.42078, y: 79.48096, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -721,7 +721,7 @@ ScriptedImporter:
       height: 388
     spriteID: 963c2751ca7288b4dbb6105f917ea054
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 365.42078, y: 56.480957, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -2711,7 +2711,7 @@ ScriptedImporter:
       height: 128
     spriteID: 168a5573c5aefa443915859f19343d09
     spriteBone:
-    - name: right_arm
+    - name: right_hand
       guid: c76e2ab76f92dde4ea20adb55da7f31f
       position: {x: 120.97925, y: 64.70813, z: 0}
       rotation: {x: 0, y: 0, z: -0.5524301, w: 0.8335593}
@@ -3017,7 +3017,7 @@ ScriptedImporter:
       height: 144
     spriteID: bb7a1b024695a2c4bbd6755db2597f66
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 178.42078, y: 62.480957, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -3334,7 +3334,7 @@ ScriptedImporter:
       height: 325
     spriteID: 689be0ffc3384b3478d4e15c4bcddac4
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 136.42078, y: 119.48096, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -4188,7 +4188,7 @@ ScriptedImporter:
       height: 127
     spriteID: 748cd656e262cc54891ba43d77115295
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 137.42078, y: 57.480957, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -6123,7 +6123,7 @@ ScriptedImporter:
       height: 126
     spriteID: 43344c5854ad55145843dc8648f6f71f
     spriteBone:
-    - name: right_arm
+    - name: right_hand
       guid: c76e2ab76f92dde4ea20adb55da7f31f
       position: {x: 115.97925, y: 72.70813, z: 0}
       rotation: {x: 0, y: 0, z: -0.5524301, w: 0.8335593}
@@ -6429,7 +6429,7 @@ ScriptedImporter:
       height: 127
     spriteID: c939aeaed4a85c84da85e553cf725ada
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 94.42078, y: 65.48096, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -6735,7 +6735,7 @@ ScriptedImporter:
       height: 362
     spriteID: 56357e102968a254a884e9121c8f3c14
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 350.42078, y: 71.48096, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -8243,7 +8243,7 @@ ScriptedImporter:
       height: 131
     spriteID: 43cf6e28cf83ac249b6689cba9fa7c76
     spriteBone:
-    - name: right_arm
+    - name: right_hand
       guid: c76e2ab76f92dde4ea20adb55da7f31f
       position: {x: 105.97925, y: 47.70813, z: 0}
       rotation: {x: 0, y: 0, z: -0.5524301, w: 0.8335593}
@@ -8549,7 +8549,7 @@ ScriptedImporter:
       height: 131
     spriteID: fc5afd62b747ad7438288fbb829b826f
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 88.42078, y: 45.480957, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -8855,7 +8855,7 @@ ScriptedImporter:
       height: 381
     spriteID: 5e67365aa0655df4ea3276779cbc53e2
     spriteBone:
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 296.42078, y: 36.480957, z: 0}
       rotation: {x: 0, y: 0, z: 0.9598686, w: -0.28045025}
@@ -10748,7 +10748,7 @@ ScriptedImporter:
       color:
         serializedVersion: 2
         rgba: 4294967040
-    - name: right_arm
+    - name: right_hand
       guid: c76e2ab76f92dde4ea20adb55da7f31f
       position: {x: 223.7097, y: -173.39394, z: 0}
       rotation: {x: 0, y: -0, z: -0.98694927, w: 0.16103178}
@@ -10757,7 +10757,7 @@ ScriptedImporter:
       color:
         serializedVersion: 2
         rgba: 4294901760
-    - name: left_arm
+    - name: left_hand
       guid: e03616bfe8c543c4a99e6bec9aadc9c1
       position: {x: 253.51405, y: 164.87515, z: 0}
       rotation: {x: 0, y: -0, z: 0.85795516, w: 0.5137246}

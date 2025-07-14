@@ -69,8 +69,8 @@ namespace Characters.Enemy
         private void MoveCharacterInternal(bool shouldActivatePhysics)
         {
             _animationController.Run();
-            _aiPath.canMove = true;
             _aiPath.maxSpeed = _speedProperty.TemporaryValue;
+            _aiPath.canMove = true;
 
             StartRotater();
             SetPhysicsState(shouldActivatePhysics);

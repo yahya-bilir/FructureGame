@@ -109,7 +109,7 @@ ScriptedImporter:
       height: 488
     spriteID: 91287b0d210997743b7b03e5350ed2b0
     spriteBone:
-    - name: left_hand
+    - name: left_arm
       guid: b83da609632d92a4da82e71b084ff143
       position: {x: 202.74597, y: -51.731964, z: 0}
       rotation: {x: 0, y: 0, z: 0.7149188, w: 0.6992076}
@@ -492,7 +492,7 @@ ScriptedImporter:
       height: 150
     spriteID: 821a984141f7ddc4295b5232afaa5191
     spriteBone:
-    - name: left_hand
+    - name: left_arm
       guid: b83da609632d92a4da82e71b084ff143
       position: {x: 66.74597, y: 50.268066, z: 0}
       rotation: {x: 0, y: 0, z: 0.7149188, w: 0.6992076}
@@ -1740,7 +1740,7 @@ ScriptedImporter:
       height: 148
     spriteID: b5895c73e61f07c48b8cfe2f0b692a24
     spriteBone:
-    - name: right_hand
+    - name: right_arm
       guid: c3d39cb727b833042872e47c3f776d09
       position: {x: 69.25745, y: 89.861145, z: 0}
       rotation: {x: 0, y: 0, z: 0.72757226, w: -0.6860311}
@@ -2803,7 +2803,7 @@ ScriptedImporter:
       color:
         serializedVersion: 2
         rgba: 4278255360
-    - name: right_hand
+    - name: right_arm
       guid: c3d39cb727b833042872e47c3f776d09
       position: {x: 403.40976, y: -316.42416, z: 0}
       rotation: {x: 0, y: 0, z: 0.9965786, w: 0.082651645}
@@ -2812,7 +2812,7 @@ ScriptedImporter:
       color:
         serializedVersion: 2
         rgba: 4294967040
-    - name: left_hand
+    - name: left_arm
       guid: b83da609632d92a4da82e71b084ff143
       position: {x: 409.94116, y: 275.76154, z: 0}
       rotation: {x: 0, y: 0, z: -0.042245485, w: 0.9991073}

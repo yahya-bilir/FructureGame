@@ -16,7 +16,6 @@ namespace EventBusses
             {
                 foreach (var handler in list.Cast<Action<T>>())
                     handler.Invoke(evt);
-                Debug.Log("online");
             }
         }
 

@@ -9,6 +9,7 @@ namespace AI.EnemyStates
         private readonly CharacterIslandController _characterIslandController;
         private readonly EnemyMovementController _enemyMovementController;
         private readonly Transform _modelTransform;
+        public float Timer { get; private set; }
 
         public WalkingTowardsJumpingPosition(CharacterIslandController characterIslandController,
             EnemyMovementController enemyMovementController, Transform modelTransform)
@@ -22,20 +23,22 @@ namespace AI.EnemyStates
         public void Tick()
         {
             Debug.Log("Walking Towards Jumping Position");
+            Timer += Time.deltaTime;
         }
 
         public void OnEnter()
         {
             _enemyMovementController.ToggleRVO(false);
-            _characterIslandController.StartWalkingToJumpingPosition();
-            //var dest = (Vector2) _modelTransform.position +  new Vector2(0, 4.5f);
             var dest = _characterIslandController.GetJumpingPosition();
             _enemyMovementController.MoveCharacter(dest, false);
-            
+            _characterIslandController.StartWalkingToJumpingPosition();
+            //var dest = (Vector2) _modelTransform.position +  new Vector2(0, 4.5f);
         }
         public void OnExit()
         {
             _characterIslandController.StopWalkingToJumpingPosition();
+            Debug.Log("exited");
+            Timer = 0f;
         }
         
     }
