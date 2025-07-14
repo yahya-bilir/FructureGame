@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ally_Spearman_0: 1703048815439621133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

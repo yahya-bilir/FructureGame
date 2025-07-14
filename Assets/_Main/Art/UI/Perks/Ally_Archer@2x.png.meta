@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ally_Archer@2x_0: -2677854563844957832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

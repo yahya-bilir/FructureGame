@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace EventBusses
 {
@@ -15,6 +16,7 @@ namespace EventBusses
             {
                 foreach (var handler in list.Cast<Action<T>>())
                     handler.Invoke(evt);
+                Debug.Log("online");
             }
         }
 
