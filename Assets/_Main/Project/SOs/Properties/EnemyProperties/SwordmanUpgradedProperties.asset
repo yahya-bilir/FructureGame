@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwordmanUpgradedProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
   <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: Enemy2
+  <EntityId>k__BackingField: Swordman Upgraded
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
     <PermanentValue>k__BackingField: 4
