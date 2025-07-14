@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcherUpgradedProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
   <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: Enemy3
+  <EntityId>k__BackingField: Archer
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
     <PermanentValue>k__BackingField: 2

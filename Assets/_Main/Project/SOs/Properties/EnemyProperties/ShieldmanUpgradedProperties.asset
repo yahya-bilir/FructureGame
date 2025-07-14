@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShieldmanUpgradedProperties
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
   <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: Enemy2
+  <EntityId>k__BackingField: Shieldman Upgraded
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
     <PermanentValue>k__BackingField: 4
