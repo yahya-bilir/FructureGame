@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AddSwordmanViewInfo
   m_EditorClassIdentifier: Gameplay::Perks.ClickableActionInfo
   <ShouldResize>k__BackingField: 1
-  <Icon>k__BackingField: {fileID: 1703048815439621133, guid: 411366cb45c7a20498737653dc41177a, type: 3}
+  <Icon>k__BackingField: {fileID: 4404130636074542698, guid: d0882407e8e5e154886368c4f8c7fee8, type: 3}
   <Name>k__BackingField: Add 2 Swordman
   <ReadOnlyInfoAreaToFormat>k__BackingField: Add 2 Swordman

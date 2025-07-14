@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AddArcherViewInfo
   m_EditorClassIdentifier: Gameplay::Perks.ClickableActionInfo
   <ShouldResize>k__BackingField: 1
-  <Icon>k__BackingField: {fileID: -2677854563844957832, guid: 18df7ff32b4bfdb47b1c9b85dbb5e9ab, type: 3}
-  <Name>k__BackingField: Add 2 Archers
-  <ReadOnlyInfoAreaToFormat>k__BackingField: Add 2 Archers
+  <Icon>k__BackingField: {fileID: -4154542602202963503, guid: ea1480763e5582d4e93039961b58ee22, type: 3}
+  <Name>k__BackingField: Add 4 Archers
+  <ReadOnlyInfoAreaToFormat>k__BackingField: Add 4 Archers

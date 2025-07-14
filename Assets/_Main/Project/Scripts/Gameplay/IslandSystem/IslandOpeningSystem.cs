@@ -64,7 +64,7 @@ namespace IslandSystem
             _collidersToDisableWhenSelected.ForEach(i => i.SetActive(false));
             _astarPath.Scan();
             await UniTask.WaitForSeconds(0.05f);
-
+            
             _islandCameraMovementManager.OnIslandSelected().Forget();
             
             if(_island != _islandManager.firstIsland)

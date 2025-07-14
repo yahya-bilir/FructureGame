@@ -45,7 +45,7 @@ namespace AI.EnemyStates
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(enemy.transform, false);
+                _enemyMovementController.MoveCharacter(enemy.transform, true);
   
             }
             else

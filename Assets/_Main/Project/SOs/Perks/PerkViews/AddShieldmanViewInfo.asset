@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AddShieldmanViewInfo
   m_EditorClassIdentifier: Gameplay::Perks.ClickableActionInfo
   <ShouldResize>k__BackingField: 1
-  <Icon>k__BackingField: {fileID: 4545031515857906410, guid: ca5def6e479153c408968f5892915246, type: 3}
+  <Icon>k__BackingField: {fileID: 8290078914730532866, guid: defd641ecc8a9f545a6c1d876ff5324f, type: 3}
   <Name>k__BackingField: Add 2 Shieldman
   <ReadOnlyInfoAreaToFormat>k__BackingField: Add 2 Shieldman

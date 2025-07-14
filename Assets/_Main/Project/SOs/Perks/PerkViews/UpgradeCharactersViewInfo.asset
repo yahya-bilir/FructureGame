@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfea4ac04d754107938dd683176f9001, type: 3}
   m_Name: UpgradeCharactersViewInfo
   m_EditorClassIdentifier: Gameplay::Perks.ClickableActionInfo
-  <Icon>k__BackingField: {fileID: 21300000, guid: dacc11e9733096040822638276047a4a, type: 3}
+  <ShouldResize>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 21300000, guid: 1b8aee06657413c47a61bb0cec8dfae0, type: 3}
   <Name>k__BackingField: Upgrade Characters
   <ReadOnlyInfoAreaToFormat>k__BackingField: Upgrade Characters

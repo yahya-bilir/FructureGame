@@ -68,6 +68,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.0120000765
       objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 5328889510459864210, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_Name
       value: Swordman-R

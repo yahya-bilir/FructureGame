@@ -28,7 +28,7 @@ namespace AI.EnemyStates
                 return;
             }
 
-            if (_enemyMovementController.GetIsReachedDistance(2.5f))
+            if (_enemyMovementController.GetIsReachedDistance(4f))
             {
                 _characterIslandController.SetCanJumpDisabled();
                 _characterIslandController.StopJumping();
