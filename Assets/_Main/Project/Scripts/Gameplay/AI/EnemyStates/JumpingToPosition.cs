@@ -28,7 +28,7 @@ namespace AI.EnemyStates
                 return;
             }
 
-            if (_enemyMovementController.GetIsReachedDistance(4f))
+            if (_enemyMovementController.GetIsReachedDistance(3.5f))
             {
                 _characterIslandController.SetCanJumpDisabled();
                 _characterIslandController.StopJumping();
@@ -39,7 +39,7 @@ namespace AI.EnemyStates
             _characterIslandController.StartJumpingActions();
             _jumpTarget = (Vector2) _enemyBehaviour.transform.position + new Vector2(0, 5f);
 
-            _enemyMovementController.MoveCharacter(_jumpTarget, false);
+            _enemyMovementController.MoveCharacter(_jumpTarget, false, 3);
             _enemyMovementController.ToggleRVO(false);
         }
 

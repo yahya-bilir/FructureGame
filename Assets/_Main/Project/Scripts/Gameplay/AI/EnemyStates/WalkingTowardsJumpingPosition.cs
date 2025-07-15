@@ -30,7 +30,7 @@ namespace AI.EnemyStates
         {
             _enemyMovementController.ToggleRVO(false);
             var dest = _characterIslandController.GetJumpingPosition();
-            _enemyMovementController.MoveCharacter(dest, false);
+            _enemyMovementController.MoveCharacter(dest, false, 3);
             _characterIslandController.StartWalkingToJumpingPosition();
             //var dest = (Vector2) _modelTransform.position +  new Vector2(0, 4.5f);
         }

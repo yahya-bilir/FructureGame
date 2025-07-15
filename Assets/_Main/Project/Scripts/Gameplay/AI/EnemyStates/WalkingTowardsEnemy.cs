@@ -29,7 +29,7 @@ namespace AI.EnemyStates
             if (enemy == null || enemy.IsCharacterDead)
             {
                 Debug.Log("Enemy is null or dead. Stopping movement.");
-                _enemyMovementController.StopCharacter(true);
+                _enemyMovementController.StopCharacter(false);
                 
                 return;
             }
@@ -45,12 +45,14 @@ namespace AI.EnemyStates
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(enemy.transform, true);
+                _enemyMovementController.ToggleRVO(false);
+                _enemyMovementController.MoveCharacter(enemy.transform, true, 1);
   
             }
             else
             {
                 _enemyMovementController.StopCharacter(false);
+                _enemyMovementController.ToggleRVO(false);
             }
         }
 

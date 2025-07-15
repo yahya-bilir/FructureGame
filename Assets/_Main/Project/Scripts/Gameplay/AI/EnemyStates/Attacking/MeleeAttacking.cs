@@ -26,7 +26,7 @@ public class MeleeAttacking : BaseAttacking
     {
         base.OnEnter();
         _eventBus.Subscribe<OnEnemyAttacked>(OnEnemyAttacked);
-        _enemyMovementController.StopCharacter(false);
+        _enemyMovementController.StopCharacter(true);
     }
 
     public override void OnExit()

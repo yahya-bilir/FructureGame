@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
   <OnDeathParts>k__BackingField: []
   <Worth>k__BackingField: 10
-  <ShineColor>k__BackingField: {r: 766.99615, g: 766.99615, b: 766.99615, a: 0.39215687}
-  <ShineDuration>k__BackingField: 0.1
+  <ShineColor>k__BackingField: {r: 1024, g: 0, b: 0, a: 1}
+  <ShineDuration>k__BackingField: 0.3
   <OnAttackedVFXColor>k__BackingField: {r: 0.2735849, g: 0.0761392, b: 0.26319307, a: 1}
   <OnAttackedSpeedDivider>k__BackingField: 2
   <OnAttackedSpeedRecoverTime>k__BackingField: 5

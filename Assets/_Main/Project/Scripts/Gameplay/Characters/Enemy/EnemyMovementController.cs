@@ -51,25 +51,25 @@ namespace Characters.Enemy
             SetPhysicsState(shouldActivatePhysics);
         }
 
-        public void MoveCharacter(Vector2 pos, bool shouldActivatePhysics)
+        public void MoveCharacter(Vector2 pos, bool shouldActivatePhysics, float moveSpeed)
         {
             _aiPath.destination = pos;
             _aiDestinationSetter.target = null;
 
-            MoveCharacterInternal(shouldActivatePhysics);
+            MoveCharacterInternal(shouldActivatePhysics, moveSpeed);
         }
 
-        public void MoveCharacter(Transform pos, bool shouldActivatePhysics)
+        public void MoveCharacter(Transform pos, bool shouldActivatePhysics, float moveSpeed)
         {
             _aiDestinationSetter.target = pos;
 
-            MoveCharacterInternal(shouldActivatePhysics);
+            MoveCharacterInternal(shouldActivatePhysics, moveSpeed);
         }
 
-        private void MoveCharacterInternal(bool shouldActivatePhysics)
+        private void MoveCharacterInternal(bool shouldActivatePhysics, float moveSpeed)
         {
             _animationController.Run();
-            _aiPath.maxSpeed = _speedProperty.TemporaryValue;
+            _aiPath.maxSpeed = moveSpeed;
             _aiPath.canMove = true;
 
             StartRotater();
