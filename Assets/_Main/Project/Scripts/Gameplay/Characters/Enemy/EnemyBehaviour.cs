@@ -19,7 +19,7 @@ namespace Characters.Enemy
         protected AIPath _aiPath;
         protected CamerasManager _camerasManager;
         protected Collider2D _collider;
-        private EnemyMovementController _enemyMovementController;
+        protected EnemyMovementController _enemyMovementController;
         protected IEventBus _eventBus;
         private IslandManager _islandManager;
         private Rigidbody2D _rigidbody2D;
@@ -91,7 +91,7 @@ namespace Characters.Enemy
             Func<bool> ReachedEnemy()
             {
                 return () =>
-                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance + 0.2f || !_aiPath.canMove) && !IsCharacterDead;
+                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance + 0.1f || !_aiPath.canMove) && !IsCharacterDead;
             }
 
             Func<bool> ReachedJumpingPosition()

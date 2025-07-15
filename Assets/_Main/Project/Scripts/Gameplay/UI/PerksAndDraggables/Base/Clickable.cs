@@ -66,5 +66,13 @@ namespace UI.PerksAndDraggables
         {
             EventBus.Publish(new OnClickableClicked(this));
         }
+
+        public void DestroyClickableWithAnimation()
+        {
+            transform.DOScale(Vector3.zero, 0.25f).OnComplete(() =>
+            {
+                Destroy(gameObject);
+            });
+        }
     }
 }
