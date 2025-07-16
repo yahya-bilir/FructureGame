@@ -23,12 +23,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-basement:[18.0.0]' // Packages/com.homagames.attribution.adjust/Editor/AdjustDependencies.xml:5
     implementation 'com.google.android.instantapps:instantapps:1.1.0' // Packages/com.gameanalytics.sdk/Editor/Android/Dependencies.xml:3
     implementation 'com.parse.bolts:bolts-android:1.4.0' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:4
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.+' // Packages/com.homagames.foundation/Android/Editor/FoundationDependencies.xml:4
 // Android Resolver Dependencies End
 **DEPS**}
 
 // Android Resolver Exclusions Start
 android {
-  packaging {
+  packagingOptions {
       exclude ('/lib/armeabi/*' + '*')
       exclude ('/lib/mips/*' + '*')
       exclude ('/lib/mips64/*' + '*')
