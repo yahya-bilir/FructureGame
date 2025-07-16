@@ -4,6 +4,7 @@ using EventBusses;
 using Events;
 using Events.IslandEvents;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 namespace IslandSystem
@@ -72,6 +73,10 @@ namespace IslandSystem
         private void OnAllPerksSelected(OnAllPerksSelected eventData)
         {
             _eventBus.Publish(new OnIslandFinished(CurrentIsland));
+            if (CurrentIsland == allIslands[^1])
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
         }
 
         private void OnDisable()

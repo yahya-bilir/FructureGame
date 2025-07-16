@@ -57,7 +57,7 @@ namespace Characters
             
             if(_healthBar == null) return;
 
-            _characterAnimationController.GetHit();
+            //_characterAnimationController.GetHit();
             SetHealthBarValue(newHealth, maxHealth);
             
             if(_isHealthStillRunning) return;
@@ -83,6 +83,7 @@ namespace Characters
             }
             //await UniTask.WaitForSeconds(_characterDataHolder.ShineDuration + 0.05f);
 
+            await UniTask.WaitForSeconds(0.4f);
              foreach (var renderer in _spriteRenderers)
              {
                  renderer.enabled = false;

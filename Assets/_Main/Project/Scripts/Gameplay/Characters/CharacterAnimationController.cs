@@ -10,6 +10,7 @@ namespace Characters
         private static readonly int AttackHash = Animator.StringToHash("Attack");
         private static readonly int JumpHash = Animator.StringToHash("Jump");
         private static readonly int HitHash = Animator.StringToHash("Hit");
+        private static readonly int DeadHash = Animator.StringToHash("Dead");
 
         public CharacterAnimationController(Animator animator)
         {
@@ -40,6 +41,11 @@ namespace Characters
         {
             _animator.SetBool(AttackHash, true);
             _animator.SetBool(RunHash, false);
+        }        
+        
+        public void Dead()
+        {
+            _animator.SetTrigger(DeadHash);
         }
 
         public void Spawn()

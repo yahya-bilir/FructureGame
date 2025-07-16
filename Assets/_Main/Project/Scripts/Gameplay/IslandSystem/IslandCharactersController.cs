@@ -4,6 +4,7 @@ using Characters;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace IslandSystem
@@ -44,8 +45,8 @@ namespace IslandSystem
             var character = eventData.Character;
             if(!_characters.Contains(character)) return;
             _characters.Remove(character);
-            
-            if(_characters.Count != 0) return;
+            Debug.Log(_characters.Count);
+            if(_characters.Count > 0) return;
             if (_isFirstIsland)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
@@ -77,14 +78,17 @@ namespace IslandSystem
 
         private void OnCharacterSpawned(OnCharacterSpawned eventData)
         {
-            if(eventData.SpawnedIsland != _island) return;
+            if (eventData.SpawnedIsland != _island)
+            {
+                return;
+            }
             _characters.Add(eventData.SpawnedCharacter);
         }
 
         public void Dispose()
         {
             _eventBus.Unsubscribe<OnCharacterDied>(OnCharacterDied);
-            _eventBus.Subscribe<OnCharacterSpawned>(OnCharacterSpawned);
+            _eventBus.Unsubscribe<OnCharacterSpawned>(OnCharacterSpawned);
         }
     }
 }

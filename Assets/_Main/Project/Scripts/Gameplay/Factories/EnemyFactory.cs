@@ -59,7 +59,7 @@ namespace Factories
 
         public void ReplaceEnemy(Character newCharacter, Character oldCharacter)
         {
-            if(!RemoveEnemyIfPossibe(oldCharacter)) return;
+            _eventBus.Publish(new OnCharacterDied(oldCharacter));
             SpawnedEnemies.Add(newCharacter);
             newCharacter.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
             newCharacter.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);

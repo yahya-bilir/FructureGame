@@ -33,7 +33,7 @@ namespace AI.EnemyStates
         public void Tick()
         {
             _deathTimer += Time.deltaTime;
-            if (_deathTimer >= 0.25f)
+            if (_deathTimer >= 0.4f)
             {
                 _collider2D.gameObject.SetActive(false);
             }
@@ -42,7 +42,8 @@ namespace AI.EnemyStates
         public void OnEnter()
         {
             _collider2D.enabled = false;
-            _animationController.DisableAnimator();
+            //_animationController.DisableAnimator();
+            _animationController.Dead();
             _aiPath.radius = 0f;
             //_camerasManager.ShakeCamera();
 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Perk UI@2x 1_0: 8819116279993922515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
