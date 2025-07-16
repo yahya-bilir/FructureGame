@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Facebook.Unity.Settings.dll::Facebook.Unity.Settings.FacebookSettings
   selectedAppIndex: 0
   clientTokens:
-  - d0c45d4f118ba90de168037c09652038
+  - c4caa8ca215f1a4a8a4098c53c8ff555
   appIds:
-  - 684651154425472
+  - 1772800983313967
   appLabels:
-  - Chainsaw Carnage
+  - Island Raiders
   cookie: 1
   logging: 1
   status: 1

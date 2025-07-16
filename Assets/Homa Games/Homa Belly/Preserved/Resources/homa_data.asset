@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: HomaGames.HomaBelly.Core::HomaGames.HomaBelly.HomaBellyManifestConfiguration
   configData:
   - pathHash: -1609317064
-    value: 1Vrh9EGP
+    value: yq2QaL0C
   - pathHash: -876955219
-    value: 51ed7bcda096641
+    value: 8cb5995b4715d3e
   - pathHash: 1735753716
     value: True
   - pathHash: -255302860
@@ -40,15 +40,15 @@ MonoBehaviour:
   - pathHash: 2099441271
     value: False
   - pathHash: 1158911540
-    value: ahec47gi44jk
+    value: 2qhj6kt3ycqo
   - pathHash: -1790251483
     value: True
   - pathHash: 1396189054
-    value: 652fe87c10a9943a6e2764871c27b1be
+    value: 81d2239c5e632403c52dae7956b328f0
   - pathHash: -1555731084
-    value: a0f9d0d76ed934019d0c8e3cfc1390af330cfd9c
+    value: 2e06040c8963a95bb185aed19cc5b729271ec695
   - pathHash: 1198286589
-    value: 684651154425472
+    value: 1772800983313967
   - pathHash: 1722449587
-    value: d0c45d4f118ba90de168037c09652038
-  PluginManifestHash: -571400503
+    value: c4caa8ca215f1a4a8a4098c53c8ff555
+  PluginManifestHash: -1526633949
