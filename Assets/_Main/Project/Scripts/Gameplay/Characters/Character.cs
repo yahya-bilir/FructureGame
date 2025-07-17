@@ -21,6 +21,8 @@ namespace Characters
         [field: SerializeField] public CharacterPropertiesSO CharacterPropertiesSo { get; private set; }
         [SerializeField] protected UIPercentageFiller healthBar;
         [SerializeField] protected ParticleSystem onDeathVfx;
+        [SerializeField] private ParticleSystem hitVfx;
+        
         [SerializeField] private Transform weaponEquippingField;
         
         [Header("Debug")]
@@ -54,7 +56,7 @@ namespace Characters
         {
             GetComponents();
             AnimationController = new CharacterAnimationController(_animator);
-            CharacterVisualEffects = new CharacterVisualEffects(ChildrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx, this, AnimationController);
+            CharacterVisualEffects = new CharacterVisualEffects(ChildrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx, this, AnimationController, hitVfx);
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);

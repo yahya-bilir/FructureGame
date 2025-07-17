@@ -222,6 +222,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6569877452888734207}
     - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: hitVfx
+      value: 
+      objectReference: {fileID: 9191652019132697960}
+    - target: {fileID: 3293211154790333860, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: onDeathVfx
       value: 
       objectReference: {fileID: 7078693114601377602}
@@ -313,5 +317,10 @@ Transform:
 --- !u!198 &7078693114601377602 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 418689871872854950, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_PrefabInstance: {fileID: 7490592126977737956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9191652019132697960 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1764464467274402188, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
   m_PrefabInstance: {fileID: 7490592126977737956}
   m_PrefabAsset: {fileID: 0}

@@ -144,9 +144,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4753250614938312464}
   m_SourcePrefab: {fileID: 100100000, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
---- !u!198 &2431164062553665462 stripped
+--- !u!198 &4327649146364063132 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 418689871872854950, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1764464467274402188, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_PrefabInstance: {fileID: 2626239520176989200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6588488916737409334 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9159553285030847782, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
   m_PrefabInstance: {fileID: 2626239520176989200}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6600985371891367527 stripped
@@ -186,7 +191,8 @@ MonoBehaviour:
   model: {fileID: 2516099713088835542}
   <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: b18c181f73e34f04ea78268aa4497cf1, type: 2}
   healthBar: {fileID: 6600985371891367527}
-  onDeathVfx: {fileID: 2431164062553665462}
+  onDeathVfx: {fileID: 4327649146364063132}
+  hitVfx: {fileID: 6588488916737409334}
   weaponEquippingField: {fileID: 8070027899260922094}
   <Faction>k__BackingField: 1
 --- !u!4 &8070027899260922094 stripped

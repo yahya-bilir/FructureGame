@@ -20,12 +20,13 @@ namespace Characters
         private readonly ParticleSystem _onDeathVfx;
         private readonly Character _character;
         private readonly CharacterAnimationController _characterAnimationController;
+        private readonly ParticleSystem _hitVfx;
         private bool _isHealthStillRunning;
         private IEventBus _eventBus;
 
         public CharacterVisualEffects(List<SpriteRenderer> spriteRenderers, CharacterDataHolder characterDataHolder,
             UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
-            CharacterAnimationController characterAnimationController)
+            CharacterAnimationController characterAnimationController, ParticleSystem hitVfx)
         {
             _spriteRenderers = spriteRenderers;
             _characterDataHolder = characterDataHolder;
@@ -33,6 +34,7 @@ namespace Characters
             _onDeathVfx = onDeathVfx;
             _character = character;
             _characterAnimationController = characterAnimationController;
+            _hitVfx = hitVfx;
             Initialize();
         }
 
@@ -57,6 +59,8 @@ namespace Characters
             
             if(_healthBar == null) return;
 
+            if(_hitVfx != null) _hitVfx.Play();
+            
             //_characterAnimationController.GetHit();
             SetHealthBarValue(newHealth, maxHealth);
             
