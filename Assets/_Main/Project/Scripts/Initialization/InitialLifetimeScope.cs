@@ -33,7 +33,7 @@ namespace Initialization
 
             resolver.Inject(characterResources);
             
-            //Debug.unityLogger.logEnabled = false;
+            Debug.unityLogger.logEnabled = false;
         }
     }
 }

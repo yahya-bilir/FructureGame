@@ -1,5 +1,5 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement style="flex-grow: 1; align-items: center;">
-        <engine:VisualElement name="ImageHolder" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Main/Art/Logo/ChainsawCranageLoadingScreen.png?fileID=2800000&amp;guid=610e9f34857b61a47beac1177cde2ddd&amp;type=3#ChainsawCranageLoadingScreen&quot;); -unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%;" />
+        <engine:VisualElement name="ImageHolder" style="flex-grow: 1; background-image: none; -unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%;" />
     </engine:VisualElement>
 </engine:UXML>
