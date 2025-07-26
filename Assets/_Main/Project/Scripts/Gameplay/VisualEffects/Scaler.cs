@@ -5,7 +5,6 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
-using Water2D;
 
 namespace VisualEffects
 {
@@ -13,16 +12,14 @@ namespace VisualEffects
     {
         [SerializeField] private Transform islandDropStartPos;
         [SerializeField] private Ease openingEase;
-        
+         
         [SerializeField] private List<IslandObj> islandObjects;
 
         [SerializeField] private List<GameObject> objectsToOpenDirectly;
 
         [SerializeField] private List<TransformHolder> transforms;
         //private ModernWater2D _moderWater2D;
-
-        [SerializeField] private ModernWater2D _moderWater2D;
-
+        
         [SerializeField] private List<SpriteRenderer> flowersAndStones;
 
         
@@ -126,9 +123,7 @@ namespace VisualEffects
             // }
 
             //await UniTask.WaitForSeconds(0.45f);
-
-            Debug.Log(_moderWater2D);
-            //_moderWater2D.enableSimulation.value = true;
+//_moderWater2D.enableSimulation.value = true;
 
             for (var i = 0; i < islandObjects.Count; i++)
             {
