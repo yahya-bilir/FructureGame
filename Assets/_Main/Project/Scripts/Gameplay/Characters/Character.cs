@@ -1,10 +1,7 @@
 using System.Linq;
 using Characters.Enemy;
-using Characters.Transforming;
 using Factions;
-using IslandSystem;
 using PropertySystem;
-using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using Utils;
@@ -25,10 +22,6 @@ namespace Characters
         
         [SerializeField] private Transform weaponEquippingField;
         
-        [Header("Debug")]
-        [field: SerializeField] public Faction Faction { get; private set; }
-
-        
         private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
         public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
@@ -41,15 +34,12 @@ namespace Characters
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
 
         protected IObjectResolver Resolver;
-        private CharacterTransformManager _characterTransformManager;
         private AttackAnimationCaller _attackAnimationCaller;
 
         [Inject]
-        private void Inject(IObjectResolver resolver, CharacterTransformManager characterTransformManager)
+        private void Inject(IObjectResolver resolver)
         {
             Resolver = resolver;
-            _characterTransformManager = characterTransformManager;
-            
         }
 
         protected virtual void Awake()
@@ -61,7 +51,6 @@ namespace Characters
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
             CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
-            CharacterIslandController = new CharacterIslandController(this);
         }
 
         protected virtual void Start()
@@ -88,22 +77,7 @@ namespace Characters
 
         public void InitializeOnSpawn(Faction currentFaction)
         {
-            Faction = currentFaction;
-        }
-        
-        [Button(ButtonSizes.Medium)]
-        private void TryUpgradeFromEditor()
-        {
-#if UNITY_EDITOR
-            if (_characterTransformManager != null)
-            {
-                _characterTransformManager.TryUpgradeCharacter(this);
-            }
-            else
-            {
-                Debug.LogWarning("CharacterTransformManager not injected.");
-            }
-#endif
+            
         }
     }
     

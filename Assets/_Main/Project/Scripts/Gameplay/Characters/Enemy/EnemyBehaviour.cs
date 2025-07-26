@@ -9,134 +9,75 @@ using Pathfinding;
 using Pathfinding.RVO;
 using PropertySystem;
 using UnityEngine;
+using UnityEngine.AI;
 using VContainer;
 
 namespace Characters.Enemy
 {
     public abstract class EnemyBehaviour : Character
     {
-        protected AIDestinationSetter _aiDestinationSetter;
-        protected AIPath _aiPath;
-        protected CamerasManager _camerasManager;
-        protected Collider2D _collider;
-        protected EnemyMovementController _enemyMovementController;
-        protected IEventBus _eventBus;
-        private IslandManager _islandManager;
+        protected CamerasManager CamerasManager;
+        protected Collider2D Collider;
+        protected EnemyMovementController EnemyMovementController;
+        protected IEventBus EventBus;
         private Rigidbody2D _rigidbody2D;
-        private RVOController _rvoController;
-        protected StateMachine _stateMachine;
-        protected IState attackingState;
-
-        protected IState walkingToEnemy;
-
-        protected override void Awake()
-        {
-            base.Awake();
-
-        }
-
+        protected StateMachine StateMachine;
+        protected IState AttackingState;
+        private NavMeshAgent _navmeshAgent;
+        protected IState WalkingToEnemy;
+        
         protected override void Start()
         {
             base.Start();
-            _enemyMovementController = new EnemyMovementController(_aiPath, _rvoController, _aiDestinationSetter,
-                _collider, _rigidbody2D, AnimationController, this, model, CharacterPropertyManager.GetProperty(PropertyQuery.Speed));
+            EnemyMovementController = new EnemyMovementController(Collider, 
+                _rigidbody2D, AnimationController, this,
+                model, 
+                CharacterPropertyManager.GetProperty(PropertyQuery.Speed), _navmeshAgent);
             SetupStates();
         }
 
         private void Update()
         {
-            _stateMachine.Tick();
+            StateMachine.Tick();
         }
 
         [Inject]
-        private void Inject(CamerasManager camerasManager, IEventBus eventBus, IslandManager islandManager)
+        private void Inject(CamerasManager camerasManager, IEventBus eventBus)
         {
-            _camerasManager = camerasManager;
-            _eventBus = eventBus;
-            _islandManager = islandManager;
+            CamerasManager = camerasManager;
+            EventBus = eventBus;
         }
 
         protected override void GetComponents()
         {
             base.GetComponents();
-            _aiDestinationSetter = GetComponent<AIDestinationSetter>();
-            _aiPath = GetComponent<AIPath>();
-            _collider = GetComponent<Collider2D>();
+            Collider = GetComponent<Collider2D>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _rvoController = GetComponent<RVOController>();
         }
 
         private void SetupStates()
         {
-            _stateMachine = new StateMachine();
+            StateMachine = new StateMachine();
 
-            var waiting = new Waiting(_enemyMovementController);
-            var walkingTowardsJumpingPosition =
-                new WalkingTowardsJumpingPosition(CharacterIslandController, _enemyMovementController, model.transform);
-            var jumpingToPosition = new JumpingToPosition(CharacterIslandController, this, _enemyMovementController);
-            var searching = new SearchingForEnemy(_enemyMovementController);
-            walkingToEnemy = CreateWalkingState();
-            attackingState = CreateAttackingState();
-
-            var fleeing = new Fleeing(AnimationController, _aiPath, CharacterSpeedController, CharacterCombatManager,
-                _aiDestinationSetter, transform);
-            var dead = new Dead(AnimationController, _collider, _aiPath, _camerasManager,
+            var waiting = new Waiting(EnemyMovementController);
+            var searching = new SearchingForEnemy(EnemyMovementController);
+            WalkingToEnemy = CreateWalkingState();
+            AttackingState = CreateAttackingState();
+            
+            var dead = new Dead(AnimationController, Collider, CamerasManager,
                 CharacterDataHolder.OnDeathParts, transform);
-
-            Func<bool> FoundEnemyNearby()
-            {
-                return () => CharacterCombatManager.FindNearestEnemy() != null && !IsCharacterDead;
-            }
 
             Func<bool> ReachedEnemy()
             {
                 return () =>
-                    (_aiPath.remainingDistance <= _aiPath.endReachedDistance + 0.1f || !_aiPath.canMove) && !IsCharacterDead;
+                    (_navmeshAgent.remainingDistance <= _navmeshAgent.stoppingDistance + 0.1f || _navmeshAgent.isStopped) && !IsCharacterDead;
             }
-
-            Func<bool> ReachedJumpingPosition()
-            {
-                return () => _aiPath.remainingDistance <= 0.35f && !IsCharacterDead && _aiPath.canMove && walkingTowardsJumpingPosition.Timer > 0.25f;
-            }
-
-            Func<bool> CanJump()
-            {
-                return () => !IsCharacterDead && CharacterIslandController.CanJump;
-            }
-
-            Func<bool> EnemyMovedFurther()
-            {
-                return () => _aiPath.remainingDistance >= _aiPath.endReachedDistance + 0.25f && !IsCharacterDead;
-            }
-
-            Func<bool> IsFleeingEnabled()
-            {
-                return () => CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
-            }
-
-            Func<bool> FleeingEnded()
-            {
-                return () => !CharacterCombatManager.FleeingEnabled && !IsCharacterDead;
-            }
-
+            
             Func<bool> CharacterIsDead()
             {
                 return () => IsCharacterDead;
             }
-
-            Func<bool> OnFightStarted()
-            {
-                return () => _islandManager.FightCanStart && !IsCharacterDead;
-                /*&& !CharacterIslandController.IsJumping*/
-            }
-
-            Func<bool> EnemyDied()
-            {
-                return () =>
-                    (CharacterCombatManager.LastFoundEnemy == null ||
-                     CharacterCombatManager.LastFoundEnemy.IsCharacterDead) &&
-                    !IsCharacterDead;
-            }
+            
 
             Func<bool> IslandChanged()
             {
@@ -144,30 +85,15 @@ namespace Characters.Enemy
                              !IsCharacterDead;
             }
 
-            _stateMachine.AddTransition(waiting, searching, OnFightStarted());
-            _stateMachine.AddTransition(searching, walkingToEnemy, FoundEnemyNearby());
-            _stateMachine.AddTransition(walkingToEnemy, attackingState, ReachedEnemy());
-            _stateMachine.AddTransition(attackingState, walkingToEnemy, EnemyMovedFurther());
-            _stateMachine.AddTransition(walkingToEnemy, searching, EnemyDied());
-            _stateMachine.AddTransition(attackingState, searching, EnemyDied());
-            _stateMachine.AddTransition(fleeing, walkingToEnemy, FleeingEnded());
-            _stateMachine.AddTransition(searching, walkingTowardsJumpingPosition, IslandChanged());
-            _stateMachine.AddTransition(walkingTowardsJumpingPosition, waiting, ReachedJumpingPosition());
-            _stateMachine.AddTransition(waiting, jumpingToPosition, CanJump());
-            _stateMachine.AddTransition(jumpingToPosition, searching, OnFightStarted());
-
-            _stateMachine.AddAnyTransition(fleeing, IsFleeingEnabled());
-            _stateMachine.AddAnyTransition(dead, CharacterIsDead());
-
-            AddCustomStatesAndTransitions(_stateMachine);
-
-
-            _stateMachine.SetState(waiting);
+            StateMachine.AddTransition(WalkingToEnemy, AttackingState, ReachedEnemy());
+            StateMachine.AddAnyTransition(dead, CharacterIsDead());
+            AddCustomStatesAndTransitions(StateMachine);
+            StateMachine.SetState(waiting);
         }
 
         protected virtual IState CreateWalkingState()
         {
-            return new WalkingTowardsEnemy(CharacterCombatManager, CharacterDataHolder, _enemyMovementController, model.transform);
+            return new WalkingTowardsEnemy(CharacterCombatManager, CharacterDataHolder, EnemyMovementController, model.transform);
         }
 
         protected abstract BaseAttacking CreateAttackingState();

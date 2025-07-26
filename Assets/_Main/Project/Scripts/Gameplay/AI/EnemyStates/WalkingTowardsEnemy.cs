@@ -45,21 +45,18 @@ namespace AI.EnemyStates
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.ToggleRVO(false);
-                _enemyMovementController.MoveCharacter(enemy.transform, true, 1);
+                _enemyMovementController.MoveCharacter(enemy.transform.position, true, 1);
   
             }
             else
             {
                 _enemyMovementController.StopCharacter(false);
-                _enemyMovementController.ToggleRVO(false);
             }
         }
 
 
         public void OnEnter()
         {
-            _enemyMovementController.ToggleRVO(true);
         }
 
 

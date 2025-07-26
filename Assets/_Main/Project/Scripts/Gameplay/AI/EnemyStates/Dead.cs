@@ -13,18 +13,16 @@ namespace AI.EnemyStates
     {
         private readonly CharacterAnimationController _animationController;
         private readonly Collider2D _collider2D;
-        private readonly AIPath _aiPath;
         private readonly CamerasManager _camerasManager;
         private readonly List<GameObject> _parts;
         private readonly Transform _playerTransform;
         private float _deathTimer;
 
-        public Dead(CharacterAnimationController animationController, Collider2D collider2D, AIPath aiPath,
+        public Dead(CharacterAnimationController animationController, Collider2D collider2D,
             CamerasManager camerasManager, List<GameObject> parts, Transform playerTransform)
         {
             _animationController = animationController;
             _collider2D = collider2D;
-            _aiPath = aiPath;
             _camerasManager = camerasManager;
             _parts = parts;
             _playerTransform = playerTransform;
@@ -44,7 +42,6 @@ namespace AI.EnemyStates
             _collider2D.enabled = false;
             //_animationController.DisableAnimator();
             _animationController.Dead();
-            _aiPath.radius = 0f;
             //_camerasManager.ShakeCamera();
 
             // foreach (var partPrefab in _parts)

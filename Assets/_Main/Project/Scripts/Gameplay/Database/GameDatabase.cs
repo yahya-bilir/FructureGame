@@ -7,6 +7,5 @@ namespace Database
     {
         [field: SerializeField] public WeaponDatabase WeaponDatabase { get; private set; }
         [field: SerializeField] public EnhanceButtonDatabase EnhanceButtonDatabase { get; private set; }
-        [field: SerializeField] public CharacterTransformPathDatabase CharacterTransformPathDatabase { get; private set; }
     }
 }

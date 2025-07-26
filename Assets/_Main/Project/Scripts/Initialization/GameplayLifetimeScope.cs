@@ -1,13 +1,7 @@
-﻿using Characters;
-using Characters.Transforming;
-using CommonComponents;
+﻿using CommonComponents;
 using Factories;
-using IslandSystem;
-using PropertySystem;
 using UI;
 using UI.PerksAndDraggables.PerkManagers;
-using UnityEngine;
-using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -28,7 +22,6 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<EnemyManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<PerkCreator>();
-            builder.Register<EnemyTargetingManager>(Lifetime.Singleton);
         }
     }
 }
