@@ -4,9 +4,6 @@ using AI.Base.Interfaces;
 using AI.EnemyStates;
 using CommonComponents;
 using EventBusses;
-using IslandSystem;
-using Pathfinding;
-using Pathfinding.RVO;
 using PropertySystem;
 using UnityEngine;
 using UnityEngine.AI;
@@ -58,14 +55,10 @@ namespace Characters.Enemy
         private void SetupStates()
         {
             StateMachine = new StateMachine();
-
-            var waiting = new Waiting(EnemyMovementController);
-            var searching = new SearchingForEnemy(EnemyMovementController);
             WalkingToEnemy = CreateWalkingState();
             AttackingState = CreateAttackingState();
             
-            var dead = new Dead(AnimationController, Collider, CamerasManager,
-                CharacterDataHolder.OnDeathParts, transform);
+            var dead = new Dead(AnimationController, Collider);
 
             Func<bool> ReachedEnemy()
             {
@@ -79,16 +72,10 @@ namespace Characters.Enemy
             }
             
 
-            Func<bool> IslandChanged()
-            {
-                return () => CharacterIslandController.PreviousIsland != CharacterIslandController.NextIsland &&
-                             !IsCharacterDead;
-            }
-
             StateMachine.AddTransition(WalkingToEnemy, AttackingState, ReachedEnemy());
             StateMachine.AddAnyTransition(dead, CharacterIsDead());
             AddCustomStatesAndTransitions(StateMachine);
-            StateMachine.SetState(waiting);
+            StateMachine.SetState(WalkingToEnemy);
         }
 
         protected virtual IState CreateWalkingState()

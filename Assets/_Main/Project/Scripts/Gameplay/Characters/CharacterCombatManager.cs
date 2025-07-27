@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
-using IslandSystem;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
@@ -17,7 +16,6 @@ namespace Characters
         public readonly Character Character;
         protected IEventBus EventBus;
         private CancellationTokenSource _attackStateCts;
-        private IslandManager _islandManager; public bool FleeingEnabled { get; private set; }
         public Vector3 FleePosition { get; private set; }
         public Character LastFoundEnemy { get; private set; }
         
@@ -29,10 +27,9 @@ namespace Characters
         }
         
         [Inject]
-        private void Inject(IEventBus eventBus, IslandManager islandManager)
+        private void Inject(IEventBus eventBus)
         {
             EventBus = eventBus;
-            _islandManager = islandManager;
         }
         
         public virtual void GetDamage(float damage)
@@ -55,7 +52,6 @@ namespace Characters
         private void OnEnemyBeingAttacked(OnEnemyBeingAttacked eventData)
         {
             //if(eventData.AttackedEnemy == _character) return;
-            if(FleeingEnabled) return;
             if(Vector3.Distance(eventData.EnemyBeingAttackedPosition, eventData.AttackedEnemy.transform.position) > 5f) return;
 
             // calculate flee direction
@@ -68,30 +64,7 @@ namespace Characters
             FleePosition = fleeTarget;
             //BeingAttacked().Forget();
         }
-
-        private async UniTaskVoid BeingAttacked()
-        {
-            FleeingEnabled = true;
-            _attackStateCts = new CancellationTokenSource();
-            
-            try
-            {
-                await UniTask.WaitForSeconds(3f, cancellationToken: _attackStateCts.Token);
-            }
-            catch (OperationCanceledException)
-            {
-                return;
-            }
-            
-            FleeingEnabled = false;
-
-        }
-
-        private void DisableBeingAttacked()
-        {
-            _attackStateCts?.Cancel();
-            FleeingEnabled = false;
-        }
+        
 
         public void Dispose()
         {

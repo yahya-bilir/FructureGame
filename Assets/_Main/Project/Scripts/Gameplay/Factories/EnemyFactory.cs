@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters;
-using Characters.Enemy;
 using EventBusses;
 using Events;
-using IslandSystem;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,7 +19,6 @@ namespace Factories
         [field: SerializeField] public List<Character> SpawnedEnemies { get; private set; }
 
         private IObjectResolver _objectResolver;
-        private IslandManager _islandManager;
         private IEventBus _eventBus;
 
         public void SpawnEnemy()
@@ -40,15 +37,12 @@ namespace Factories
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
             enemy.InitializeOnSpawn();
-            enemy.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
-            enemy.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
-            _eventBus.Publish(new OnCharacterSpawned(enemy, _islandManager.firstIsland));
+            _eventBus.Publish(new OnCharacterSpawned(enemy));
         }
 
-        public void Initialize(IObjectResolver objectResolver, IslandManager islandManager, IEventBus eventBus)
+        public void Initialize(IObjectResolver objectResolver, IEventBus eventBus)
         {
             _objectResolver = objectResolver;
-            _islandManager = islandManager;
             _eventBus =  eventBus;
         }
 
@@ -61,9 +55,7 @@ namespace Factories
         {
             _eventBus.Publish(new OnCharacterDied(oldCharacter));
             SpawnedEnemies.Add(newCharacter);
-            newCharacter.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
-            newCharacter.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
-            _eventBus.Publish(new OnCharacterSpawned(newCharacter, _islandManager.firstIsland));
+            _eventBus.Publish(new OnCharacterSpawned(newCharacter));
 
         }
     }

@@ -1,10 +1,6 @@
-using System.Collections.Generic;
 using AI.Base.Interfaces;
 using Characters;
-using Characters.Enemy;
-using CommonComponents;
-using DG.Tweening;
-using Pathfinding;
+
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -13,19 +9,12 @@ namespace AI.EnemyStates
     {
         private readonly CharacterAnimationController _animationController;
         private readonly Collider2D _collider2D;
-        private readonly CamerasManager _camerasManager;
-        private readonly List<GameObject> _parts;
-        private readonly Transform _playerTransform;
         private float _deathTimer;
 
-        public Dead(CharacterAnimationController animationController, Collider2D collider2D,
-            CamerasManager camerasManager, List<GameObject> parts, Transform playerTransform)
+        public Dead(CharacterAnimationController animationController, Collider2D collider2D)
         {
             _animationController = animationController;
             _collider2D = collider2D;
-            _camerasManager = camerasManager;
-            _parts = parts;
-            _playerTransform = playerTransform;
         }
 
         public void Tick()

@@ -26,7 +26,6 @@ namespace Characters
         public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
         protected CharacterSpeedController CharacterSpeedController;
         protected CharacterWeaponManager CharacterWeaponManager;
-        public CharacterIslandController CharacterIslandController { get; private set; }
         protected SpriteRenderer[] ChildrenSpriteRenderers;
         private ShineEffect _shineEffect;
         protected CharacterAnimationController AnimationController;

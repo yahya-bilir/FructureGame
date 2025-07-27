@@ -1,7 +1,5 @@
 ﻿using CommonComponents;
 using Factories;
-using UI;
-using UI.PerksAndDraggables.PerkManagers;
 using VContainer;
 using VContainer.Unity;
 
@@ -20,7 +18,6 @@ namespace Initialization
             base.Configure(builder);
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<EnemyManager>();
-            builder.RegisterComponentInHierarchy<PerkCreator>();
             
         }
     }

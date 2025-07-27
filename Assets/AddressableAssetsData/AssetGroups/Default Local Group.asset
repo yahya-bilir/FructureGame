@@ -27,56 +27,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 60cdeff83042d2943ab3fcd82ac16581
-    m_Address: Assets/_Main/Project/Prefabs/Player.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 63a72990a086948519820366ee579be9
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy3 Variant.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69581cf6fba049f458e79b6cce8739c3
     m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage1.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6ef149f677ede46f9bbf2fe8ccc5ae73
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 733e62c9738d94a9cad55ab61265809b
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy3.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77a964c82de17414992ba0b8ec0441a2
     m_Address: Assets/_Main/Project/SOs/Properties/PlayerProperties.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c094c7a9277643e2884b47c7acf6234
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy1 Variant.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ab7c3c6693b33f2469287e5df33dbb73
-    m_Address: Assets/_Main/Art/Characters/Boss@2x.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b47eb142f5d115d4c8b0e36c6659d698
-    m_Address: Assets/_Main/Art/Characters/Enemy1.psb
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
@@ -105,12 +63,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c979a2186def89c4fac0ebc9ad65ca96
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ceb55db710217a143a51915cdb4269a8
     m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage5.asset
     m_ReadOnly: 0
@@ -119,12 +71,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0886e296a8318a40837c9fcc1b8275b
     m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fde690ab637a54f68825d3fa98db8768
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/Enemy2 Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
