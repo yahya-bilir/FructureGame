@@ -27,12 +27,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 77a964c82de17414992ba0b8ec0441a2
-    m_Address: Assets/_Main/Project/SOs/Properties/PlayerProperties.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbfcf8aa5ece64fc8bc8350e59b59cce
     m_Address: Assets/_Main/Project/SOs/Factories/EnemyFactories/EnemyFactory.asset
     m_ReadOnly: 0
