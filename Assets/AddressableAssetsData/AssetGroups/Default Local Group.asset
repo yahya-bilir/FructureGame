@@ -21,12 +21,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 58ef249ad7abb9e40abd003c04ab996b
-    m_Address: Assets/_Main/Project/SOs/Properties/EnemyProperties/Enemy1Properties.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69581cf6fba049f458e79b6cce8739c3
     m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage1.asset
     m_ReadOnly: 0
