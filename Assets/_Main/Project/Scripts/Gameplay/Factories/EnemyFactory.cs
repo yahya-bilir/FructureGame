@@ -31,7 +31,7 @@ namespace Factories
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn(factorySo.Faction);
+            enemy.InitializeOnSpawn();
         }        
         
         public void SpawnEnemy(Character characterToSpawn, Vector2 spawnPosition)
@@ -39,7 +39,7 @@ namespace Factories
             var enemy = GameObject.Instantiate(characterToSpawn, spawnPosition, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn(factorySo.Faction);
+            enemy.InitializeOnSpawn();
             enemy.CharacterIslandController.SetPreviousIsland(_islandManager.CurrentIsland);
             enemy.CharacterIslandController.SetNextIsland(_islandManager.CurrentIsland);
             _eventBus.Publish(new OnCharacterSpawned(enemy, _islandManager.firstIsland));

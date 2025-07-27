@@ -1,6 +1,5 @@
 using System.Linq;
 using Characters.Enemy;
-using Factions;
 using PropertySystem;
 using UI;
 using UnityEngine;
@@ -75,7 +74,7 @@ namespace Characters
             _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
         }
 
-        public void InitializeOnSpawn(Faction currentFaction)
+        public void InitializeOnSpawn()
         {
             
         }

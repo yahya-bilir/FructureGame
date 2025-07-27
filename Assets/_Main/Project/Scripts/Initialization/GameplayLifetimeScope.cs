@@ -20,8 +20,8 @@ namespace Initialization
             base.Configure(builder);
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<EnemyManager>();
-            builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<PerkCreator>();
+            
         }
     }
 }
