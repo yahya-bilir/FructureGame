@@ -8,10 +8,10 @@ namespace AI.EnemyStates
     public class Dead : IState
     {
         private readonly CharacterAnimationController _animationController;
-        private readonly Collider2D _collider2D;
+        private readonly Collider _collider2D;
         private float _deathTimer;
 
-        public Dead(CharacterAnimationController animationController, Collider2D collider2D)
+        public Dead(CharacterAnimationController animationController, Collider collider2D)
         {
             _animationController = animationController;
             _collider2D = collider2D;

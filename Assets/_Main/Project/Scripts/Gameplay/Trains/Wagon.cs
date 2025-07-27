@@ -1,9 +1,10 @@
+using Characters;
 using Dreamteck.Splines;
 using UnityEngine;
 
 namespace Trains
 {
-    public class Wagon : MonoBehaviour
+    public class Wagon : Character
     {
         protected SplineFollower tracer;
         protected Wagon front;

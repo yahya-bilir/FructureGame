@@ -1,5 +1,6 @@
 using AI.Base.Interfaces;
 using Characters;
+using Characters.BaseSystem;
 using Characters.Enemy;
 using UnityEngine;
 using WeaponSystem.MeleeWeapons;
@@ -8,16 +9,16 @@ namespace AI.EnemyStates
 {
     public class WalkingTowardsEnemy : IState
     {
-        private readonly CharacterCombatManager _characterCombatManager;
+        private readonly MainBase _mainBase;
         private readonly CharacterDataHolder _characterDataHolder;
         private readonly EnemyMovementController _enemyMovementController;
         private readonly Transform _modelTransform;
-
-        public WalkingTowardsEnemy(CharacterCombatManager characterCombatManager,
+        private Character _enemy;
+        public WalkingTowardsEnemy(MainBase mainBase,
             CharacterDataHolder characterDataHolder, EnemyMovementController enemyMovementController,
             Transform modelTransform)
         {
-            _characterCombatManager = characterCombatManager;
+            _mainBase = mainBase;
             _characterDataHolder = characterDataHolder;
             _enemyMovementController = enemyMovementController;
             _modelTransform = modelTransform;
@@ -25,28 +26,18 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-            var enemy = _characterCombatManager.LastFoundEnemy;
-            if (enemy == null || enemy.IsCharacterDead)
-            {
-                Debug.Log("Enemy is null or dead. Stopping movement.");
-                _enemyMovementController.StopCharacter(false);
-                
-                return;
-            }
-            
-            //Debug.Log("Walking towards enemy| Remaining Distance: " + _aiPath.remainingDistance);
+            Debug.Log("Walking towards enemy");
             var castedWeapon = (WeaponSO)_characterDataHolder.Weapon.ObjectUIIdentifierSo;
             float minimumRange = castedWeapon.MinimumRange;
 
             var selfPosition = _modelTransform.position;
-            var enemyPosition = enemy.transform.position;
+            var enemyPosition = _enemy.transform.position;
 
             float currentDistance = Vector3.Distance(selfPosition, enemyPosition);
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(enemy.transform.position, true, 1);
-  
+                _enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
             }
             else
             {
@@ -57,12 +48,16 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            Debug.Log("Entered to Walking State");
+            _enemy = _mainBase;
+            _enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
+
         }
 
 
         public void OnExit()
         {
-            //_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+            UnityEngine.Debug.Log("Exited walking state");
         }
     }
 }

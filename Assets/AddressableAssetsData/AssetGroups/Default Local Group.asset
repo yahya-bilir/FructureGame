@@ -21,12 +21,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 69581cf6fba049f458e79b6cce8739c3
-    m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbfcf8aa5ece64fc8bc8350e59b59cce
     m_Address: Assets/_Main/Project/SOs/Factories/EnemyFactories/EnemyFactory.asset
     m_ReadOnly: 0
@@ -35,30 +29,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdf1ad60c88849268c0ad53c69a8c075
     m_Address: Assets/_Main/Project/Scripts/Gameplay/DataSave/GameData.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: be4deed56208b0f4fa1e1f2be27bb1c4
-    m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage4.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bec07ab8afdc34f4f849b5b03e4ff4fe
-    m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage3.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ceb55db710217a143a51915cdb4269a8
-    m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage5.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d0886e296a8318a40837c9fcc1b8275b
-    m_Address: Assets/_Main/Project/SOs/Weapons/Stages/Stage2.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - default

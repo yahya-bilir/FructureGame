@@ -1,5 +1,6 @@
 using System.Linq;
 using Characters.Enemy;
+using Factions;
 using PropertySystem;
 using UI;
 using UnityEngine;
@@ -20,7 +21,8 @@ namespace Characters
         [SerializeField] private ParticleSystem hitVfx;
         
         [SerializeField] private Transform weaponEquippingField;
-        
+        [field: SerializeField] public Faction Faction { get; private set; }
+
         private Animator _animator;
         protected CharacterPropertyManager CharacterPropertyManager;
         public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
@@ -32,7 +34,6 @@ namespace Characters
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
 
         protected IObjectResolver Resolver;
-        private AttackAnimationCaller _attackAnimationCaller;
 
         [Inject]
         private void Inject(IObjectResolver resolver)
@@ -63,19 +64,17 @@ namespace Characters
             Resolver.Inject(CharacterSpeedController);
             Resolver.Inject(CharacterWeaponManager);
             Resolver.Inject(CharacterVisualEffects);
-            Resolver.Inject(_attackAnimationCaller);
         }
 
         protected virtual void GetComponents()
         {
             _animator = model.GetComponent<Animator>();
             ChildrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-            _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
         }
 
-        public void InitializeOnSpawn()
+        public void InitializeOnSpawn(Faction faction)
         {
-            
+            Faction = faction;
         }
     }
     

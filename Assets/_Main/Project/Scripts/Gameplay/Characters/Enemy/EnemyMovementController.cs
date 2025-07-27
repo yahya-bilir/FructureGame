@@ -7,8 +7,8 @@ namespace Characters.Enemy
 {
     public class EnemyMovementController
     {
-        private readonly Collider2D _collider;
-        private readonly Rigidbody2D _rigidbody2D;
+        private readonly Collider _collider;
+        private readonly Rigidbody _rigidbody2D;
         private readonly CharacterAnimationController _animationController;
         private readonly EnemyBehaviour _enemyBehaviour;
         private readonly GameObject _model;
@@ -17,7 +17,7 @@ namespace Characters.Enemy
 
         private CancellationTokenSource _rotationCTS;
 
-        public EnemyMovementController(Collider2D collider, Rigidbody2D rigidbody2D,
+        public EnemyMovementController(Collider collider, Rigidbody rigidbody2D,
             CharacterAnimationController animationController, EnemyBehaviour enemyBehaviour, GameObject model,
             PropertyData speedProperty, NavMeshAgent navmeshAgent)
         {
@@ -42,10 +42,10 @@ namespace Characters.Enemy
             SetPhysicsState(shouldActivatePhysics);
         }
 
-        public void MoveCharacter(Vector2 pos, bool shouldActivatePhysics, float moveSpeed)
+        public void MoveCharacter(Vector3 pos, bool shouldActivatePhysics, float moveSpeed)
         {
             _navmeshAgent.destination = pos;
-            MoveCharacterInternal(shouldActivatePhysics, moveSpeed);
+            MoveCharacterInternal(shouldActivatePhysics, _speedProperty.TemporaryValue);
         }
 
         private void MoveCharacterInternal(bool shouldActivatePhysics, float moveSpeed)
@@ -54,6 +54,7 @@ namespace Characters.Enemy
             _navmeshAgent.speed = moveSpeed;
             _navmeshAgent.isStopped = false;
             SetPhysicsState(shouldActivatePhysics);
+            Debug.Log("Character Moved");
         }
         
 
@@ -67,20 +68,20 @@ namespace Characters.Enemy
 
         private void SetPhysicsState(bool shouldActivatePhysics)
         {
-            _rigidbody2D.angularVelocity = 0f;
-            _rigidbody2D.linearVelocity = new Vector2();
-            Debug.Log($"PhysicsState: {shouldActivatePhysics}");      
+            // _rigidbody2D.angularVelocity = new Vector3();
+            // _rigidbody2D.linearVelocity = new Vector2();
+            //Debug.Log($"PhysicsState: {shouldActivatePhysics}");      
             
-            if (shouldActivatePhysics)
-            {
-                _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
-                _collider.isTrigger = false;
-            }
-            else
-            {
-                _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-                _collider.isTrigger = true;
-            }
+            // if (shouldActivatePhysics)
+            // {
+            //     _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
+            //     _collider.isTrigger = false;
+            // }
+            // else
+            // {
+            //     _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            //     _collider.isTrigger = true;
+            // }
         }
     }
 }

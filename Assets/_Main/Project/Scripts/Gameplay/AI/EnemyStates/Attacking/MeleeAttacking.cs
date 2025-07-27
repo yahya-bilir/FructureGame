@@ -40,6 +40,6 @@ public class MeleeAttacking : BaseAttacking
         if(attackedEnemy.AttackedCharacter != _combatManager.Character) return;
         var lastFoundEnemy = _combatManager.LastFoundEnemy;
         if(lastFoundEnemy == null && lastFoundEnemy.IsCharacterDead) return;
-        lastFoundEnemy.CharacterCombatManager.GetDamage(_damage);
+        attackedEnemy.AttackedCharacter.CharacterCombatManager.GetDamage(_damage);
     }
 }

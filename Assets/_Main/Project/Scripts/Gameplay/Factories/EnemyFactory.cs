@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Characters;
 using EventBusses;
 using Events;
+using Factions;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -13,8 +14,9 @@ namespace Factories
     [Serializable]
     public class EnemyFactory
     {
-        [SerializeField] private EnemyFactorySO factorySo;
+        [field: SerializeField] public EnemyFactorySO FactorySo { get; private set; }
         [SerializeField] private Transform spawnPoint;
+        public bool IsSpawningAvailable => SpawnedEnemies.Count < FactorySo.SpawnLimit;
         
         [field: SerializeField] public List<Character> SpawnedEnemies { get; private set; }
 
@@ -23,12 +25,12 @@ namespace Factories
 
         public void SpawnEnemy()
         {
-            var random = Random.Range(0, factorySo.SpawnableEnemies.Count);
-            var enemyPrefab = factorySo.SpawnableEnemies[random];
+            var random = Random.Range(0, FactorySo.SpawnableEnemies.Count);
+            var enemyPrefab = FactorySo.SpawnableEnemies[random];
             var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn();
+            enemy.InitializeOnSpawn(Faction.Enemy);
         }        
         
         public void SpawnEnemy(Character characterToSpawn, Vector2 spawnPosition)
@@ -36,7 +38,7 @@ namespace Factories
             var enemy = GameObject.Instantiate(characterToSpawn, spawnPosition, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
-            enemy.InitializeOnSpawn();
+            enemy.InitializeOnSpawn(Faction.Enemy);
             _eventBus.Publish(new OnCharacterSpawned(enemy));
         }
 

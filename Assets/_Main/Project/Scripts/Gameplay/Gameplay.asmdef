@@ -1,25 +1,25 @@
 {
-    "name": "Gameplay",
-    "rootNamespace": "",
-    "references": [
-        "GUID:7c3b42f90466e48e4b4fe56f4eaab991",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:b13989de13ac43b49926db8abaa2a441",
-        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:43c9147814057af47b81fa33f54d226a",
-        "GUID:4a1cb1490dc4df8409b2580d6b44e75e",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:dc47925d1a5fa2946bdd37746b2b5d48",
-        "GUID:d0c68f30fc060fa4d898a2481205cd9f",
-        "GUID:2fdef4a859838e3449b625605ab13c25"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+  "name": "Gameplay",
+  "rootNamespace": "",
+  "references": [
+    "GUID:7c3b42f90466e48e4b4fe56f4eaab991",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:b13989de13ac43b49926db8abaa2a441",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:43c9147814057af47b81fa33f54d226a",
+    "GUID:4a1cb1490dc4df8409b2580d6b44e75e",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f",
+    "GUID:dc47925d1a5fa2946bdd37746b2b5d48",
+    "GUID:d0c68f30fc060fa4d898a2481205cd9f",
+    "GUID:2fdef4a859838e3449b625605ab13c25"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using EventBusses;
@@ -41,6 +42,25 @@ namespace Characters
             CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
             
             if(newHealth <= 0) OnCharacterDied().Forget();
+        }
+        
+        public Character FindNearestEnemy()
+        {
+            //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
+            var origin = Character.transform.position;
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));
+
+            if (hits.Length == 0) return null;
+
+            var nearest = hits
+                .Select(c => c.GetComponent<Character>())
+                .Where(c => c != null && c.Faction != Character.Faction && !c.IsCharacterDead) // Karakterin kendi faction'ı dışındakiler
+                .OrderBy(c => Vector2.Distance(origin, c.transform.position))
+                .FirstOrDefault();
+
+            LastFoundEnemy = nearest;
+            return nearest;
         }
         
         protected virtual async UniTask OnCharacterDied()

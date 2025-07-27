@@ -16,13 +16,13 @@ namespace AI.EnemyStates
         public void Tick()
         {
             Debug.Log("Searcing for enemy");
-            _enemyMovementController.StopCharacter(true);
+            //_enemyMovementController.StopCharacter(true);
 
         }
 
         public void OnEnter()
         {
-            _enemyMovementController.StopCharacter(true);
+            //_enemyMovementController.StopCharacter(true);
         }
 
         public void OnExit()
