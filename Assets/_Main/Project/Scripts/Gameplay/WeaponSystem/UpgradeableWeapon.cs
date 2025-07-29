@@ -25,7 +25,7 @@ namespace WeaponSystem
         {
             if (eventData.ObjectUIIdentifierSo != ObjectUIIdentifierSo) return;
             _currentColor = eventData.Stage.OutlineColor;
-            modelRenderer.material.SetColor("_OuterOutlineColor", _currentColor);
+            //modelRenderer.material.SetColor("_OuterOutlineColor", _currentColor);
         }
         
         public override void SetNewDamage(float damage)

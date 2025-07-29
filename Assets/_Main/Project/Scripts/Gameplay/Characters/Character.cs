@@ -2,6 +2,7 @@ using System.Linq;
 using Characters.Enemy;
 using Factions;
 using PropertySystem;
+using TMPro;
 using UI;
 using UnityEngine;
 using Utils;
@@ -12,6 +13,8 @@ namespace Characters
 {
     public class Character : MonoBehaviour
     {
+        [Header("AI Debugger")]
+        [field: SerializeField] public TextMeshPro AIText { get; private set; }
         public CharacterCombatManager CharacterCombatManager { get; protected set; }
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
         [SerializeField] protected GameObject model;
@@ -44,9 +47,9 @@ namespace Characters
         protected virtual void Awake()
         {
             GetComponents();
+            CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             AnimationController = new CharacterAnimationController(_animator);
             CharacterVisualEffects = new CharacterVisualEffects(ChildrenSpriteRenderers.ToList(), CharacterDataHolder, healthBar, onDeathVfx, this, AnimationController, hitVfx);
-            CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
             CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);

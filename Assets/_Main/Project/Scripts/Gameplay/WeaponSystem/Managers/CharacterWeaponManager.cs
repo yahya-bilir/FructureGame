@@ -4,6 +4,7 @@ using Events;
 using PropertySystem;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace WeaponSystem.Managers
 {
@@ -60,7 +61,7 @@ namespace WeaponSystem.Managers
             SpawnedWeapon = GameObject.Instantiate(weapon, spawnField.position, Quaternion.identity, spawnField);
             SpawnedWeapon.transform.localEulerAngles = Vector3.zero;
             SpawnedWeapon.Initialize(_characterCombatManager, _characterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue);
-            _resolver.Inject(SpawnedWeapon);
+            _resolver.InjectGameObject(SpawnedWeapon.gameObject);
         }
     }
 }

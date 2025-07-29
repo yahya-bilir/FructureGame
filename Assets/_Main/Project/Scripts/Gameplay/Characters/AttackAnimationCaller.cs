@@ -26,7 +26,7 @@ namespace Characters
 
         public void CallAttackEvent()
         {
-            _eventBus.Publish(new OnEnemyAttacked(_character));
+            _eventBus.Publish(new OnCharacterAttacked(_character));
         }
         
     }

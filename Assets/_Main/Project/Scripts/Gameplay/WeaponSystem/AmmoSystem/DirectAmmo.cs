@@ -20,5 +20,10 @@ namespace WeaponSystem.AmmoSystem
                 .SetEase(Ease.Linear)
                 .OnComplete(OnTweenComplete);
         }
+
+        protected override void TryProcessTrigger(Collider other, bool isEntering)
+        {
+            //
+        }
     }
 }

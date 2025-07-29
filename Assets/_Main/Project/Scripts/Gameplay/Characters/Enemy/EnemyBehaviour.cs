@@ -21,7 +21,7 @@ namespace Characters.Enemy
         protected IState AttackingState;
         private NavMeshAgent _navmeshAgent;
         protected IState WalkingToEnemy;
-        private MainBase _mainBase;
+        protected MainBase MainBase;
         private EnemyRagdollManager _ragdollManager;
         private AttackAnimationCaller _attackAnimationCaller;
 
@@ -29,12 +29,13 @@ namespace Characters.Enemy
         private void Inject(IEventBus eventBus, MainBase mainBase)
         {
             EventBus = eventBus;
-            _mainBase = mainBase;
+            MainBase = mainBase;
         }
 
         protected override void Start()
         {
             base.Start();
+            Collider.enabled = true;
             EnemyMovementController = new EnemyMovementController(Collider, 
                 _rigidbody, AnimationController, this,
                 model, 
@@ -67,14 +68,14 @@ namespace Characters.Enemy
         {
             StateMachine = new StateMachine();
             
-            WalkingToEnemy = new WalkingTowardsEnemy(_mainBase, CharacterDataHolder, EnemyMovementController, model.transform);
+            WalkingToEnemy = new WalkingTowardsEnemy(MainBase, CharacterDataHolder, EnemyMovementController, model.transform, AIText);
             AttackingState = CreateAttackingState();
-            var dead = new Dead(AnimationController, Collider);
+            var dead = new Dead(AnimationController, Collider, AIText, EnemyMovementController);
             
             Func<bool> ReachedEnemy()
             {
                 return () =>
-                    Vector3.Distance(transform.position, _mainBase.transform.position) <= 0.5f && !IsCharacterDead;
+                    Vector3.Distance(transform.position, MainBase.transform.position) <= 1f && !IsCharacterDead;
             }
             
             Func<bool> CharacterIsDead()

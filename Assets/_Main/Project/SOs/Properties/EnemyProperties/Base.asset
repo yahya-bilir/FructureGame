@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Base
   m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
   <IsSaveable>k__BackingField: 0
-  <EntityId>k__BackingField: Wagon
+  <EntityId>k__BackingField: Base
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
     <PermanentValue>k__BackingField: 2

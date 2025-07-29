@@ -8,16 +8,17 @@ namespace WeaponSystem.AmmoSystem
 {
     public class AmmoProjectile : AmmoBase
     {
-        private Rigidbody2D _rigidbody;
+        private Rigidbody _rigidbody;
         private float _speed;
         private bool _hasReturnedToPool = false;
         private CancellationTokenSource _cts;
 
         private void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody = GetComponent<Rigidbody>();
             var so = ObjectUIIdentifierSo as AmmoProjectileSO;
             _speed = so.Speed;
+            _rigidbody.useGravity = false;
         }
 
         public override void FireAt(Character target)
@@ -26,11 +27,9 @@ namespace WeaponSystem.AmmoSystem
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
 
-            Vector2 direction = (target.transform.position - transform.position).normalized;
-            _rigidbody.gravityScale = 0;
+            Vector3 direction = (target.transform.position - transform.position).normalized;
             _rigidbody.linearVelocity = direction * _speed;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = Quaternion.LookRotation(direction);
 
             AutoDisableAfterTime(_cts.Token).Forget();
         }
@@ -55,6 +54,11 @@ namespace WeaponSystem.AmmoSystem
         }
 
         protected override void TryProcessTrigger(Collider2D other, bool isEntering)
+        {
+            //
+        }
+
+        protected override void TryProcessTrigger(Collider other, bool isEntering)
         {
             if (!isEntering || !other.CompareTag("Enemy")) return;
             if (!other.TryGetComponent(out Character character)) return;

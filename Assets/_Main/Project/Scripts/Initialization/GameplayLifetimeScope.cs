@@ -1,6 +1,7 @@
 ﻿using Characters.BaseSystem;
 using CommonComponents;
 using Factories;
+using Trains;
 using VContainer;
 using VContainer.Unity;
 
@@ -18,9 +19,9 @@ namespace Initialization
         {
             base.Configure(builder);
             builder.RegisterComponentInHierarchy<CamerasManager>();
-            builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<MainBase>();
-            
+            builder.RegisterComponentInHierarchy<TrainsManager>();
+            builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
         }
     }
 }

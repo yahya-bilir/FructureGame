@@ -46,17 +46,18 @@ namespace Characters
         
         public Character FindNearestEnemy()
         {
-            //var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
+            // var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
             var origin = Character.transform.position;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(origin, 50, LayerMask.GetMask("AI"));
+            Collider[] hits = Physics.OverlapSphere(origin, 50, LayerMask.GetMask("AI"));
 
             if (hits.Length == 0) return null;
 
             var nearest = hits
                 .Select(c => c.GetComponent<Character>())
-                .Where(c => c != null && c.Faction != Character.Faction && !c.IsCharacterDead) // Karakterin kendi faction'ı dışındakiler
-                .OrderBy(c => Vector2.Distance(origin, c.transform.position))
+                .Where(c => c != null && c.Faction != Character.Faction)
+                .Where(c => !c.IsCharacterDead)
+                .OrderBy(c => Vector3.Distance(origin, c.transform.position))
                 .FirstOrDefault();
 
             LastFoundEnemy = nearest;

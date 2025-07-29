@@ -8,6 +8,7 @@ using WeaponSystem.RangedWeapons;
 public class RangedWeapon : UpgradeableWeapon
 {
     [SerializeField] private Transform projectileCreationPoint;
+    [field: SerializeField] public Animator Animator { get; private set; }
     
     private RangedWeaponSO _rangedWeaponSo;
     private float _shootCooldown;

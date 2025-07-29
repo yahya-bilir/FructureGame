@@ -23,10 +23,10 @@ public class RangedAttacking : BaseAttacking
     public override void OnEnter()
     {
         base.OnEnter();
-        _eventBus.Subscribe<OnEnemyAttacked>(OnEnemyAttacked);
+        _eventBus.Subscribe<OnCharacterAttacked>(OnEnemyAttacked);
     }
 
-    private void OnEnemyAttacked(OnEnemyAttacked eventData)
+    private void OnEnemyAttacked(OnCharacterAttacked eventData)
     {
         if(eventData.AttackedCharacter != _combatManager.Character) return;
         var lastFoundEnemy = _combatManager.LastFoundEnemy;
@@ -38,6 +38,6 @@ public class RangedAttacking : BaseAttacking
     public override void OnExit()
     {
         base.OnExit();
-        _eventBus.Unsubscribe<OnEnemyAttacked>(OnEnemyAttacked);
+        _eventBus.Unsubscribe<OnCharacterAttacked>(OnEnemyAttacked);
     }
 }

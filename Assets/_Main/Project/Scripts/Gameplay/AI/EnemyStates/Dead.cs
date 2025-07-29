@@ -1,6 +1,7 @@
 using AI.Base.Interfaces;
 using Characters;
-
+using Characters.Enemy;
+using TMPro;
 using UnityEngine;
 
 namespace AI.EnemyStates
@@ -9,18 +10,23 @@ namespace AI.EnemyStates
     {
         private readonly CharacterAnimationController _animationController;
         private readonly Collider _collider2D;
+        private readonly TextMeshPro _aiText;
+        private readonly EnemyMovementController _enemyMovementController;
         private float _deathTimer;
 
-        public Dead(CharacterAnimationController animationController, Collider collider2D)
+        public Dead(CharacterAnimationController animationController, Collider collider2D, TextMeshPro aiText,
+            EnemyMovementController enemyMovementController)
         {
             _animationController = animationController;
             _collider2D = collider2D;
+            _aiText = aiText;
+            _enemyMovementController = enemyMovementController;
         }
 
         public void Tick()
         {
             _deathTimer += Time.deltaTime;
-            if (_deathTimer >= 0.4f)
+            if (_deathTimer >= 1f)
             {
                 _collider2D.gameObject.SetActive(false);
             }
@@ -28,7 +34,9 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
+            _aiText.text = "Dead";
             _collider2D.enabled = false;
+            _enemyMovementController.StopCharacter(false);
             //_animationController.DisableAnimator();
             _animationController.Dead();
             //_camerasManager.ShakeCamera();

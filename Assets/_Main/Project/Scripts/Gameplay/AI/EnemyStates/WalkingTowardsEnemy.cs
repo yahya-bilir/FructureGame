@@ -2,6 +2,7 @@ using AI.Base.Interfaces;
 using Characters;
 using Characters.BaseSystem;
 using Characters.Enemy;
+using TMPro;
 using UnityEngine;
 using WeaponSystem.MeleeWeapons;
 
@@ -13,15 +14,17 @@ namespace AI.EnemyStates
         private readonly CharacterDataHolder _characterDataHolder;
         private readonly EnemyMovementController _enemyMovementController;
         private readonly Transform _modelTransform;
+        private readonly TextMeshPro _aiText;
         private Character _enemy;
         public WalkingTowardsEnemy(MainBase mainBase,
             CharacterDataHolder characterDataHolder, EnemyMovementController enemyMovementController,
-            Transform modelTransform)
+            Transform modelTransform, TextMeshPro aiText)
         {
             _mainBase = mainBase;
             _characterDataHolder = characterDataHolder;
             _enemyMovementController = enemyMovementController;
             _modelTransform = modelTransform;
+            _aiText = aiText;
         }
 
         public void Tick()
@@ -48,7 +51,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
-            Debug.Log("Entered to Walking State");
+            _aiText.text = "Walking Towards Enemy";
             _enemy = _mainBase;
             _enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
 
@@ -57,7 +60,6 @@ namespace AI.EnemyStates
 
         public void OnExit()
         {
-            UnityEngine.Debug.Log("Exited walking state");
         }
     }
 }

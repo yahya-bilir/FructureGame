@@ -91,5 +91,10 @@ namespace WeaponSystem.AmmoSystem
 
             OnTweenComplete();
         }
+
+        protected override void TryProcessTrigger(Collider other, bool isEntering)
+        {
+            //
+        }
     }
 }
