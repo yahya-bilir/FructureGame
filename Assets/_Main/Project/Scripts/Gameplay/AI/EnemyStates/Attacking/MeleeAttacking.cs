@@ -3,6 +3,7 @@ using Characters.BaseSystem;
 using Characters.Enemy;
 using EventBusses;
 using Events;
+using TMPro;
 using UnityEngine;
 
 public class MeleeAttacking : BaseAttacking
@@ -13,12 +14,13 @@ public class MeleeAttacking : BaseAttacking
     private readonly EnemyMovementController _enemyMovementController;
     private readonly MainBase _mainBase;
     private readonly MeleeEnemy _meleeEnemy;
+    private readonly TextMeshPro _aıText;
     private Quaternion _targetRotation;
     private float _rotationSpeed = 5f;
     
     public MeleeAttacking(CharacterAnimationController animationController, float interval,
         CharacterCombatManager combatManager, IEventBus eventBus, float damage, GameObject model,
-        EnemyMovementController enemyMovementController, MainBase mainBase, MeleeEnemy meleeEnemy)
+        EnemyMovementController enemyMovementController, MainBase mainBase, MeleeEnemy meleeEnemy, TextMeshPro aıText)
         : base(animationController, interval, combatManager, model)
     {
         _combatManager = combatManager;
@@ -27,14 +29,15 @@ public class MeleeAttacking : BaseAttacking
         _enemyMovementController = enemyMovementController;
         _mainBase = mainBase;
         _meleeEnemy = meleeEnemy;
+        _aıText = aıText;
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
         _eventBus.Subscribe<OnCharacterAttacked>(OnEnemyAttacked);
-        _enemyMovementController.StopCharacter(true);
-        
+        _enemyMovementController.StopCharacter(false);
+        _aıText.text = "Melee Attacking";
         // _meleeEnemy'i _mainBase'e döndür
 
     }

@@ -39,7 +39,7 @@ namespace Characters
             _eventBus = eventBus;
         }
         
-        public void OnCharacterTookDamage(float newHealth, float maxHealth)
+        public virtual void OnCharacterTookDamage(float newHealth, float maxHealth)
         {
             _feedback.PlayFeedbacks();
             if (_hitVfx != null) _hitVfx.Play();

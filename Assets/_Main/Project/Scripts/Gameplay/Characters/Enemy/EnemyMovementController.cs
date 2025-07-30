@@ -28,6 +28,8 @@ namespace Characters.Enemy
             _model = model;
             _speedProperty = speedProperty;
             _navmeshAgent = navmeshAgent;
+
+            SetSpeedToDefault();
         }
 
         public bool GetIsReachedDistance(float checkPointDistance) => _navmeshAgent.remainingDistance <= checkPointDistance;
@@ -42,16 +44,16 @@ namespace Characters.Enemy
             SetPhysicsState(shouldActivatePhysics);
         }
 
-        public void MoveCharacter(Vector3 pos, bool shouldActivatePhysics, float moveSpeed)
+        public void MoveCharacter(Vector3 pos, bool shouldActivatePhysics, float moveSpeed = 0)
         {
             _navmeshAgent.destination = pos;
-            MoveCharacterInternal(shouldActivatePhysics, _speedProperty.TemporaryValue);
+            MoveCharacterInternal(shouldActivatePhysics, moveSpeed == 0 ? _speedProperty.TemporaryValue : moveSpeed);
         }
 
         private void MoveCharacterInternal(bool shouldActivatePhysics, float moveSpeed)
         {
             _animationController.Run();
-            _navmeshAgent.speed = moveSpeed;
+            //_navmeshAgent.speed = moveSpeed;
             _navmeshAgent.isStopped = false;
             SetPhysicsState(shouldActivatePhysics);
         }
@@ -64,9 +66,27 @@ namespace Characters.Enemy
             _rotationCTS = null;
         }
         
-
+        public void IncreaseSpeedSmoothly(float smoothRate)
+        {
+            var newSpeed = Mathf.Lerp(_navmeshAgent.speed, _speedProperty.TemporaryValue, Time.deltaTime * smoothRate);
+            _navmeshAgent.speed = newSpeed;
+        }        
+        
+        public void SetSpeedToZero()
+        {
+            _navmeshAgent.speed = 0f;
+        }        
+        
+        public void SetSpeedToDefault()
+        {
+            _navmeshAgent.speed = _speedProperty.TemporaryValue;
+        }
+        
+        
+        
         private void SetPhysicsState(bool shouldActivatePhysics)
         {
+            _rigidbody2D.isKinematic = !shouldActivatePhysics;
             // _rigidbody2D.angularVelocity = new Vector3();
             // _rigidbody2D.linearVelocity = new Vector2();
             //Debug.Log($"PhysicsState: {shouldActivatePhysics}");      

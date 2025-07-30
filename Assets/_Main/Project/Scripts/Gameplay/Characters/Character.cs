@@ -19,7 +19,7 @@ namespace Characters
         [SerializeField] private Transform weaponEquippingField;
         [SerializeField] protected UIPercentageFiller healthBar;
         [SerializeField] protected ParticleSystem onDeathVfx;
-        [SerializeField] private ParticleSystem hitVfx;
+        [SerializeField] protected ParticleSystem hitVfx;
 
         [Header("Data")]
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }

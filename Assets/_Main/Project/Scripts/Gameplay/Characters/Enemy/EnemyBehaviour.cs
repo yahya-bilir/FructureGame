@@ -88,7 +88,7 @@ namespace Characters.Enemy
 
             var dead = new Dead(AnimationController, Collider, AIText, EnemyMovementController);
             var crushed = new Crushed(Collider, AIText, EnemyMovementController, CharacterCombatManager, AnimationController);
-            var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this);
+            var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController);
 
             Func<bool> ReachedEnemy() => () =>
                 Vector3.Distance(transform.position, MainBase.transform.position) <= 1f && !IsCharacterDead;
@@ -99,7 +99,7 @@ namespace Characters.Enemy
 
             Func<bool> ShouldKnockback() => () => _isKnockbacked && !_isCrushed && !IsCharacterDead;
 
-            Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.5f && !_isCrushed && !IsCharacterDead;
+            Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.85f && !_isCrushed && !IsCharacterDead;
 
             StateMachine.AddTransition(WalkingToEnemy, AttackingState, ReachedEnemy());
             StateMachine.AddTransition(WalkingToEnemy, knockbacked, ShouldKnockback());

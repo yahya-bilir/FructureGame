@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd84d9629a458ab0b263f56351bd05, type: 3}
   m_Name: KnockbackData
   m_EditorClassIdentifier: Gameplay::Characters.Enemy.KnockbackDataHolder
-  <Force>k__BackingField: 2
+  <Force>k__BackingField: 1.5
   <Duration>k__BackingField: 0.2
-  <UpwardModifier>k__BackingField: 0
+  <UpwardModifier>k__BackingField: 0.5

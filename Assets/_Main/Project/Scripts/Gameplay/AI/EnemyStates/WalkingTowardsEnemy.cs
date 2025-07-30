@@ -39,7 +39,8 @@ namespace AI.EnemyStates
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
+                _enemyMovementController.MoveCharacter(_enemy.transform.position, false, 0f);
+                _enemyMovementController.IncreaseSpeedSmoothly(2f);
             }
             else
             {
@@ -52,7 +53,7 @@ namespace AI.EnemyStates
         {
             _aiText.text = "Walking Towards Enemy";
             _enemy = _mainBase;
-            _enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
+            //_enemyMovementController.MoveCharacter(_enemy.transform.position, true, 1);
 
         }
 

@@ -1,0 +1,74 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="Star" src="project://database/Assets/_Main/Project/UI/Screens/Templates/Star.uxml?fileID=9197481963319205126&amp;guid=d408a0dafea49e142a253a344c3bce30&amp;type=3#Star" />
+    <Style src="project://database/Assets/_Main/Project/UI/USS/bottom.uss?fileID=7433441132597879392&amp;guid=402ffcca1f991c447b8e7416e3932390&amp;type=3#bottom" />
+    <Style src="project://database/Assets/_Main/Project/UI/USS/Base/Text.uss?fileID=7433441132597879392&amp;guid=36f8aa8e68d8483189e51f32e4d0a630&amp;type=3#Text" />
+    <ui:VisualElement name="Bottom" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0.72); flex-basis: 30%; height: auto; flex-shrink: 0; flex-direction: column; top: 70%;">
+        <ui:VisualElement name="Items" style="flex-grow: 0; background-color: rgba(212, 0, 0, 0); flex-direction: row; height: 50%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/TopBG_0.png?fileID=2800000&amp;guid=d92d14806aa8cac488404b0f7643e7a2&amp;type=3#TopBG_0&quot;); border-top-width: 15px; border-left-color: rgba(0, 0, 0, 0.75); border-right-color: rgba(0, 0, 0, 0.75); border-top-color: rgba(0, 0, 0, 0.75); border-bottom-color: rgba(0, 0, 0, 0.75); width: 100%;">
+            <ui:VisualElement name="ImageFieldContainer" style="background-color: rgba(90, 0, 255, 0); width: 33%; height: 100%; align-items: center; justify-content: center; align-content: auto; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
+                <ui:VisualElement name="ImageContainer" class="image-container">
+                    <ui:VisualElement name="ImageShine" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/WeaponUIs/Shine.png?fileID=2800000&amp;guid=9a6fe4b7e085d884f92c20be8f13e0d6&amp;type=3#Shine&quot;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                        <ui:VisualElement name="BlackBG" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/WeaponUIs/BG_0.png?fileID=2800000&amp;guid=3f5fac38a6c82fb4da3d4ec1e9b2ba08&amp;type=3#BG_0&quot;); width: 85%; height: 85%; align-items: center; align-content: center; justify-content: center;">
+                            <ui:VisualElement name="ImageColorBG" style="flex-grow: 0; width: 95%; height: 95%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/WeaponUIs/Blue_1.png?fileID=2800000&amp;guid=94bc0d4d38af4ab498b2176c85f10aac&amp;type=3#Blue_1&quot;); align-items: center; align-content: auto; justify-content: center;">
+                                <ui:VisualElement name="ImageMainColor" class="image-main-color" style="justify-content: center;">
+                                    <ui:VisualElement name="RenderTexture" style="flex-grow: 0; flex-direction: column-reverse; width: 85%; height: 85%; align-items: center; background-image: url(&quot;project://database/Assets/_Main/Art/UI/RenderTextures/ImageChanging.renderTexture?fileID=8400000&amp;guid=ef2f354a47755264398f6d19ce091ba6&amp;type=2#ImageChanging&quot;); -unity-background-scale-mode: scale-to-fit;">
+                                        <ui:VisualElement name="StarsContainer" style="flex-grow: 0; flex-direction: row; background-color: rgba(27, 215, 205, 0); flex-shrink: 1; width: 110%; height: 25%;">
+                                            <ui:Instance template="Star" name="Star" style="flex-basis: 0; flex-grow: 1;" />
+                                            <ui:Instance template="Star" name="Star" style="flex-basis: 0; flex-grow: 1;" />
+                                            <ui:Instance template="Star" name="Star" style="flex-basis: 0; flex-grow: 1;" />
+                                            <ui:Instance template="Star" name="Star" style="flex-basis: 0; flex-grow: 1;" />
+                                            <ui:Instance template="Star" name="Star" style="flex-basis: 0; flex-grow: 1;" />
+                                        </ui:VisualElement>
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="StatsContainer" style="flex-grow: 0; width: 67%; align-content: center; justify-content: center;">
+                <ui:VisualElement name="Stats" style="background-color: rgba(248, 0, 255, 0); width: 100%; height: 80%; justify-content: space-between; align-content: center; flex-grow: 0;">
+                    <ui:VisualElement name="LevelAndName" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 33%; align-items: center;">
+                        <ui:Label text="LV. 10" name="LevelText" selectable="false" class="stat-text stat-text-left-side text__shadow--large text__outline--mid" style="width: auto; height: auto; color: rgb(170, 243, 100);" />
+                        <ui:Label text="Premium Heavy Hammer" name="ItemNameField" class="rigtside-text-padding rigtside-padding stat-text text__outline--mid text__shadow--large" style="-unity-font-style: normal;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="AttackTextContainer" class="stat-text-container">
+                        <ui:Label text="ATK:" enable-rich-text="true" name="ATKText" class="stat-text stat-text-left-side text__outline--mid text__shadow--large" />
+                        <ui:Label text="276(+185)" name="ATKCalculationText" class="stat-text rigtside-text-padding rigtside-padding text__outline--mid text__shadow--large" style="color: rgb(219, 213, 166);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="AttackSpeedContainer" class="stat-text-container" style="flex-grow: 0; height: 33%; flex-direction: row;">
+                        <ui:Label text="ATK SPD:" enable-rich-text="true" name="ATKSpeedText" class="stat-text text__outline--large text__outline--mid text__shadow--large" />
+                        <ui:Label text="1.3s" name="ATKSpeedCalculationText" class="stat-text rigtside-text-padding rigtside-padding text__outline--mid text__shadow--large" style="color: rgb(211, 206, 160);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Enhance" style="flex-grow: 0; background-color: rgba(68, 165, 0, 0); height: 50%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/MiddleBG_1.png?fileID=2800000&amp;guid=71082f026a419264e9f233534c383357&amp;type=3#MiddleBG_1&quot;); border-left-color: rgba(42, 44, 47, 0.75); border-right-color: rgba(42, 44, 47, 0.75); border-top-color: rgba(42, 44, 47, 0.75); border-bottom-color: rgba(42, 44, 47, 0.75); border-top-width: 12px; flex-direction: row;">
+            <ui:VisualElement name="SliderContainer" style="flex-grow: 0; width: 52%; justify-content: center; align-items: center;">
+                <ui:VisualElement name="SliderBorder" style="flex-grow: 0; height: 25%; width: 85%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/SliderBG.png?fileID=2800000&amp;guid=97bf23160aee5b541b43ef3d30a01ede&amp;type=3#SliderBG&quot;); -unity-background-scale-mode: stretch-to-fill; align-items: center; align-content: center; justify-content: center; flex-shrink: 0;">
+                    <ui:VisualElement name="SliderBG" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/SliderEmpty.png?fileID=2800000&amp;guid=fb084a62cbe341049af7b734b23f0670&amp;type=3#SliderEmpty&quot;); -unity-background-scale-mode: stretch-to-fill; align-items: flex-start; align-content: center; height: 85%; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); width: 99%; flex-shrink: 0; flex-direction: row;">
+                        <ui:VisualElement name="SliderFill" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/SliderFull.png?fileID=2800000&amp;guid=3c377e0329f2e8244a98e1d854e05b50&amp;type=3#SliderFull&quot;); -unity-background-scale-mode: stretch-to-fill; width: 100%; height: 100%; transform-origin: left; background-size: 100% 100%; scale: 1 1; align-items: center; flex-shrink: 0; flex-basis: auto; translate: 0 0; background-position-x: left 0; background-position-y: top 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="SliderTextContainer" style="flex-grow: 1; position: absolute; top: 10%; flex-direction: row; width: 75%; height: 80%; align-items: stretch; justify-content: space-evenly;">
+                        <ui:VisualElement name="CoinImageContainerForSlider" style="flex-grow: 0; width: 50%; flex-direction: row-reverse;">
+                            <ui:VisualElement name="CoinImage" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/Coin.png?fileID=2800000&amp;guid=e31caca57a38f114eb4b9680dd09b883&amp;type=3#Coin&quot;); flex-shrink: 0; width: 30%; height: 100%; -unity-background-scale-mode: scale-to-fit; flex-basis: auto;" />
+                        </ui:VisualElement>
+                        <ui:Label text="99" name="CollectedCoinText" class="stat-text text__outline--mid text__shadow--large" style="position: relative; font-size: 50px; width: 50%; -unity-text-align: middle-left;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; width: 48%; align-content: auto; justify-content: center;">
+                <ui:VisualElement name="ButtonHolder" style="flex-grow: 0; align-items: flex-start; justify-content: center; margin-left: 10%; margin-right: 0; flex-shrink: 0; height: 95%;">
+                    <ui:Button text="&#10;" name="EnhanceButton" class="enhance-button-available">
+                        <ui:Label text="Enhance!" name="EnhaceText" class="stat-text text__outline--large text__shadow--large" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 65px; -unity-text-outline-width: 3px;" />
+                        <ui:VisualElement name="CoinContainer" class="text__outline--mid" style="flex-grow: 0; flex-direction: row; padding-bottom: 3%; bottom: 2%;">
+                            <ui:VisualElement name="CoinImageContainer" style="flex-grow: 0; width: 50%; flex-direction: row-reverse;">
+                                <ui:VisualElement name="CoinImage" style="flex-grow: 0; height: 100%; width: 50%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/Coin.png?fileID=2800000&amp;guid=e31caca57a38f114eb4b9680dd09b883&amp;type=3#Coin&quot;); -unity-background-scale-mode: scale-to-fit;" />
+                            </ui:VisualElement>
+                            <ui:Label text="12" name="EnhanceCoin" class="stat-text text__outline--mid text__shadow--large" style="font-size: 75px; width: 50%; -unity-text-align: middle-left; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-style: bold; -unity-text-outline-width: 4px; -unity-text-outline-color: rgb(0, 0, 0);" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -23,31 +23,29 @@ public abstract class BaseAttacking : IState
 
     public virtual void Tick()
     {
-        if (_attackingTimer < _attackingInterval)
-        {
-            _attackingTimer += Time.deltaTime;
-            return;
-        }
-        
-        _attackingTimer = 0f;
-
-        var lastFoundEnemy = _combatManager.LastFoundEnemy;
-        if (lastFoundEnemy != null)
-        {
-            Vector3 dir = lastFoundEnemy.transform.position - _modelTransform.position;
-
-            if (dir.x > 0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 0, 0);
-            }
-            else if (dir.x < -0.1f)
-            {
-                _modelTransform.localEulerAngles = new Vector3(0, 180, 0);
-            }
-        }
-        
         _animationController.Attack();
-
+        // if (_attackingTimer < _attackingInterval)
+        // {
+        //     _attackingTimer += Time.deltaTime;
+        //     return;
+        // }
+        //
+        // _attackingTimer = 0f;
+        //
+        // var lastFoundEnemy = _combatManager.LastFoundEnemy;
+        // if (lastFoundEnemy != null)
+        // {
+        //     Vector3 dir = lastFoundEnemy.transform.position - _modelTransform.position;
+        //
+        //     if (dir.x > 0.1f)
+        //     {
+        //         _modelTransform.localEulerAngles = new Vector3(0, 0, 0);
+        //     }
+        //     else if (dir.x < -0.1f)
+        //     {
+        //         _modelTransform.localEulerAngles = new Vector3(0, 180, 0);
+        //     }
+        // }
     }
 
     public virtual void OnEnter() { }

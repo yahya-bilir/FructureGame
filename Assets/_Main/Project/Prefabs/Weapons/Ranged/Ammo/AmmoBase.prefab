@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.AmmoProjectile
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 0}
-  modelRenderer: {fileID: 0}
 --- !u!96 &8980126373743906572
 TrailRenderer:
   serializedVersion: 3
@@ -213,7 +212,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Time: 0.25
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
