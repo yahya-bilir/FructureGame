@@ -29,7 +29,6 @@ namespace AI.EnemyStates
 
         public void Tick()
         {
-            Debug.Log("Walking towards enemy");
             var castedWeapon = (WeaponSO)_characterDataHolder.Weapon.ObjectUIIdentifierSo;
             float minimumRange = castedWeapon.MinimumRange;
 

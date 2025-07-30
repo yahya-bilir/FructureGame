@@ -27,7 +27,7 @@ namespace WeaponSystem.AmmoSystem
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
 
-            Vector3 direction = (target.transform.position - transform.position).normalized;
+            Vector3 direction = ((target.transform.position + (Vector3.up / 2)) - transform.position).normalized;
             _rigidbody.linearVelocity = direction * _speed;
             transform.rotation = Quaternion.LookRotation(direction);
 
@@ -38,7 +38,7 @@ namespace WeaponSystem.AmmoSystem
         {
             try
             {
-                await UniTask.Delay(5000, cancellationToken: token);
+                await UniTask.Delay(1500, cancellationToken: token);
                 DisableAndEnqueue();
             }
             catch (OperationCanceledException) { }

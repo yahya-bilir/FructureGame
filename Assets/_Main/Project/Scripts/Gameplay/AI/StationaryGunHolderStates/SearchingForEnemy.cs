@@ -21,7 +21,9 @@ public class SearchingForEnemy : IState
     {
         var currentEnemy = _combatManager.LastFoundEnemy;
         if (currentEnemy != null && !currentEnemy.IsCharacterDead)
+        {
             return;
+        }
 
         _combatManager.FindNearestEnemy();
     }

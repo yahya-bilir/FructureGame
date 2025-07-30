@@ -54,7 +54,6 @@ namespace Characters.Enemy
             _navmeshAgent.speed = moveSpeed;
             _navmeshAgent.isStopped = false;
             SetPhysicsState(shouldActivatePhysics);
-            Debug.Log("Character Moved");
         }
         
 

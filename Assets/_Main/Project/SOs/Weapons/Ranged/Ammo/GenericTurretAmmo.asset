@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.AmmoProjectileSO
   <ObjectName>k__BackingField: GenericTurretAmmo
   <ObjectSprite>k__BackingField: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
-  <Speed>k__BackingField: 20
+  <Speed>k__BackingField: 25
