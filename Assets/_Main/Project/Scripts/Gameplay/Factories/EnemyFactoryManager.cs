@@ -62,7 +62,10 @@ namespace Factories
 
         private void OnCharacterDied(OnCharacterDied eventData)
         {
-            //PlayerArmyFactory.RemoveEnemyIfPossibe(eventData.Character);
+            foreach (var factory in enemyFactories)
+            {
+                factory.RemoveEnemyIfPossible(eventData.Character);
+            }
         }
 
         private void OnDisable()

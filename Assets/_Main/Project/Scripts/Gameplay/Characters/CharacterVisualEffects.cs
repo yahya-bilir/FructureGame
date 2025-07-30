@@ -38,15 +38,14 @@ namespace Characters
         {
             _eventBus = eventBus;
         }
-
-
+        
         public void OnCharacterTookDamage(float newHealth, float maxHealth)
         {
             _feedback.PlayFeedbacks();
-            if (_healthBar == null) return;
-
             if (_hitVfx != null) _hitVfx.Play();
-
+            
+            if (_healthBar == null) return;
+            if(newHealth <= 0) return;
             //_characterAnimationController.GetHit();
             SetHealthBarValue(newHealth, maxHealth);
 

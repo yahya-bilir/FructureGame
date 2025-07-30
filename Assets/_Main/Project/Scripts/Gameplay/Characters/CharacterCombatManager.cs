@@ -39,9 +39,8 @@ namespace Characters
             var newHealth = damageData.TemporaryValue - damage;
             CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.Health, newHealth);
             //Debug.Log(newHealth);
-            CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
-            
             if(newHealth <= 0) OnCharacterDied().Forget();
+            CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
         }
         
         public Character FindNearestEnemy()

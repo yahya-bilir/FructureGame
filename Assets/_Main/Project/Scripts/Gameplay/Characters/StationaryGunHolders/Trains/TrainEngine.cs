@@ -1,33 +1,59 @@
 using System.Collections.Generic;
+using Characters.Enemy;
+using EventBusses;
+using Events;
+using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VContainer;
 
 namespace Trains
 {
     public class TrainEngine : Wagon
     {
+        [SerializeField] private RagdollDataHolder ragdollData;
+        
+        [Header("Wagon Settings")]
         [SerializeField] private List<Wagon> wagons = new();
         [SerializeField] private float wagonSpacing = 2f;
         [SerializeField] private Wagon wagonPrefab;
 
+        private IEventBus _eventBus;
+
         protected override bool IsEngine => true;
+
+        [Inject]
+        private void Inject(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+        }
 
         protected override void Start()
         {
             base.Start();
             ApplyOffsets();
-            SetSharedSpeed(tracer.followSpeed);
-
-            // Örnek: başlangıçta 5 vagon spawn et
+            var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
+            tracer.followSpeed = speed;
             for (int i = 0; i < 5; i++)
             {
                 SpawnWagon();
             }
+            SetSharedSpeed(speed);
+            
         }
 
         private void LateUpdate()
         {
             UpdateOffsets();
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            var enemy = other.GetComponent<EnemyBehaviour>();
+            if (enemy == null) return;
+
+            Vector3 impactPoint = other.ClosestPointOnBounds(transform.position);
+            _eventBus.Publish(new OnEnemyCrushed(enemy, impactPoint, ragdollData));
         }
 
         [Button]
@@ -51,7 +77,7 @@ namespace Trains
             }
         }
 
-        public void SetSharedSpeed(float speed)
+        private void SetSharedSpeed(float speed)
         {
             tracer.followSpeed = speed;
             foreach (var wagon in wagons)

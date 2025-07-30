@@ -48,17 +48,10 @@ namespace Factories
             _eventBus =  eventBus;
         }
 
-        public bool RemoveEnemyIfPossibe(Character character)
+        public bool RemoveEnemyIfPossible(Character character)
         {
             return SpawnedEnemies.Contains(character) && SpawnedEnemies.Remove(character);
         }
-
-        public void ReplaceEnemy(Character newCharacter, Character oldCharacter)
-        {
-            _eventBus.Publish(new OnCharacterDied(oldCharacter));
-            SpawnedEnemies.Add(newCharacter);
-            _eventBus.Publish(new OnCharacterSpawned(newCharacter));
-
-        }
+        
     }
 }

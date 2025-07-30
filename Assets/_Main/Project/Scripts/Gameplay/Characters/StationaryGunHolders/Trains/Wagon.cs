@@ -1,18 +1,34 @@
+using Characters.Enemy;
 using Dreamteck.Splines;
+using EventBusses;
+using Events;
 using UnityEngine;
+using VContainer;
 
 namespace Trains
 {
     public class Wagon : StationaryGunHolderCharacter
     {
+        [Header("Spline Settings")]
         protected SplineFollower tracer;
         protected Wagon front;
 
-        private int offsetIndex = 1;
-        private float spacing = 2f;
+        [Header("Spacing")]
+        [SerializeField] private int offsetIndex = 1;
+        [SerializeField] private float spacing = 2f;
 
-        // Engine olup olmadığını alt sınıf override edebilir
+        [Header("Knockback")]
+        [SerializeField] private KnockbackDataHolder knockbackData;
+
+        private IEventBus _eventBus;
+
         protected virtual bool IsEngine => false;
+
+        [Inject]
+        private void Inject(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+        }
 
         protected override void Awake()
         {
@@ -21,6 +37,17 @@ namespace Trains
             tracer = GetComponent<SplineFollower>();
             tracer.wrapMode = SplineFollower.Wrap.Loop;
             tracer.follow = IsEngine;
+        }
+
+        protected virtual void OnTriggerEnter(Collider other)
+        {
+            var enemy = other.GetComponent<EnemyBehaviour>();
+            if (enemy == null) return;
+
+            Vector3 impactPoint = other.ClosestPointOnBounds(transform.position);
+            Vector3 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+
+            _eventBus.Publish(new OnEnemyKnockbacked(enemy, knockbackDirection, knockbackData));
         }
 
         public void SetFront(Wagon frontWagon)

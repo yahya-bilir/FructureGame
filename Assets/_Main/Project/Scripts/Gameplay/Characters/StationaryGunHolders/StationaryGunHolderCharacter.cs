@@ -42,7 +42,7 @@ public class StationaryGunHolderCharacter : Character
 
     private void SetStates()
     {
-        _searchingState = new SearchingForEnemy(CharacterCombatManager, AIText, _rangedWeapon.Animator);
+        _searchingState = new SearchingForEnemy(CharacterCombatManager, AIText, _rangedWeapon.Animator, this.name);
         _attackingState = new Attacking(CharacterCombatManager, _rangedWeapon, _weaponTransform, AIText, _rangedWeapon.Animator, _eventBus);
 
         _stateMachine.AddTransition(

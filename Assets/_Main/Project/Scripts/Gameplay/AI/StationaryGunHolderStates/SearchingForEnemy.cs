@@ -9,12 +9,15 @@ public class SearchingForEnemy : IState
     private readonly CharacterCombatManager _combatManager;
     private readonly TextMeshPro _aiText;
     private readonly Animator _rangedWeaponAnimator;
+    private readonly string _name;
 
-    public SearchingForEnemy(CharacterCombatManager combatManager, TextMeshPro aiText, Animator rangedWeaponAnimator)
+    public SearchingForEnemy(CharacterCombatManager combatManager, TextMeshPro aiText, Animator rangedWeaponAnimator,
+        string name)
     {
         _combatManager = combatManager;
         _aiText = aiText;
         _rangedWeaponAnimator = rangedWeaponAnimator;
+        _name = name;
     }
 
     public void Tick()

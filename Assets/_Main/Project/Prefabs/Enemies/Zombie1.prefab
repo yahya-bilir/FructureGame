@@ -152,6 +152,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000862499719467842, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2370889386350975751, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: FeedbacksList.Array.size
       value: 2
@@ -2557,6 +2561,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4224988534764856249}
     - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 6717013769331863618}
+    - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: weaponEquippingField
       value: 
       objectReference: {fileID: 4902513210015430310}
@@ -2576,6 +2584,10 @@ PrefabInstance:
       propertyPath: <CharacterPropertiesSo>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 1c6a40512041a490ea5a36c67aa26d5c, type: 2}
+    - target: {fileID: 7551792589262910866, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2608,6 +2620,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1764464467274402188, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
   m_PrefabInstance: {fileID: 2512603672831158837}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6717013769331863618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9216950705273674359, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+  m_PrefabInstance: {fileID: 2512603672831158837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791816f395ae40009ab78f1acbc6670e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::CommonComponents.UIPercentageFiller
 --- !u!4 &7274448440343548504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5056002974860654701, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}

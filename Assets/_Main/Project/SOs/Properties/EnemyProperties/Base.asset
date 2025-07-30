@@ -16,16 +16,16 @@ MonoBehaviour:
   <EntityId>k__BackingField: Base
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 2
-    <TemporaryValue>k__BackingField: 2
+    <PermanentValue>k__BackingField: 500
+    <TemporaryValue>k__BackingField: 500
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 20
     <PermanentValue>k__BackingField: 1
     <TemporaryValue>k__BackingField: 1
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 1
-    <PermanentValue>k__BackingField: 2
-    <TemporaryValue>k__BackingField: 2
+    <PermanentValue>k__BackingField: 500
+    <TemporaryValue>k__BackingField: 500
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 2
     <PermanentValue>k__BackingField: 1
