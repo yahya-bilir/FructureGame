@@ -23,12 +23,12 @@ namespace Characters
 
         [Header("Data")]
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
-        [field: SerializeField] public CharacterPropertiesSO CharacterPropertiesSo { get; private set; }
+        [field: SerializeField] protected CharacterPropertiesSO CharacterPropertiesSo { get; private set; }
         [field: SerializeField] public Faction Faction { get; private set; }
 
         [Header("Runtime")]
         public CharacterCombatManager CharacterCombatManager { get; protected set; }
-        protected CharacterPropertyManager CharacterPropertyManager;
+        public CharacterPropertyManager CharacterPropertyManager { get; private set; }
         public CharacterVisualEffects CharacterVisualEffects { get; protected set; }
         protected CharacterSpeedController CharacterSpeedController;
         protected CharacterWeaponManager CharacterWeaponManager;

@@ -18,26 +18,6 @@
     flex-shrink: 0;
 }
 
-.rigtside-padding {
-    padding-right: 5%;
-}
-
-.image-main-color {
-    flex-grow: 0;
-    width: 90%;
-    height: 90%;
-    align-items: center;
-    background-image: url("project://database/Assets/_Main/Art/UI/Enhance%20Menu/WeaponUIs/MainBlue_2.png?fileID=2800000&guid=78121c88132037d43a4d17245aaa4ba8&type=3#MainBlue_2");
-    align-content: center;
-    left: 2%;
-    right: auto;
-    top: 2.5%;
-}
-
-.rigtside-padding {
-    padding-right: 10%;
-}
-
 .stat-text {
     -unity-font-definition: url("project://database/Assets/_Main/Art/Fonts/LilitaOne.ttf?fileID=12800000&guid=663f10044fa97624d9f600bad9855b7b&type=3#LilitaOne");
     -unity-font-style: bold;
@@ -49,75 +29,6 @@
     letter-spacing: 10px;
 }
 
-#EnhanceButton:hover {
-    scale: 0.95 0.95;
-    transition-duration: 0.1s;
-}
-
-.star-unshown {
-    display: none;
-}
-
-.stat-text-unavailable {
-    -unity-font-definition: url("project://database/Assets/_Main/Art/Fonts/LilitaOne.ttf?fileID=12800000&guid=663f10044fa97624d9f600bad9855b7b&type=3#LilitaOne");
-    -unity-font-style: bold;
-    font-size: 45px;
-    -unity-text-outline-color: rgb(0, 0, 0);
-    -unity-text-outline-width: 0;
-    text-shadow: 2px 2px 0 rgb(0, 0, 0);
-    color: rgb(255, 0, 0);
-}
-
-.enhance-button-unavailable {
-    background-image: url("project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/Enhance_Button.png?fileID=2800000&guid=13f30586d34aa694d9c7d781fa137fd3&type=3#Enhance_Button");
-    -unity-background-scale-mode: stretch-to-fill;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    height: 75%;
-    width: 95%;
-    background-color: rgba(255, 255, 255, 0);
-    justify-content: space-evenly;
-    background-position-x: right 0;
-    -unity-background-image-tint-color: rgb(111, 111, 111);
-    border-left-color: rgba(149, 149, 149, 0);
-    border-right-color: rgba(149, 149, 149, 0);
-    border-top-color: rgba(149, 149, 149, 0);
-    border-bottom-color: rgba(149, 149, 149, 0);
-    border-top-width: 0;
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
-}
-
-.enhance-button-available {
-    background-image: url("project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/Enhance_Button.png?fileID=2800000&guid=13f30586d34aa694d9c7d781fa137fd3&type=3#Enhance_Button");
-    -unity-background-scale-mode: stretch-to-fill;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    height: 75%;
-    width: 95%;
-    background-color: rgba(255, 255, 255, 0);
-    justify-content: space-evenly;
-    background-position-x: right 0;
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    border-left-color: rgba(149, 149, 149, 0);
-    border-right-color: rgba(149, 149, 149, 0);
-    border-top-color: rgba(149, 149, 149, 0);
-    border-bottom-color: rgba(149, 149, 149, 0);
-    border-top-width: 0;
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
+.healthbar-filler {
+    width: 25%;
 }
