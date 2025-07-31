@@ -17,7 +17,6 @@ namespace Trains
         [SerializeField] private List<Wagon> wagons = new();
         [SerializeField] private float wagonSpacing = 2f;
         [SerializeField] private Wagon wagonPrefab;
-
         private IEventBus _eventBus;
 
         protected override bool IsEngine => true;

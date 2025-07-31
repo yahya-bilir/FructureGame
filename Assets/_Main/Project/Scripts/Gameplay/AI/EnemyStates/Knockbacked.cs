@@ -13,15 +13,18 @@ namespace AI.EnemyStates
         private readonly Rigidbody _rigidbody;
         private readonly EnemyBehaviour _enemyBehaviour;
         private readonly CharacterAnimationController _animationController;
+        private readonly CharacterCombatManager _characterCombatManager;
         public float KnockbackTimer { get; private set; }
         public Knockbacked(TextMeshPro aiText, EnemyMovementController movementController, Rigidbody rigidbody,
-            EnemyBehaviour enemyBehaviour, CharacterAnimationController animationController)
+            EnemyBehaviour enemyBehaviour, CharacterAnimationController animationController,
+            CharacterCombatManager characterCombatManager)
         {
             _aiText = aiText;
             _movementController = movementController;
             _rigidbody = rigidbody;
             _enemyBehaviour = enemyBehaviour;
             _animationController = animationController;
+            _characterCombatManager = characterCombatManager;
         }
 
         public void OnEnter()
@@ -31,6 +34,7 @@ namespace AI.EnemyStates
             //_movementController.SetSpeedToZero();
             _animationController.GetHit();
             KnockbackTimer = 0f;
+            _characterCombatManager.GetDamage(1f);
         }
 
         public void Tick()

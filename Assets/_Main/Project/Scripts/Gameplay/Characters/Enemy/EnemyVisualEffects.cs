@@ -45,7 +45,8 @@ namespace Characters.Enemy
 
                 renderer.material = newMaterial;
 
-                newMaterial.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
+                await UniTask.WaitForSeconds(0.5f);
+                renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
             }
         }
 
