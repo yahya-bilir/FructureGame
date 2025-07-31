@@ -1,10 +1,10 @@
-using Characters;
 using DG.Tweening;
+using Events;
+using MoreMountains.Feedbacks;
 using UI;
 using UnityEngine;
-using MoreMountains.Feedbacks;
 
-namespace Characters.BaseSystem
+namespace Characters.StationaryGunHolders.BaseSystem
 {
     public class MainBaseVisualEffects : CharacterVisualEffects
     {
@@ -20,7 +20,7 @@ namespace Characters.BaseSystem
             _feedback = feedback;
             _model = model;
         }
-
+        
         public override void OnCharacterTookDamage(float newHealth, float maxHealth)
         {
             _model.transform.DOKill();
@@ -33,7 +33,10 @@ namespace Characters.BaseSystem
                 fadeOut: true
             ).SetEase(Ease.OutBack);
 
-            _feedback.PlayFeedbacks();
+            _feedback.PlayFeedbacks();    
+            
+            _eventBus.Publish(new OnBaseGotAttacked());
         }
+
     }
 }

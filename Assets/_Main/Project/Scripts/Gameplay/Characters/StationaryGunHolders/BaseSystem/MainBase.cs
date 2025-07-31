@@ -1,3 +1,4 @@
+using Characters.StationaryGunHolders.BaseSystem;
 using MoreMountains.Feedbacks;
 
 namespace Characters.BaseSystem

@@ -1,7 +1,9 @@
-﻿using Characters.BaseSystem;
+﻿using System;
+using Characters.BaseSystem;
 using CommonComponents;
 using Factories;
 using Trains;
+using UI;
 using VContainer;
 using VContainer.Unity;
 
@@ -22,6 +24,8 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<MainBase>();
             builder.RegisterComponentInHierarchy<TrainsManager>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
+            builder.RegisterComponentInHierarchy<GameplayUI>();
         }
+        
     }
 }

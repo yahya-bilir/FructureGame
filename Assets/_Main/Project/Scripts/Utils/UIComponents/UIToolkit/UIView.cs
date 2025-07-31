@@ -12,7 +12,7 @@ namespace Utils.UIComponents.UIToolkit
         public VisualElement Root => _rootElement;
         public bool IsHidden => _rootElement.style.display == DisplayStyle.None;
 
-        public UIView(VisualElement rootElement)
+        protected UIView(VisualElement rootElement)
         {
             _rootElement = rootElement;
             Initialize();

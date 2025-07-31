@@ -17,7 +17,7 @@ namespace Characters
         private readonly UIPercentageFiller _healthBar;
         private readonly ParticleSystem _hitVfx;
         private readonly ParticleSystem _onDeathVfx;
-        private IEventBus _eventBus;
+        protected IEventBus _eventBus;
         private bool _isHealthStillRunning;
 
         public CharacterVisualEffects(UIPercentageFiller healthBar,
