@@ -68,8 +68,10 @@ namespace Trains
             wagon.SetSpline(tracer.spline, tracer.direction);
         }
 
-        public void RemoveWagon(Wagon wagon)
+        [Button]
+        public void RemoveWagon()
         {
+            var wagon = wagons[^1];
             if (wagons.Remove(wagon))
             {
                 wagon.gameObject.SetActive(false);

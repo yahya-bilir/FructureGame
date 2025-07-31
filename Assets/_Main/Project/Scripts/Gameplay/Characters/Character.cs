@@ -34,7 +34,7 @@ namespace Characters
         protected CharacterWeaponManager CharacterWeaponManager;
         protected CharacterAnimationController AnimationController;
         private Animator _animator;
-        private MMF_Player _feedback;
+        protected MMF_Player Feedback;
         protected IObjectResolver Resolver;
 
         public bool IsCharacterDead => CharacterPropertyManager.GetProperty(PropertyQuery.Health).TemporaryValue <= 0;
@@ -50,14 +50,15 @@ namespace Characters
             GetComponents();
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             AnimationController = new CharacterAnimationController(_animator);
-            CharacterVisualEffects = new CharacterVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, _feedback);
-            CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
+            CharacterVisualEffects = new CharacterVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
-            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
         }
 
         protected virtual void Start()
         {
+            CharacterCombatManager = new CharacterCombatManager(CharacterPropertyManager, CharacterVisualEffects, this);
+            CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
+
             ResolveOrInitializeCreatedObjects();
         }
 
@@ -73,7 +74,7 @@ namespace Characters
         protected virtual void GetComponents()
         {
             _animator = model.GetComponent<Animator>();
-            _feedback = GetComponent<MMF_Player>();
+            Feedback = GetComponent<MMF_Player>();
         }
 
         public void InitializeOnSpawn(Faction faction)

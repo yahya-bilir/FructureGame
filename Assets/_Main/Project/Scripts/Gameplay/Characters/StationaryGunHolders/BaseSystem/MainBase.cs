@@ -15,7 +15,9 @@ namespace Characters.BaseSystem
                 this,
                 AnimationController,
                 hitVfx,
-                GetComponent<MMF_Player>()
+                Feedback,
+                model
+                
             );
         }
     }
