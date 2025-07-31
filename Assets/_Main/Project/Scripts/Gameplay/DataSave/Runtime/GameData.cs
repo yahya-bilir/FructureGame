@@ -14,7 +14,6 @@ namespace DataSave.Runtime
     {
         [Button]
         public void Save() => GameDataSaveController.SaveNormal(this);
-        
         public CharacterResource CharacterResource;
         public SettingsData SettingsData;
         public PlayerProgressData PlayerProgressData;

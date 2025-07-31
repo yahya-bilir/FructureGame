@@ -1,3 +1,4 @@
+using System;
 using Factions;
 using MoreMountains.Feedbacks;
 using PropertySystem;
@@ -82,5 +83,7 @@ namespace Characters
             Faction = faction;
         }
     }
+
+
     
 }

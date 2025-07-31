@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using AI.Base;
 using AI.Base.Interfaces;
 using AI.EnemyStates;
@@ -29,13 +31,19 @@ namespace Characters.Enemy
 
         private bool _isCrushed;
         private bool _isKnockbacked;
-
+        private List<Renderer> _renderers;
 
         [Inject]
         private void Inject(IEventBus eventBus, MainBase mainBase)
         {
             EventBus = eventBus;
             MainBase = mainBase;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers);
         }
 
         protected override void Start()
@@ -77,6 +85,7 @@ namespace Characters.Enemy
             _rigidbody = GetComponent<Rigidbody>();
             _navmeshAgent = GetComponent<NavMeshAgent>();
             _attackAnimationCaller = GetComponentInChildren<AttackAnimationCaller>();
+            _renderers = model.GetComponentsInChildren<Renderer>().ToList();
         }
 
         private void SetupStates()

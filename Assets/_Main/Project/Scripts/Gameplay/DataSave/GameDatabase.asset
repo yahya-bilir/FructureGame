@@ -12,22 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650e9277d0f04c7295c2c699c4347936, type: 3}
   m_Name: GameDatabase
   m_EditorClassIdentifier: Gameplay::DataSave.GameDatabase
-  <WeaponDatabase>k__BackingField:
-    <WeaponStages>k__BackingField:
-    - {fileID: 11400000, guid: 69581cf6fba049f458e79b6cce8739c3, type: 2}
-    - {fileID: 11400000, guid: d0886e296a8318a40837c9fcc1b8275b, type: 2}
-    - {fileID: 11400000, guid: bec07ab8afdc34f4f849b5b03e4ff4fe, type: 2}
-    - {fileID: 11400000, guid: be4deed56208b0f4fa1e1f2be27bb1c4, type: 2}
-    - {fileID: 11400000, guid: ceb55db710217a143a51915cdb4269a8, type: 2}
-    <Weapons>k__BackingField:
-    - {fileID: 6457794163995782557, guid: 89d05aa057b34401f831e4e956eeeb21, type: 3}
-    - {fileID: 6326623449916593366, guid: 29010c46457474abebd7002d482711e3, type: 3}
-    - {fileID: 3136379562571167290, guid: bffc3843665af47319c6791d151fd880, type: 3}
-  <EnhanceButtonDatabase>k__BackingField:
-    <InitialEnhancePrice>k__BackingField: 10
-    <IncrementOnEachUpgrade>k__BackingField: 1
-  <CharacterTransformPathDatabase>k__BackingField:
-    <CharacterUpgradePaths>k__BackingField:
-    - {fileID: 11400000, guid: 48e725a743db0ec4b9df242b515c7ef0, type: 2}
-    - {fileID: 11400000, guid: 5dde6a1cbf12ea140a4e44f77af3ccaf, type: 2}
-    - {fileID: 11400000, guid: bd5a311ab787e9145afae772b98bceee, type: 2}
+  <DissolveMaterial>k__BackingField: {fileID: 2100000, guid: 3fb00fa6550a24a75aee7e3d9a800d6c, type: 2}
