@@ -32,10 +32,6 @@ namespace Initialization
             var characterResources = gameData.CharacterResource;
 
             resolver.Inject(characterResources);
-            
-            #if !UNITY_EDITOR
-            Debug.unityLogger.logEnabled = false;
-            #endif
         }
     }
 }

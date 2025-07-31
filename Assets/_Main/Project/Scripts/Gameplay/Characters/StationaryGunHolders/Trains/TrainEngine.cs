@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Characters.Enemy;
+using Dreamteck.Splines;
 using EventBusses;
 using Events;
 using PropertySystem;
@@ -33,10 +34,10 @@ namespace Trains
             ApplyOffsets();
             var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
             tracer.followSpeed = speed;
-            for (int i = 0; i < 5; i++)
-            {
-                SpawnWagon();
-            }
+            // for (int i = 0; i < 5; i++)
+            // {
+            //     SpawnWagon();
+            // }
             SetSharedSpeed(speed);
             
         }
@@ -102,5 +103,13 @@ namespace Trains
                 wagon.UpdatePosition();
             }
         }
+        
+        public void SetSplineComputer(SplineComputer spline)
+        {
+            if (tracer == null) tracer = GetComponent<SplineFollower>();
+            tracer.spline = spline;
+            tracer.RebuildImmediate();
+        }
+
     }
 }

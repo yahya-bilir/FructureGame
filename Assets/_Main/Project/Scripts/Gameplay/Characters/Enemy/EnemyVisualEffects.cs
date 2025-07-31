@@ -44,10 +44,15 @@ namespace Characters.Enemy
                 //newMaterial.SetTexture("_NormalMap", normalMap);
 
                 renderer.material = newMaterial;
-
-                await UniTask.WaitForSeconds(0.5f);
-                renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
+                
+                DoDissolveAfterWaiting(renderer).Forget();
             }
+        }
+
+        private async UniTask DoDissolveAfterWaiting(Renderer renderer)
+        {
+            await UniTask.WaitForSeconds(0.5f);
+            renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
         }
 
     }

@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3544722962734245170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00046051375, y: 0.3826835, z: -0.0001907511, w: 0.9238794}
+  m_LocalRotation: {x: 0.00045957355, y: 0.38268334, z: -0.00019036159, w: 0.9238794}
   m_LocalPosition: {x: 3.394, y: 0.044921875, z: -3.394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -69,7 +69,7 @@ Transform:
   - {fileID: 4384185780469353682}
   - {fileID: 2575722705485968374}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.057, y: 45, z: 0}
 --- !u!33 &5356988584718793905
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -185,11 +185,11 @@ MonoBehaviour:
   targetRigidbody2D: {fileID: 0}
   targetTransform: {fileID: 5280595237147411207}
   _result:
-    position: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    forward: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    size: 0
+    position: {x: 3.394, y: 0.044921875, z: -3.394}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0.7071066, y: -0.000996913, z: 0.7071063}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
     percent: 0
   _finalResult:
     position: {x: 3.394, y: 0.044921875, z: -3.394}
@@ -204,7 +204,7 @@ MonoBehaviour:
   _follow: 1
   _startPosition: 0
   preserveUniformSpeedWithOffset: 0
-  _followSpeed: 5
+  _followSpeed: 8
   _followDuration: 1
   _speedModifier:
     blend: 1
