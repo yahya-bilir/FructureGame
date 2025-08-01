@@ -17,7 +17,7 @@ namespace Characters.Enemy
 
         public EnemyVisualEffects(UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
             CharacterAnimationController animationController, ParticleSystem hitVfx, MMF_Player feedback,
-            List<Renderer> renderers) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback)
+            List<Renderer> renderers, ParticleSystem spawnVfx) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
         {
             _renderers = renderers;
         }

@@ -17,8 +17,8 @@ namespace Characters.BaseSystem
                 AnimationController,
                 hitVfx,
                 Feedback,
-                model
-                
+                model,
+                spawnVfx
             );
         }
     }

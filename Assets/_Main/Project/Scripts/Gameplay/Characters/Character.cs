@@ -21,6 +21,7 @@ namespace Characters
         [SerializeField] protected UIPercentageFiller healthBar;
         [SerializeField] protected ParticleSystem onDeathVfx;
         [SerializeField] protected ParticleSystem hitVfx;
+        [SerializeField] protected ParticleSystem spawnVfx;
 
         [Header("Data")]
         [field: SerializeField] public CharacterDataHolder CharacterDataHolder { get; private set; }
@@ -51,7 +52,7 @@ namespace Characters
             GetComponents();
             CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSo);
             AnimationController = new CharacterAnimationController(_animator);
-            CharacterVisualEffects = new CharacterVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback);
+            CharacterVisualEffects = new CharacterVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, spawnVfx);
             CharacterSpeedController = new CharacterSpeedController(CharacterPropertyManager, CharacterDataHolder, this);
         }
 
@@ -61,6 +62,8 @@ namespace Characters
             CharacterWeaponManager = new CharacterWeaponManager(weaponEquippingField, CharacterPropertyManager, CharacterCombatManager, CharacterDataHolder.Weapon, this);
 
             ResolveOrInitializeCreatedObjects();
+            
+            CharacterVisualEffects.OnCharacterSpawnedVisualEffects();
         }
 
         private void ResolveOrInitializeCreatedObjects()

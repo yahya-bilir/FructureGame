@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CommonComponents;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
 using UnityEngine;
@@ -47,20 +48,25 @@ namespace Trains
 
         private void OnEnable()
         {
-            _eventBus.Subscribe<OnEngineSelected>(OnEngineSelected);
+            _eventBus.Subscribe<OnEngineSelected>(HandleEngineSelected);
         }
 
         private void OnDisable()
         {
-            _eventBus.Unsubscribe<OnEngineSelected>(OnEngineSelected);
+            _eventBus.Unsubscribe<OnEngineSelected>(HandleEngineSelected);
         }
 
-        private void OnEngineSelected(OnEngineSelected eventData)
+        private void HandleEngineSelected(OnEngineSelected eventData)
+        {
+            OnEngineSelectedAsync(eventData).Forget();
+        }
+
+        private async UniTask OnEngineSelectedAsync(OnEngineSelected eventData)
         {
             if (_openedSystemsCount >= trainSystems.Count) return;
 
             var system = trainSystems[_openedSystemsCount];
-            system.AddEngineToSystem(eventData.Engine);
+            await system.AddEngineToSystem(eventData.Engine); // async çağrı burada
 
             _camerasManager.ChangeActivePlayerCamera(system.CameraToActivate);
 

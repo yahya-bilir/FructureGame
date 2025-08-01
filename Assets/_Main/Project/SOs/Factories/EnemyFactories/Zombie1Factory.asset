@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 4790879081205326185, guid: 5f7219087afe1bc478f14e0bbbc0ecda, type: 3}
   <SpawnLimit>k__BackingField: 10000
   <SpawnInterval>k__BackingField: 2
-  <InitialSpawnInterval>k__BackingField: 1
+  <InitialSpawnInterval>k__BackingField: 5

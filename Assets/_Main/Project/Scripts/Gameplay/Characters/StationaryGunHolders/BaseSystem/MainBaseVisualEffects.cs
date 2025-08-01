@@ -14,8 +14,8 @@ namespace Characters.StationaryGunHolders.BaseSystem
         public MainBaseVisualEffects(UIPercentageFiller healthBar,
             ParticleSystem onDeathVfx, Character character,
             CharacterAnimationController animationController,
-            ParticleSystem hitVfx, MMF_Player feedback, GameObject model)
-            : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback)
+            ParticleSystem hitVfx, MMF_Player feedback, GameObject model, ParticleSystem spawnVfx)
+            : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
         {
             _feedback = feedback;
             _model = model;
@@ -36,6 +36,8 @@ namespace Characters.StationaryGunHolders.BaseSystem
             _feedback.PlayFeedbacks();    
             
             _eventBus.Publish(new OnBaseGotAttacked());
+            
+            if(newHealth <= 0f) _eventBus.Publish(new OnBaseDied());
         }
 
     }

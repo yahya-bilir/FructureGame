@@ -43,7 +43,7 @@ namespace Characters.Enemy
         protected override void Awake()
         {
             base.Awake();
-            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers);
+            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers, spawnVfx);
         }
 
         protected override void Start()

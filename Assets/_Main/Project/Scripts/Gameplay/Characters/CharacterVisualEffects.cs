@@ -14,6 +14,7 @@ namespace Characters
         private readonly Character _character;
         private readonly CharacterAnimationController _characterAnimationController;
         private readonly MMF_Player _feedback;
+        private readonly ParticleSystem _spawnVfx;
         private readonly UIPercentageFiller _healthBar;
         private readonly ParticleSystem _hitVfx;
         private readonly ParticleSystem _onDeathVfx;
@@ -22,7 +23,7 @@ namespace Characters
 
         public CharacterVisualEffects(UIPercentageFiller healthBar,
             ParticleSystem onDeathVfx, Character character, CharacterAnimationController animationController,
-            ParticleSystem hitVfx, MMF_Player feedback)
+            ParticleSystem hitVfx, MMF_Player feedback, ParticleSystem spawnVfx)
         {
             _healthBar = healthBar;
             _onDeathVfx = onDeathVfx;
@@ -30,6 +31,7 @@ namespace Characters
             _animationController = animationController;
             _hitVfx = hitVfx;
             _feedback = feedback;
+            _spawnVfx = spawnVfx;
         }
 
 
@@ -80,19 +82,20 @@ namespace Characters
             if (_healthBar != null) _healthBar.DisableOrEnableObjectsVisibility(false);
         }
 
-        public void SpawnCharacter()
+        public virtual void OnCharacterSpawnedVisualEffects()
         {
-            var originalScale = _character.transform.localScale;
-            _character.transform.localScale = Vector3.zero;
-
-            _character.transform.DOScale(originalScale, 0.1f)
-                .SetEase(Ease.OutBack) // Tatlı bir geri zıplama efekti verir
-                .OnComplete(() =>
-                {
-                    // Ölçeklenme tamamlanınca animasyon tetikle
-                    //_characterAnimationController.EnableAnimator();
-                    _characterAnimationController.Spawn();
-                });
+            if(_spawnVfx != null) _spawnVfx.Play();
+            // var originalScale = _character.transform.localScale;
+            // _character.transform.localScale = Vector3.zero;
+            //
+            // _character.transform.DOScale(originalScale, 0.1f)
+            //     .SetEase(Ease.OutBack) // Tatlı bir geri zıplama efekti verir
+            //     .OnComplete(() =>
+            //     {
+            //         // Ölçeklenme tamamlanınca animasyon tetikle
+            //         //_characterAnimationController.EnableAnimator();
+            //         _characterAnimationController.Spawn();
+            //     });
         }
     }
 }
