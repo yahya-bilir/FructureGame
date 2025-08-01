@@ -185,11 +185,11 @@ MonoBehaviour:
   targetRigidbody2D: {fileID: 0}
   targetTransform: {fileID: 5280595237147411207}
   _result:
-    position: {x: 3.394, y: 0.044921875, z: -3.394}
-    up: {x: 0, y: 1, z: 0}
-    forward: {x: 0.7071066, y: -0.000996913, z: 0.7071063}
-    color: {r: 1, g: 1, b: 1, a: 1}
-    size: 1
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
     percent: 0
   _finalResult:
     position: {x: 3.394, y: 0.044921875, z: -3.394}
@@ -234,6 +234,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   onDeathVfx: {fileID: 0}
   hitVfx: {fileID: 0}
+  spawnVfx: {fileID: 0}
   <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: c527ded257220d1469354454571135f5, type: 2}
   <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: dc0fd0ee86c97814c84b37ab42ffb345, type: 2}
   <Faction>k__BackingField: 0

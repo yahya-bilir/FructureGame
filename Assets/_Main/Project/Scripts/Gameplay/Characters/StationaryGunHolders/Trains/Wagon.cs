@@ -78,24 +78,27 @@ namespace Trains
             tracer.RebuildImmediate();
         }
 
-        public void UpdatePosition()
+        public void UpdatePosition(Spline.Direction direction)
         {
             if (front == null || front.tracer == null || tracer.spline == null)
                 return;
 
             float totalLength = (float)tracer.spline.CalculateLength();
             double frontPercent = front.tracer.result.percent;
-            float frontDistance = tracer.spline.CalculateLength(0.0, frontPercent);
+            float frontDistance = (float)(front.tracer.result.percent * totalLength);
 
-            float desiredOffset = offsetIndex * spacing;
+            float desiredOffset = offsetIndex * spacing; // spacing negatifse ters konumlanır
             float targetDistance = frontDistance - desiredOffset;
 
+            // Spline loop'landığında negatif mesafe varsa sar
             if (targetDistance < 0f && tracer.spline.isClosed)
             {
                 targetDistance += totalLength;
             }
 
+            tracer.direction = direction;
             tracer.SetDistance(targetDistance);
+            
         }
     }
 }

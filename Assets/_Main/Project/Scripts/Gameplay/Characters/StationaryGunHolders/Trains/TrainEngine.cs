@@ -19,6 +19,7 @@ namespace Trains
         [SerializeField] private float wagonSpacing = 2f;
         [SerializeField] private Wagon wagonPrefab;
         private IEventBus _eventBus;
+        private Spline.Direction _direction;
 
         protected override bool IsEngine => true;
 
@@ -44,6 +45,7 @@ namespace Trains
 
         private void LateUpdate()
         {
+            tracer.direction = _direction;
             UpdateOffsets();
         }
 
@@ -100,15 +102,26 @@ namespace Trains
         {
             foreach (var wagon in wagons)
             {
-                wagon.UpdatePosition();
+                wagon.UpdatePosition(_direction);
             }
         }
         
-        public void SetSplineComputer(SplineComputer spline)
+        public void SetSplineComputer(SplineComputer spline, bool isReversed)
         {
             if (tracer == null) tracer = GetComponent<SplineFollower>();
+
+            //tracer.enabled = false; // BÜTÜN OTOMATİK AYARLARI ENGELLER
+
             tracer.spline = spline;
+            _direction = isReversed ? Spline.Direction.Backward : Spline.Direction.Forward;
+            tracer.direction = _direction;
             tracer.RebuildImmediate();
+            tracer.SetPercent(isReversed ? 1.0 : 0.0);
+            //tracer.follow = true;
+
+            wagonSpacing = Mathf.Abs(wagonSpacing) * (isReversed ? -1f : 1f);
+
+            //tracer.enabled = true; // SONRA AÇ
         }
 
     }

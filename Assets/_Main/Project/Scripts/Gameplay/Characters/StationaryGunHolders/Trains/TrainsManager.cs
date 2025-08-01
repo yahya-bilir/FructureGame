@@ -3,6 +3,7 @@ using CommonComponents;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 
@@ -38,6 +39,7 @@ namespace Trains
             }
         }
 
+        [Button]
         private void Start()
         {
             if (debugEngine != null)

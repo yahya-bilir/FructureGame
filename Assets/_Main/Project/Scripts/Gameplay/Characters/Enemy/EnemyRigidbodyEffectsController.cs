@@ -48,7 +48,13 @@ namespace Characters.Enemy
         private void OnKnockbacked(OnEnemyKnockbacked evt)
         {
             if (evt.KnockbackedEnemy != _enemyBehaviour) return;
-
+            if(_enemyBehaviour.IsCrushed) return;
+            
+            foreach (var rb in _ragdollRigidbodies)
+            {
+                rb.isKinematic = true;
+            }
+            
             ApplyKnockbackForce(evt.KnockbackDirection, evt.KnockbackData);
             _enemyBehaviour.SetKnockbacked(true);
         }

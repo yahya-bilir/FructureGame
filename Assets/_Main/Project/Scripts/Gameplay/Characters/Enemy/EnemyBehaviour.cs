@@ -29,7 +29,7 @@ namespace Characters.Enemy
         private EnemyRigidbodyEffectsController _rigidbodyEffectsController;
         private AttackAnimationCaller _attackAnimationCaller;
 
-        private bool _isCrushed;
+        public bool IsCrushed { get; private set; }
         private bool _isKnockbacked;
         private List<Renderer> _renderers;
 
@@ -102,13 +102,13 @@ namespace Characters.Enemy
             Func<bool> ReachedEnemy() => () =>
                 Vector3.Distance(transform.position, MainBase.transform.position) <= 1f && !IsCharacterDead;
 
-            Func<bool> IsDead() => () => IsCharacterDead && !_isCrushed;
+            Func<bool> IsDead() => () => IsCharacterDead && !this.IsCrushed;
 
-            Func<bool> IsCrushed() => () => _isCrushed && !_isKnockbacked && !IsCharacterDead;
+            Func<bool> IsCrushed() => () => this.IsCrushed && !_isKnockbacked && !IsCharacterDead;
 
-            Func<bool> ShouldKnockback() => () => _isKnockbacked && !_isCrushed && !IsCharacterDead;
+            Func<bool> ShouldKnockback() => () => _isKnockbacked && !this.IsCrushed && !IsCharacterDead;
 
-            Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.85f && !_isCrushed && !IsCharacterDead;
+            Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.85f && !this.IsCrushed && !IsCharacterDead;
 
             StateMachine.AddTransition(WalkingToEnemy, AttackingState, ReachedEnemy());
             StateMachine.AddTransition(WalkingToEnemy, knockbacked, ShouldKnockback());
@@ -121,7 +121,7 @@ namespace Characters.Enemy
             StateMachine.SetState(WalkingToEnemy);
         }
 
-        public void SetCrushed() => _isCrushed = true;
+        public void SetCrushed() => IsCrushed = true;
 
         public void SetKnockbacked(bool isKnockbacked)
         {

@@ -15,6 +15,8 @@ namespace Trains
         [field: SerializeField] public CinemachineCamera CameraToActivate { get; private set; }
         [field: SerializeField] public RaySegmentSpawner RaySpawner { get; private set; }
 
+        [field: SerializeField] public bool IsReversed { get; private set; }
+
         public bool IsOccupied { get; private set; }
 
         private IObjectResolver _resolver;
@@ -34,7 +36,7 @@ namespace Trains
             _engineInstance = GameObject.Instantiate(enginePrefab, EnginePlacementField.position, EnginePlacementField.rotation, EnginePlacementField);
             _resolver.Inject(_engineInstance);
 
-            _engineInstance.SetSplineComputer(Spline);
+            _engineInstance.SetSplineComputer(Spline, IsReversed);
 
             await UniTask.WaitForSeconds(0.25f);
             _engineInstance.SpawnWagon();
