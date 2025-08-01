@@ -14,9 +14,7 @@ namespace Trains
         [field: SerializeField] public Transform EnginePlacementField { get; private set; }
         [field: SerializeField] public CinemachineCamera CameraToActivate { get; private set; }
         [field: SerializeField] public RaySegmentSpawner RaySpawner { get; private set; }
-
         [field: SerializeField] public bool IsReversed { get; private set; }
-
         public bool IsOccupied { get; private set; }
 
         private IObjectResolver _resolver;
