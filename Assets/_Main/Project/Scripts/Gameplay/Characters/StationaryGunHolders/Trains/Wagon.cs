@@ -83,22 +83,31 @@ namespace Trains
             if (front == null || front.tracer == null || tracer.spline == null)
                 return;
 
-            float totalLength = (float)tracer.spline.CalculateLength();
             double frontPercent = front.tracer.result.percent;
-            float frontDistance = (float)(front.tracer.result.percent * totalLength);
+            float spacingDistance = Mathf.Abs(offsetIndex * spacing);
+            float moved;
 
-            float desiredOffset = offsetIndex * spacing; // spacing negatifse ters konumlanır
-            float targetDistance = frontDistance - desiredOffset;
+            // İlk Travel denemesi
+            double wagonPercent = tracer.spline.Travel(frontPercent, spacingDistance, out moved, Invert(direction));
 
-            // Spline loop'landığında negatif mesafe varsa sar
-            if (targetDistance < 0f && tracer.spline.isClosed)
+            // Eğer tüm mesafeyi kat edemediysek ve spline kapalıysa, sar
+            if (moved < spacingDistance && tracer.spline.isClosed)
             {
-                targetDistance += totalLength;
+                float remaining = spacingDistance - moved;
+                double restartPercent = Invert(direction) == Spline.Direction.Forward ? 0.0 : 1.0;
+
+                // Travel kalan mesafeyi baştan (ya da sondan) başlat
+                wagonPercent = tracer.spline.Travel(restartPercent, remaining, out _, Invert(direction));
             }
 
             tracer.direction = direction;
-            tracer.SetDistance(targetDistance);
-            
+            tracer.SetPercent(tracer.ClipPercent(wagonPercent));
+        }
+
+        
+        private Spline.Direction Invert(Spline.Direction dir)
+        {
+            return dir == Spline.Direction.Forward ? Spline.Direction.Backward : Spline.Direction.Forward;
         }
     }
 }
