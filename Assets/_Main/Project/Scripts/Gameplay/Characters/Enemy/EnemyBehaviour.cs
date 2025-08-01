@@ -30,7 +30,7 @@ namespace Characters.Enemy
         private AttackAnimationCaller _attackAnimationCaller;
 
         public bool IsCrushed { get; private set; }
-        private bool _isKnockbacked;
+        public bool IsKnockbacked { get; private set; }
         private List<Renderer> _renderers;
 
         [Inject]
@@ -97,16 +97,16 @@ namespace Characters.Enemy
 
             var dead = new Dead(AnimationController, Collider, AIText, EnemyMovementController);
             var crushed = new Crushed(Collider, AIText, EnemyMovementController, CharacterCombatManager, AnimationController);
-            var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController, CharacterCombatManager);
+            var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController, CharacterCombatManager, Collider);
 
             Func<bool> ReachedEnemy() => () =>
                 Vector3.Distance(transform.position, MainBase.transform.position) <= 1f && !IsCharacterDead;
 
             Func<bool> IsDead() => () => IsCharacterDead && !this.IsCrushed;
 
-            Func<bool> IsCrushed() => () => this.IsCrushed && !_isKnockbacked && !IsCharacterDead;
+            Func<bool> IsCrushed() => () => this.IsCrushed && !IsKnockbacked && !IsCharacterDead;
 
-            Func<bool> ShouldKnockback() => () => _isKnockbacked && !this.IsCrushed && !IsCharacterDead;
+            Func<bool> ShouldKnockback() => () => IsKnockbacked && !this.IsCrushed && !IsCharacterDead;
 
             Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.85f && !this.IsCrushed && !IsCharacterDead;
 
@@ -125,7 +125,7 @@ namespace Characters.Enemy
 
         public void SetKnockbacked(bool isKnockbacked)
         {
-            _isKnockbacked = isKnockbacked;
+            IsKnockbacked = isKnockbacked;
         }
 
         protected abstract BaseAttacking CreateAttackingState();

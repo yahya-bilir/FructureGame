@@ -42,12 +42,22 @@ namespace Trains
         [Button]
         private void Start()
         {
-            if (debugEngine != null)
-            {
-                _eventBus.Publish(new OnEngineSelected(debugEngine));
-            }
+            SpawnAllTrains().Forget();
         }
 
+        private async UniTask SpawnAllTrains()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (debugEngine != null)
+                {
+                    _eventBus.Publish(new OnEngineSelected(debugEngine));
+                }
+
+                await UniTask.WaitForSeconds(10f);
+            }
+        } 
+        
         private void OnEnable()
         {
             _eventBus.Subscribe<OnEngineSelected>(HandleEngineSelected);
@@ -68,10 +78,11 @@ namespace Trains
             if (_openedSystemsCount >= trainSystems.Count) return;
 
             var system = trainSystems[_openedSystemsCount];
-            await system.AddEngineToSystem(eventData.Engine); // async çağrı burada
-
+            
             _camerasManager.ChangeActivePlayerCamera(system.CameraToActivate);
-
+            
+            await system.AddEngineToSystem(eventData.Engine); // async çağrı burada
+            
             _openedSystemsCount++;
         }
     }

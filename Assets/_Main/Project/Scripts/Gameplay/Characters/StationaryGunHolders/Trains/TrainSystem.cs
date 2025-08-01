@@ -37,7 +37,11 @@ namespace Trains
             _engineInstance.SetSplineComputer(Spline, IsReversed);
 
             await UniTask.WaitForSeconds(0.25f);
-            _engineInstance.SpawnWagon();
+
+            for (int i = 0; i < 3; i++)
+            {
+                _engineInstance.SpawnWagon();
+            }
 
             IsOccupied = true;
         }

@@ -36,6 +36,22 @@ namespace Characters.Enemy
             _ragdollRigidbodies = new List<Rigidbody>(_model.GetComponentsInChildren<Rigidbody>());
             _ragdollColliders = new List<Collider>(_model.GetComponentsInChildren<Collider>());
 
+            DeactivateRigidbodies();
+        }
+
+        private void OnKnockbacked(OnEnemyKnockbacked evt)
+        {
+            if (evt.KnockbackedEnemy != _enemyBehaviour) return;
+            if(_enemyBehaviour.IsCrushed) return;
+            
+            DeactivateRigidbodies();
+            
+            ApplyKnockbackForce(evt.KnockbackDirection, evt.KnockbackData);
+            _enemyBehaviour.SetKnockbacked(true);
+        }
+
+        private void DeactivateRigidbodies()
+        {
             foreach (var rb in _ragdollRigidbodies)
             {
                 rb.isKinematic = true;
@@ -45,24 +61,10 @@ namespace Characters.Enemy
                 col.enabled = false;
         }
 
-        private void OnKnockbacked(OnEnemyKnockbacked evt)
-        {
-            if (evt.KnockbackedEnemy != _enemyBehaviour) return;
-            if(_enemyBehaviour.IsCrushed) return;
-            
-            foreach (var rb in _ragdollRigidbodies)
-            {
-                rb.isKinematic = true;
-            }
-            
-            ApplyKnockbackForce(evt.KnockbackDirection, evt.KnockbackData);
-            _enemyBehaviour.SetKnockbacked(true);
-        }
-
         private void OnCrushed(OnEnemyCrushed evt)
         {
             if (evt.CrushedEnemy != _enemyBehaviour) return;
-
+            if(_enemyBehaviour.IsKnockbacked) return;
             _enemyBehaviour.SetCrushed();
             ActivateRagdollWithExplosion(evt.ImpactPoint, evt.RagdollData);
         }
@@ -71,7 +73,7 @@ namespace Characters.Enemy
         {
             Vector3 force = direction.normalized * data.Force;
             force += Vector3.up * data.UpwardModifier;
-
+            
             _mainRigidbody.isKinematic = false;
             _mainRigidbody.AddForce(force, ForceMode.Impulse);
         }

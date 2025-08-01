@@ -51,7 +51,7 @@ namespace Characters.Enemy
 
         private async UniTask DoDissolveAfterWaiting(Renderer renderer)
         {
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(1f);
             renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
         }
 
