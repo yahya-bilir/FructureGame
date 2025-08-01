@@ -1,0 +1,1201 @@
+fileFormatVersion: 2
+guid: d4f52c6b99008614fabd6c1b5f2b57b3
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 7d95c58ac42ba6642822b7f64de07ebb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: UpgradeIconBG
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3024
+      y: 759
+      width: 225
+      height: 225
+    spriteID: af4826697aa22fb4797ab2e45a236400
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3024, y: 759}
+    spritePosition: {x: 2308, y: 1382}
+  - name: UpgradeBottom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 52, y: 37, z: 46, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 602
+      y: 1864
+      width: 583
+      height: 173
+    spriteID: 6509f578ea8c9744f8f32ea2e02adcc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 605, y: 1865}
+    spritePosition: {x: 2132, y: 1038}
+  - name: DefIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2544
+      y: 1528
+      width: 154
+      height: 177
+    spriteID: 42316328f86c4654cbb947dc9bcda506
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2544, y: 1528}
+    spritePosition: {x: 808, y: 2131}
+  - name: HPIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1209
+      y: 1892
+      width: 153
+      height: 139
+    spriteID: 94c61f116ac9e644cbba11cfecc9ec8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1209, y: 1892}
+    spritePosition: {x: 1008, y: 2143}
+  - name: Coin
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1370
+      y: 1892
+      width: 87
+      height: 88
+    spriteID: 7d635f4d65c44d94aaa0d7e54205d1c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1370, y: 1892}
+    spritePosition: {x: 1479, y: 2427}
+  - name: ATKIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2624
+      y: 907
+      width: 118
+      height: 155
+    spriteID: 35efcf77cc1e89e43ac889aaab5a25b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2624, y: 907}
+    spritePosition: {x: 1225, y: 2135}
+  - name: MainUpgradeBG
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 38, y: 68, z: 53, w: 49}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6
+      y: 1085
+      width: 587
+      height: 812
+    spriteID: c99e645b6f202be46830294ed86c02eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1085}
+    spritePosition: {x: 96, y: 1771}
+  - name: UpgradeUpper
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 41, y: 38, z: 46, w: 40}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1
+      y: 1905
+      width: 583
+      height: 122
+    spriteID: d6fecae66a56efd4086c9b95c6477c31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1905}
+    spritePosition: {x: 2132, y: 1721}
+  - name: Shine
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3485
+      y: 430
+      width: 598
+      height: 597
+    spriteID: d6c0f01591f8a2f46ae08c0b13b6cd0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3485, y: 430}
+    spritePosition: {x: 2456, y: 194}
+  - name: PerksIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1209
+      y: 1528
+      width: 356
+      height: 356
+    spriteID: 7e4e13f5cd345ec4eac71ee68077c395
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1209, y: 1528}
+    spritePosition: {x: 652, y: 768}
+  - name: PerksBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 842, y: 202, z: 842, w: 207}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1739
+      y: 4
+      width: 2046
+      height: 418
+    spriteID: 2d914d8aca431044988bebad607ca106
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1739, y: 4}
+    spritePosition: {x: 76, y: 194}
+  - name: PerksIconBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 137, y: 137, z: 137, w: 137}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3541
+      y: 1085
+      width: 400
+      height: 400
+    spriteID: b544c01a23d43914c8370af0c06f8dfc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3541, y: 1085}
+    spritePosition: {x: 140, y: 746}
+  - name: Banner
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1739
+      y: 430
+      width: 1738
+      height: 321
+    spriteID: 4ab09c3285ddc6245a1c1b27ebb54933
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1739, y: 430}
+    spritePosition: {x: 16, y: 1263}
+  - name: InactiveMenuBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 277, y: 154, z: 284, w: 167}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1448
+      y: 1085
+      width: 681
+      height: 435
+    spriteID: 6bcdc3aae0b97ba4194734debdc70825
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1448, y: 1085}
+    spritePosition: {x: 2074, y: 1959}
+  - name: ActiveMenu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 605
+      y: 1085
+      width: 835
+      height: 435
+    spriteID: ff308771b23cde940ab1a96858b2107d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 605, y: 1085}
+    spritePosition: {x: 1997, y: 2449}
+  - name: BottomMenuBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1739
+      y: 759
+      width: 300
+      height: 302
+    spriteID: ddb03c359faca2848baf8b52155a4e14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1739, y: 759}
+    spritePosition: {x: 1579, y: 2582}
+  - name: UpgradeIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3793
+      y: 4
+      width: 275
+      height: 273
+    spriteID: a13157c5d0a2b474a83eedf6c6bf5c98
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3793, y: 4}
+    spritePosition: {x: 1478, y: 2040}
+  - name: Lock_Icon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2362
+      y: 759
+      width: 254
+      height: 294
+    spriteID: 0e4cd9b1f0d25a64e81c16b53ddc0d0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2362, y: 759}
+    spritePosition: {x: 1284, y: 1712}
+  - name: FightIcon_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2047
+      y: 759
+      width: 307
+      height: 277
+    spriteID: fe0228a473b1f014ca57319668de367b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2047, y: 759}
+    spritePosition: {x: 792, y: 1713}
+  - name: ScoreBoard_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 159, y: 42, z: 156, w: 42}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2624
+      y: 759
+      width: 392
+      height: 140
+    spriteID: 8347d9f5c66bccc4b93b4e6a7f5162e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2624, y: 759}
+    spritePosition: {x: 1040, y: 2401}
+  - name: PauseIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3257
+      y: 759
+      width: 200
+      height: 221
+    spriteID: 5d4fba28603048f43a1de78770ede9e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3257, y: 759}
+    spritePosition: {x: 785, y: 2361}
+  - name: BackButton
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2937
+      y: 1085
+      width: 596
+      height: 331
+    spriteID: c39bad7b802628c4e9e1c46e6f84345b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2937, y: 1085}
+    spritePosition: {x: 836, y: 2697}
+  - name: QuitButton
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 605
+      y: 1528
+      width: 596
+      height: 329
+    spriteID: 634e5e2b78600f5438fa3393aa5bc6c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 605, y: 1528}
+    spritePosition: {x: 93, y: 2699}
+  - name: QuitBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1727
+      height: 1073
+    spriteID: e2f190be97d6e6d4c96bbbad6635117e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 1523, y: 2934}
+  - name: ResumeButton
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 2, y: 0, z: 0, w: 1}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2137
+      y: 1085
+      width: 792
+      height: 329
+    spriteID: 4f5f9f555e5a0e24fbe6c48f59c31441
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2137, y: 1085}
+    spritePosition: {x: 93, y: 3109}
+  - name: MusicOn
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1760
+      y: 1866
+      width: 164
+      height: 173
+    spriteID: 6f9d1a046b44cd948b4ace88c185f754
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1760, y: 1866}
+    spritePosition: {x: 853, y: 3531}
+  - name: MusicOff
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1933
+      y: 1528
+      width: 204
+      height: 205
+    spriteID: 1f6f5c21c1c40db4fad91a6cbdf740aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1933, y: 1528}
+    spritePosition: {x: 540, y: 3524}
+  - name: Home
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2357
+      y: 1528
+      width: 179
+      height: 189
+    spriteID: 62a305f2324712044bc2db6018d98f8e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2357, y: 1528}
+    spritePosition: {x: 1134, y: 3812}
+  - name: SoundOn
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1573
+      y: 1866
+      width: 179
+      height: 171
+    spriteID: 30c88d861ae1ab34aa08674bd351ea9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1573, y: 1866}
+    spritePosition: {x: 856, y: 3801}
+  - name: SoundOff
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2145
+      y: 1528
+      width: 204
+      height: 204
+    spriteID: 25e9dd9261a2eba46ba6b2d0f1772d4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2145, y: 1528}
+    spritePosition: {x: 544, y: 3797}
+  - name: SettingsButton
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 29, y: 3, z: 30, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1573
+      y: 1528
+      width: 352
+      height: 330
+    spriteID: 63ea5120574b3f14bb22cf83e5b5c27f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1573, y: 1528}
+    spritePosition: {x: 93, y: 3677}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: UpgradeIconBG
+    spriteName: UpgradeIconBG
+    isGroup: 0
+    parentIndex: -1
+    spriteID: af4826697aa22fb4797ab2e45a236400
+    layerID: 69
+    mosaicPosition: {x: 3024, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: UpgradeBottom
+    spriteName: UpgradeBottom
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6509f578ea8c9744f8f32ea2e02adcc2
+    layerID: 68
+    mosaicPosition: {x: 605, y: 1865}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: DefIcon
+    spriteName: DefIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 42316328f86c4654cbb947dc9bcda506
+    layerID: 67
+    mosaicPosition: {x: 2544, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: HPIcon
+    spriteName: HPIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 94c61f116ac9e644cbba11cfecc9ec8a
+    layerID: 66
+    mosaicPosition: {x: 1209, y: 1892}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Coin
+    spriteName: Coin
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7d635f4d65c44d94aaa0d7e54205d1c5
+    layerID: 65
+    mosaicPosition: {x: 1370, y: 1892}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ATKIcon
+    spriteName: ATKIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 35efcf77cc1e89e43ac889aaab5a25b1
+    layerID: 64
+    mosaicPosition: {x: 2624, y: 907}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: MainUpgradeBG
+    spriteName: MainUpgradeBG
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c99e645b6f202be46830294ed86c02eb
+    layerID: 63
+    mosaicPosition: {x: 4, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: UpgradeUpper
+    spriteName: UpgradeUpper
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d6fecae66a56efd4086c9b95c6477c31
+    layerID: 62
+    mosaicPosition: {x: 4, y: 1905}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shine
+    spriteName: Shine
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d6c0f01591f8a2f46ae08c0b13b6cd0c
+    layerID: 33
+    mosaicPosition: {x: 3485, y: 430}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PerksIcon
+    spriteName: PerksIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7e4e13f5cd345ec4eac71ee68077c395
+    layerID: 30
+    mosaicPosition: {x: 1209, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PerksBg
+    spriteName: PerksBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2d914d8aca431044988bebad607ca106
+    layerID: 29
+    mosaicPosition: {x: 1739, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PerksIconBg
+    spriteName: PerksIconBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b544c01a23d43914c8370af0c06f8dfc
+    layerID: 28
+    mosaicPosition: {x: 3541, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Banner
+    spriteName: Banner
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4ab09c3285ddc6245a1c1b27ebb54933
+    layerID: 26
+    mosaicPosition: {x: 1739, y: 430}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: InactiveMenuBg
+    spriteName: InactiveMenuBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6bcdc3aae0b97ba4194734debdc70825
+    layerID: 25
+    mosaicPosition: {x: 1448, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ActiveMenu
+    spriteName: ActiveMenu
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ff308771b23cde940ab1a96858b2107d
+    layerID: 24
+    mosaicPosition: {x: 605, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BottomMenuBg
+    spriteName: BottomMenuBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ddb03c359faca2848baf8b52155a4e14
+    layerID: 23
+    mosaicPosition: {x: 1739, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: UpgradeIcon
+    spriteName: UpgradeIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a13157c5d0a2b474a83eedf6c6bf5c98
+    layerID: 22
+    mosaicPosition: {x: 3793, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Lock_Icon
+    spriteName: Lock_Icon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0e4cd9b1f0d25a64e81c16b53ddc0d0a
+    layerID: 21
+    mosaicPosition: {x: 2362, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: FightIcon_1
+    spriteName: FightIcon_1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: fe0228a473b1f014ca57319668de367b
+    layerID: 20
+    mosaicPosition: {x: 2047, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ScoreBoard_1
+    spriteName: ScoreBoard_1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8347d9f5c66bccc4b93b4e6a7f5162e1
+    layerID: 15
+    mosaicPosition: {x: 2624, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PauseIcon
+    spriteName: PauseIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5d4fba28603048f43a1de78770ede9e8
+    layerID: 14
+    mosaicPosition: {x: 3257, y: 759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BackButton
+    spriteName: BackButton
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c39bad7b802628c4e9e1c46e6f84345b
+    layerID: 12
+    mosaicPosition: {x: 2937, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: QuitButton
+    spriteName: QuitButton
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 634e5e2b78600f5438fa3393aa5bc6c8
+    layerID: 11
+    mosaicPosition: {x: 605, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: QuitBg
+    spriteName: QuitBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e2f190be97d6e6d4c96bbbad6635117e
+    layerID: 10
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ResumeButton
+    spriteName: ResumeButton
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f5f9f555e5a0e24fbe6c48f59c31441
+    layerID: 9
+    mosaicPosition: {x: 2137, y: 1085}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: MusicOn
+    spriteName: MusicOn
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f9d1a046b44cd948b4ace88c185f754
+    layerID: 8
+    mosaicPosition: {x: 1760, y: 1866}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: MusicOff
+    spriteName: MusicOff
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1f6f5c21c1c40db4fad91a6cbdf740aa
+    layerID: 7
+    mosaicPosition: {x: 1933, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Home
+    spriteName: Home
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 62a305f2324712044bc2db6018d98f8e
+    layerID: 6
+    mosaicPosition: {x: 2357, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SoundOn
+    spriteName: SoundOn
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 30c88d861ae1ab34aa08674bd351ea9b
+    layerID: 5
+    mosaicPosition: {x: 1573, y: 1866}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SoundOff
+    spriteName: SoundOff
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 25e9dd9261a2eba46ba6b2d0f1772d4e
+    layerID: 4
+    mosaicPosition: {x: 2145, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SettingsButton
+    spriteName: SettingsButton
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 63ea5120574b3f14bb22cf83e5b5c27f
+    layerID: 3
+    mosaicPosition: {x: 1573, y: 1528}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638804299675540271
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="bgf" style="flex-grow: 1; position: absolute; background-color: rgba(0, 0, 0, 0.68); width: 100%; height: 100%; display: none;" />
+    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/FlingTamplate/UIParticle/Prefabs/New%20Render%20Texture.renderTexture?fileID=8400000&amp;guid=72f5e1b5baf9fc84ebf58caf11c0f100&amp;type=2#New Render Texture&quot;); -unity-background-scale-mode: scale-to-fit;" />
+    <engine:Button text="Button" style="position: absolute; width: 50%; height: 17%; align-self: center; bottom: 19%; overflow: visible; justify-content: center;">
+        <FlingTamplate.UIParticle.UIParticleVisualElement name="UIParticleVisualElement" picking-mode="Ignore" style="width: 200%; height: 200%; position: relative; flex-shrink: 0; align-self: center; background-color: rgba(255, 11, 11, 0);" />
+    </engine:Button>
+</engine:UXML>
