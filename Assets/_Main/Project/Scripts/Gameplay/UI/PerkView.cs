@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using EventBusses;
+using Events;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 using VContainer;
 using FlingTamplate.UIParticle;
+using Perks.PerkActions;
 using PerkSystem;
 using Utils.UIComponents.UIToolkit;
 
@@ -13,10 +16,11 @@ namespace Gameplay.UI.InGameView
     public class PerkView : UIView
     {
         private VisualElement _perksHolder;
-        private List<VisualElement> _createdPerks = new();
-        private PerkViewData _perkViewData;
+        private readonly List<VisualElement> _createdPerks = new();
+        private readonly PerkViewData _perkViewData;
         private UIParticleVisualElement _particleVisualElement;
         private IObjectResolver _objectResolver;
+        private IEventBus _eventBus;
 
         public PerkView(VisualElement root, PerkViewData perkViewData) : base(root)
         {
@@ -24,12 +28,18 @@ namespace Gameplay.UI.InGameView
         }
 
         [Inject]
-        private void InjectDependency(IObjectResolver resolver)
+        private void Inject(IObjectResolver resolver, IEventBus eventBus)
         {
             _objectResolver = resolver;
-            _objectResolver.Inject(_particleVisualElement);
+            _eventBus = eventBus;
+            SetAfterInjection();
         }
 
+        private void SetAfterInjection()
+        {
+            _objectResolver.Inject(_particleVisualElement);
+            _eventBus.Subscribe<OnLevelUpgraded>(CreatePerks);
+        }
         protected override void SetVisualElements()
         {
             _perksHolder = _rootElement.Q("PerksHolder");
@@ -52,7 +62,7 @@ namespace Gameplay.UI.InGameView
             FlipAnimation(target).Forget();
             PlayParticle(target);
 
-            perkAction.Execute().Forget();
+            perkAction.Execute();
         }
 
         private void PlayParticle(VisualElement target)
@@ -70,8 +80,9 @@ namespace Gameplay.UI.InGameView
             _particleVisualElement.style.top = targetLocalPos.y + offset.y;
         }
 
-        public void CreatePerks(List<PerkAction> perks)
+        private void CreatePerks(OnLevelUpgraded eventData)
         {
+            var perks = eventData.PerkActions;
             _particleVisualElement.style.display = DisplayStyle.None;
             ClearCreatedPerks();
 
@@ -157,6 +168,12 @@ namespace Gameplay.UI.InGameView
             element.transform.scale = originalScale;
             await UniTask.Delay(200);
             Hide();
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            _eventBus.Unsubscribe<OnLevelUpgraded>(CreatePerks);
         }
     }
 

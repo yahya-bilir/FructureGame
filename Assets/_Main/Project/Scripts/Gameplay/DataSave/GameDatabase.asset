@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: GameDatabase
   m_EditorClassIdentifier: Gameplay::DataSave.GameDatabase
   <DissolveMaterial>k__BackingField: {fileID: 2100000, guid: 3fb00fa6550a24a75aee7e3d9a800d6c, type: 2}
+  perksByLevel:
+  - Level: 0
+    PerkGroup: {fileID: 11400000, guid: 6f39fd24a365b7e43b8185422655c1d6, type: 2}

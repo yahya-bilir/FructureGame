@@ -1,0 +1,253 @@
+:root {
+    -unity-font-definition: url("project://database/Assets/_Main/Project/Fonts/LilitaOne%20-%20Regular%20SDF%201.asset?fileID=11400000&guid=748d8bfd82f0eb44ab7e8447efbfcb89&type=2#LilitaOne - Regular SDF 1");
+}
+
+.stage--holder {
+    right: 100%;
+}
+
+.stage--holder--show {
+    right: 0;
+    transition-delay: 0s;
+    transition-duration: 1s;
+}
+
+.stage--holder--hide {
+    left: 100%;
+    transition-duration: 1s;
+    transition-delay: 0s;
+}
+
+.coin--vfx--item {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=3561279873648406651&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#Coin");
+}
+
+.hp--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=-6063361370151601855&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#HPIcon");
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.coin--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=3561279873648406651&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#Coin");
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.def--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=-8007493959597743465&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#DefIcon");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.atk--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=-8389024482856606993&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#ATKIcon");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.static_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+.border__width--0 {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.border__radius--10 {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.border__radius--25 {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.alignment--center {
+    align-items: center;
+}
+
+.justify--center {
+    justify-content: center;
+}
+
+.hp--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=-6063361370151601855&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#HPIcon");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.screen__anchor--top-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.screen__anchor--top-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.screen__anchor--bottom-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.screen__anchor--bottom-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+}
+
+.screen__anchor--center {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.tileable--128px {
+    background-size: 128px 128px;
+    background-repeat: repeat;
+}
+
+.tileable--250px {
+    background-size: 250px 250px;
+    background-repeat: repeat;
+}
+
+.tileable--256px {
+    background-size: 256px 256px;
+    background-repeat: repeat;
+}
+
+.fps-counter {
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    -unity-text-align: upper-right;
+    width: 8%;
+    height: 4%;
+}
+
+.background-graphic {
+}
+
+.coin--icon {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=3561279873648406651&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#Coin");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.title__container {
+    max-width: 65%;
+    min-width: 20%;
+    max-height: 20%;
+    min-height: 350px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.theme__decoration--default {
+}
+
+.upgrade__buttonUp {
+    background-image: url("project://database/Assets/UI/Textures/DiceRushUI.psd?fileID=-280110388919214668&guid=d4f52c6b99008614fabd6c1b5f2b57b3&type=3#UpgradeUpper");
+    width: 98%;
+    height: 20%;
+}
+
+.skill--info-icon {
+    width: 90%;
+    height: 90%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    align-self: center;
+}
+
+.pause--skill--info-icon {
+    width: 100px;
+    height: 100px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    align-self: center;
+}
+
+.home__screen {
+}
+
+.background-graphic {
+}
+
+.tutorial__background {
+    background-image: url("project://database/Assets/UI/Textures/TutorialBGNew.png?fileID=6004860139511914581&guid=bd8319089f7e1a34e93575a1c40d9043&type=3#TutorialBGNew_0");
+    background-size: 100% 100%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.5);
+    width: 3500px;
+    height: 3500px;
+}
+
+.tutorial__hand {
+    background-image: url("project://database/Assets/UI/Textures/Hand@4x%20-%20Kopya.png?fileID=-5642679236973323289&guid=6bfe281b79a93744aafc564fa1379864&type=3#Hand@4x - Kopya_0");
+    background-color: rgba(0, 0, 0, 0);
+    width: 400px;
+    height: 500px;
+}
+
+.hand_yoyo {
+    background-image: url("project://database/Assets/UI/Textures/Hand@4x%20-%20Kopya.png?fileID=-5642679236973323289&guid=6bfe281b79a93744aafc564fa1379864&type=3#Hand@4x - Kopya_0");
+    position: absolute;
+    left: 82%;
+    top: 50%;
+    transition-duration: 2s;
+    -unity-background-scale-mode: scale-to-fit;
+    width: 24%;
+    height: 200%;
+}
+
+.hand_swipe {
+    background-image: url("project://database/Assets/UI/Textures/Hand@4x%20-%20Kopya.png?fileID=-5642679236973323289&guid=6bfe281b79a93744aafc564fa1379864&type=3#Hand@4x - Kopya_0");
+    -unity-background-scale-mode: scale-to-fit;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transition-duration: 2s;
+    width: 24%;
+    height: 200%;
+}

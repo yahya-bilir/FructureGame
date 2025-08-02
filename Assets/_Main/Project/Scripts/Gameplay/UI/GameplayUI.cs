@@ -33,6 +33,7 @@ namespace UI
         private void Start()
         {
             _resolver.Inject(_baseHealthContainer);
+            _resolver.Inject(_perkView);
         }
         
     }
