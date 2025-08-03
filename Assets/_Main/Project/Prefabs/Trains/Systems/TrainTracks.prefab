@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d6f85738284f4b8886944ca4625ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::RayDeformerOnSpline
+  spawnVFX: {fileID: 0}
 --- !u!1001 &7897385062949373284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 40b4b63cede0ba443adcb8b16b53d7bb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a31c9f4bf89507a4e87a81fa3d1badea, type: 2}
+      objectReference: {fileID: 2100000, guid: 39f703a6028bc924394b8cfb4058edea, type: 2}
     - target: {fileID: -927199367670048503, guid: 40b4b63cede0ba443adcb8b16b53d7bb, type: 3}
       propertyPath: m_Name
       value: Tracks
