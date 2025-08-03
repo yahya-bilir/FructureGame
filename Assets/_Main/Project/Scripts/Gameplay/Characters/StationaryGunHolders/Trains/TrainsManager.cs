@@ -13,6 +13,7 @@ namespace Trains
     {
         [Header("Debug Components")]
         [SerializeField] private TrainEngine debugEngine;
+        [SerializeField] private TrainEngine flameThrowerEngine;
 
         private IObjectResolver _resolver;
         private IEventBus _eventBus;
@@ -47,15 +48,24 @@ namespace Trains
 
         private async UniTask SpawnAllTrains()
         {
-            for (int i = 0; i < 3; i++)
-            {
-                if (debugEngine != null)
-                {
-                    _eventBus.Publish(new OnEngineSelected(debugEngine));
-                }
-
-                await UniTask.WaitForSeconds(10f);
-            }
+            _eventBus.Publish(new OnEngineSelected(debugEngine));
+            
+            await UniTask.WaitForSeconds(10f);
+            
+            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine));
+            
+            await UniTask.WaitForSeconds(10f);
+            
+            _eventBus.Publish(new OnEngineSelected(debugEngine));
+            
+            // for (int i = 0; i < 2; i++)
+            // {
+            //     if (debugEngine != null)
+            //     {
+            //     }
+            //
+            //     await UniTask.WaitForSeconds(10f);
+            // }
         } 
         
         private void OnEnable()

@@ -214,13 +214,6 @@ MonoBehaviour:
     CameraSize: 5
     ParticleDuration: 5
     usesLegacySystem: 1
-  - particleType: 1
-    particlePrefab: {fileID: 7819584222978860415, guid: 4b8314ea623baf94cbecef5426eefb84, type: 3}
-    particleOffset: {x: 0, y: 0, z: 1}
-    RenderTextureSize: {x: 256, y: 512}
-    CameraSize: 4
-    ParticleDuration: 2
-    usesLegacySystem: 1
   positions:
   - {fileID: 1469058668769611542}
   - {fileID: 7153111872487765767}

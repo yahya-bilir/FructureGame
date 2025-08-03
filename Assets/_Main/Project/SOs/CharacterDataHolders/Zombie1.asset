@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie1
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
   <OnDeathParts>k__BackingField: []
-  <Worth>k__BackingField: 30
+  <Worth>k__BackingField: 1
   <ShineColor>k__BackingField: {r: 1024, g: 0, b: 0, a: 1}
   <ShineDuration>k__BackingField: 0.3
   <OnAttackedVFXColor>k__BackingField: {r: 0.1764706, g: 0.83137256, b: 0.9803922, a: 1}

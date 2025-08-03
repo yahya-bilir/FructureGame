@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8193760023738987018}
   - component: {fileID: 8766671392709823526}
   - component: {fileID: 5823690770423991700}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Rainbow_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   - component: {fileID: 8052355413810873194}
   - component: {fileID: 5289139455111736490}
   - component: {fileID: 2839853333053380443}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Star_Center_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9817,7 +9817,7 @@ GameObject:
   - component: {fileID: 4984650067572247375}
   - component: {fileID: 5025634689047879021}
   - component: {fileID: 5103329743474298874}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Glow_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14720,7 +14720,7 @@ GameObject:
   - component: {fileID: 5499465307420724602}
   - component: {fileID: 7517008226495579517}
   - component: {fileID: 7300135649593136444}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Impact_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19623,7 +19623,7 @@ GameObject:
   - component: {fileID: 2205598615446922742}
   - component: {fileID: 7388394299056280659}
   - component: {fileID: 8610037232678343986}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: PerkNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24477,7 +24477,7 @@ GameObject:
   - component: {fileID: 2671704356359461093}
   - component: {fileID: 6634281446230107573}
   - component: {fileID: 8452611075950163649}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Impact_Lines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29380,7 +29380,7 @@ GameObject:
   - component: {fileID: 1921517688156016516}
   - component: {fileID: 4311091761310738854}
   - component: {fileID: 7872182427648702841}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Light_Rays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34283,7 +34283,7 @@ GameObject:
   - component: {fileID: 6465976848261812285}
   - component: {fileID: 2284089004512508922}
   - component: {fileID: 1330501723332969551}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Embers_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39186,7 +39186,7 @@ GameObject:
   - component: {fileID: 7611775821477444164}
   - component: {fileID: 6047337347817385626}
   - component: {fileID: 8065363793057479104}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Star_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44089,7 +44089,7 @@ GameObject:
   - component: {fileID: 7236214642063792292}
   - component: {fileID: 8556972714130322592}
   - component: {fileID: 5119578186787086593}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Impact_Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Perks.PerkActions.CreateFireTrainPerk
   <PerkName>k__BackingField: Fire Train
   <Description>k__BackingField: Create fire train
-  <Icon>k__BackingField: {fileID: 21300000, guid: 16a86a7f581fc4dfb953e0df8ad3ecac, type: 3}
+  <Icon>k__BackingField: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   <Background>k__BackingField: {fileID: 21300000, guid: ddb153ce596016b448d426486e05b14e, type: 3}
-  <NameColor>k__BackingField: {r: 0.6528301, g: 0.6528301, b: 0.6528301, a: 1}
+  <NameColor>k__BackingField: {r: 0, g: 0.24705882, b: 0.5529412, a: 1}

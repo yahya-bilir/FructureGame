@@ -8,7 +8,7 @@
                 <engine:VisualElement name="Icon" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(93, 114, 255, 0); width: 57%; height: 45%; align-self: center; -unity-background-scale-mode: scale-to-fit; bottom: -15%;" />
             </engine:VisualElement>
             <engine:VisualElement name="Down" picking-mode="Ignore" style="flex-grow: 0; height: 36%; background-color: rgba(0, 0, 0, 0);">
-                <engine:Label text="+6 blocks fggdfg fgfdfgd fggdfgdgdfg" name="PerkInfoLabel" picking-mode="Ignore" class="text__align--middle-center text__color--white text__shadow--large" style="position: absolute; bottom: auto; align-self: center; width: 81%; white-space: pre-wrap; height: 65%; font-size: 34%; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+                <engine:Label text="+6 blocks fggdfg fgfdfgd fggdfgdgdfg" name="PerkInfoLabel" picking-mode="Ignore" class="text__align--middle-center text__color--white text__shadow--large" style="position: absolute; bottom: auto; align-self: center; width: 81%; white-space: pre-wrap; height: 65%; font-size: 34%; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); color: rgb(255, 255, 255);" />
             </engine:VisualElement>
         </engine:VisualElement>
     </AspectRatioElement>

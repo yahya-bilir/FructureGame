@@ -1,3 +1,4 @@
+using System;
 using Database;
 using EventBusses;
 using Events;
@@ -47,6 +48,7 @@ namespace Perks
             }
         }
 
+        [Button]
         private void LevelUp()
         {
             _xpToNextLevel = CalculateXpNeededForLevel(_currentLevel);
@@ -64,6 +66,14 @@ namespace Perks
         private int CalculateXpNeededForLevel(int level)
         {
             return Mathf.RoundToInt(baseXpNeeded * Mathf.Pow(xpGrowthRate, level - 1));
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                LevelUp();
+            }
         }
     }
 }

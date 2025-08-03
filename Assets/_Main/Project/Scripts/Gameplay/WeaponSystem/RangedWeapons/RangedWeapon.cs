@@ -7,12 +7,12 @@ using WeaponSystem.RangedWeapons;
 
 public class RangedWeapon : UpgradeableWeapon
 {
-    [SerializeField] private Transform projectileCreationPoint;
+    [SerializeField] protected Transform projectileCreationPoint;
     [field: SerializeField] public Animator Animator { get; private set; }
     
     private RangedWeaponSO _rangedWeaponSo;
     private float _shootCooldown;
-    private Queue<AmmoBase> _projectilePool;
+    protected Queue<AmmoBase> _projectilePool;
 
     public override void Initialize(CharacterCombatManager connectedCombatManager, float damage)
     {
@@ -39,7 +39,7 @@ public class RangedWeapon : UpgradeableWeapon
 //         }
     }
 
-    public void Shoot(Character character)
+    public virtual void Shoot(Character character)
     {
         // if (_rangedWeaponSo.ShouldDisableAfterEachShot)
         //     modelRenderer.enabled = false;
@@ -86,7 +86,7 @@ public class RangedWeapon : UpgradeableWeapon
         _projectilePool.Enqueue(projectile);
     }
 
-    private void ExpandPool(int amount = 5)
+    protected void ExpandPool(int amount = 5)
     {
         for (int i = 0; i < amount; i++)
         {
