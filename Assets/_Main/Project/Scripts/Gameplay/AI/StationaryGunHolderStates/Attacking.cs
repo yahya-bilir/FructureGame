@@ -50,7 +50,7 @@ public class Attacking : IState
 
         if (Mathf.Abs(angleDifference) > requiredAngleThreshold)
         {
-            float step = 360f * Time.deltaTime / 2; // döneceği hız (derece/sn)
+            float step = 360f * Time.deltaTime;
             float newY = Mathf.MoveTowardsAngle(currentY, targetY, step);
             _weaponTransform.rotation = Quaternion.Euler(0, newY, 0);
             return;

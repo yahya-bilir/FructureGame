@@ -19,8 +19,7 @@ public class StationaryGunHolderCharacter : Character
     {
         _eventBus = eventBus;
     }
-
-
+    
     protected override void Start()
     {
         base.Start();

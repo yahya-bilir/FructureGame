@@ -146,6 +146,7 @@ MonoBehaviour:
   healthBar: {fileID: 9216950705273674359}
   onDeathVfx: {fileID: 9159553285030847782}
   hitVfx: {fileID: 0}
+  spawnVfx: {fileID: 0}
   <CharacterDataHolder>k__BackingField: {fileID: 0}
   <CharacterPropertiesSo>k__BackingField: {fileID: 0}
   <Faction>k__BackingField: 0
