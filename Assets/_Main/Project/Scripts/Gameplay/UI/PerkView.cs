@@ -37,8 +37,8 @@ namespace Gameplay.UI.InGameView
 
         private void SetAfterInjection()
         {
-            _objectResolver.Inject(_particleVisualElement);
             _eventBus.Subscribe<OnLevelUpgraded>(CreatePerks);
+            _objectResolver.Inject(_particleVisualElement);
         }
         protected override void SetVisualElements()
         {

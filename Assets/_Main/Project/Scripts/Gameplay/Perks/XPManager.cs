@@ -11,7 +11,7 @@ namespace Perks
 {
     public class XPManager : MonoBehaviour
     {
-        [SerializeField] private int startingLevel = 1;
+        [SerializeField] private int startingLevel;
         [SerializeField] private int baseXpNeeded = 100;
         [SerializeField] private float xpGrowthRate = 1.2f;
         private GameDatabase _gameDatabase;
@@ -49,15 +49,16 @@ namespace Perks
 
         private void LevelUp()
         {
-            _currentLevel++;
             _xpToNextLevel = CalculateXpNeededForLevel(_currentLevel);
-            Debug.Log($"LEVEL UP! New Level: {_currentLevel}");
 
             var perks = _gameDatabase.GetPerksForLevel(_currentLevel);
             if (perks != null && perks.Count > 0)
             {
                 _eventBus.Publish(new OnLevelUpgraded(perks));
             }
+
+            _currentLevel++;
+            Debug.Log($"LEVEL UP! New Level: {_currentLevel}");
         }
 
         private int CalculateXpNeededForLevel(int level)

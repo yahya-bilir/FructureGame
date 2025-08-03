@@ -20,8 +20,8 @@ namespace UI
         {
             _document = GetComponent<UIDocument>();
             _rootElement = _document.rootVisualElement;
-            _baseHealthContainer = new BaseHealthContainer(_rootElement);
-            _perkView = new PerkView(_rootElement, perkViewData);
+            _baseHealthContainer = new BaseHealthContainer(_rootElement.Q("Bottom"));
+            _perkView = new PerkView(_rootElement.Q("PerkScreen"), perkViewData);
         }
 
         [Inject]

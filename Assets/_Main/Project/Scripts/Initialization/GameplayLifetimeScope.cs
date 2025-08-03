@@ -2,6 +2,7 @@
 using Characters.BaseSystem;
 using CommonComponents;
 using Factories;
+using FlingTamplate.UIParticle;
 using Perks;
 using Trains;
 using UI;
@@ -27,6 +28,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<XPManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
+            builder.RegisterComponentInHierarchy<UIParticleManager>();
         }
         
     }
