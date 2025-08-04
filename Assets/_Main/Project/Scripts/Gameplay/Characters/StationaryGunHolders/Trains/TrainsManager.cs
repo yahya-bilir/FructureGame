@@ -37,7 +37,7 @@ namespace Trains
         {
             foreach (var system in trainSystems)
             {
-                system.Initialize(_resolver);
+                system.Initialize(_resolver, _camerasManager);
                 system.Disable();
             }
         }
@@ -52,17 +52,17 @@ namespace Trains
         {
             _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
             
-            await UniTask.WaitForSeconds(1);
+            await UniTask.WaitForSeconds(10);
+
+            _eventBus.Publish(new OnEngineSelected(rocketEngine, 0));
+
+            await UniTask.WaitForSeconds(12);
             
             _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
+
+            await UniTask.WaitForSeconds(15);
             
-            await UniTask.WaitForSeconds(1);
-            
-            _eventBus.Publish(new OnEngineSelected(rocketEngine, 2));            
-            
-            await UniTask.WaitForSeconds(7);
-            
-            _eventBus.Publish(new OnEngineSelected(electricEngine, 2));
+            _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
             
             // for (int i = 0; i < 2; i++)
             // {
@@ -98,10 +98,8 @@ namespace Trains
             }
 
             var system = trainSystems[eventData.SystemIndex];
-
+            
             await system.AddEngineToSystem(eventData.Engine);
-
-            _camerasManager.ChangeActivePlayerCamera(system.CameraToActivate);
         }
 
     }

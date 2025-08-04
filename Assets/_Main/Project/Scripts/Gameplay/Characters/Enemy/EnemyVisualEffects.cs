@@ -37,10 +37,13 @@ namespace Characters.Enemy
             {
                 var originalMaterial = renderer.material;
                 var originalTexture = originalMaterial.GetTexture("_BaseMap");
+                var originalColor = originalMaterial.GetColor("_BaseColor");
                 //var normalMap = originalMaterial.GetTexture("_NormalMap");
 
                 var newMaterial = new Material(dissolveMaterial);
                 newMaterial.SetTexture("_BaseMap", originalTexture);
+                newMaterial.SetColor("_BaseColor", originalColor);
+
                 //newMaterial.SetTexture("_NormalMap", normalMap);
 
                 renderer.material = newMaterial;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CommonComponents;
 using Cysharp.Threading.Tasks;
 using Dreamteck.Splines;
 using Trains;
@@ -20,10 +21,12 @@ public class TrainSystem
     private List<TrainEngine> _engineInstances = new();
 
     private bool _hasOpened = false;
+    private CamerasManager _camerasManager;
 
-    public void Initialize(IObjectResolver resolver)
+    public void Initialize(IObjectResolver resolver, CamerasManager camerasManager)
     {
         _resolver = resolver;
+        _camerasManager = camerasManager;
     }
 
     public async UniTask AddEngineToSystem(TrainEngine enginePrefab)
@@ -32,6 +35,7 @@ public class TrainSystem
 
         if (!_hasOpened)
         {
+            _camerasManager.ChangeActivePlayerCamera(CameraToActivate);
             await RaySpawner.SpawnSegments();
             await UniTask.WaitForSeconds(0.33f);
             _hasOpened = true;
