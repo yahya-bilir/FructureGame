@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: aa4ff0683060187438db3ced65727aea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e80e6fce9870ab34d9cfbbbd068d18fd, type: 2}
     - target: {fileID: 919132149155446097, guid: aa4ff0683060187438db3ced65727aea, type: 3}
       propertyPath: m_Name
       value: BlueTrain
