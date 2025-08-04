@@ -6,13 +6,13 @@ using VContainer;
 
 public class StationaryGunHolderCharacter : Character
 {
-    private StateMachine _stateMachine;
+    protected StateMachine _stateMachine;
     private SearchingForEnemy _searchingState;
     private Attacking _attackingState;
 
-    private RangedWeapon _rangedWeapon;
-    private Transform _weaponTransform;
-    private IEventBus _eventBus;
+    protected RangedWeapon _rangedWeapon;
+    protected Transform _weaponTransform;
+    protected IEventBus _eventBus;
 
     [Inject]
     private void Inject(IEventBus eventBus)
@@ -39,7 +39,7 @@ public class StationaryGunHolderCharacter : Character
         SetStates();
     }
 
-    private void SetStates()
+    protected virtual void SetStates()
     {
         _searchingState = new SearchingForEnemy(CharacterCombatManager, AIText, _rangedWeapon.Animator, this.name);
         _attackingState = new Attacking(CharacterCombatManager, _rangedWeapon, _weaponTransform, AIText, _rangedWeapon.Animator, _eventBus);

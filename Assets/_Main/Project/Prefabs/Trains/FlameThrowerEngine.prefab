@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7964440763486838612, guid: 797c8156ad0137342ad0bf52567ff66d, type: 3}
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+      propertyPath: isFlameThrower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: e013819bcae82924090357f24d9fa074, type: 2}

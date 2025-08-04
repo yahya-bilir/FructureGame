@@ -29,6 +29,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<XPManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<UIParticleManager>();
+            builder.Register<FlamethrowerLeadTargetProvider>(Lifetime.Singleton).AsSelf();
         }
         
     }

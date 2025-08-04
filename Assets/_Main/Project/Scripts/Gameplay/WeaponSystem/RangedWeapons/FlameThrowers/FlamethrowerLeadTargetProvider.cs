@@ -1,11 +1,15 @@
 using Characters;
 
-public static class FlamethrowerLeadTargetProvider
+public class FlamethrowerLeadTargetProvider
 {
-    public static Character CurrentTarget { get; private set; }
+    public Character CurrentTarget { get; private set; }
 
-    public static void UpdateTarget(Character character)
+    public void UpdateTarget(Character character)
     {
-        CurrentTarget = character;
+        if (character != null && !character.IsCharacterDead)
+            CurrentTarget = character;
     }
+
+    public bool HasValidTarget =>
+        CurrentTarget != null && !CurrentTarget.IsCharacterDead;
 }

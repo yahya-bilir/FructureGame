@@ -7,86 +7,74 @@ using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Trains
 {
     public class TrainEngine : Wagon
     {
-        [SerializeField] private RagdollDataHolder ragdollData;
-        
         [Header("Wagon Settings")]
         [SerializeField] private List<Wagon> wagons = new();
         [SerializeField] private float wagonSpacing = 2f;
         [SerializeField] private Wagon wagonPrefab;
-        private IEventBus _eventBus;
+
+        [Header("Combat Settings")]
+        [SerializeField] private RagdollDataHolder ragdollData;
+
+        [Header("Character Properties")]
+        [SerializeField] private CharacterPropertiesSO characterPropertiesSO;
+
+        private IObjectResolver _resolver;
+        private CharacterPropertyManager _characterPropertyManager;
         private Spline.Direction _direction;
 
-        protected override bool IsEngine => true;
-
         [Inject]
-        private void Inject(IEventBus eventBus)
+        private void Inject(IObjectResolver resolver)
         {
-            _eventBus = eventBus;
+            _resolver = resolver;
         }
 
-        protected override void Start()
+        protected void Awake()
         {
-            base.Start();
+            _characterPropertyManager = new CharacterPropertyManager(characterPropertiesSO);
+            var speed = _characterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
+            Tracer.followSpeed = speed;
+        }
+
+        protected void Start()
+        {
             ApplyOffsets();
-            var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
-            tracer.followSpeed = speed;
-            // for (int i = 0; i < 5; i++)
-            // {
-            //     SpawnWagon();
-            // }
-            SetSharedSpeed(speed);
-            
+            SetSharedSpeed(Tracer.followSpeed);
         }
 
         private void LateUpdate()
         {
-            tracer.direction = _direction;
+            Tracer.direction = _direction;
             UpdateOffsets();
-        }
-
-        protected override void OnTriggerEnter(Collider other)
-        {
-            var enemy = other.GetComponent<EnemyBehaviour>();
-            if (enemy == null) return;
-
-            Vector3 impactPoint = other.ClosestPointOnBounds(transform.position);
-            _eventBus.Publish(new OnEnemyCrushed(enemy, impactPoint, ragdollData));
         }
 
         [Button]
         public void SpawnWagon()
         {
             var wagon = Instantiate(wagonPrefab, transform.parent);
-            Resolver.Inject(wagon);
+            _resolver.InjectGameObject(wagon.gameObject);
 
             wagons.Add(wagon);
             wagon.SetFront(this);
+            wagon.SetSpline(Tracer.spline, Tracer.direction);
             ApplyOffsets();
-            wagon.SetSpline(tracer.spline, tracer.direction);
         }
 
         [Button]
         public void RemoveWagon()
         {
+            if (wagons.Count == 0) return;
+
             var wagon = wagons[^1];
             if (wagons.Remove(wagon))
             {
                 wagon.gameObject.SetActive(false);
                 ApplyOffsets();
-            }
-        }
-
-        private void SetSharedSpeed(float speed)
-        {
-            tracer.followSpeed = speed;
-            foreach (var wagon in wagons)
-            {
-                wagon.SetSpeed(speed);
             }
         }
 
@@ -105,19 +93,35 @@ namespace Trains
                 wagon.UpdatePosition(_direction);
             }
         }
-        
+
+        private void SetSharedSpeed(float speed)
+        {
+            Tracer.followSpeed = speed;
+            foreach (var wagon in wagons)
+            {
+                wagon.SetSpeed(speed);
+            }
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            var enemy = other.GetComponent<EnemyBehaviour>();
+            if (enemy == null) return;
+
+            Vector3 impactPoint = other.ClosestPointOnBounds(transform.position);
+            EventBus.Publish(new OnEnemyCrushed(enemy, impactPoint, ragdollData));
+        }
+
         public void SetSplineComputer(SplineComputer spline, bool isReversed)
         {
-            if (tracer == null) tracer = GetComponent<SplineFollower>();
-            
-            tracer.spline = spline;
+            Tracer.spline = spline;
             _direction = isReversed ? Spline.Direction.Backward : Spline.Direction.Forward;
-            tracer.direction = _direction;
-            tracer.RebuildImmediate();
-            tracer.SetPercent(isReversed ? 1.0 : 0.0);
+            Tracer.direction = _direction;
+
+            Tracer.RebuildImmediate();
+            Tracer.SetPercent(isReversed ? 1.0 : 0.0);
 
             wagonSpacing = Mathf.Abs(wagonSpacing) * (isReversed ? -1f : 1f);
         }
-
     }
 }
