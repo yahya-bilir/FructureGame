@@ -15,6 +15,7 @@ namespace Trains
         [SerializeField] private TrainEngine debugEngine;
         [SerializeField] private TrainEngine flameThrowerEngine;
         [SerializeField] private TrainEngine rocketEngine;
+        [SerializeField] private TrainEngine electricEngine;
 
         private IObjectResolver _resolver;
         private IEventBus _eventBus;
@@ -49,15 +50,19 @@ namespace Trains
 
         private async UniTask SpawnAllTrains()
         {
-            _eventBus.Publish(new OnEngineSelected(debugEngine));
+            _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
             
-            await UniTask.WaitForSeconds(10f);
+            await UniTask.WaitForSeconds(1);
             
-            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine));
+            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
             
-            await UniTask.WaitForSeconds(10f);
+            await UniTask.WaitForSeconds(1);
             
-            _eventBus.Publish(new OnEngineSelected(rocketEngine));
+            _eventBus.Publish(new OnEngineSelected(rocketEngine, 2));            
+            
+            await UniTask.WaitForSeconds(7);
+            
+            _eventBus.Publish(new OnEngineSelected(electricEngine, 2));
             
             // for (int i = 0; i < 2; i++)
             // {
@@ -86,15 +91,18 @@ namespace Trains
 
         private async UniTask OnEngineSelectedAsync(OnEngineSelected eventData)
         {
-            if (_openedSystemsCount >= trainSystems.Count) return;
+            if (eventData.SystemIndex < 0 || eventData.SystemIndex >= trainSystems.Count)
+            {
+                Debug.LogWarning($"Invalid system index: {eventData.SystemIndex}");
+                return;
+            }
 
-            var system = trainSystems[_openedSystemsCount];
-            
+            var system = trainSystems[eventData.SystemIndex];
+
+            await system.AddEngineToSystem(eventData.Engine);
+
             _camerasManager.ChangeActivePlayerCamera(system.CameraToActivate);
-            
-            await system.AddEngineToSystem(eventData.Engine); // async çağrı burada
-            
-            _openedSystemsCount++;
         }
+
     }
 }
