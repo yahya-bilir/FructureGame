@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - particles
+  - Missile
+  - Ground
   layers:
   - Default
   - TransparentFX

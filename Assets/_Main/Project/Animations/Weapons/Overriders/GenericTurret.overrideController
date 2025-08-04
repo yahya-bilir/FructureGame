@@ -8,6 +8,4 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: GenericTurret
   m_Controller: {fileID: 9100000, guid: 27ced33e7789b5e4ab3b089508514123, type: 2}
-  m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: e604cb00b3dbf414184cbd4c713b774c, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e604cb00b3dbf414184cbd4c713b774c, type: 2}
+  m_Clips: []

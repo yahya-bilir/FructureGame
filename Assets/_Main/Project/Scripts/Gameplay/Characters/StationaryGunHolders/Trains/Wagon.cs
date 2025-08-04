@@ -30,10 +30,13 @@ namespace Trains
         [Inject]
         private void Inject(IEventBus eventBus, IObjectResolver resolver)
         {
-            Debug.Log("Injected");
             EventBus = eventBus;
             Resolver = resolver;
-            Resolver.Inject(gunHolder);
+            if (gunHolder != null)
+            {
+                Resolver.Inject(gunHolder);
+            }
+
         }
 
         protected virtual void Awake()

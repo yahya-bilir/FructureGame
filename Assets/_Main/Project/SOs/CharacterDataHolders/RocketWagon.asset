@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2acc19bc5819497c92df540160588535, type: 3}
-  m_Name: TrainEngine
+  m_Name: RocketWagon
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
   <OnDeathParts>k__BackingField: []
   <Worth>k__BackingField: 30
@@ -21,4 +21,4 @@ MonoBehaviour:
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 0.5
   <Order>k__BackingField: 2
-  <Weapon>k__BackingField: {fileID: 990159928383293607, guid: 59d12f4a7fc0b9f4683c12976783aea7, type: 3}
+  <Weapon>k__BackingField: {fileID: 7536487789675096028, guid: c4e415c225cecd14cbaa4e741cc2863e, type: 3}

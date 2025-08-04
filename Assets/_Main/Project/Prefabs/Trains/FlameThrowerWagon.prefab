@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 194210664234457287, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.431
+      objectReference: {fileID: 0}
+    - target: {fileID: 194210664234457287, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.151
+      objectReference: {fileID: 0}
     - target: {fileID: 1810114047428656059, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: gunHolder
       value: 
@@ -58,6 +66,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4706245020231580866, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960265870293982850, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8207661063093613109, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}

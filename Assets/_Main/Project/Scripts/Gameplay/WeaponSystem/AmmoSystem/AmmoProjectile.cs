@@ -8,7 +8,7 @@ namespace WeaponSystem.AmmoSystem
 {
     public class AmmoProjectile : AmmoBase
     {
-        private Rigidbody _rigidbody;
+        protected Rigidbody _rigidbody;
         private float _speed;
         private bool _hasReturnedToPool = false;
         private CancellationTokenSource _cts;

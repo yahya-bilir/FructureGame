@@ -14,6 +14,7 @@ namespace Trains
         [Header("Debug Components")]
         [SerializeField] private TrainEngine debugEngine;
         [SerializeField] private TrainEngine flameThrowerEngine;
+        [SerializeField] private TrainEngine rocketEngine;
 
         private IObjectResolver _resolver;
         private IEventBus _eventBus;
@@ -56,7 +57,7 @@ namespace Trains
             
             await UniTask.WaitForSeconds(10f);
             
-            _eventBus.Publish(new OnEngineSelected(debugEngine));
+            _eventBus.Publish(new OnEngineSelected(rocketEngine));
             
             // for (int i = 0; i < 2; i++)
             // {

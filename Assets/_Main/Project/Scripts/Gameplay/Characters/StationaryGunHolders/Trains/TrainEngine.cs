@@ -28,7 +28,7 @@ namespace Trains
         private Spline.Direction _direction;
         protected override bool IsEngine => true;
 
-
+    
         protected override void Awake()
         {
             base.Awake();

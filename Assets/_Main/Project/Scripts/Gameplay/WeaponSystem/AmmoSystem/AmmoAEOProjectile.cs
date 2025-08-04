@@ -10,34 +10,49 @@ namespace WeaponSystem.AmmoSystem
         [SerializeField] private float aoeRadius = 3f;
         [SerializeField] private float jumpPower = 2f;
         [SerializeField] private float jumpDuration = 1f;
+        [SerializeField] private ParticleSystem vfx;
 
-        private bool _hasExploded = false;
-        private CancellationTokenSource _cts;
+        protected bool _hasExploded = false;
+        protected CancellationTokenSource _cts;
+        protected Rigidbody _rigidbody;
+
+        protected void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
 
         public override void FireAt(Character target)
         {
             FireAtPosition(target.transform.position);
         }
 
-        public void FireAtPosition(Vector3 targetPos)
+        protected virtual void FireAtPosition(Vector3 targetPos)
         {
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
             _hasExploded = false;
 
             transform.DOMove(targetPos, jumpDuration)
-                .SetEase(Ease.OutQuad)
+                .SetEase(Ease.Linear)
                 .SetLoops(1)
                 .OnComplete(() => Explode());
         }
 
-        private void Explode()
+        protected void Explode()
         {
             if (_hasExploded) return;
             _hasExploded = true;
 
-            var hits = Physics.OverlapSphere(transform.position, aoeRadius, LayerMask.GetMask("AI"));
+            // 💥 VFX oluştur
+            if (vfx != null)
+            {
+                vfx.transform.SetParent(null);
+                vfx.transform.position = transform.position;
+                vfx.Play();
+            }
 
+            // 📦 Hasar verilecek hedefleri bul
+            var hits = Physics.OverlapSphere(transform.position, aoeRadius, LayerMask.GetMask("AI"));
             foreach (var hit in hits)
             {
                 if (hit.TryGetComponent(out Character enemy) &&
@@ -48,12 +63,13 @@ namespace WeaponSystem.AmmoSystem
                 }
             }
 
+            _rigidbody.linearVelocity = Vector3.zero;
+
             gameObject.SetActive(false);
             _ownerWeapon.ReturnProjectileToPool(this);
         }
 
         protected override void TryProcessTrigger(Collider other, bool isEntering) { }
-
         protected override void TryProcessTrigger(Collider2D other, bool isEntering) { }
     }
 }
