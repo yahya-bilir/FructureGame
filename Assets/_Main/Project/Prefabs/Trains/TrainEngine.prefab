@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2612712693814612802}
   - component: {fileID: 7324634451704969569}
   - component: {fileID: -8785948683873771689}
+  - component: {fileID: 1106347953705351094}
   m_Layer: 0
   m_Name: TrainEngine
   m_TagString: Untagged
@@ -228,23 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbf91f999dd40ffa7d7fbe68d742136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::Trains.TrainEngine
-  <AIText>k__BackingField: {fileID: 1057607559580328970}
-  model: {fileID: 4770725389215093353}
-  weaponEquippingField: {fileID: 4384185780469353682}
-  healthBar: {fileID: 0}
-  onDeathVfx: {fileID: 0}
-  hitVfx: {fileID: 0}
-  spawnVfx: {fileID: 0}
-  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: c527ded257220d1469354454571135f5, type: 2}
-  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: dc0fd0ee86c97814c84b37ab42ffb345, type: 2}
-  <Faction>k__BackingField: 0
-  offsetIndex: 1
-  spacing: 2
   knockbackData: {fileID: 11400000, guid: 57ac64ce1afb9264daf410f73c6b951e, type: 2}
-  ragdollData: {fileID: 11400000, guid: 1e1a7782043277240a6765512fe7d0aa, type: 2}
+  gunHolder: {fileID: 1106347953705351094}
   wagons: []
   wagonSpacing: 1.5
   wagonPrefab: {fileID: 1810114047428656059, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+  ragdollData: {fileID: 11400000, guid: 1e1a7782043277240a6765512fe7d0aa, type: 2}
+  characterPropertiesSO: {fileID: 11400000, guid: dc0fd0ee86c97814c84b37ab42ffb345, type: 2}
 --- !u!114 &-8785948683873771689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +347,28 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &1106347953705351094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544722962734245170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca10d9ce57554b3ea37db7119d209b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::StationaryGunHolderCharacter
+  <AIText>k__BackingField: {fileID: 1057607559580328970}
+  model: {fileID: 4770725389215093353}
+  weaponEquippingField: {fileID: 4384185780469353682}
+  healthBar: {fileID: 0}
+  onDeathVfx: {fileID: 0}
+  hitVfx: {fileID: 0}
+  spawnVfx: {fileID: 0}
+  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: c527ded257220d1469354454571135f5, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: dc0fd0ee86c97814c84b37ab42ffb345, type: 2}
+  <Faction>k__BackingField: 0
 --- !u!1 &4770725389215093353
 GameObject:
   m_ObjectHideFlags: 0

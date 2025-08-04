@@ -53,9 +53,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+      propertyPath: gunHolder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: wagonPrefab
       value: 
-      objectReference: {fileID: 7964440763486838612, guid: 797c8156ad0137342ad0bf52567ff66d, type: 3}
+      objectReference: {fileID: 7294836339388467409}
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: isFlameThrower
       value: 1
@@ -64,8 +68,61 @@ PrefabInstance:
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: e013819bcae82924090357f24d9fa074, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4440814009570938053, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+    - {fileID: 1106347953705351094, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3544722962734245170, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966067744641675012}
   m_SourcePrefab: {fileID: 100100000, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+--- !u!1 &3579026867255760002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3544722962734245170, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+  m_PrefabInstance: {fileID: 43385877701472688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966067744641675012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579026867255760002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740a30b75609490b96ac17f5167db0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::FlameThrowerCharacter
+  <AIText>k__BackingField: {fileID: 0}
+  model: {fileID: 4805101447193584601}
+  weaponEquippingField: {fileID: 4345378276317592930}
+  healthBar: {fileID: 0}
+  onDeathVfx: {fileID: 0}
+  hitVfx: {fileID: 0}
+  spawnVfx: {fileID: 0}
+  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: e013819bcae82924090357f24d9fa074, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: dc0fd0ee86c97814c84b37ab42ffb345, type: 2}
+  <Faction>k__BackingField: 0
+--- !u!4 &4345378276317592930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4384185780469353682, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+  m_PrefabInstance: {fileID: 43385877701472688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4805101447193584601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4770725389215093353, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+  m_PrefabInstance: {fileID: 43385877701472688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7294836339388467409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+  m_PrefabInstance: {fileID: 43385877701472688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579026867255760002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bbf91f999dd40ffa7d7fbe68d742136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::Trains.TrainEngine

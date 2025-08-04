@@ -1,3 +1,4 @@
+using System;
 using Characters.Enemy;
 using Dreamteck.Splines;
 using EventBusses;
@@ -21,20 +22,27 @@ namespace Trains
         [SerializeField] private KnockbackDataHolder knockbackData;
 
         protected IEventBus EventBus;
-        protected virtual bool IsEngine => false;
+        protected IObjectResolver Resolver;
 
+        protected virtual bool IsEngine => false;
+        [SerializeField] private StationaryGunHolderCharacter gunHolder;
+        
         [Inject]
-        private void Inject(IEventBus eventBus)
+        private void Inject(IEventBus eventBus, IObjectResolver resolver)
         {
+            Debug.Log("Injected");
             EventBus = eventBus;
+            Resolver = resolver;
+            Resolver.Inject(gunHolder);
         }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             Tracer = GetComponent<SplineFollower>();
             Tracer.wrapMode = SplineFollower.Wrap.Loop;
             Tracer.follow = IsEngine;
         }
+        
 
         protected virtual void OnTriggerEnter(Collider other)
         {

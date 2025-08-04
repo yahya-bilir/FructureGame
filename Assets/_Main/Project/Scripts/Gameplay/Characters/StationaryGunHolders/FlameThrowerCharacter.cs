@@ -1,5 +1,6 @@
 // FlameThrowerCharacter.cs
 
+using UnityEngine;
 using VContainer;
 
 public class FlameThrowerCharacter : StationaryGunHolderCharacter
@@ -12,6 +13,7 @@ public class FlameThrowerCharacter : StationaryGunHolderCharacter
     [Inject]
     private void Inject(FlamethrowerLeadTargetProvider targetProvider)
     {
+        Debug.Log("Flamethrowercharacter Injected");
         _targetProvider = targetProvider;
     }
 

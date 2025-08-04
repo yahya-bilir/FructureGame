@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 1810114047428656059}
   - component: {fileID: -7522804310470334642}
   - component: {fileID: 747843865042190931}
+  - component: {fileID: 329017904342240658}
   m_Layer: 0
   m_Name: Wagon
   m_TagString: Untagged
@@ -338,18 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c1bf7e6db04feeba214690d4530c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::Trains.Wagon
-  <AIText>k__BackingField: {fileID: 101686918458050237}
-  model: {fileID: 5960265870293982850}
-  weaponEquippingField: {fileID: 194210664234457287}
-  healthBar: {fileID: 0}
-  onDeathVfx: {fileID: 0}
-  hitVfx: {fileID: 0}
-  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: 4d87b3d13ffb86a41954788267a7f197, type: 2}
-  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 53f41525daf430d459eef58312bb2b76, type: 2}
-  <Faction>k__BackingField: 0
-  offsetIndex: 1
-  spacing: 2
   knockbackData: {fileID: 11400000, guid: 57ac64ce1afb9264daf410f73c6b951e, type: 2}
+  gunHolder: {fileID: 329017904342240658}
 --- !u!114 &-7522804310470334642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +479,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &329017904342240658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207661063093613109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca10d9ce57554b3ea37db7119d209b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gameplay::StationaryGunHolderCharacter
+  <AIText>k__BackingField: {fileID: 101686918458050237}
+  model: {fileID: 5960265870293982850}
+  weaponEquippingField: {fileID: 194210664234457287}
+  healthBar: {fileID: 0}
+  onDeathVfx: {fileID: 0}
+  hitVfx: {fileID: 0}
+  spawnVfx: {fileID: 0}
+  <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: 4d87b3d13ffb86a41954788267a7f197, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 53f41525daf430d459eef58312bb2b76, type: 2}
+  <Faction>k__BackingField: 0
 --- !u!1001 &2932094582311728868
 PrefabInstance:
   m_ObjectHideFlags: 0

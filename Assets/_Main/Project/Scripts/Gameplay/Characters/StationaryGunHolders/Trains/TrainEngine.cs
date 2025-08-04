@@ -24,27 +24,24 @@ namespace Trains
         [Header("Character Properties")]
         [SerializeField] private CharacterPropertiesSO characterPropertiesSO;
 
-        private IObjectResolver _resolver;
         private CharacterPropertyManager _characterPropertyManager;
         private Spline.Direction _direction;
+        protected override bool IsEngine => true;
 
-        [Inject]
-        private void Inject(IObjectResolver resolver)
-        {
-            _resolver = resolver;
-        }
 
-        protected void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _characterPropertyManager = new CharacterPropertyManager(characterPropertiesSO);
-            var speed = _characterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
-            Tracer.followSpeed = speed;
         }
 
         protected void Start()
         {
             ApplyOffsets();
             SetSharedSpeed(Tracer.followSpeed);
+            Resolver.Inject(_characterPropertyManager);
+            var speed = _characterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
+            Tracer.followSpeed = speed;
         }
 
         private void LateUpdate()
@@ -57,7 +54,7 @@ namespace Trains
         public void SpawnWagon()
         {
             var wagon = Instantiate(wagonPrefab, transform.parent);
-            _resolver.InjectGameObject(wagon.gameObject);
+            Resolver.Inject(wagon);
 
             wagons.Add(wagon);
             wagon.SetFront(this);
