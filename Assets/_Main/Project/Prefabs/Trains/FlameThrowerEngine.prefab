@@ -55,11 +55,11 @@ PrefabInstance:
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: gunHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1966067744641675012}
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: wagonPrefab
       value: 
-      objectReference: {fileID: 7294836339388467409}
+      objectReference: {fileID: 7964440763486838612, guid: 797c8156ad0137342ad0bf52567ff66d, type: 3}
     - target: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: isFlameThrower
       value: 1
@@ -78,6 +78,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1966067744641675012}
   m_SourcePrefab: {fileID: 100100000, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+--- !u!114 &1024361386704606650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1057607559580328970, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+  m_PrefabInstance: {fileID: 43385877701472688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &3579026867255760002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3544722962734245170, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
@@ -95,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740a30b75609490b96ac17f5167db0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::FlameThrowerCharacter
-  <AIText>k__BackingField: {fileID: 0}
+  <AIText>k__BackingField: {fileID: 1024361386704606650}
   model: {fileID: 4805101447193584601}
   weaponEquippingField: {fileID: 4345378276317592930}
   healthBar: {fileID: 0}
@@ -115,14 +126,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4770725389215093353, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
   m_PrefabInstance: {fileID: 43385877701472688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7294836339388467409 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7324634451704969569, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
-  m_PrefabInstance: {fileID: 43385877701472688}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3579026867255760002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bbf91f999dd40ffa7d7fbe68d742136, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Gameplay::Trains.TrainEngine
