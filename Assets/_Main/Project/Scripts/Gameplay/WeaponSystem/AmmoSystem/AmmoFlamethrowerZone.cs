@@ -47,8 +47,8 @@ namespace WeaponSystem.AmmoSystem
             if (!_isBurning) return;
             _isBurning = false;
 
-            if (flameParticle.isPlaying)
-                flameParticle.Stop();
+            // if (flameParticle.isPlaying)
+            //     //flameParticle.Stop();
 
             _burningCharacters.Clear();
         }

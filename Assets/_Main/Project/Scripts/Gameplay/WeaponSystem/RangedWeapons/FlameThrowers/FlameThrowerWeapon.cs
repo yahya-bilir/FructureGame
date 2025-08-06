@@ -1,11 +1,13 @@
+using System;
+using System.Collections.Generic;
 using Characters;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
-
 public class FlamethrowerWeapon : RangedWeapon
 {
-    private AmmoFlamethrowerZone _ammoZone;
+    [SerializeField] private List<FlamethrowerOutput> flameOutputs;
+
     private bool _canShoot = true;
     private bool _isFiring = false;
 
@@ -16,27 +18,22 @@ public class FlamethrowerWeapon : RangedWeapon
         _isFiring = true;
         _canShoot = false;
 
-        if (_ammoZone == null)
+        // Listedeki tüm çıkışlardan ateş et
+        foreach (var output in flameOutputs)
         {
-            if (_projectilePool.Count == 0)
-                ExpandPool();
+            var zone = output.FlameZone;
+            var target = output.TargetCharacter;
 
-            _ammoZone = _projectilePool.Dequeue() as AmmoFlamethrowerZone;
-            if (_ammoZone == null)
+            if (!zone.gameObject.activeInHierarchy)
             {
-                Debug.LogError("AmmoFlamethrowerZone not found in pool or wrong type.");
-                return;
+                zone.gameObject.SetActive(true);
+                zone.SetOwnerAndColor(this, _currentColor);
+                zone.Initialize(ConnectedCombatManager, Damage);
             }
 
-            _ammoZone.transform.SetParent(projectileCreationPoint);
-            _ammoZone.transform.localPosition = Vector3.zero;
-            _ammoZone.transform.localRotation = Quaternion.identity;
-            _ammoZone.SetOwnerAndColor(this, _currentColor);
-            _ammoZone.Initialize(ConnectedCombatManager, Damage);
-            _ammoZone.gameObject.SetActive(true);
+            zone.FireAt(target);
         }
 
-        _ammoZone.FireAt(character);
         FlameCycle().Forget();
     }
 
@@ -56,6 +53,18 @@ public class FlamethrowerWeapon : RangedWeapon
         if (!_isFiring) return;
         _isFiring = false;
 
-        _ammoZone?.StopBurning();
+        foreach (var output in flameOutputs)
+        {
+            output.FlameZone.StopBurning();
+            //output.FlameZone.gameObject.SetActive(false);
+        }
     }
+}
+
+
+[Serializable]
+public struct FlamethrowerOutput
+{
+    [field: SerializeField] public AmmoFlamethrowerZone FlameZone { get; private set; }
+    [field: SerializeField] public Character TargetCharacter { get; private set; }
 }

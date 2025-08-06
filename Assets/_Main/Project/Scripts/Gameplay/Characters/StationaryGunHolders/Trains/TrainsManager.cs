@@ -50,19 +50,19 @@ namespace Trains
 
         private async UniTask SpawnAllTrains()
         {
-            _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 0));
             
             await UniTask.WaitForSeconds(10);
 
-            _eventBus.Publish(new OnEngineSelected(rocketEngine, 0));
+            _eventBus.Publish(new OnEngineSelected(debugEngine, 1));
 
             await UniTask.WaitForSeconds(12);
             
-            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
-
+            _eventBus.Publish(new OnEngineSelected(rocketEngine, 2));
+            
             await UniTask.WaitForSeconds(15);
             
-            _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
+            _eventBus.Publish(new OnEngineSelected(electricEngine, 2));
             
             // for (int i = 0; i < 2; i++)
             // {

@@ -39,22 +39,22 @@ public class FlamethrowerAttacking : IState
         var target = _targetProvider.CurrentTarget;
         if (target == null || target.IsCharacterDead) return;
 
-        Vector3 direction = (target.transform.position - _weaponTransform.position).normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-
-        float targetY = targetRotation.eulerAngles.y;
-        Vector3 currentEuler = _weaponTransform.rotation.eulerAngles;
-        float currentY = currentEuler.y;
-
-        float angleDifference = Mathf.DeltaAngle(currentY, targetY);
-
-        if (Mathf.Abs(angleDifference) > requiredAngleThreshold)
-        {
-            float step = 360f * Time.deltaTime;
-            float newY = Mathf.MoveTowardsAngle(currentY, targetY, step);
-            _weaponTransform.rotation = Quaternion.Euler(0, newY, 0);
-            return;
-        }
+        // Vector3 direction = (target.transform.position - _weaponTransform.position).normalized;
+        // Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+        //
+        // float targetY = targetRotation.eulerAngles.y;
+        // Vector3 currentEuler = _weaponTransform.rotation.eulerAngles;
+        // float currentY = currentEuler.y;
+        //
+        // float angleDifference = Mathf.DeltaAngle(currentY, targetY);
+        //
+        // if (Mathf.Abs(angleDifference) > requiredAngleThreshold)
+        // {
+        //     float step = 360f * Time.deltaTime;
+        //     float newY = Mathf.MoveTowardsAngle(currentY, targetY, step);
+        //     _weaponTransform.rotation = Quaternion.Euler(0, newY, 0);
+        //     return;
+        // }
 
         _cooldown += Time.deltaTime;
 
