@@ -16,14 +16,14 @@ public class FlamethrowerAttacking : IState
     private readonly TextMeshPro _aiText;
     private readonly Animator _rangedWeaponAnimator;
     private readonly IEventBus _eventBus;
-    private readonly FlamethrowerLeadTargetProvider _targetProvider;
+    private readonly MainBaseGetterAsATarget _target;
 
     private float _cooldown;
     private bool _initialized;
     private const float requiredAngleThreshold = 5f;
 
     public FlamethrowerAttacking(CharacterCombatManager combatManager, RangedWeapon rangedWeapon, Transform weaponTransform,
-        TextMeshPro aiText, Animator rangedWeaponAnimator, IEventBus eventBus, FlamethrowerLeadTargetProvider targetProvider)
+        TextMeshPro aiText, Animator rangedWeaponAnimator, IEventBus eventBus, MainBaseGetterAsATarget target)
     {
         _combatManager = combatManager;
         _rangedWeapon = rangedWeapon;
@@ -31,12 +31,12 @@ public class FlamethrowerAttacking : IState
         _aiText = aiText;
         _rangedWeaponAnimator = rangedWeaponAnimator;
         _eventBus = eventBus;
-        _targetProvider = targetProvider;
+        _target = target;
     }
 
     public void Tick()
     {
-        var target = _targetProvider.CurrentTarget;
+        var target = _target.CurrentTarget;
         if (target == null || target.IsCharacterDead) return;
 
         // Vector3 direction = (target.transform.position - _weaponTransform.position).normalized;
@@ -81,7 +81,7 @@ public class FlamethrowerAttacking : IState
     {
         if (eventData.AttackedCharacter != _combatManager.Character) return;
 
-        var target = _targetProvider.CurrentTarget;
+        var target = _target.CurrentTarget;
         if (target != null && !target.IsCharacterDead)
             _rangedWeapon.Shoot(target);
     }

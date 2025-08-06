@@ -24,7 +24,7 @@ namespace Initialization
             base.Configure(builder);
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<MainBase>();
-            builder.Register<FlamethrowerLeadTargetProvider>(Lifetime.Singleton).AsSelf();
+            builder.Register<MainBaseGetterAsATarget>(Lifetime.Singleton).AsSelf();
             builder.RegisterComponentInHierarchy<TrainsManager>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<XPManager>();

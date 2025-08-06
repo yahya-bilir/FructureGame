@@ -11,24 +11,24 @@ public class FlamethrowerSearchingForEnemy : IState
     private readonly TextMeshPro _aiText;
     private readonly Animator _rangedWeaponAnimator;
     private readonly string _name;
-    private readonly FlamethrowerLeadTargetProvider _targetProvider;
+    private readonly MainBaseGetterAsATarget _target;
 
     public FlamethrowerSearchingForEnemy(CharacterCombatManager combatManager, TextMeshPro aiText,
-        Animator rangedWeaponAnimator, string name, FlamethrowerLeadTargetProvider targetProvider)
+        Animator rangedWeaponAnimator, string name, MainBaseGetterAsATarget target)
     {
         _combatManager = combatManager;
         _aiText = aiText;
         _rangedWeaponAnimator = rangedWeaponAnimator;
         _name = name;
-        _targetProvider = targetProvider;
+        _target = target;
     }
 
     public void Tick()
     {
-        if (!_targetProvider.HasValidTarget)
+        if (!_target.HasValidTarget)
         {
             var found = _combatManager.FindNearestEnemy();
-            _targetProvider.UpdateTarget(found);
+            _target.UpdateTarget(found);
         }
     }
 

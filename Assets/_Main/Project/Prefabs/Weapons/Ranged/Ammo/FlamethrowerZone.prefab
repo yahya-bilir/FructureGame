@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.AmmoFlamethrowerZone
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: ea2ff0f1fcdd61f42a41a88ec791d6ca, type: 2}
   flameParticle: {fileID: 7473850141868593034}
-  damageInterval: 0.2
+  damageInterval: 0.15
   particleKillRadius: 0.5
 --- !u!198 &7473850141868593034 stripped
 ParticleSystem:
