@@ -10,7 +10,7 @@ namespace WeaponSystem.AmmoSystem
     public class AmmoElectricZone : AmmoBase
     {
         [SerializeField] private VisualEffect electricVfx;
-        [SerializeField] private Collider detectionCollider;
+        [field: SerializeField] public Collider DetectionCollider { get; private set; }
         [SerializeField] private float damageInterval = 1f;
 
         private readonly HashSet<Character> _affectedCharacters = new();
@@ -22,8 +22,8 @@ namespace WeaponSystem.AmmoSystem
             _isActive = true;
 
             // Collider aktif
-            if (detectionCollider != null)
-                detectionCollider.enabled = true;
+            if (DetectionCollider != null)
+                DetectionCollider.enabled = true;
 
             // VFX başlat
             if (electricVfx != null)
@@ -52,8 +52,8 @@ namespace WeaponSystem.AmmoSystem
             _isActive = false;
 
             // Collider kapat
-            if (detectionCollider != null)
-                detectionCollider.enabled = false;
+            if (DetectionCollider != null)
+                DetectionCollider.enabled = false;
 
             _affectedCharacters.Clear();
             

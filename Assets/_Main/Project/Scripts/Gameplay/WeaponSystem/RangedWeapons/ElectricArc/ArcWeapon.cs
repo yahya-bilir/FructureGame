@@ -58,15 +58,49 @@ public class ArcWeapon : RangedWeapon
 
     private async UniTask PositionSetter(Transform character)
     {
+        // Başlangıçta collider'ı positions[^1]'a yapıştır
+        if (arcZone != null && arcZone.DetectionCollider is BoxCollider box)
+        {
+            Vector3 size = box.size;
+            Vector3 center = box.center;
+
+            size.z = 0f;
+            center.z = 0f;
+
+            box.size = size;
+            box.center = center;
+        }
+
+        // İlk segmentleri yerine koy
         for (var i = 0; i < positions.Count - 1; i++)
         {
             var position = positions[i];
             position.DOLocalMove(_cachedPositions[i], 0.5f);
         }
-        positions[^1].DOMove(character.position, 0.5f);
-        
+
+        // Uç noktayı hedefe taşı ve collider'ı eş zamanlı uzat
+        positions[^1]
+            .DOMove(character.position, 0.5f)
+            .OnUpdate(() =>
+            {
+                if (arcZone != null && arcZone.DetectionCollider is BoxCollider boxCollider)
+                {
+                    float distance = Vector3.Distance(positions[0].position, positions[^1].position);
+                    Vector3 size = boxCollider.size;
+                    Vector3 center = boxCollider.center;
+
+                    size.z = distance;
+                    center.z = distance / 2f;
+
+                    boxCollider.size = size;
+                    boxCollider.center = center;
+                }
+            });
+
         await UniTask.WaitForSeconds(0.5f);
     }
+
+
 
     public void StopFiring()
     {
