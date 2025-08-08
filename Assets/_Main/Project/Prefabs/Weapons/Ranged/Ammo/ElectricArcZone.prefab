@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2074539231107966445, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.y
-      value: 3.64
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 2074539231107966445, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.z
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2074539231107966445, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.y
-      value: 3.9
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 2074539231107966445, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.z
@@ -182,11 +182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7043364119620365539, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.67
+      value: -0.84
       objectReference: {fileID: 0}
     - target: {fileID: 8119008913420679765, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 9142203472888268227, guid: 8d4517e80a2322f42aeb686346038376, type: 3}
       propertyPath: m_LocalPosition.y
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.AmmoElectricZone
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: d2afff6291eafd84fa1b5670f77c0a2e, type: 2}
   electricVfx: {fileID: 5229364099850038617}
-  detectionCollider: {fileID: 823102008127905667}
+  <DetectionCollider>k__BackingField: {fileID: 0}
   damageInterval: 0.15
 --- !u!54 &3829603870501868681
 Rigidbody:
@@ -273,8 +273,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 7.775571}
-  m_Center: {x: 0, y: 0, z: 3.3877854}
+  m_Size: {x: 1, y: 7.4222126, z: 7.775571}
+  m_Center: {x: 0, y: 0.16712105, z: 3.3877854}
 --- !u!2083052967 &5229364099850038617 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 2074539231107966445, guid: 8d4517e80a2322f42aeb686346038376, type: 3}

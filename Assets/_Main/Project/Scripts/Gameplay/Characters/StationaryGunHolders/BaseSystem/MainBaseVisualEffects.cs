@@ -21,17 +21,17 @@ namespace Characters.StationaryGunHolders.BaseSystem
             _model = model;
         }
         
-        public override void OnCharacterTookDamage(float newHealth, float maxHealth)
+        public override void OnCharacterTookDamage(float newHealth, float maxHealth, DamageTypes damageType)
         {
             _model.transform.DOKill();
             _model.transform.localScale = Vector3.one;
-            _model.transform.DOShakeScale(
-                0.1f,
-                0.5f,
-                10,
-                90,
-                fadeOut: true
-            ).SetEase(Ease.OutBack);
+            // _model.transform.DOShakeScale(
+            //     0.1f,
+            //     0.5f,
+            //     10,
+            //     90,
+            //     fadeOut: true
+            // ).SetEase(Ease.OutBack);
 
             _feedback.PlayFeedbacks();    
             

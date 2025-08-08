@@ -75,12 +75,12 @@ public class ArcWeapon : RangedWeapon
         for (var i = 0; i < positions.Count - 1; i++)
         {
             var position = positions[i];
-            position.DOLocalMove(_cachedPositions[i], 0.5f);
+            position.DOLocalMove(_cachedPositions[i] , 0.5f);
         }
 
         // Uç noktayı hedefe taşı ve collider'ı eş zamanlı uzat
         positions[^1]
-            .DOMove(character.position, 0.5f)
+            .DOMove(character.position + Vector3.up * 3.75f, 0.5f)
             .OnUpdate(() =>
             {
                 if (arcZone != null && arcZone.DetectionCollider is BoxCollider boxCollider)

@@ -13,13 +13,15 @@ namespace Characters.Enemy
     public class EnemyVisualEffects : CharacterVisualEffects
     {
         private readonly List<Renderer> _renderers;
+        private readonly Dictionary<DamageTypes, GameObject> _damageAndGameObjects;
         private GameDatabase _gameDatabase;
-
+        private GameObject _activeVfx;
         public EnemyVisualEffects(UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
             CharacterAnimationController animationController, ParticleSystem hitVfx, MMF_Player feedback,
-            List<Renderer> renderers, ParticleSystem spawnVfx) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
+            List<Renderer> renderers, ParticleSystem spawnVfx, Dictionary<DamageTypes, GameObject> damageAndGameObjects) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
         {
             _renderers = renderers;
+            _damageAndGameObjects = damageAndGameObjects;
         }
         
         [Inject]
@@ -52,10 +54,37 @@ namespace Characters.Enemy
             }
         }
 
+        public override void OnCharacterTookDamage(float newHealth, float maxHealth, DamageTypes damageType)
+        {
+            switch (damageType)
+            {
+                case DamageTypes.Fire:
+                    SpawnVfx(_damageAndGameObjects[DamageTypes.Fire]).Forget();
+                    break;
+                case DamageTypes.Electric:
+                    SpawnVfx(_damageAndGameObjects[DamageTypes.Electric]).Forget();
+                    break;
+                case DamageTypes.Normal:
+                    base.OnCharacterTookDamage(newHealth, maxHealth, damageType);
+                    break;
+            }
+            
+        }
         private async UniTask DoDissolveAfterWaiting(Renderer renderer)
         {
             await UniTask.WaitForSeconds(1f);
             renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
+        }
+
+        private async UniTask SpawnVfx(GameObject vfxObj)
+        {
+            if(_activeVfx == vfxObj) return;
+            if(_activeVfx != null) _activeVfx.SetActive(false);
+            _activeVfx =  vfxObj;
+            vfxObj.SetActive(true);
+            await UniTask.WaitForSeconds(2f);
+            _activeVfx.SetActive(false);
+            
         }
 
     }

@@ -9,7 +9,8 @@ namespace Factories
     {
         [field: SerializeField] public List<EnemyBehaviour> SpawnableEnemies { get; private set; }
         [field: SerializeField] public int SpawnLimit { get; private set; }
-        [field: SerializeField] public float SpawnInterval { get; private set; }
+        [field: SerializeField] public float SpawnRangeMin { get; private set; }
+        [field: SerializeField] public float SpawnRangeMax { get; private set; }
         [field: SerializeField] public float InitialSpawnInterval { get; private set; }
     }
 }

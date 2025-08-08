@@ -35,7 +35,7 @@ namespace WeaponSystem.AmmoSystem
                 foreach (var character in _burningCharacters.ToList())
                 {
                     if (character == null || character.IsCharacterDead) continue;
-                    character.CharacterCombatManager.GetDamage(Damage);
+                    character.CharacterCombatManager.GetDamage(Damage, DamageTypes.Fire);
                 }
 
                 await UniTask.Delay((int)(damageInterval * 1000));

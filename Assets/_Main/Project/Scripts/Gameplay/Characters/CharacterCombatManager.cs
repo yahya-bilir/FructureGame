@@ -33,14 +33,14 @@ namespace Characters
             EventBus = eventBus;
         }
         
-        public virtual void GetDamage(float damage)
+        public virtual void GetDamage(float damage, DamageTypes  damageType = DamageTypes.Normal)
         {
             var damageData = CharacterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
             CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.Health, newHealth);
             //Debug.Log(newHealth);
             if(newHealth <= 0) OnCharacterDied().Forget();
-            CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue);
+            CharacterVisualEffects.OnCharacterTookDamage(newHealth, CharacterPropertyManager.GetProperty(PropertyQuery.MaxHealth).TemporaryValue, damageType);
         }
         
         public Character FindNearestEnemy()

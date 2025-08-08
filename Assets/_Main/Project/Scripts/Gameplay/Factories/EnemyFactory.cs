@@ -27,12 +27,16 @@ namespace Factories
         {
             var random = Random.Range(0, FactorySo.SpawnableEnemies.Count);
             var enemyPrefab = FactorySo.SpawnableEnemies[random];
-            var enemy = GameObject.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+
+            // X ve Z ekseninde ±1.5f rastgele kayma, Y sabit kalır
+            var offset = new Vector3(Random.Range(-2.5f, 2.5f), 0f, Random.Range(-2.5f, 2.5f));
+            var spawnPos = spawnPoint.position + offset;
+
+            var enemy = GameObject.Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
             _objectResolver.InjectGameObject(enemy.gameObject);
             SpawnedEnemies.Add(enemy);
             enemy.InitializeOnSpawn(Faction.Enemy);
-        }        
-        
+        }
         public void SpawnEnemy(Character characterToSpawn, Vector2 spawnPosition)
         {
             var enemy = GameObject.Instantiate(characterToSpawn, spawnPosition, Quaternion.identity);

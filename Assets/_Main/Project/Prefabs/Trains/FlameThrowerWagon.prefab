@@ -112,7 +112,7 @@ MonoBehaviour:
   hitVfx: {fileID: 0}
   spawnVfx: {fileID: 0}
   <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: 905caef9b5cc1cd49886ee5792117013, type: 2}
-  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 53f41525daf430d459eef58312bb2b76, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 294ffb3b028c5c04f8369bd57e33a9cf, type: 2}
   <Faction>k__BackingField: 0
 --- !u!1 &2679272020732689005 stripped
 GameObject:

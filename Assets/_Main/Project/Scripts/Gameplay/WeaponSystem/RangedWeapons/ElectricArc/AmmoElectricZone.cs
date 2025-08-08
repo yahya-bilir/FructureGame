@@ -39,7 +39,7 @@ namespace WeaponSystem.AmmoSystem
                 foreach (var character in _affectedCharacters.ToList())
                 {
                     if (character == null || character.IsCharacterDead) continue;
-                    character.CharacterCombatManager.GetDamage(Damage);
+                    character.CharacterCombatManager.GetDamage(Damage, DamageTypes.Electric);
                 }
 
                 await UniTask.Delay((int)(damageInterval * 1000));

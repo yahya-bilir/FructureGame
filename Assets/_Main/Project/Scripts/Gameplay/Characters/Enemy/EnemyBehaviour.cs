@@ -16,6 +16,9 @@ namespace Characters.Enemy
 {
     public abstract class EnemyBehaviour : Character
     {
+        [SerializeField] private GameObject fireVfxObj;
+        [SerializeField] private GameObject electricVfxObj;
+        
         protected Collider Collider;
         protected EnemyMovementController EnemyMovementController;
         protected IEventBus EventBus;
@@ -28,7 +31,7 @@ namespace Characters.Enemy
 
         private EnemyRigidbodyEffectsController _rigidbodyEffectsController;
         private AttackAnimationCaller _attackAnimationCaller;
-
+        private Dictionary<DamageTypes, GameObject> _damageAndGameObjects = new Dictionary<DamageTypes, GameObject>();
         public bool IsCrushed { get; private set; }
         public bool IsKnockbacked { get; private set; }
         private List<Renderer> _renderers;
@@ -43,7 +46,9 @@ namespace Characters.Enemy
         protected override void Awake()
         {
             base.Awake();
-            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers, spawnVfx);
+            _damageAndGameObjects.Add(DamageTypes.Fire, fireVfxObj);
+            _damageAndGameObjects.Add(DamageTypes.Electric, electricVfxObj);
+            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers, spawnVfx, _damageAndGameObjects);
         }
 
         protected override void Start()
@@ -100,7 +105,7 @@ namespace Characters.Enemy
             var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController, CharacterCombatManager, Collider);
 
             Func<bool> ReachedEnemy() => () =>
-                Vector3.Distance(transform.position, MainBase.transform.position) <= 1f && !IsCharacterDead;
+                Vector3.Distance(transform.position, MainBase.transform.position) <= 2f && !IsCharacterDead;
 
             Func<bool> IsDead() => () => IsCharacterDead && !this.IsCrushed;
 

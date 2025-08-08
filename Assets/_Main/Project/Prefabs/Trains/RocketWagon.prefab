@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: e60449e1799e55e408a748076149cc5c, type: 2}
+    - target: {fileID: 329017904342240658, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: <CharacterPropertiesSo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 0aa25623f310261479e4a4c07211c946, type: 2}
     - target: {fileID: 4706245020231580866, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

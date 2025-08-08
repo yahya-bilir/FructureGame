@@ -127,5 +127,5 @@ MonoBehaviour:
   hitVfx: {fileID: 0}
   spawnVfx: {fileID: 0}
   <CharacterDataHolder>k__BackingField: {fileID: 11400000, guid: 2b070e70a0f933a419a83bd87fe7f4d8, type: 2}
-  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 53f41525daf430d459eef58312bb2b76, type: 2}
+  <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: fb7cc75c5bfb13d4d83387625c15713c, type: 2}
   <Faction>k__BackingField: 0

@@ -41,7 +41,7 @@ namespace Characters
             _eventBus = eventBus;
         }
         
-        public virtual void OnCharacterTookDamage(float newHealth, float maxHealth)
+        public virtual void OnCharacterTookDamage(float newHealth, float maxHealth, DamageTypes damageType)
         {
             _feedback.PlayFeedbacks();
             if (_hitVfx != null) _hitVfx.Play();

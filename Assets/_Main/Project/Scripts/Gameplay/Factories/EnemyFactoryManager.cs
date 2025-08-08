@@ -55,7 +55,7 @@ namespace Factories
 
             while (factory.IsSpawningAvailable)
             {
-                await UniTask.WaitForSeconds(factory.FactorySo.SpawnInterval);
+                await UniTask.WaitForSeconds(Random.Range(factory.FactorySo.SpawnRangeMin, factory.FactorySo.SpawnRangeMax));
                 factory.SpawnEnemy();
             }
         }
