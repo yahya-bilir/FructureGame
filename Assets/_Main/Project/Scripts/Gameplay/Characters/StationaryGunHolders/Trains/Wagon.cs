@@ -3,6 +3,7 @@ using Characters.Enemy;
 using Dreamteck.Splines;
 using EventBusses;
 using Events;
+using PropertySystem;
 using UnityEngine;
 using VContainer;
 
@@ -11,7 +12,7 @@ namespace Trains
     public class Wagon : MonoBehaviour
     {
         [Header("Spline Settings")]
-        protected SplineFollower Tracer;
+        public SplineFollower Tracer;
         private Wagon _front;
 
         [Header("Spacing")]
@@ -26,7 +27,7 @@ namespace Trains
 
         protected virtual bool IsEngine => false;
         [SerializeField] private StationaryGunHolderCharacter gunHolder;
-        
+        public CharacterPropertyManager GunHolderPropertyManager => gunHolder.CharacterPropertyManager;
         [Inject]
         private void Inject(IEventBus eventBus, IObjectResolver resolver)
         {
@@ -45,7 +46,7 @@ namespace Trains
             Tracer.wrapMode = SplineFollower.Wrap.Loop;
             Tracer.follow = IsEngine;
         }
-        
+
 
         protected virtual void OnTriggerEnter(Collider other)
         {
@@ -117,5 +118,7 @@ namespace Trains
         {
             return dir == Spline.Direction.Forward ? Spline.Direction.Backward : Spline.Direction.Forward;
         }
+
+
     }
 }

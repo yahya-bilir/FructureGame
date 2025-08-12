@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataSave.Runtime;
+using EventBusses;
+using Events;
 using UnityEngine;
 using VContainer;
 
@@ -11,6 +13,7 @@ namespace PropertySystem
         private readonly CharacterPropertiesSO _characterPropertiesSo;
         private List<PropertyData> _propertySaveDatas = new();
         private GameData _gameData;
+        private IEventBus _eventBus;
 
         public CharacterPropertyManager(CharacterPropertiesSO characterPropertiesSo)
         {
@@ -18,9 +21,10 @@ namespace PropertySystem
         }
 
         [Inject]
-        private void Inject(GameData gameData)
+        private void Inject(GameData gameData, IEventBus eventBus)
         {
             _gameData = gameData;
+            _eventBus = eventBus;
             Initialize();
         }
 
@@ -48,6 +52,7 @@ namespace PropertySystem
         {
             var data = GetProperty(query);
             data.SetDataInternally(data.PermanentValue, temporaryValue);
+            _eventBus.Publish(new OnPropertyUpgraded(this, query));
         }
         
         public void SetPropertyPermanently(PropertyQuery query, float newPermanentValue)

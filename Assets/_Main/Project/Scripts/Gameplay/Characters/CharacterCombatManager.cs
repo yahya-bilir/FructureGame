@@ -12,7 +12,7 @@ namespace Characters
 {
     public class CharacterCombatManager : IDisposable
     {
-        protected readonly CharacterPropertyManager CharacterPropertyManager;
+        public readonly CharacterPropertyManager CharacterPropertyManager;
         protected readonly CharacterVisualEffects CharacterVisualEffects;
         public readonly Character Character;
         protected IEventBus EventBus;

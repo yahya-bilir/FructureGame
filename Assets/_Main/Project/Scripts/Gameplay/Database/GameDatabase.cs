@@ -10,11 +10,12 @@ namespace Database
     {
         [field: SerializeField] public Material DissolveMaterial { get; private set; }
         
-        [SerializeField] private List<PerkByLevel> perksByLevel;
+        [field: SerializeField] public List<PerkByLevel> PerksByLevel { get; private set; }
 
         public List<PerkAction> GetPerksForLevel(int level)
         {
-            foreach (var data in perksByLevel)
+            if(level >= PerksByLevel.Count - 1) level =  PerksByLevel.Count - 1;
+            foreach (var data in PerksByLevel)
             {
                 if (data.Level == level)
                     return data.PerkGroup != null ? data.PerkGroup.GetRandomPerks(3) : null;

@@ -24,5 +24,6 @@
         IceDamage,
         Speed,
         AttackRange,
+        AttackSpeed
     }
 }

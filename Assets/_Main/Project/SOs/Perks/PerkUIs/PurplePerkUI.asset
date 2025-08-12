@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96eb2a743474e7e9dccad0c28176d84, type: 3}
+  m_Name: PurplePerkUI
+  m_EditorClassIdentifier: Gameplay::Perks.PerkUIInfo
+  <Background>k__BackingField: {fileID: 21300000, guid: 3a64e33ecc2d25542a9bafb96eab2f9f, type: 3}
+  <NameColor>k__BackingField: {r: 0.078431375, g: 0.23137255, b: 0.03137255, a: 1}
+  <NewStatColor>k__BackingField: {r: 0, g: 0.5169811, b: 0.089926995, a: 1}

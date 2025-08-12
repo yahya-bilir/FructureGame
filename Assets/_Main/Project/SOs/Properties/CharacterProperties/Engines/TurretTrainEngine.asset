@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af6e59aad3e430680c831eecfdfa75c, type: 3}
+  m_Name: TurretTrainEngine
+  m_EditorClassIdentifier: Gameplay::DataSave.Runtime.CharacterProperties
+  <IsSaveable>k__BackingField: 0
+  <EntityId>k__BackingField: Engine
+  <PropertySaveDatas>k__BackingField:
+  - <PropertyQuery>k__BackingField: 0
+    <PermanentValue>k__BackingField: 2
+    <TemporaryValue>k__BackingField: 2
+    <PermanentValueLevel>k__BackingField: 0
+  - <PropertyQuery>k__BackingField: 20
+    <PermanentValue>k__BackingField: 7
+    <TemporaryValue>k__BackingField: 7
+    <PermanentValueLevel>k__BackingField: 0
+  - <PropertyQuery>k__BackingField: 1
+    <PermanentValue>k__BackingField: 2
+    <TemporaryValue>k__BackingField: 2
+    <PermanentValueLevel>k__BackingField: 0
+  - <PropertyQuery>k__BackingField: 2
+    <PermanentValue>k__BackingField: 1
+    <TemporaryValue>k__BackingField: 1
+    <PermanentValueLevel>k__BackingField: 0
+  - <PropertyQuery>k__BackingField: 22
+    <PermanentValue>k__BackingField: 1
+    <TemporaryValue>k__BackingField: 1
+    <PermanentValueLevel>k__BackingField: 0

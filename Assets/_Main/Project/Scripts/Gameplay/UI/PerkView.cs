@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
@@ -49,9 +50,8 @@ namespace Gameplay.UI.InGameView
 
         protected override void RegisterButtonCallbacks() { }
 
-        private void OnPerkSelected(ClickEvent evt, PerkAction perkAction)
+        private async UniTask OnPerkSelected(ClickEvent evt, PerkAction perkAction)
         {
-            Time.timeScale = 1;
             _createdPerks.ForEach(x =>
             {
                 x.pickingMode = PickingMode.Ignore;
@@ -59,7 +59,12 @@ namespace Gameplay.UI.InGameView
                 x.AddToClassList("perkNotHover");
             });
             VisualElement target = (VisualElement)evt.currentTarget;
-            FlipAnimation(target).Forget();
+            
+            Time.timeScale = 1;
+            
+            await FlipAnimation(target);
+            await UniTask.WaitForSeconds(0.2f);
+            
             PlayParticle(target);
 
             perkAction.Execute();
@@ -93,20 +98,31 @@ namespace Gameplay.UI.InGameView
                 perkVisualElement.AddToClassList("perk--container");
 
                 Label name = perkVisualElement.Q<Label>("PerkNameLabel");
-                name.style.color = perkAction.NameColor;
+                name.style.color = perkAction.PerkUIInfo.NameColor;
                 name.text = perkAction.PerkName;
 
                 Label info = perkVisualElement.Q<Label>("PerkInfoLabel");
-                info.text = perkAction.Description;
+
+                // var coloredDesc = string.Format(perkAction.Description,
+                //     ColorUtility.ToHtmlStringRGB(perkAction.PerkUIInfo.NewStatColor));
+                //
+                
+                var formatted = Regex.Replace(
+                    perkAction.Description,
+                    @"\{([^}]+)\}",
+                    m => $"<color=#{ColorUtility.ToHtmlStringRGB(perkAction.PerkUIInfo.NewStatColor)}>{m.Groups[1].Value}</color>"
+                );
+                
+                info.text = formatted;
 
                 VisualElement icon = perkVisualElement.Q<VisualElement>("Icon");
                 icon.style.backgroundImage = new StyleBackground(perkAction.Icon);
 
                 VisualElement background = perkVisualElement.Q<VisualElement>("Container");
-                background.style.backgroundImage = new StyleBackground(perkAction.Background);
+                background.style.backgroundImage = new StyleBackground(perkAction.PerkUIInfo.Background);
 
                 var perkRoot = perkVisualElement.Q("PerkVertical");
-                perkRoot.RegisterCallback<ClickEvent>((x) => OnPerkSelected(x, perkAction));
+                perkRoot.RegisterCallback<ClickEvent>((x) => OnPerkSelected(x, perkAction).Forget());
 
                 _perksHolder.Add(perkVisualElement);
                 _createdPerks.Add(perkRoot);

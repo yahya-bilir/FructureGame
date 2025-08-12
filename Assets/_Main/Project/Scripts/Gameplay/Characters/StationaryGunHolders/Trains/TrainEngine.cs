@@ -1,20 +1,18 @@
+using System;
 using System.Collections.Generic;
 using Characters.Enemy;
 using Dreamteck.Splines;
-using EventBusses;
 using Events;
 using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
 
 namespace Trains
 {
     public class TrainEngine : Wagon
     {
         [Header("Wagon Settings")]
-        [SerializeField] private List<Wagon> wagons = new();
+        [field: SerializeField] public List<Wagon> Wagons { get; private set; }= new();
         [SerializeField] private float wagonSpacing = 2f;
         [SerializeField] private Wagon wagonPrefab;
 
@@ -22,9 +20,9 @@ namespace Trains
         [SerializeField] private RagdollDataHolder ragdollData;
 
         [Header("Character Properties")]
-        [SerializeField] private CharacterPropertiesSO characterPropertiesSO;
+        [field: SerializeField] public CharacterPropertiesSO CharacterPropertiesSO { get; private set; }
 
-        private CharacterPropertyManager _characterPropertyManager;
+        public CharacterPropertyManager CharacterPropertyManager { get; private set; }
         private Spline.Direction _direction;
         protected override bool IsEngine => true;
 
@@ -32,15 +30,24 @@ namespace Trains
         protected override void Awake()
         {
             base.Awake();
-            _characterPropertyManager = new CharacterPropertyManager(characterPropertiesSO);
+            CharacterPropertyManager = new CharacterPropertyManager(CharacterPropertiesSO);
         }
+
+        private void OnPropertyUpgraded(OnPropertyUpgraded obj)
+        {
+            if(obj.CharacterPropertyManager != CharacterPropertyManager) return;
+            SetSharedSpeed(CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue);
+        }
+
 
         protected void Start()
         {
+            EventBus.Subscribe<OnPropertyUpgraded>(OnPropertyUpgraded);
+            
             ApplyOffsets();
             SetSharedSpeed(Tracer.followSpeed);
-            Resolver.Inject(_characterPropertyManager);
-            var speed = _characterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
+            Resolver.Inject(CharacterPropertyManager);
+            var speed = CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue;
             Tracer.followSpeed = speed;
         }
 
@@ -56,7 +63,7 @@ namespace Trains
             var wagon = Instantiate(wagonPrefab, transform.parent);
             Resolver.Inject(wagon);
 
-            wagons.Add(wagon);
+            Wagons.Add(wagon);
             wagon.SetFront(this);
             wagon.SetSpline(Tracer.spline, Tracer.direction);
             ApplyOffsets();
@@ -65,10 +72,10 @@ namespace Trains
         [Button]
         public void RemoveWagon()
         {
-            if (wagons.Count == 0) return;
+            if (Wagons.Count == 0) return;
 
-            var wagon = wagons[^1];
-            if (wagons.Remove(wagon))
+            var wagon = Wagons[^1];
+            if (Wagons.Remove(wagon))
             {
                 wagon.gameObject.SetActive(false);
                 ApplyOffsets();
@@ -77,15 +84,15 @@ namespace Trains
 
         private void ApplyOffsets()
         {
-            for (int i = 0; i < wagons.Count; i++)
+            for (int i = 0; i < Wagons.Count; i++)
             {
-                wagons[i].SetOffsetIndex(i + 1, wagonSpacing);
+                Wagons[i].SetOffsetIndex(i + 1, wagonSpacing);
             }
         }
 
         private void UpdateOffsets()
         {
-            foreach (var wagon in wagons)
+            foreach (var wagon in Wagons)
             {
                 wagon.UpdatePosition(_direction);
             }
@@ -94,7 +101,7 @@ namespace Trains
         private void SetSharedSpeed(float speed)
         {
             Tracer.followSpeed = speed;
-            foreach (var wagon in wagons)
+            foreach (var wagon in Wagons)
             {
                 wagon.SetSpeed(speed);
             }
@@ -109,16 +116,25 @@ namespace Trains
             EventBus.Publish(new OnEnemyCrushed(enemy, impactPoint, ragdollData));
         }
 
-        public void SetSplineComputer(SplineComputer spline, bool isReversed)
+        public void SetSplineComputer(SplineComputer spline, bool isReversed, double? startPercent = null)
         {
             Tracer.spline = spline;
             _direction = isReversed ? Spline.Direction.Backward : Spline.Direction.Forward;
             Tracer.direction = _direction;
-
             Tracer.RebuildImmediate();
-            Tracer.SetPercent(isReversed ? 1.0 : 0.0);
+
+            if (startPercent.HasValue)
+                Tracer.SetPercent(startPercent.Value);
+            else
+                Tracer.SetPercent(isReversed ? 1.0 : 0.0);
 
             wagonSpacing = Mathf.Abs(wagonSpacing) * (isReversed ? -1f : 1f);
         }
+        
+        private void OnDisable()
+        {
+            EventBus.Subscribe<OnPropertyUpgraded>(OnPropertyUpgraded);
+        }
+
     }
 }

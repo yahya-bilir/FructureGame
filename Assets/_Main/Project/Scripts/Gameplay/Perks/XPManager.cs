@@ -21,12 +21,14 @@ namespace Perks
         private int _currentLevel;
         private int _currentXP;
         private int _xpToNextLevel;
+        private IObjectResolver _objectResolver;
 
         [Inject]
-        private void Inject(GameDatabase gameDatabase, IEventBus eventBus)
+        private void Inject(GameDatabase gameDatabase, IEventBus eventBus, IObjectResolver objectResolver)
         {
             _gameDatabase = gameDatabase;
             _eventBus = eventBus;
+            _objectResolver = objectResolver;
         }
         
         private void Awake()
@@ -34,6 +36,17 @@ namespace Perks
             _currentLevel = startingLevel;
             _currentXP = 0;
             _xpToNextLevel = CalculateXpNeededForLevel(_currentLevel);
+        }
+
+        private void Start()
+        {
+            foreach (var perkByLevel in _gameDatabase.PerksByLevel)
+            {
+                foreach (var perk in perkByLevel.PerkGroup.Perks)
+                {
+                    _objectResolver.Inject(perk);
+                }
+            }
         }
 
         [Button]

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponSO
   <ObjectName>k__BackingField: Generic Turret
   <ObjectSprite>k__BackingField: {fileID: 21300000, guid: aa53902b430b06f4f846f6c6b5361a53, type: 3}
-  <AttackInterval>k__BackingField: 0.25
+  <AttackInterval>k__BackingField: 1
   <MinimumRange>k__BackingField: 20
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.05

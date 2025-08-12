@@ -18,7 +18,7 @@ public class TrainSystem
     [field: SerializeField] public bool IsReversed { get; private set; }
 
     private IObjectResolver _resolver;
-    private List<TrainEngine> _engineInstances = new();
+    public List<TrainEngine> EngineInstances { get; private set; } = new();
 
     private bool _hasOpened = false;
     private CamerasManager _camerasManager;
@@ -41,31 +41,37 @@ public class TrainSystem
             _hasOpened = true;
         }
 
-        var instance = GameObject.Instantiate(
-            enginePrefab,
-            EnginePlacementField.position,
-            EnginePlacementField.rotation,
-            EnginePlacementField
-        );
+        double startPercent;
 
+        if (EngineInstances.Count == 0)
+        {
+            startPercent = Spline.Project(EnginePlacementField.position).percent;
+        }
+        else
+        {
+            var firstEngine = EngineInstances[0];
+            double firstPercent = Spline.Project(firstEngine.transform.position).percent;
+            startPercent = (firstPercent + 0.5) % 1.0;
+        }
+
+        var instance = GameObject.Instantiate(enginePrefab, EnginePlacementField.position, EnginePlacementField.rotation, EnginePlacementField);
         _resolver.Inject(instance);
-        instance.SetSplineComputer(Spline, IsReversed);
+        
+        instance.SetSplineComputer(Spline, IsReversed, startPercent);
 
         await UniTask.WaitForSeconds(0.25f);
 
-        for (int i = 0; i < 3; i++)
-        {
-            instance.SpawnWagon();
-        }
-
-        _engineInstances.Add(instance);
+        instance.SpawnWagon();
+        
+        EngineInstances.Add(instance);
     }
+
 
     public void Disable()
     {
         Spline.gameObject.SetActive(false);
 
-        foreach (var engine in _engineInstances)
+        foreach (var engine in EngineInstances)
         {
             if (engine != null)
                 engine.gameObject.SetActive(false);

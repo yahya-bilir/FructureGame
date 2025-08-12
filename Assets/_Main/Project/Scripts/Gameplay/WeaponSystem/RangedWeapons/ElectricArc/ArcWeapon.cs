@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Characters;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using PropertySystem;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
 
@@ -52,7 +53,7 @@ public class ArcWeapon : RangedWeapon
         StopFiring();
 
         // 2 saniye bekleme
-        await UniTask.Delay(2000);
+        await UniTask.WaitForSeconds(2f / ConnectedCombatManager.CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
         _canShoot = true;
     }
 

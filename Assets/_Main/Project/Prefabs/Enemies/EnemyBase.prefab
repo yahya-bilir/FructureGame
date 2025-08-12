@@ -150,6 +150,8 @@ MonoBehaviour:
   <CharacterDataHolder>k__BackingField: {fileID: 0}
   <CharacterPropertiesSo>k__BackingField: {fileID: 0}
   <Faction>k__BackingField: 0
+  fireVfxObj: {fileID: 0}
+  electricVfxObj: {fileID: 0}
 --- !u!195 &6638099238512735819
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -390,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2037896559361622286, guid: 165e51c5e2adce247939c3ebebf39c45, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3604237181372453301, guid: 165e51c5e2adce247939c3ebebf39c45, type: 3}
       propertyPath: m_LocalPosition.x

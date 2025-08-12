@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d9f5234dd547c0972b26c612e19f6d, type: 3}
+  m_Name: Upgrade All Trains Damage
+  m_EditorClassIdentifier: Gameplay::Perks.PerkActions.UpgradeAllTrains
+  <PerkName>k__BackingField: Damage
+  <Description>k__BackingField: Upgrade all trains' {Damage}
+  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: f8cce696afa6ef94489e0393714dba26, type: 2}
+  <Icon>k__BackingField: {fileID: -8389024482856606993, guid: d4f52c6b99008614fabd6c1b5f2b57b3, type: 3}
+  propertyQuery: 2
+  multiplierValue: 1.5

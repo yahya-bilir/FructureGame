@@ -2,12 +2,14 @@ using AI.Base.Interfaces;
 using Characters;
 using EventBusses;
 using Events;
+using PropertySystem;
 using TMPro;
 using UnityEngine;
 
 public class Attacking : IState
 {
     private static readonly int CanAttack = Animator.StringToHash("CanAttack");
+    private static readonly int Speed = Animator.StringToHash("Speed");
     private readonly CharacterCombatManager _combatManager;
     private readonly RangedWeapon _rangedWeapon;
     private readonly Transform _weaponTransform;
@@ -61,6 +63,7 @@ public class Attacking : IState
 
         if (_cooldown >= _rangedWeapon.CurrentAttackInterval)
         {
+            _rangedWeaponAnimator.SetFloat(Speed, _combatManager.CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
             _rangedWeaponAnimator.SetBool(CanAttack, true);
             _cooldown = 0f;
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Characters;
 using Cysharp.Threading.Tasks;
+using PropertySystem;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
 public class FlamethrowerWeapon : RangedWeapon
@@ -40,11 +41,11 @@ public class FlamethrowerWeapon : RangedWeapon
     private async UniTaskVoid FlameCycle()
     {
         // 🔥 3 saniye aktif ateş
-        await UniTask.Delay(3000);
+        await UniTask.WaitForSeconds(3);
         StopFiring();
 
         // 🧊 2 saniye cooldown
-        await UniTask.Delay(2000);
+        await UniTask.WaitForSeconds(2 / ConnectedCombatManager.CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
         _canShoot = true;
     }
 

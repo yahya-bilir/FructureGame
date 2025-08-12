@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Characters.StationaryGunHolders.Trains;
 using CommonComponents;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
+using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
@@ -24,7 +26,7 @@ namespace Trains
         [SerializeField] private List<TrainSystem> trainSystems;
 
         private int _openedSystemsCount;
-
+        private TrainEventsHandler _trainEventsHandler;
         [Inject]
         private void Inject(IObjectResolver resolver, IEventBus eventBus, CamerasManager camerasManager)
         {
@@ -35,6 +37,7 @@ namespace Trains
 
         private void Awake()
         {
+            _trainEventsHandler =  new TrainEventsHandler(trainSystems);
             foreach (var system in trainSystems)
             {
                 system.Initialize(_resolver, _camerasManager);
@@ -42,10 +45,14 @@ namespace Trains
             }
         }
 
+        #region Old spawn system
+
         [Button]
+        
         private void Start()
         {
-            SpawnAllTrains().Forget();
+            //SpawnAllTrains().Forget();
+            _resolver.Inject(_trainEventsHandler);
         }
 
         private async UniTask SpawnAllTrains()
@@ -82,34 +89,16 @@ namespace Trains
             //     await UniTask.WaitForSeconds(10f);
             // }
         } 
+
+
+        #endregion
         
-        private void OnEnable()
+        private void Update()
         {
-            _eventBus.Subscribe<OnEngineSelected>(HandleEngineSelected);
+            if(Input.GetKeyDown(KeyCode.U)) _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+            if(Input.GetKeyDown(KeyCode.I)) _eventBus.Publish(new OnEngineSelected(rocketEngine, 0));
+            if(Input.GetKeyDown(KeyCode.O)) _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
+            if(Input.GetKeyDown(KeyCode.P)) _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
         }
-
-        private void OnDisable()
-        {
-            _eventBus.Unsubscribe<OnEngineSelected>(HandleEngineSelected);
-        }
-
-        private void HandleEngineSelected(OnEngineSelected eventData)
-        {
-            OnEngineSelectedAsync(eventData).Forget();
-        }
-
-        private async UniTask OnEngineSelectedAsync(OnEngineSelected eventData)
-        {
-            if (eventData.SystemIndex < 0 || eventData.SystemIndex >= trainSystems.Count)
-            {
-                Debug.LogWarning($"Invalid system index: {eventData.SystemIndex}");
-                return;
-            }
-
-            var system = trainSystems[eventData.SystemIndex];
-            
-            await system.AddEngineToSystem(eventData.Engine);
-        }
-
     }
 }

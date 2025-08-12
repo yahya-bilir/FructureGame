@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f52a268227f48fea6ad4a81e6bcae8f, type: 3}
+  m_Name: Speed Upgrade Spawn Perk Group
+  m_EditorClassIdentifier: Gameplay::PerkSystem.PerkGroupHolder
+  Perks:
+  - {fileID: 11400000, guid: 0c4d65e13ebffa74b8aab0e4c87c1e81, type: 2}
+  - {fileID: 11400000, guid: 1d877ab23307db6438922615ccb8b177, type: 2}
+  - {fileID: 11400000, guid: 384ffd3607d52ac4e8c9c14c1e724645, type: 2}
+  - {fileID: 11400000, guid: d09887d855bc03147ab4c57531bfb982, type: 2}
