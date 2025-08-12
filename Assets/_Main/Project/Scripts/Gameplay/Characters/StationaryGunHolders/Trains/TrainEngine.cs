@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Characters.Enemy;
+using Cysharp.Threading.Tasks;
 using Dreamteck.Splines;
 using Events;
 using PropertySystem;
@@ -37,6 +38,11 @@ namespace Trains
         {
             if(obj.CharacterPropertyManager != CharacterPropertyManager) return;
             SetSharedSpeed(CharacterPropertyManager.GetProperty(PropertyQuery.Speed).TemporaryValue);
+            OnUpgradedVisualEffects().Forget();
+            foreach (var wagon in Wagons)
+            {
+                wagon.OnUpgradedVisualEffects().Forget();
+            }
         }
 
 

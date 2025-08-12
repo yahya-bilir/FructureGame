@@ -24,6 +24,7 @@ namespace Initialization
             builder.RegisterEntryPoint<GameManager>();
             builder.RegisterEntryPoint<AddressableStartupLoader>();
             builder.Register<IEventBus, EventBus>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<SceneManagement>(Lifetime.Singleton);
         }
 
         private void Start()

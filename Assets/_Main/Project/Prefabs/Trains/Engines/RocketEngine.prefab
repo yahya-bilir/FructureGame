@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.r
       value: 0.07818743
       objectReference: {fileID: 0}
+    - target: {fileID: 1052442206790453069, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+      propertyPath: m_InitialEventName
+      value: create
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052442206790453069, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3544722962734245170, guid: c259b0ecc74fde74999b0ce6585b247e, type: 3}
       propertyPath: m_Name
       value: RocketEngine

@@ -1,10 +1,14 @@
 using System;
 using Characters.Enemy;
+using Cysharp.Threading.Tasks;
 using Dreamteck.Splines;
 using EventBusses;
 using Events;
+using MoreMountains.Feedbacks;
 using PropertySystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.VFX;
 using VContainer;
 
 namespace Trains
@@ -12,7 +16,7 @@ namespace Trains
     public class Wagon : MonoBehaviour
     {
         [Header("Spline Settings")]
-        public SplineFollower Tracer;
+        public SplineFollower Tracer { get; private set; }
         private Wagon _front;
 
         [Header("Spacing")]
@@ -28,6 +32,9 @@ namespace Trains
         protected virtual bool IsEngine => false;
         [SerializeField] private StationaryGunHolderCharacter gunHolder;
         public CharacterPropertyManager GunHolderPropertyManager => gunHolder.CharacterPropertyManager;
+        //[SerializeField] private VisualEffect upgradeVisualEffect;
+        [SerializeField] private ParticleSystem upgradeVisualEffect;
+        
         [Inject]
         private void Inject(IEventBus eventBus, IObjectResolver resolver)
         {
@@ -119,6 +126,18 @@ namespace Trains
             return dir == Spline.Direction.Forward ? Spline.Direction.Backward : Spline.Direction.Forward;
         }
 
+        public async UniTask OnUpgradedVisualEffects()
+        {
+            // upgradeVisualEffect.SendEvent("create");
+            // await UniTask.WaitForSeconds(0.5f);
+            // upgradeVisualEffect.SendEvent("stop");
+            upgradeVisualEffect.Play();
+        }
 
+        [Button]
+        private void OnUpgradedVisualEffectsPlayer()
+        {
+            OnUpgradedVisualEffects().Forget();
+        }
     }
 }

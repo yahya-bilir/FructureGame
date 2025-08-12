@@ -17,8 +17,6 @@ public class StationaryGunHolderCharacter : Character
     [Inject]
     private void Inject(IEventBus eventBus)
     {
-        Debug.Log("Stationary Injected");
-
         _eventBus = eventBus;
     }
     
