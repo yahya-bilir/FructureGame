@@ -24,6 +24,8 @@ MonoBehaviour:
     - ec1f78707559f79459c5d61833dcf81e
     - e2e9acbc8c00fb64aa08c144c6a8fd8b
     - c412ebf5f5bd5414e9f2c5db578fc41d
+    - 39d6a6b56b340794994f783e25c4ce73
+    - 109e9bdd0fcc649c5bc59085c35bdc83
     values:
     - colorIndex: 1
       iconNameOrGuid: 
@@ -38,10 +40,14 @@ MonoBehaviour:
     - colorIndex: 9
       iconNameOrGuid: 
     - colorIndex: 2
-      iconNameOrGuid: 
+      iconNameOrGuid: ComputeShader Icon
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 10
       iconNameOrGuid: 
     - colorIndex: 3
       iconNameOrGuid: 
+    - colorIndex: 0
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 0
+      iconNameOrGuid: SceneAsset Icon

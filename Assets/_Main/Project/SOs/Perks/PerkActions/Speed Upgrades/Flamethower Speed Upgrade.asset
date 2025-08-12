@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Flamethower Speed Upgrade
   m_EditorClassIdentifier: Gameplay::Perks.PerkActions.UpgradeTrainEngine
   <PerkName>k__BackingField: Speed Upgrade
-  <Description>k__BackingField: Upgrade {Electro Train's} speed
+  <Description>k__BackingField: Upgrade {Flamethrower Train's} speed
   <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 4231f36e95586b741a3bbadb662c803b, type: 2}
   <Icon>k__BackingField: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   propertyQuery: 20
   newValue: 9
-  trainEngine: {fileID: 7294836339388467409, guid: 3d06d35d25453954ab79e3e420271ed6, type: 3}
+  trainEngines:
+  - {fileID: 7294836339388467409, guid: 3d06d35d25453954ab79e3e420271ed6, type: 3}

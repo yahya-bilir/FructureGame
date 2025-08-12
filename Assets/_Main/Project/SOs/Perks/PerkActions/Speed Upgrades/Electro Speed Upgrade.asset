@@ -18,4 +18,5 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 21300008, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   propertyQuery: 20
   newValue: 9
-  trainEngine: {fileID: 7294836339388467409, guid: f1b19c15c2f760640a8667a5ac9fea97, type: 3}
+  trainEngines:
+  - {fileID: 7294836339388467409, guid: f1b19c15c2f760640a8667a5ac9fea97, type: 3}
