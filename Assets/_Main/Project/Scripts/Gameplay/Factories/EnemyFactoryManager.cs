@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Characters;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
 using UnityEngine;
 using VContainer;
+using Random = UnityEngine.Random;
 
 namespace Factories
 {
@@ -41,6 +43,17 @@ namespace Factories
             {
                 enemyFactory.Initialize(_resolver, _eventBus);
                 SpawnFactoryEnemies(enemyFactory).Forget();
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                foreach (var factory in enemyFactories)
+                {
+                    factory.MultiplySpawnRate(2);
+                }
             }
         }
 

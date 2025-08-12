@@ -56,6 +56,10 @@ namespace Factories
         {
             return SpawnedEnemies.Contains(character) && SpawnedEnemies.Remove(character);
         }
-        
+
+        public void MultiplySpawnRate(float multiplier)
+        {
+            FactorySo.ChangeSpawnRate(FactorySo.SpawnRangeMax / multiplier);
+        }
     }
 }

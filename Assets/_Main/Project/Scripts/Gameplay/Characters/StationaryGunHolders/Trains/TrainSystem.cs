@@ -59,11 +59,15 @@ public class TrainSystem
         
         instance.SetSplineComputer(Spline, IsReversed, startPercent);
 
+        EngineInstances.Add(instance);
+        
         await UniTask.WaitForSeconds(0.25f);
 
-        instance.SpawnWagon();
-        
-        EngineInstances.Add(instance);
+        for (int i = 0; i < 3; i++)
+        {
+            instance.SpawnWagon();
+            await UniTask.WaitForSeconds(0.15f);
+        }
     }
 
 

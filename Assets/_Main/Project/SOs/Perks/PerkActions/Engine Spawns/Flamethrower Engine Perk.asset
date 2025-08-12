@@ -17,4 +17,5 @@ MonoBehaviour:
   <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 376541b84ef8426498eadc80a0b3ad8a, type: 2}
   <Icon>k__BackingField: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   engine: {fileID: 7294836339388467409, guid: 3d06d35d25453954ab79e3e420271ed6, type: 3}
-  lane: 0
+  lane: 1
+  wagonCount: 2

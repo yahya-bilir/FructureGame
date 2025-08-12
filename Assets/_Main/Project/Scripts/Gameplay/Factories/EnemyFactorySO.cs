@@ -12,5 +12,11 @@ namespace Factories
         [field: SerializeField] public float SpawnRangeMin { get; private set; }
         [field: SerializeField] public float SpawnRangeMax { get; private set; }
         [field: SerializeField] public float InitialSpawnInterval { get; private set; }
+
+        public void ChangeSpawnRate(float newSpawnInterval)
+        {
+            SpawnRangeMax  = newSpawnInterval;
+            Debug.Log(SpawnRangeMax);
+        }
     }
 }

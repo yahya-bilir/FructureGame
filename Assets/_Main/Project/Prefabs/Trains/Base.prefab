@@ -269,8 +269,8 @@ MonoBehaviour:
         DebugActive: 0
         BoundRenderer: {fileID: 6026522296748543476}
         ExtraBoundRenderers: []
-        Mode: 0
-        PropertyName: _Tint
+        Mode: 1
+        PropertyName: _BaseColor
         FlickerDuration: 0.05
         FlickerPeriod: 0.1
         FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}

@@ -95,7 +95,11 @@ namespace Trains
         
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.U)) _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+                _eventBus.Publish(new OnWagonCreationSelected(debugEngine, 2));
+            }
             if(Input.GetKeyDown(KeyCode.I)) _eventBus.Publish(new OnEngineSelected(rocketEngine, 0));
             if(Input.GetKeyDown(KeyCode.O)) _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
             if(Input.GetKeyDown(KeyCode.P)) _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
