@@ -47,6 +47,9 @@ namespace Perks
                     _objectResolver.Inject(perk);
                 }
             }
+            
+            //InvokeRepeating(nameof(LevelUp), 30f, 30f);
+
         }
 
         [Button]
