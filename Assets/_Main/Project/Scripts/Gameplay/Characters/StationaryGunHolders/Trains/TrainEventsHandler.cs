@@ -92,7 +92,7 @@ namespace Characters.StationaryGunHolders.Trains
 
             var system = _trainSystems[eventData.SystemIndex];
             
-            await system.AddEngineToSystem(eventData.Engine);
+            await system.AddEngineToSystem(eventData.Engine, eventData.WagonCount);
         }
 
         private async UniTask OnWagonCreationSelected(OnWagonCreationSelected eventData)

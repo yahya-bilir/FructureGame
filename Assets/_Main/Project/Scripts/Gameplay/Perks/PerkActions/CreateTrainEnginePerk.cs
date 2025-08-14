@@ -12,10 +12,11 @@ namespace Perks.PerkActions
     {
         [SerializeField] private TrainEngine engine;
         [SerializeField] private int lane;
+        [SerializeField] private int wagonCount;
 
         public override void Execute()
         {
-            EventBus.Publish(new OnEngineSelected(engine, lane));
+            EventBus.Publish(new OnEngineSelected(engine, lane, wagonCount));
         }
     }
 }

@@ -6,11 +6,13 @@ namespace Events
     {
         public TrainEngine Engine { get; }
         public int SystemIndex { get; }
+        public int WagonCount { get; private set; }
 
-        public OnEngineSelected(TrainEngine engine, int systemIndex)
+        public OnEngineSelected(TrainEngine engine, int systemIndex, int wagonCount)
         {
             Engine = engine;
             SystemIndex = systemIndex;
+            WagonCount = wagonCount;
         }
     }
 

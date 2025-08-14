@@ -61,7 +61,7 @@ namespace Trains
         {
             await UniTask.WaitForSeconds(10);
 
-            _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+            _eventBus.Publish(new OnEngineSelected(debugEngine, 0, 3));
             //_eventBus.Publish(new OnEngineSelected(electricEngine, 0));
             
             await UniTask.WaitForSeconds(20);
@@ -69,12 +69,12 @@ namespace Trains
             //_eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
             
             //_eventBus.Publish(new OnEngineSelected(debugEngine, 1));
-            _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
+            _eventBus.Publish(new OnEngineSelected(electricEngine, 1, 3));
 
             await UniTask.WaitForSeconds(20);
             
             //_eventBus.Publish(new OnEngineSelected(rocketEngine, 2));
-            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 2));
+            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 2, 3));
             
             //_eventBus.Publish(new OnEngineSelected(electricEngine, 2));
             
@@ -99,12 +99,12 @@ namespace Trains
         {
             if (Input.GetKeyDown(KeyCode.U))
             {
-                _eventBus.Publish(new OnEngineSelected(debugEngine, 0));
+                _eventBus.Publish(new OnEngineSelected(debugEngine, 0, 3));
                 //_eventBus.Publish(new OnWagonCreationSelected(debugEngine, 2));
             }
-            if(Input.GetKeyDown(KeyCode.I)) _eventBus.Publish(new OnEngineSelected(rocketEngine, 0));
-            if(Input.GetKeyDown(KeyCode.O)) _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
-            if(Input.GetKeyDown(KeyCode.P)) _eventBus.Publish(new OnEngineSelected(electricEngine, 1));
+            if(Input.GetKeyDown(KeyCode.I)) _eventBus.Publish(new OnEngineSelected(rocketEngine, 0, 3));
+            if(Input.GetKeyDown(KeyCode.O)) _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1, 3));
+            if(Input.GetKeyDown(KeyCode.P)) _eventBus.Publish(new OnEngineSelected(electricEngine, 1, 3));
         }
     }
 }

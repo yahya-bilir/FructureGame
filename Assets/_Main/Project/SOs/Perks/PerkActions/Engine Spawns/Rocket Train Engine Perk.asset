@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::Perks.PerkActions.CreateFireTrainPerk
   <PerkName>k__BackingField: Rocket
   <Description>k__BackingField: Spawn {Rocket} Train
-  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 376541b84ef8426498eadc80a0b3ad8a, type: 2}
-  <Icon>k__BackingField: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: f8cce696afa6ef94489e0393714dba26, type: 2}
+  <Icon>k__BackingField: {fileID: 21300000, guid: b1cd319999ee47f43ba6390676fc8587, type: 3}
   engine: {fileID: 7294836339388467409, guid: 1f2876e1d22cc1243b0d4a77d6c1f18e, type: 3}
   lane: 1
-  wagonCount: 2
+  wagonCount: 3

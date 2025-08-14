@@ -29,7 +29,7 @@ public class TrainSystem
         _camerasManager = camerasManager;
     }
 
-    public async UniTask AddEngineToSystem(TrainEngine enginePrefab)
+    public async UniTask AddEngineToSystem(TrainEngine enginePrefab, int wagonCount)
     {
         Spline.gameObject.SetActive(true);
 
@@ -63,11 +63,11 @@ public class TrainSystem
         
         await UniTask.WaitForSeconds(0.25f);
 
-        for (int i = 0; i < 3; i++)
-        {
-            instance.SpawnWagon();
-            await UniTask.WaitForSeconds(0.15f);
-        }
+         for (int i = 0; i < wagonCount; i++)
+         {
+             instance.SpawnWagon();
+             await UniTask.WaitForSeconds(0.15f);
+         }
     }
 
 

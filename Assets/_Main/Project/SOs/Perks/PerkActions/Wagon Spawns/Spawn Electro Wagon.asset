@@ -15,6 +15,6 @@ MonoBehaviour:
   <PerkName>k__BackingField: Add Wagon
   <Description>k__BackingField: Add 2 wagons to {Electro} Train
   <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 26a58216f6e788340a99509bebb141f5, type: 2}
-  <Icon>k__BackingField: {fileID: 21300000, guid: 4dc7889492969f14db5196e63c93f232, type: 3}
-  engine: {fileID: 7294836339388467409, guid: 3d06d35d25453954ab79e3e420271ed6, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: c887ffe20d8e76a46b538072bc0fe108, type: 3}
+  engine: {fileID: 7294836339388467409, guid: f1b19c15c2f760640a8667a5ac9fea97, type: 3}
   wagonCount: 2
