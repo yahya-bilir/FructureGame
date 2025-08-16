@@ -51,7 +51,7 @@ namespace Trains
         
         private void Start()
         {
-            //SpawnAllTrains().Forget();
+            SpawnAllTrains().Forget();
             _resolver.Inject(_trainEventsHandler);
             //_eventBus.Publish(new OnEngineSelected(debugEngine, 0));
             
@@ -69,18 +69,18 @@ namespace Trains
             //_eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1));
             
             //_eventBus.Publish(new OnEngineSelected(debugEngine, 1));
-            _eventBus.Publish(new OnEngineSelected(electricEngine, 1, 3));
+            _eventBus.Publish(new OnEngineSelected(electricEngine, 0, 3));
 
             await UniTask.WaitForSeconds(20);
             
             //_eventBus.Publish(new OnEngineSelected(rocketEngine, 2));
-            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 2, 3));
+            _eventBus.Publish(new OnEngineSelected(flameThrowerEngine, 1, 3));
             
             //_eventBus.Publish(new OnEngineSelected(electricEngine, 2));
             
-            //await UniTask.WaitForSeconds(10);
+            await UniTask.WaitForSeconds(10);
             
-            //_eventBus.Publish(new OnEngineSelected(electricEngine, 2));
+            _eventBus.Publish(new OnEngineSelected(rocketEngine, 1,3));
                 
             // for (int i = 0; i < 2; i++)
             // {

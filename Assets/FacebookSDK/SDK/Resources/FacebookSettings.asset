@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Facebook.Unity.Settings.dll::Facebook.Unity.Settings.FacebookSettings
   selectedAppIndex: 0
   clientTokens:
-  - c4caa8ca215f1a4a8a4098c53c8ff555
+  - b2e4ef8b56637042b958a1884154184e
   appIds:
-  - 1772800983313967
+  - 1908175323308566
   appLabels:
   - Railstorm
   cookie: 1

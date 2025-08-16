@@ -48,7 +48,7 @@ namespace Perks
                 }
             }
             
-            //InvokeRepeating(nameof(LevelUp), 30f, 30f);
+            //InvokeRepeating(nameof(LevelUp), 5f, 30f);
 
         }
 

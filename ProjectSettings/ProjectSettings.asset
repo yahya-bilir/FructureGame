@@ -151,7 +151,7 @@ PlayerSettings:
   vrSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
-  enableFrameTimingStats: 0
+  enableFrameTimingStats: 1
   enableOpenGLProfilerGPURecorders: 1
   allowHDRDisplaySupport: 0
   useHDRDisplay: 0
@@ -293,7 +293,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1379cb1ac7b31014c8d1165ea80868b8, type: 3}
+      m_Icon: {fileID: 2800000, guid: 51b1ac4665d824c42a836203ae17ef92, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -786,10 +786,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: b3bbb629-c094-42eb-a827-6df3d70cb545
+  cloudProjectId: 85630b0a-dcdc-4a8d-bdd7-0a832595b0e5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: DiceQuest
+  projectName: Railstrom
   organizationId: yahyabilir
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

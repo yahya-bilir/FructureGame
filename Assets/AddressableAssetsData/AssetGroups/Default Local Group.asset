@@ -14,25 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 6776b6762d648c34f9c39086c1b7ee06
-  m_SerializeEntries:
-  - m_GUID: 3acc1eea8e5c6c048a1dd0d1410d1d8c
-    m_Address: Assets/_Main/Project/Prefabs/Enemies/EnemyBase.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bbfcf8aa5ece64fc8bc8350e59b59cce
-    m_Address: Assets/_Main/Project/SOs/Factories/EnemyFactories/EnemyFactory.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bdf1ad60c88849268c0ad53c69a8c075
-    m_Address: Assets/_Main/Project/Scripts/Gameplay/DataSave/GameData.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 12d622832ea71c2449bbb5f38eeba05c, type: 2}
   m_SchemaSet:

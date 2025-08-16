@@ -24,11 +24,13 @@
       "url": "https://homagames.jfrog.io/artifactory/api/npm/unity-public-sdk"
     },
     "com.homagames.analytics.facebook": {
-      "version": "17.0.3",
+      "version": "17.3.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.homagames.sdk-core": "2.1.0"
+        "com.homagames.sdk-core": "2.1.0",
+        "com.homagames.logger-abstractions": "1.0.1",
+        "com.homagames.foundation": "1.12.0"
       },
       "url": "https://homagames.jfrog.io/artifactory/api/npm/unity-public-sdk"
     },
@@ -118,8 +120,8 @@
         "com.homagames.sdk-core": "4.4.4",
         "com.homagames.attribution.adjust": "6.3.0",
         "com.homagames.analytics.gameanalytics": "8.0.0",
-        "com.homagames.analytics.facebook": "17.0.3",
         "com.homagames.analytics.homa-analytics": "1.7.5",
+        "com.homagames.analytics.facebook": "17.3.0",
         "com.homagames.debug-console": "4.0.1"
       }
     },
@@ -277,6 +279,17 @@
       "dependencies": {
         "com.unity.profiling.core": "1.0.2",
         "com.unity.modules.subsystems": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.adaptiveperformance.google.android": {
+      "version": "5.1.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.modules.subsystems": "1.0.0",
+        "com.unity.adaptiveperformance": "5.1.0"
       },
       "url": "https://packages.unity.com"
     },
