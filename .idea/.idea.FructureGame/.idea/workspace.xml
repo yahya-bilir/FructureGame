@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Resources/AdjustSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Adjust/Resources/AdjustSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/HomaConsoleSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/HomaConsoleSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/HomaConsoleSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/HomaConsoleSettings.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/LiveDebugSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/LiveDebugSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/LiveDebugSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Homa Games/Settings/Resources/com.homagames.debug-console/LiveDebugSettings.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Sprites/IngameDebugConsoleSpriteAtlas.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Sprites/IngameDebugConsoleSpriteAtlas.spriteatlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GameAnalytics/Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/GameAnalytics/Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/1 Shatter. Types. Voronoi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/1 Shatter. Types. Voronoi.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/7 Shatter. Types. Tets.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/7 Shatter. Types. Tets.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/10 Bomb/1 Bomb. Basics/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/10 Bomb/1 Bomb. Basics/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/RayFireDeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/RayFireDeneme.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755521472555</updated>
-      <workItem from="1755521474715" duration="1201000" />
+      <workItem from="1755521474715" duration="3073000" />
     </task>
     <servers />
   </component>
