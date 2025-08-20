@@ -77,7 +77,7 @@ namespace Characters
 
         protected virtual void GetComponents()
         {
-            _animator = model.GetComponent<Animator>();
+            _animator = model.GetComponentInChildren<Animator>();
             Feedback = GetComponent<MMF_Player>();
         }
 

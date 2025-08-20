@@ -1,10 +1,12 @@
 using Characters.StationaryGunHolders.BaseSystem;
 using MoreMountains.Feedbacks;
+using UnityEngine;
 
 namespace Characters.BaseSystem
 {
-    public class MainBase : StationaryGunHolderCharacter
+    public class MainBase : Character
     {
+        public Collider Collider { get; private set; }
         protected override void Awake()
         {
             base.Awake();
@@ -20,6 +22,8 @@ namespace Characters.BaseSystem
                 model,
                 spawnVfx
             );
+            
+            Collider = GetComponent<Collider>();
         }
     }
 }

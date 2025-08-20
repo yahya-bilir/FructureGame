@@ -51,14 +51,14 @@ public class MeleeAttacking : BaseAttacking
     public override void Tick()
     {
         base.Tick();
-        Vector3 direction = (_mainBase.transform.position - _meleeEnemy.transform.position).normalized;
-        if (direction != Vector3.zero)
-            _targetRotation = Quaternion.LookRotation(direction);
-        _meleeEnemy.transform.rotation = Quaternion.Lerp(
-            _meleeEnemy.transform.rotation,
-            _targetRotation,
-            Time.deltaTime * _rotationSpeed
-        );
+        // Vector3 direction = (_mainBase.transform.position - _meleeEnemy.transform.position).normalized;
+        // if (direction != Vector3.zero)
+        //     _targetRotation = Quaternion.LookRotation(direction);
+        // _meleeEnemy.transform.rotation = Quaternion.Lerp(
+        //     _meleeEnemy.transform.rotation,
+        //     _targetRotation,
+        //     Time.deltaTime * _rotationSpeed
+        // );
     }
 
     private void OnEnemyAttacked(OnCharacterAttacked attackedCharacter)

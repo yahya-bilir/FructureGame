@@ -105,7 +105,7 @@ namespace Characters.Enemy
             var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController, CharacterCombatManager, Collider);
 
             Func<bool> ReachedEnemy() => () =>
-                Vector3.Distance(transform.position, MainBase.transform.position) <= 2f && !IsCharacterDead;
+                Vector3.Distance(transform.position, MainBase.Collider.ClosestPoint(transform.position)) <= 0.2f && !IsCharacterDead;
 
             Func<bool> IsDead() => () => IsCharacterDead && !this.IsCrushed;
 

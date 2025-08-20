@@ -33,13 +33,15 @@ namespace AI.EnemyStates
             float minimumRange = castedWeapon.MinimumRange;
 
             var selfPosition = _modelTransform.position;
-            var enemyPosition = _enemy.transform.position;
 
-            float currentDistance = Vector3.Distance(selfPosition, enemyPosition);
+            // MainBase içerisindeki Collider'dan en yakın noktayı bul
+            Vector3 targetPosition = _mainBase.Collider.ClosestPoint(selfPosition);
+
+            float currentDistance = Vector3.Distance(selfPosition, targetPosition);
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(_enemy.transform.position, false, 0f);
+                _enemyMovementController.MoveCharacter(targetPosition, false, 0f);
                 _enemyMovementController.IncreaseSpeedSmoothly(2f);
             }
             else

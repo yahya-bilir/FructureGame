@@ -25,7 +25,6 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<CamerasManager>();
             builder.RegisterComponentInHierarchy<MainBase>();
             builder.Register<MainBaseGetterAsATarget>(Lifetime.Singleton).AsSelf();
-            builder.RegisterComponentInHierarchy<TrainsManager>();
             builder.RegisterComponentInHierarchy<EnemyFactoryManager>();
             builder.RegisterComponentInHierarchy<XPManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();

@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
-  m_GIWorkflowMode: 0
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -97,14 +93,14 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingDataAsset: {fileID: 112000000, guid: 1735307b305e077409a57855994e9505, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: cc56638c9d70e0b42af0cd7e4a0cba8f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +113,9 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -145,12 +143,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66893662}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.84, y: 2.07, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 620823988}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &66893664
 MonoBehaviour:
@@ -164,18 +163,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.7
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 15
@@ -183,7 +185,8 @@ MonoBehaviour:
   positionAnimation: 2
   line: {fileID: 1290487260}
   positionList: []
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &80663831
@@ -209,25 +212,24 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80663831}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: -5.1877995}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1429874245}
   - {fileID: 252600661}
   m_Father: {fileID: 991743485}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160595620 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 161209391}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &160595621 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 161209391}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &160595622
@@ -242,15 +244,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -258,16 +260,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -278,7 +280,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -290,7 +292,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -298,14 +301,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -317,20 +324,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -365,20 +373,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -391,11 +399,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 0
+    fadeTime: 5
     lifeType: 4
     lifeTime: 7
     lifeVariation: 3
-    fadeType: 0
-    fadeTime: 5
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -407,14 +415,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -423,6 +430,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 817903837}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -474,12 +482,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 160595622}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!1001 &252600660
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 80663832}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -531,17 +546,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 252600663}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!4 &252600661 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 252600660}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &252600662 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 252600660}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &252600663
@@ -556,15 +575,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -572,16 +591,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -592,7 +611,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -604,7 +623,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -612,14 +632,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -631,20 +655,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -679,20 +704,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -705,11 +730,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 3
+    fadeTime: 2.16
     lifeType: 4
     lifeTime: 1.9
     lifeVariation: 0.58
-    fadeType: 3
-    fadeTime: 2.16
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -721,14 +746,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -756,12 +780,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301594888}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.94, y: 2.07, z: 5.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 769244471}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &301594890
 MonoBehaviour:
@@ -775,18 +800,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.7
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 2
@@ -797,7 +825,8 @@ MonoBehaviour:
   - {x: -5.39, y: 2.07, z: 0}
   - {x: -0.314, y: 2.07, z: -2.662}
   - {x: 4.32, y: 2.07, z: 2.88}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &323278919
@@ -823,25 +852,24 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323278919}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.91, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 817903837}
   - {fileID: 1032578374}
   m_Father: {fileID: 1535625363}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441945108 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 562033600}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &441945109 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 562033600}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &441945110
@@ -856,15 +884,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -872,16 +900,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -892,7 +920,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -904,7 +932,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -912,14 +941,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -931,20 +964,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -979,20 +1013,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -1005,11 +1039,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 3
+    fadeTime: 2.16
     lifeType: 4
     lifeTime: 1.9
     lifeVariation: 0.58
-    fadeType: 3
-    fadeTime: 2.16
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -1021,14 +1055,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -1056,12 +1089,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526323678}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.84, y: 2.07, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1975941344}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &526323680
 MonoBehaviour:
@@ -1075,18 +1109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.7
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 15
@@ -1094,7 +1131,8 @@ MonoBehaviour:
   positionAnimation: 1
   line: {fileID: 2035452964}
   positionList: []
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1001 &562033600
@@ -1102,6 +1140,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1566437306}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -1153,6 +1192,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 441945110}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!1 &620823987
 GameObject:
@@ -1177,15 +1222,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620823987}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 18.47, y: -0.91249275, z: -6.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1290487261}
   - {fileID: 66893663}
   - {fileID: 1145042782}
   m_Father: {fileID: 991743485}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669642760
 GameObject:
@@ -1211,12 +1257,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669642760}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.434, y: 2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 817903837}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &669642762
 MonoBehaviour:
@@ -1230,18 +1277,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.2
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 5
@@ -1251,7 +1301,8 @@ MonoBehaviour:
   positionList:
   - {x: -5.27, y: 2.07, z: 0}
   - {x: 10.139999, y: 0, z: 0}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &769244470
@@ -1277,14 +1328,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769244470}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: -0.4022007}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 301594889}
   - {fileID: 1341782669}
   m_Father: {fileID: 1138507554}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &817903836
 GameObject:
@@ -1309,14 +1361,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817903836}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: -0.4022007}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 669642761}
   - {fileID: 160595621}
   m_Father: {fileID: 323278920}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991743484
 GameObject:
@@ -1341,16 +1394,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991743484}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1566437306}
   - {fileID: 80663832}
   - {fileID: 1975941344}
   - {fileID: 620823988}
   m_Father: {fileID: 1535625363}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032578373
 GameObject:
@@ -1375,14 +1429,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032578373}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: -8.862201}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1418906416}
   - {fileID: 1134127907}
   m_Father: {fileID: 323278920}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085307583
 GameObject:
@@ -1408,12 +1463,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085307583}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.47, y: 2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2051398739}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1085307585
 MonoBehaviour:
@@ -1427,18 +1483,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.7
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 2
@@ -1448,19 +1507,18 @@ MonoBehaviour:
   positionList:
   - {x: -5.39, y: 2.07, z: -8.46}
   - {x: 5.39, y: 2.07, z: -8.46}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &1134127906 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1637730797}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1134127907 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1637730797}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1134127908
@@ -1475,15 +1533,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -1491,16 +1549,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -1511,7 +1569,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -1523,7 +1581,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -1531,14 +1590,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -1550,20 +1613,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -1598,20 +1662,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -1624,11 +1688,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 0
+    fadeTime: 5
     lifeType: 4
     lifeTime: 7
     lifeVariation: 3
-    fadeType: 0
-    fadeTime: 5
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -1640,14 +1704,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -1674,20 +1737,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138507553}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -29.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2051398739}
   - {fileID: 769244471}
   m_Father: {fileID: 1535625363}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1145042781
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 620823988}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -1739,17 +1804,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1145042784}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!4 &1145042782 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1145042781}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145042783 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1145042781}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1145042784
@@ -1764,15 +1833,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -1780,16 +1849,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -1800,7 +1869,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -1812,7 +1881,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -1820,14 +1890,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -1839,20 +1913,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -1887,20 +1962,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -1913,11 +1988,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 3
+    fadeTime: 2.16
     lifeType: 4
     lifeTime: 1.9
     lifeVariation: 0.58
-    fadeType: 3
-    fadeTime: 2.16
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -1929,14 +2004,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -1959,6 +2033,7 @@ GameObject:
   m_IsActive: 1
 --- !u!120 &1290487260
 LineRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1968,10 +2043,15 @@ LineRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2046,16 +2126,20 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
+  m_MaskInteraction: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+  m_ApplyActiveColorSpace: 0
 --- !u!4 &1290487261
 Transform:
   m_ObjectHideFlags: 0
@@ -2063,18 +2147,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290487259}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.2299995, y: 2.53, z: -3.0500002}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 620823988}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1341782668
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 769244471}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -2126,17 +2212,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1341782671}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!4 &1341782669 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1341782668}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1341782670 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1341782668}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1341782671
@@ -2151,15 +2241,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -2167,16 +2257,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -2187,7 +2277,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -2199,7 +2289,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -2207,14 +2298,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -2226,20 +2321,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -2274,20 +2370,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -2300,11 +2396,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 0
+    fadeTime: 5
     lifeType: 4
     lifeTime: 7
     lifeVariation: 3
-    fadeType: 0
-    fadeTime: 5
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -2316,14 +2412,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -2351,12 +2446,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418906415}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.34, y: 2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1032578374}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418906417
 MonoBehaviour:
@@ -2370,18 +2466,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.2
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 5
@@ -2391,7 +2490,8 @@ MonoBehaviour:
   positionList:
   - {x: -5.39, y: 2.07, z: -8.46}
   - {x: 10.190001, y: 0, z: 0}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &1424374314
@@ -2418,12 +2518,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424374314}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.39, y: 5.65, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1566437306}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1424374316
 MonoBehaviour:
@@ -2437,18 +2538,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.7
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 3
@@ -2459,7 +2563,8 @@ MonoBehaviour:
   - {x: -6.59, y: 2.07, z: 0.81220067}
   - {x: -0.53, y: 2.07, z: -0.9577993}
   - {x: 4.52, y: 2.07, z: 3.3522007}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1 &1429874244
@@ -2486,12 +2591,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429874244}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.12, y: 2.07, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 80663832}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1429874246
 MonoBehaviour:
@@ -2505,18 +2611,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a2260124482ed4aac2c705989354dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRigid: 1
+  checkRigidRoot: 1
   gizmoType: 0
   sphereRadius: 0.86607933
   boxSize: {x: 5, y: 2, z: 5}
-  checkRigid: 1
-  checkRigidRoot: 1
+  showGizmo: 1
   type: 0
+  spdMin: 0
   delay: 0
   demolishCluster: 0
   apply: 0
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0}
   mode: 0
+  velocity: {x: 0, y: 0, z: 0}
+  velVar: 20
+  spin: {x: 0, y: 0, z: 0}
   coord: 0
   showAnimation: 1
   duration: 3
@@ -2527,7 +2636,8 @@ MonoBehaviour:
   - {x: -6.12, y: 5.76, z: -4.745599}
   - {x: 3.27, y: 0, z: -1.9200001}
   - {x: 7.67, y: 0, z: 1.0100002}
-  showGizmo: 1
+  mask: -1
+  tagFilter: Untagged
   activatorCollider: {fileID: 0}
   ps: {fileID: 0}
 --- !u!1001 &1445489124
@@ -2535,6 +2645,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1014529264720340, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
@@ -2609,28 +2720,107 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -40.18
       objectReference: {fileID: 0}
-    - target: {fileID: 23019430021055472, guid: 0f7b67bc08186d14ba66630d8e7527ef,
-        type: 3}
+    - target: {fileID: 20430601057287236, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20430601057287236, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20430601057287236, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20430601057287236, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23019430021055472, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23019430021055472, guid: 0f7b67bc08186d14ba66630d8e7527ef,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 23019430021055472, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 18c5c2169b9f5bd439ca94baa6e8e7ec, type: 2}
-    - target: {fileID: 114689447726362688, guid: 0f7b67bc08186d14ba66630d8e7527ef,
-        type: 3}
+    - target: {fileID: 114689447726362688, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
       propertyPath: simulationType
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1384259510792060, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1445489128}
+    - targetCorrespondingSourceObject: {fileID: 1788529760603158, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1445489127}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+--- !u!1 &1445489125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788529760603158, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+  m_PrefabInstance: {fileID: 1445489124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1445489126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1384259510792060, guid: 0f7b67bc08186d14ba66630d8e7527ef, type: 3}
+  m_PrefabInstance: {fileID: 1445489124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1445489127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445489125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!114 &1445489128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445489126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &1529978748
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2051398739}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -2682,17 +2872,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529978751}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!4 &1529978749 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1529978748}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1529978750 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1529978748}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1529978751
@@ -2707,15 +2901,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -2723,16 +2917,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -2743,7 +2937,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -2755,7 +2949,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -2763,14 +2958,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -2782,20 +2981,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -2830,20 +3030,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -2856,11 +3056,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 0
+    fadeTime: 5
     lifeType: 4
     lifeTime: 7
     lifeVariation: 3
-    fadeType: 0
-    fadeTime: 5
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -2872,14 +3072,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -2906,21 +3105,23 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535625362}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.53123474, y: 0.91249275, z: 0.4022007}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1138507554}
   - {fileID: 323278920}
   - {fileID: 991743485}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1545073826
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1975941344}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -2972,17 +3173,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1545073829}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!4 &1545073827 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1545073826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545073828 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
   m_PrefabInstance: {fileID: 1545073826}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1545073829
@@ -2997,15 +3202,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6e52f37bca2404fac00b69fd8d21f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialization: 1
-  simulationType: 2
-  objectType: 1
-  demolitionType: 0
+  init: 1
+  simTp: 2
+  objTp: 1
+  dmlTp: 0
   physics:
     mt: 4
-    material: {fileID: 0}
-    massBy: 0
-    mass: 1
+    ma: {fileID: 0}
+    mb: 0
+    ms: 1
     ct: 0
     pc: 1
     ine: 0
@@ -3013,16 +3218,16 @@ MonoBehaviour:
     si: 6
     st: 0.005
     dm: 0.8
-    rigidBody: {fileID: 0}
-    meshCollider: {fileID: 0}
-    clusterColliders: []
-    ignoreList: 
+    rb: {fileID: 0}
+    mc: {fileID: 0}
+    cc: []
+    ign: 
     exclude: 0
     solidity: 1
     destructible: 0
-  activation:
-    loc: 0
+  act:
     off: 0
+    loc: 0
     vel: 0
     dmg: 0
     act: 1
@@ -3033,7 +3238,7 @@ MonoBehaviour:
     l: 0
     lay: 0
     cnt: {fileID: 0}
-  limitations:
+  lim:
     col: 1
     sol: 0.1
     tag: Untagged
@@ -3045,7 +3250,8 @@ MonoBehaviour:
     bound:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
-  meshDemolition:
+  mshDemol:
+    engTp: 0
     am: 15
     var: 0
     dpf: 0.5
@@ -3053,14 +3259,18 @@ MonoBehaviour:
     sd: 1
     use: 0
     cld: 1
-    cls: 0
     sim: 4
+    cnv: 0
     inp: 9
     prp:
+      rem: 0
+      dec: 0
+      slc: 0
+      cmb: 1
+      cap: 1
+      ptr: 0
       col: 0
       szF: 0
-      dec: 0
-      rem: 0
       l: 1
       lay: 0
       t: 1
@@ -3072,20 +3282,21 @@ MonoBehaviour:
       skp: 0
     sht: {fileID: 0}
     rotStart: {x: 0, y: 0, z: 0, w: 1}
-  clusterDemolition:
-    connectivity: 0
-    minimumArea: 0
-    minimumSize: 0
-    percentage: 0
+  clsDemol:
+    cnt: 0
+    sim: 0
+    mAr: 0
+    mSz: 0
+    pct: 0
     seed: 0
     type: 0
     ratio: 15
     units: 1
-    shardArea: 100
-    shardDemolition: 0
-    minAmount: 3
-    maxAmount: 6
-    demolishable: 1
+    sAr: 100
+    sDm: 0
+    mnAm: 3
+    mxAm: 6
+    cDm: 1
     collapse:
       type: 1
       start: 0
@@ -3120,20 +3331,20 @@ MonoBehaviour:
     cn: 0
     nd: 0
     am: 0
-  referenceDemolition:
-    reference: {fileID: 0}
-    randomList: []
-    action: 0
-    addRigid: 1
-    inheritScale: 1
-    inheritMaterials: 0
+  refDemol:
+    rfs: {fileID: 0}
+    rnd: []
+    act: 0
+    add: 1
+    scl: 1
+    mat: 0
   materials:
     iMat: {fileID: 0}
     oMat: {fileID: 0}
     mScl: 0.1
     uvE: 0
     uvC: {x: 0, y: 0}
-    cE: 0
+    uvR: {x: 0.75, y: 0.75}
     cC: {r: 0, g: 0, b: 0, a: 0}
   damage:
     en: 0
@@ -3146,11 +3357,11 @@ MonoBehaviour:
     onDemolition: 1
     onActivation: 0
     byOffset: 0
+    fadeType: 3
+    fadeTime: 2.16
     lifeType: 4
     lifeTime: 1.9
     lifeVariation: 0.58
-    fadeType: 3
-    fadeTime: 2.16
     sizeFilter: 0
     shardAmount: 5
   reset:
@@ -3162,14 +3373,13 @@ MonoBehaviour:
     mesh: 4
     fragments: 0
   initialized: 0
-  rfMeshes: []
   fragments: []
-  cacheRotation: {x: 0, y: 0, z: 0, w: 0}
-  transForm: {fileID: 0}
-  rootChild: {fileID: 0}
-  rootParent: {fileID: 0}
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  chRot: {x: 0, y: 0, z: 0, w: 0}
+  tsf: {fileID: 0}
+  rtC: {fileID: 0}
+  rtP: {fileID: 0}
+  mFlt: {fileID: 0}
+  mRnd: {fileID: 0}
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
@@ -3196,20 +3406,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566437305}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1424374315}
   - {fileID: 441945109}
   m_Father: {fileID: 991743485}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1637730797
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1032578374}
     m_Modifications:
     - target: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
@@ -3261,6 +3473,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100610, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1134127908}
   m_SourcePrefab: {fileID: 100100000, guid: 8a312a861d188f4459a64acbef7e2716, type: 3}
 --- !u!1 &1975941343
 GameObject:
@@ -3285,15 +3503,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975941343}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 18.47, y: -0.91249275, z: 2.5822005}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2035452965}
   - {fileID: 526323679}
   - {fileID: 1545073827}
   m_Father: {fileID: 991743485}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035452963
 GameObject:
@@ -3314,6 +3533,7 @@ GameObject:
   m_IsActive: 1
 --- !u!120 &2035452964
 LineRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3323,10 +3543,15 @@ LineRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3401,16 +3626,20 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
+  m_MaskInteraction: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+  m_ApplyActiveColorSpace: 0
 --- !u!4 &2035452965
 Transform:
   m_ObjectHideFlags: 0
@@ -3418,12 +3647,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035452963}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.2299995, y: 2.53, z: -3.0500002}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1975941344}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051398738
 GameObject:
@@ -3448,12 +3678,19 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051398738}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.53123474, y: -0.91249275, z: -8.862201}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1085307584}
   - {fileID: 1529978749}
   m_Father: {fileID: 1138507554}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 1445489124}
+  - {fileID: 1535625363}
