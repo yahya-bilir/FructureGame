@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/1 Shatter. Types. Voronoi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/1 Shatter. Types. Voronoi.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/7 Shatter. Types. Tets.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/1 Shatter/7 Shatter. Types. Tets.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/10 Bomb/1 Bomb. Basics/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RayFire/Tutorial/Scenes/10 Bomb/1 Bomb. Basics/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RayFire/Info/HowTo/Activation/~$ How to activate Inactive objects by collision.rtf.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/RayFireDeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/RayFireDeneme.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,30 +17,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="31SdaR85gGj3OxPSn17byXh6J4z" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="F:\UnityVersions\6000.2.0a4\Editor\Unity.exe" />
@@ -103,7 +100,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755521472555</updated>
-      <workItem from="1755521474715" duration="3073000" />
+      <workItem from="1755521474715" duration="4263000" />
+      <workItem from="1755604865184" duration="1492000" />
     </task>
     <servers />
   </component>
