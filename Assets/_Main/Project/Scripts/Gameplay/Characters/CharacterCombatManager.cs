@@ -33,7 +33,7 @@ namespace Characters
             EventBus = eventBus;
         }
         
-        public virtual void GetDamage(float damage, DamageTypes  damageType = DamageTypes.Normal)
+        public virtual void GetDamage(float damage, DamageTypes  damageType = DamageTypes.Normal, GameObject damagedObject = null)
         {
             var damageData = CharacterPropertyManager.GetProperty(PropertyQuery.Health);
             var newHealth = damageData.TemporaryValue - damage;
@@ -48,7 +48,7 @@ namespace Characters
             // var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
             var origin = Character.transform.position;
 
-            Collider[] hits = Physics.OverlapSphere(origin, 10, LayerMask.GetMask("AI"));
+            Collider[] hits = Physics.OverlapSphere(origin, 25, LayerMask.GetMask("AI"));
 
             if (hits.Length == 0) return null;
 

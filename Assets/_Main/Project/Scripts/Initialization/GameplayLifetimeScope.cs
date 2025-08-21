@@ -1,10 +1,8 @@
-﻿using System;
-using Characters.BaseSystem;
+﻿using Characters.BaseSystem;
 using CommonComponents;
 using Factories;
 using FlingTamplate.UIParticle;
 using Perks;
-using Trains;
 using UI;
 using VContainer;
 using VContainer.Unity;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429215640013221854}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ModelHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8667739435181644054}
   - component: {fileID: 3693883681338215846}
   - component: {fileID: 3224639516660099369}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 8980126373743906572}
   - component: {fileID: 5270277599013972460}
   - component: {fileID: 2171365887967535819}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AmmoBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
