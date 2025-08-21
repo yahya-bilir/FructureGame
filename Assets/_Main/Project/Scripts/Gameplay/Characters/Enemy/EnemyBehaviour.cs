@@ -48,7 +48,7 @@ namespace Characters.Enemy
             base.Awake();
             _damageAndGameObjects.Add(DamageTypes.Fire, fireVfxObj);
             _damageAndGameObjects.Add(DamageTypes.Electric, electricVfxObj);
-            EnemyDestructionManager = new EnemyDestructionManager(meshColliderAndSkinnedMeshDatas);
+            EnemyDestructionManager = new EnemyDestructionManager(meshColliderAndSkinnedMeshDatas, AnimationController);
             CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, 
                 hitVfx, Feedback, _renderers, spawnVfx, _damageAndGameObjects, EnemyDestructionManager);
         }

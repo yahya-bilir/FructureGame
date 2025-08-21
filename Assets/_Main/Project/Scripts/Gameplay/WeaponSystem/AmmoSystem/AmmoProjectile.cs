@@ -32,7 +32,7 @@ namespace WeaponSystem.AmmoSystem
 
             if (target is EnemyBehaviour eb)
             {
-                var data = eb.EnemyDestructionManager?.GetMeshColliderToAttack();
+                var data = eb.EnemyDestructionManager.GetMeshColliderToAttack();
                 if (data != null && data.ParentGameObjectOfColliders != null)
                 {
                     Debug.Log(data.ParentGameObjectOfColliders.name);
@@ -40,12 +40,14 @@ namespace WeaponSystem.AmmoSystem
                 }
                 else
                 {
-                    aimPoint = target.transform.position + (Vector3.up / 2f);
+                    Debug.Log("Data is null or not any parent is placed");
+
+                    aimPoint = target.transform.position + (Vector3.up);
                 }
             }
             else
             {
-                aimPoint = target.transform.position + (Vector3.up / 2f);
+                aimPoint = target.transform.position + (Vector3.up);
             }
             
             Vector3 direction = (aimPoint - transform.position).normalized;

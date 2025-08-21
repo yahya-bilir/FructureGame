@@ -15,6 +15,6 @@ MonoBehaviour:
   <SpawnableEnemies>k__BackingField:
   - {fileID: 4790879081205326185, guid: 5f7219087afe1bc478f14e0bbbc0ecda, type: 3}
   <SpawnLimit>k__BackingField: 10000
-  <SpawnRangeMin>k__BackingField: 1
-  <SpawnRangeMax>k__BackingField: 7
-  <InitialSpawnInterval>k__BackingField: 3
+  <SpawnRangeMin>k__BackingField: 6
+  <SpawnRangeMax>k__BackingField: 6
+  <InitialSpawnInterval>k__BackingField: 0

@@ -11,6 +11,7 @@ namespace Characters
         private static readonly int JumpHash = Animator.StringToHash("Jump");
         private static readonly int HitHash = Animator.StringToHash("Hit");
         private static readonly int DeadHash = Animator.StringToHash("Dead");
+        private static readonly int LeglessHash = Animator.StringToHash("Legless");
 
         public CharacterAnimationController(Animator animator)
         {
@@ -41,7 +42,21 @@ namespace Characters
         {
             _animator.SetBool(AttackHash, true);
             _animator.SetBool(RunHash, false);
-        }        
+        }                
+        
+        public void Legless()
+        {
+            _animator.SetBool(LeglessHash, true);
+        }            
+        
+        public void Headless()
+        {
+        }
+
+        public void Armless()
+        {
+            
+        }
         
         public void Dead()
         {

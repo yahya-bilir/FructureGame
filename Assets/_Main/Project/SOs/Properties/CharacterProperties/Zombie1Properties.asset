@@ -16,16 +16,16 @@ MonoBehaviour:
   <EntityId>k__BackingField: Zombie1
   <PropertySaveDatas>k__BackingField:
   - <PropertyQuery>k__BackingField: 0
-    <PermanentValue>k__BackingField: 5
-    <TemporaryValue>k__BackingField: 5
+    <PermanentValue>k__BackingField: 4
+    <TemporaryValue>k__BackingField: 4
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 20
     <PermanentValue>k__BackingField: 1.6
     <TemporaryValue>k__BackingField: 1.6
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 1
-    <PermanentValue>k__BackingField: 5
-    <TemporaryValue>k__BackingField: 5
+    <PermanentValue>k__BackingField: 4
+    <TemporaryValue>k__BackingField: 4
     <PermanentValueLevel>k__BackingField: 0
   - <PropertyQuery>k__BackingField: 2
     <PermanentValue>k__BackingField: 1

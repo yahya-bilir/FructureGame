@@ -5,19 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/BodyPart.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/BodyPart.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatFire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Gas/GasMissileBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Gas/GasMissileBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Gas/GasMissileFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Gas/GasMissileFire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Rocket/RocketMissileFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Rocket/RocketMissileFire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Sparkle/SparkleMissileYellow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Missiles/Sparkle/SparkleMissileYellow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/TurretAnimations/TurretAttack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Animations/TurretAnimations/TurretAttack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Cell Frecture Tryout (1).fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Cell Frecture Tryout (1).fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Weapons/WeaponGenericAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Weapons/WeaponGenericAnimator.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CanonBall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CanonBall.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottom.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottom.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottomLeft.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottomLeft.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottomRight.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerBottomRight.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTopLeft.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTopLeft.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTopRight.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTopRight.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Zombie1Properties.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Zombie1Properties.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterAnimationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyDestructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyDestructionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeshColliderAndSkinnedMeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeshColliderAndSkinnedMeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyDestructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyDestructionManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeshColliderAndSkinnedMeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeshColliderAndSkinnedMeshData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +74,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.53582555&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5356623&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -104,15 +121,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10208">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10208" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -131,7 +146,8 @@
       <workItem from="1755521474715" duration="4263000" />
       <workItem from="1755604865184" duration="1492000" />
       <workItem from="1755678807261" duration="11477000" />
-      <workItem from="1755769871384" duration="16765000" />
+      <workItem from="1755769871384" duration="16847000" />
+      <workItem from="1755797295683" duration="4645000" />
     </task>
     <servers />
   </component>
