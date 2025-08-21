@@ -5365,7 +5365,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1c6a40512041a490ea5a36c67aa26d5c, type: 2}
     - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: meshColliderAndSkinnedMeshDatas.Array.size
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[0].rayfireRigid
@@ -5387,6 +5387,22 @@ PrefabInstance:
       propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[4].rayfireRigid
       value: 
       objectReference: {fileID: 8750464462377409904}
+    - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[5].rayfireRigid
+      value: 
+      objectReference: {fileID: 3311272083265914730}
+    - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[6].rayfireRigid
+      value: 
+      objectReference: {fileID: 968805122594949571}
+    - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[7].rayfireRigid
+      value: 
+      objectReference: {fileID: 7814100036829945869}
+    - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
+      propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[8].rayfireRigid
+      value: 
+      objectReference: {fileID: 9194929107965092303}
     - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[0].parentGameObjectOfColliders
       value: 

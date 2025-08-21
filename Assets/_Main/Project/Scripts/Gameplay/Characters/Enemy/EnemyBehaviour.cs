@@ -20,7 +20,6 @@ namespace Characters.Enemy
         [SerializeField] private GameObject fireVfxObj;
         [SerializeField] private GameObject electricVfxObj;
         [SerializeField] private List<MeshColliderAndSkinnedMeshData> meshColliderAndSkinnedMeshDatas;
-        [SerializeField] private List<RayfireRigid> restOfTheRigids;
         
         protected Collider Collider;
         protected EnemyMovementController EnemyMovementController;
@@ -49,7 +48,7 @@ namespace Characters.Enemy
             base.Awake();
             _damageAndGameObjects.Add(DamageTypes.Fire, fireVfxObj);
             _damageAndGameObjects.Add(DamageTypes.Electric, electricVfxObj);
-            EnemyDestructionManager = new EnemyDestructionManager(meshColliderAndSkinnedMeshDatas, restOfTheRigids);
+            EnemyDestructionManager = new EnemyDestructionManager(meshColliderAndSkinnedMeshDatas);
             CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, 
                 hitVfx, Feedback, _renderers, spawnVfx, _damageAndGameObjects, EnemyDestructionManager);
         }

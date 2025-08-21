@@ -9,15 +9,12 @@ namespace Characters.Enemy
     public class EnemyDestructionManager
     {
         private readonly List<MeshColliderAndSkinnedMeshData> _meshColliderAndSkinnedMeshDatas;
-        private readonly List<RayfireRigid> _restOfTheRigids;
         private int _nextIndex;
         private System.Random _rng = new System.Random();
 
-        public EnemyDestructionManager(List<MeshColliderAndSkinnedMeshData> meshColliderAndSkinnedMeshDatas,
-            List<RayfireRigid> restOfTheRigids)
+        public EnemyDestructionManager(List<MeshColliderAndSkinnedMeshData> meshColliderAndSkinnedMeshDatas)
         {
             _meshColliderAndSkinnedMeshDatas = meshColliderAndSkinnedMeshDatas;
-            _restOfTheRigids = restOfTheRigids;
             foreach (var meshColliderAndSkinnedMeshData in _meshColliderAndSkinnedMeshDatas)
             {
                 meshColliderAndSkinnedMeshData.Initialize();
@@ -33,7 +30,6 @@ namespace Characters.Enemy
             if(part == null) return;
             
             part.Demolish();
-            DestroyPartAfterInterval(part.rayfireRigid).Forget();
         }
 
         public void DestroyAllParts()
@@ -41,14 +37,6 @@ namespace Characters.Enemy
             foreach (var meshColliderAndSkinnedMeshData in _meshColliderAndSkinnedMeshDatas)
             {
                 meshColliderAndSkinnedMeshData.Demolish();
-                DestroyPartAfterInterval(meshColliderAndSkinnedMeshData.rayfireRigid).Forget();
-
-            }
-
-            foreach (var rigid in _restOfTheRigids)
-            {
-                rigid.Demolish();
-                DestroyPartAfterInterval(rigid).Forget();
             }
         }
         
@@ -71,13 +59,6 @@ namespace Characters.Enemy
             return alive[idx];
         }
 
-        private async UniTask DestroyPartAfterInterval(RayfireRigid rigid)
-        {
-            await UniTask.WaitForSeconds(1.5f);
-            foreach (var rigidFragment in rigid.fragments)
-            {
-                rigidFragment.gameObject.SetActive(false);
-            }
-        }
+
     }
 }
