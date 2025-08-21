@@ -14,14 +14,17 @@ namespace Characters.Enemy
     {
         private readonly List<Renderer> _renderers;
         private readonly Dictionary<DamageTypes, GameObject> _damageAndGameObjects;
+        private readonly EnemyDestructionManager _enemyDestructionManager;
         private GameDatabase _gameDatabase;
         private GameObject _activeVfx;
         public EnemyVisualEffects(UIPercentageFiller healthBar, ParticleSystem onDeathVfx, Character character,
             CharacterAnimationController animationController, ParticleSystem hitVfx, MMF_Player feedback,
-            List<Renderer> renderers, ParticleSystem spawnVfx, Dictionary<DamageTypes, GameObject> damageAndGameObjects) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
+            List<Renderer> renderers, ParticleSystem spawnVfx, Dictionary<DamageTypes, GameObject> damageAndGameObjects,
+            EnemyDestructionManager enemyDestructionManager) : base(healthBar, onDeathVfx, character, animationController, hitVfx, feedback, spawnVfx)
         {
             _renderers = renderers;
             _damageAndGameObjects = damageAndGameObjects;
+            _enemyDestructionManager = enemyDestructionManager;
         }
         
         [Inject]
@@ -37,6 +40,7 @@ namespace Characters.Enemy
 
             foreach (var renderer in _renderers)
             {
+                if(renderer == null) continue;
                 var originalMaterial = renderer.material;
                 var originalTexture = originalMaterial.GetTexture("_BaseMap");
                 var originalColor = originalMaterial.GetColor("_BaseColor");
@@ -52,6 +56,9 @@ namespace Characters.Enemy
                 
                 DoDissolveAfterWaiting(renderer).Forget();
             }
+            
+            _enemyDestructionManager.DestroyAllParts();
+            
         }
 
         public override void OnCharacterTookDamage(float newHealth, float maxHealth, DamageTypes damageType)
@@ -73,6 +80,7 @@ namespace Characters.Enemy
         private async UniTask DoDissolveAfterWaiting(Renderer renderer)
         {
             await UniTask.WaitForSeconds(1f);
+            if(renderer == null) return;
             renderer.material.DOFloat(1f, "_Dissolve", 0.5f).SetEase(Ease.Linear);
         }
 

@@ -8,6 +8,7 @@ TagManager:
   - particles
   - Missile
   - Ground
+  - Part
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Obstructors
   - Reflections
   - UIVfx
-  - 
+  - Ammo
   - 
   - 
   - 

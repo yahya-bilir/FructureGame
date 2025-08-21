@@ -3,6 +3,7 @@ using System.Threading;
 using Characters;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Characters.Enemy;
 
 namespace WeaponSystem.AmmoSystem
 {
@@ -27,7 +28,27 @@ namespace WeaponSystem.AmmoSystem
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
 
-            Vector3 direction = ((target.transform.position + (Vector3.up / 2)) - transform.position).normalized;
+            Vector3 aimPoint;
+
+            if (target is EnemyBehaviour eb)
+            {
+                var data = eb.EnemyDestructionManager?.GetMeshColliderToAttack();
+                if (data != null && data.ParentGameObjectOfColliders != null)
+                {
+                    Debug.Log(data.ParentGameObjectOfColliders.name);
+                    aimPoint = data.ParentGameObjectOfColliders.transform.position;
+                }
+                else
+                {
+                    aimPoint = target.transform.position + (Vector3.up / 2f);
+                }
+            }
+            else
+            {
+                aimPoint = target.transform.position + (Vector3.up / 2f);
+            }
+            
+            Vector3 direction = (aimPoint - transform.position).normalized;
             _rigidbody.linearVelocity = direction * _speed;
             transform.rotation = Quaternion.LookRotation(direction);
 
@@ -60,12 +81,22 @@ namespace WeaponSystem.AmmoSystem
 
         protected override void TryProcessTrigger(Collider other, bool isEntering)
         {
-            if (!isEntering || !other.CompareTag("Enemy")) return;
-            if (!other.TryGetComponent(out Character character)) return;
-            if (character == ConnectedCombatManager.Character) return;
+            if(!isEntering) return;
 
-            character.CharacterCombatManager.GetDamage(Damage);
+            if (other.CompareTag("Part"))
+            {
+                var parentChar = other.GetComponentInParent<Character>();
+                if(parentChar.Faction == ConnectedCombatManager.Character.Faction) return;
+                parentChar.CharacterCombatManager.GetDamage(Damage, DamageTypes.Normal, other.gameObject);
+            }
+            else if (other.CompareTag("Enemy"))
+            {
+                var comp = other.GetComponent<Character>();
+                comp.CharacterCombatManager.GetDamage(Damage);
+            }
+            
             DisableAndEnqueue();
+
         }
     }
 }

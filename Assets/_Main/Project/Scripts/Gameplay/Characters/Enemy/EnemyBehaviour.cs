@@ -7,6 +7,7 @@ using AI.EnemyStates;
 using Characters.BaseSystem;
 using EventBusses;
 using PropertySystem;
+using RayFire;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,8 @@ namespace Characters.Enemy
     {
         [SerializeField] private GameObject fireVfxObj;
         [SerializeField] private GameObject electricVfxObj;
+        [SerializeField] private List<MeshColliderAndSkinnedMeshData> meshColliderAndSkinnedMeshDatas;
+        [SerializeField] private List<RayfireRigid> restOfTheRigids;
         
         protected Collider Collider;
         protected EnemyMovementController EnemyMovementController;
@@ -29,11 +32,9 @@ namespace Characters.Enemy
         protected IState WalkingToEnemy;
         protected MainBase MainBase;
 
-        private EnemyRigidbodyEffectsController _rigidbodyEffectsController;
         private AttackAnimationCaller _attackAnimationCaller;
         private Dictionary<DamageTypes, GameObject> _damageAndGameObjects = new Dictionary<DamageTypes, GameObject>();
-        public bool IsCrushed { get; private set; }
-        public bool IsKnockbacked { get; private set; }
+        public EnemyDestructionManager EnemyDestructionManager { get; private set; }
         private List<Renderer> _renderers;
 
         [Inject]
@@ -48,13 +49,16 @@ namespace Characters.Enemy
             base.Awake();
             _damageAndGameObjects.Add(DamageTypes.Fire, fireVfxObj);
             _damageAndGameObjects.Add(DamageTypes.Electric, electricVfxObj);
-            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, hitVfx, Feedback, _renderers, spawnVfx, _damageAndGameObjects);
+            EnemyDestructionManager = new EnemyDestructionManager(meshColliderAndSkinnedMeshDatas, restOfTheRigids);
+            CharacterVisualEffects = new EnemyVisualEffects(healthBar, onDeathVfx, this, AnimationController, 
+                hitVfx, Feedback, _renderers, spawnVfx, _damageAndGameObjects, EnemyDestructionManager);
         }
 
         protected override void Start()
         {
             base.Start();
-
+            CharacterCombatManager = new EnemyCombatManager(CharacterPropertyManager, CharacterVisualEffects, this,
+                EnemyDestructionManager);
             Collider.enabled = true;
 
             EnemyMovementController = new EnemyMovementController(
@@ -66,14 +70,12 @@ namespace Characters.Enemy
                 CharacterPropertyManager.GetProperty(PropertyQuery.Speed),
                 _navmeshAgent
             );
-
-            _rigidbodyEffectsController = new EnemyRigidbodyEffectsController(model, _rigidbody, this);
-            _rigidbodyEffectsController.Initialize();
+            
 
             SetupStates();
 
             Resolver.Inject(_attackAnimationCaller);
-            Resolver.Inject(_rigidbodyEffectsController);
+            Resolver.Inject(CharacterCombatManager);
 
             _navmeshAgent.SetDestination(Vector3.zero);
         }
@@ -99,38 +101,19 @@ namespace Characters.Enemy
 
             WalkingToEnemy = new WalkingTowardsEnemy(MainBase, CharacterDataHolder, EnemyMovementController, model.transform, AIText);
             AttackingState = CreateAttackingState();
-
             var dead = new Dead(AnimationController, Collider, AIText, EnemyMovementController);
-            var crushed = new Crushed(Collider, AIText, EnemyMovementController, CharacterCombatManager, AnimationController);
-            var knockbacked = new Knockbacked(AIText, EnemyMovementController, _rigidbody, this, AnimationController, CharacterCombatManager, Collider);
 
             Func<bool> ReachedEnemy() => () =>
                 Vector3.Distance(transform.position, MainBase.Collider.ClosestPoint(transform.position)) <= 0.2f && !IsCharacterDead;
 
-            Func<bool> IsDead() => () => IsCharacterDead && !this.IsCrushed;
+            Func<bool> IsDead() => () => IsCharacterDead;
 
-            Func<bool> IsCrushed() => () => this.IsCrushed && !IsKnockbacked && !IsCharacterDead;
-
-            Func<bool> ShouldKnockback() => () => IsKnockbacked && !this.IsCrushed && !IsCharacterDead;
-
-            Func<bool> KnockbackComplete() => () => knockbacked.KnockbackTimer >= 0.85f && !this.IsCrushed && !IsCharacterDead;
 
             StateMachine.AddTransition(WalkingToEnemy, AttackingState, ReachedEnemy());
-            StateMachine.AddTransition(WalkingToEnemy, knockbacked, ShouldKnockback());
-            StateMachine.AddTransition(knockbacked, WalkingToEnemy, KnockbackComplete());
             StateMachine.AddAnyTransition(dead, IsDead());
-            StateMachine.AddAnyTransition(crushed, IsCrushed());
-
             AddCustomStatesAndTransitions(StateMachine);
 
             StateMachine.SetState(WalkingToEnemy);
-        }
-
-        public void SetCrushed() => IsCrushed = true;
-
-        public void SetKnockbacked(bool isKnockbacked)
-        {
-            IsKnockbacked = isKnockbacked;
         }
 
         protected abstract BaseAttacking CreateAttackingState();
