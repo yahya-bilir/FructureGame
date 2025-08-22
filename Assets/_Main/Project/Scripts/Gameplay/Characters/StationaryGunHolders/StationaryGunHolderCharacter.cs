@@ -2,6 +2,8 @@ using AI.Base;
 using BasicStackSystem;
 using Characters;
 using EventBusses;
+using PropertySystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 using WeaponSystem.RangedWeapons;
@@ -73,5 +75,13 @@ public class StationaryGunHolderCharacter : Character
     {
         var enemy = CharacterCombatManager.LastFoundEnemy;
         return enemy != null && !enemy.IsCharacterDead && !IsCharacterDead;
+    }
+
+    [Button]
+    public void DebugUpgradeAttackSpeed()
+    {
+        var speedValue = CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue;
+        CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.AttackSpeed, speedValue + 0.1f);
+        Debug.Log(CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
     }
 }

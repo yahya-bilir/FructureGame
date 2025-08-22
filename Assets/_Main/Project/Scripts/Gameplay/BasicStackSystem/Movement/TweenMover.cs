@@ -15,7 +15,7 @@ namespace BasicStackSystem
 
         public void Place(Transform tr, Transform parent, Vector3 localPos)
         {
-            if (tr.parent != parent) tr.SetParent(parent, false);
+            if (tr.parent != parent) tr.SetParent(parent);
             tr.DOKill();
 
             switch (_style)

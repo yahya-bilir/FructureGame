@@ -284,7 +284,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 427602905716376389}
+      addedObject: {fileID: 7636469058050451362}
   m_SourcePrefab: {fileID: 100100000, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
 --- !u!4 &895329048341504452 stripped
 Transform:
@@ -296,7 +296,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
   m_PrefabInstance: {fileID: 8369137337747011794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &427602905716376389
+--- !u!114 &7636469058050451362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,9 +305,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2524038127036583080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7df27875d747f69333407ba1aaa6e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 60f71bd0a9354bb5a664d29bbf35d272, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.AmmoProjectile
+  m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.StackableAmmo
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
 --- !u!1001 &8891585157411591032
 PrefabInstance:

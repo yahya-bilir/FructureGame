@@ -40,30 +40,36 @@ public class Attacking : IState
         var target = _combatManager.LastFoundEnemy;
         if (target == null || target.IsCharacterDead) return;
 
-        Vector3 direction = (target.transform.position - _weaponTransform.position).normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+        // Y ekseninde yönelme
+        var dir = (target.transform.position - _weaponTransform.position).normalized;
+        var targetRot = Quaternion.LookRotation(dir, Vector3.up);
+        float targetY = targetRot.eulerAngles.y;
+        float currentY = _weaponTransform.rotation.eulerAngles.y;
+        float angleDiff = Mathf.DeltaAngle(currentY, targetY);
 
-        // sadece Y ekseni dönüşü
-        float targetY = targetRotation.eulerAngles.y;
-        Vector3 currentEuler = _weaponTransform.rotation.eulerAngles;
-        float currentY = currentEuler.y;
-
-        float angleDifference = Mathf.DeltaAngle(currentY, targetY);
-
-        if (Mathf.Abs(angleDifference) > requiredAngleThreshold)
+        if (Mathf.Abs(angleDiff) > requiredAngleThreshold)
         {
             float step = 360f * Time.deltaTime;
             float newY = Mathf.MoveTowardsAngle(currentY, targetY, step);
             _weaponTransform.rotation = Quaternion.Euler(0, newY, 0);
-            return;
+            return; // hedefe dönmeden saldırma
         }
 
-        _cooldown += Time.deltaTime;
-        //_rangedWeaponAnimator.SetBool(CanAttack, false);
+        // --- ZAMANLAMA ---
+        float currentAtkSpeed = _combatManager.CharacterPropertyManager
+            .GetProperty(PropertyQuery.AttackSpeed).TemporaryValue; // 1.0 => normal hız
+        if (currentAtkSpeed <= 0f) currentAtkSpeed = 0.0001f;
 
-        if (_cooldown >= _rangedWeapon.CurrentAttackInterval)
+        float baseInterval = _rangedWeapon.CurrentAttackInterval; // RangedWeapon.Initialize'da SO'dan gelir
+        float effectiveInterval = baseInterval / currentAtkSpeed;
+
+        _cooldown += Time.deltaTime;
+
+        // Anim hızını güncelle
+        _rangedWeaponAnimator.SetFloat(Speed, currentAtkSpeed);
+
+        if (_cooldown >= effectiveInterval)
         {
-            _rangedWeaponAnimator.SetFloat(Speed, _combatManager.CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
             _rangedWeaponAnimator.SetBool(CanAttack, true);
             _cooldown = 0f;
         }
@@ -73,17 +79,19 @@ public class Attacking : IState
     {
         _aiText.text = "Attacking to Enemy";
         _eventBus.Subscribe<OnCharacterAttacked>(OnCharacterAttacked);
-        if (!_initialized)
-        {
-            _cooldown = 0f;
-            _initialized = true;
-        }
+
+        // Her girişte cooldown sıfırlansın (ilk girişle sınırlamayalım)
+        _cooldown = 0f;
+        _rangedWeaponAnimator.SetBool(CanAttack, false);
     }
+
 
     private void OnCharacterAttacked(OnCharacterAttacked eventData)
     {
         if(eventData.AttackedCharacter != _combatManager.Character) return;
         _rangedWeapon.Shoot(_combatManager.LastFoundEnemy);
+        _rangedWeaponAnimator.SetBool(CanAttack, false); // aynı karede kapat
+        
     }
 
     public void OnExit()
