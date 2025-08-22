@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BasicStackSystem
 {
-    [CreateAssetMenu(fileName = "Stack Area", menuName = "Stack Area", order = 0)]
+    [CreateAssetMenu(fileName = "Stack Area", menuName = "Scriptable Objects/Stack Area", order = 0)]
     public class StackAreaSO : ScriptableObject
     {
         [field: SerializeField] public Vector3 Increments { get; private set; }
@@ -13,6 +13,6 @@ namespace BasicStackSystem
 
         [field: SerializeField] public int MaxItemsInRow { get; private set; }
 
-        [field: SerializeField] public float JumpSpeedInSeconds { get; private set; }
+        [field: SerializeField] public float TweenDuration { get; private set; }
     }
 }

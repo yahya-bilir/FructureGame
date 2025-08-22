@@ -12,8 +12,7 @@ namespace BasicStackSystem
         [field: SerializeField] public Transform StackParent { get; private set; }
         [field: SerializeField] public int Capacity { get; private set; } = 6;
         [field: SerializeField] public MoveStyle PlacementStyle { get; private set; } = MoveStyle.Instant;
-        [field: SerializeField] public float TweenDuration { get; private set; } = 0.2f;
-
+        
         private StackBuffer _buffer;
         private IStackLayout _layout;
         private IStackMover _mover;
@@ -35,7 +34,7 @@ namespace BasicStackSystem
             _layout = new GridStackLayout(StackArea);
             _mover = PlacementStyle == MoveStyle.Instant
                 ? new InstantMover()
-                : new TweenMover(PlacementStyle, StackArea != null ? StackArea.JumpSpeedInSeconds : TweenDuration);
+                : new TweenMover(PlacementStyle, StackArea.TweenDuration);
         }
 
         public void SetCapacity(int newCapacity)
@@ -112,7 +111,7 @@ namespace BasicStackSystem
             }
             else
             {
-                var mover = new TweenMover(MoveStyle.Move, StackArea != null ? StackArea.JumpSpeedInSeconds : TweenDuration);
+                var mover = new TweenMover(MoveStyle.Move, StackArea.TweenDuration);
                 mover.Place(tr, targetParent, targetLocalPos);
             }
 
