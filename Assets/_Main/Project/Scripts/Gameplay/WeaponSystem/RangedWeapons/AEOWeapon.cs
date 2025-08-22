@@ -3,7 +3,7 @@ using UnityEngine;
 using WeaponSystem.AmmoSystem;
 using WeaponSystem.RangedWeapons;
 
-public class AOEWeapon : RangedWeapon
+public class AOEWeapon : RangedWeaponWithAmmoPool
 {
     public override void Shoot(Character character)
     {

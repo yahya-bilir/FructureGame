@@ -3,8 +3,9 @@ using Characters;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
+using WeaponSystem.RangedWeapons;
 
-public class RocketLauncher : RangedWeapon
+public class RocketLauncher : RangedWeaponWithAmmoPool
 {
     [SerializeField] private Transform[] projectileCreationPoints;
     [SerializeField] private float rocketFireInterval = 0.15f; // roketler arası zaman

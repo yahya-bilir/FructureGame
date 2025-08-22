@@ -14,10 +14,10 @@ namespace WeaponSystem.AmmoSystem
         private bool _hasReturnedToPool = false;
         private CancellationTokenSource _cts;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            var so = ObjectUIIdentifierSo as AmmoProjectileSO;
+            var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
             _rigidbody.useGravity = false;
         }
@@ -35,7 +35,7 @@ namespace WeaponSystem.AmmoSystem
                 var data = eb.EnemyDestructionManager.GetMeshColliderToAttack();
                 if (data != null && data.ParentGameObjectOfColliders != null)
                 {
-                    Debug.Log(data.ParentGameObjectOfColliders.name);
+                    //Debug.Log(data.ParentGameObjectOfColliders.name);
                     aimPoint = data.ParentGameObjectOfColliders.transform.position;
                 }
                 else
@@ -73,7 +73,7 @@ namespace WeaponSystem.AmmoSystem
             _hasReturnedToPool = true;
             _cts?.Cancel();
             gameObject.SetActive(false);
-            _ownerWeapon.ReturnProjectileToPool(this);
+            _ownerWeapon.OnAmmoDestroyed(this);
         }
 
         protected override void TryProcessTrigger(Collider2D other, bool isEntering)

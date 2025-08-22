@@ -12,7 +12,7 @@ namespace WeaponSystem.AmmoSystem
 
         private void Awake()
         {
-            var so = ObjectUIIdentifierSo as AmmoProjectileSO;
+            var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
         }
 
@@ -39,7 +39,7 @@ namespace WeaponSystem.AmmoSystem
                 _targetCharacter.CharacterCombatManager.GetDamage(Damage);
 
             gameObject.SetActive(false);
-            _ownerWeapon.ReturnProjectileToPool(this);
+            _ownerWeapon.OnAmmoDestroyed(this);
         }
 
         protected override void TryProcessTrigger(Collider2D other, bool isEntering)

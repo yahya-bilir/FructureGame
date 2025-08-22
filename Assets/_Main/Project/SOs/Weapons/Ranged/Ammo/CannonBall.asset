@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e45c566e2c2484d9f1943d09460a13f, type: 3}
-  m_Name: GenericTurretAmmo
+  m_Name: CannonBall
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.AmmoProjectileSO
-  <ObjectName>k__BackingField: GenericTurretAmmo
+  <ObjectName>k__BackingField: CannonBall
   <ObjectSprite>k__BackingField: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   <Speed>k__BackingField: 25
+  <AmmoPrefab>k__BackingField: {fileID: 427602905716376389, guid: 03d1ffa63be46434389650184decbe12, type: 3}

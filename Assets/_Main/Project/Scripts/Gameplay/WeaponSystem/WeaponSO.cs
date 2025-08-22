@@ -7,7 +7,6 @@ namespace WeaponSystem.MeleeWeapons
     public class WeaponSO : ObjectUIIdentifierSO
     {
         [field: SerializeField] public float AttackInterval { get; private set; }
-
         [field: SerializeField] public float MinimumRange { get; private set; } = 0.2f;
     }
 }

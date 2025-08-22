@@ -15,7 +15,7 @@ namespace WeaponSystem
         protected Color _currentColor;
         
         [Inject]
-        private void Inject(IEventBus eventBus)
+        protected virtual void Inject(IEventBus eventBus)
         {
             EventBus = eventBus;
             EventBus.Subscribe<OnWeaponUpgraded>(ChangeTintColor);

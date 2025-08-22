@@ -1,8 +1,10 @@
 using AI.Base;
+using BasicStackSystem;
 using Characters;
 using EventBusses;
 using UnityEngine;
 using VContainer;
+using WeaponSystem.RangedWeapons;
 
 public class StationaryGunHolderCharacter : Character
 {
@@ -13,7 +15,7 @@ public class StationaryGunHolderCharacter : Character
     protected RangedWeapon _rangedWeapon;
     protected Transform _weaponTransform;
     protected IEventBus _eventBus;
-
+    [SerializeField] private BasicStack connectedStack;
     [Inject]
     private void Inject(IEventBus eventBus)
     {
@@ -24,7 +26,6 @@ public class StationaryGunHolderCharacter : Character
     {
         base.Start();
 
-        
         _stateMachine = new StateMachine();
 
         _rangedWeapon = CharacterWeaponManager.SpawnedWeapon as RangedWeapon;
@@ -36,6 +37,10 @@ public class StationaryGunHolderCharacter : Character
             return;
         }
 
+        if (_rangedWeapon is RangedWeaponWithExternalAmmo externalAmmoWeapon)
+        {
+            externalAmmoWeapon.SetStack(connectedStack);
+        }
         SetStates();
     }
 

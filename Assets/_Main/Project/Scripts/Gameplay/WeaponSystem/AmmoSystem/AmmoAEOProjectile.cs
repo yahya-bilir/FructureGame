@@ -66,7 +66,7 @@ namespace WeaponSystem.AmmoSystem
             _rigidbody.linearVelocity = Vector3.zero;
 
             gameObject.SetActive(false);
-            _ownerWeapon.ReturnProjectileToPool(this);
+            _ownerWeapon.OnAmmoDestroyed(this);
         }
 
         protected override void TryProcessTrigger(Collider other, bool isEntering) { }

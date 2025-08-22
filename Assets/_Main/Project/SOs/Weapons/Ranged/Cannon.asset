@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa902be46a024fe1a85991dcb81ea6b6, type: 3}
-  m_Name: BasicTurret
+  m_Name: Cannon
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponSO
-  <ObjectName>k__BackingField: Generic Turret
-  <ObjectSprite>k__BackingField: {fileID: 21300000, guid: aa53902b430b06f4f846f6c6b5361a53, type: 3}
+  <ObjectName>k__BackingField: Cannon
+  <ObjectSprite>k__BackingField: {fileID: 21300000, guid: d146d4d90205c9b46a2de7445fe777e5, type: 3}
   <AttackInterval>k__BackingField: 1
   <MinimumRange>k__BackingField: 20
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.05
-  <ShouldDisableAfterEachShot>k__BackingField: 0
-  <ProjectilePrefab>k__BackingField: {fileID: 427602905716376389, guid: 03d1ffa63be46434389650184decbe12, type: 3}
+  <AmmoSO>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
