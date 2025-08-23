@@ -66,7 +66,6 @@ namespace CollectionSystem
             float distance = Vector3.Distance(transform.position, target);
             float duration = distance / _approachMaxSpeed;
 
-            Quaternion originalRotation = new Quaternion();
             var seq =  DOTween.Sequence();
             seq.Append(transform.DOMove(target, duration).SetEase(Ease.InOutSine));
             seq.Join(transform.DORotate(Vector3.zero, duration));
