@@ -1,4 +1,5 @@
 using AI.Base.Interfaces;
+using BasicStackSystem;
 using Characters;
 using EventBusses;
 using Events;
@@ -16,6 +17,7 @@ public class Attacking : IState
     private readonly TextMeshPro _aiText;
     private readonly Animator _rangedWeaponAnimator;
     private readonly IEventBus _eventBus;
+    private readonly BasicStack _connectedStack;
 
     private float _cooldown;
     private bool _initialized;
@@ -23,7 +25,7 @@ public class Attacking : IState
     private const float requiredAngleThreshold = 5f; // derece cinsinden
 
     public Attacking(CharacterCombatManager combatManager, RangedWeapon rangedWeapon, Transform weaponTransform,
-        TextMeshPro aiText, Animator rangedWeaponAnimator, IEventBus eventBus)
+        TextMeshPro aiText, Animator rangedWeaponAnimator, IEventBus eventBus, BasicStack connectedStack)
     {
         _combatManager = combatManager;
         _rangedWeapon = rangedWeapon;
@@ -31,12 +33,12 @@ public class Attacking : IState
         _aiText = aiText;
         _rangedWeaponAnimator = rangedWeaponAnimator;
         _eventBus = eventBus;
+        _connectedStack = connectedStack;
     }
 
     public void Tick()
     {
-        if (_rangedWeapon == null) return;
-
+        if(!_connectedStack.IsThereAnyObject) return;
         var target = _combatManager.LastFoundEnemy;
         if (target == null || target.IsCharacterDead) return;
 
@@ -70,6 +72,7 @@ public class Attacking : IState
 
         if (_cooldown >= effectiveInterval)
         {
+            
             _rangedWeaponAnimator.SetBool(CanAttack, true);
             _cooldown = 0f;
         }

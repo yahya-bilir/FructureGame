@@ -1,4 +1,5 @@
 ﻿using Characters.BaseSystem;
+using CollectionField;
 using CommonComponents;
 using Factories;
 using FlingTamplate.UIParticle;
@@ -27,6 +28,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<XPManager>();
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<UIParticleManager>();
+            builder.RegisterComponentInHierarchy<CollectionArea>();
         }
         
     }

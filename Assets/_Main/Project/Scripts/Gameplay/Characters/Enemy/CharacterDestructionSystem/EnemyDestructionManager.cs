@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Characters.Enemy.CharacterDestructionSystem;
+using CollectionField;
 using UnityEngine;
+using VContainer;
 
 namespace Characters.Enemy
 {
@@ -22,9 +24,14 @@ namespace Characters.Enemy
         {
             _meshColliderAndSkinnedMeshDatas = meshColliderAndSkinnedMeshDatas;
             _animationController = animationController;
+        }
+
+        [Inject]
+        private void Inject(CollectionArea collectionArea)
+        {
             foreach (var meshColliderAndSkinnedMeshData in _meshColliderAndSkinnedMeshDatas)
             {
-                meshColliderAndSkinnedMeshData.Initialize();
+                meshColliderAndSkinnedMeshData.Initialize(collectionArea);
             }
         }
 

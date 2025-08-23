@@ -5,32 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/BasicStack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/BasicStack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/IStackReceiver.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/IStackReceiver.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/IStackable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/IStackable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/StackAreaSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/StackAreaSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoPouchSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField/CollectionArea.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField/CollectionArea.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Ammo/GenericTurretAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Ammo/GenericTurretAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/BasicTurret.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/BasicTurret.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/StationaryGunHolderStates/Attacking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/StationaryGunHolderStates/Attacking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoHomingBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoHomingBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectileSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectileSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoSO.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeaponSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeaponSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/WeaponSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/WeaponSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cc8976df9884fb7bcb48c3f3813f67b1ea200/47/72762968/FixedUpdate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94e1644530894ca4afcc0afbfd6605d39dd600/b3/629a1e9a/GameObjectInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94e1644530894ca4afcc0afbfd6605d39dd600/d6/3cca1d68/Editor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@624f919d8cdd/Samples~/Input System Samples/Split Screen Multiplayer/PlayerInitializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Container.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Unity/InstanceProviders/FindComponentProvider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -144,7 +129,8 @@
       <workItem from="1755678807261" duration="11477000" />
       <workItem from="1755769871384" duration="16847000" />
       <workItem from="1755797295683" duration="4645000" />
-      <workItem from="1755865295383" duration="9657000" />
+      <workItem from="1755865295383" duration="19720000" />
+      <workItem from="1755944177607" duration="5698000" />
     </task>
     <servers />
   </component>

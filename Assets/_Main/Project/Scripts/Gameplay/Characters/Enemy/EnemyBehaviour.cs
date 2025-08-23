@@ -75,6 +75,7 @@ namespace Characters.Enemy
 
             Resolver.Inject(_attackAnimationCaller);
             Resolver.Inject(CharacterCombatManager);
+            Resolver.Inject(EnemyDestructionManager);
 
             _navmeshAgent.SetDestination(Vector3.zero);
         }
