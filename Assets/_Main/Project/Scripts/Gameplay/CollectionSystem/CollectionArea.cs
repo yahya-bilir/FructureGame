@@ -12,7 +12,6 @@ namespace CollectionSystem
         [SerializeField] private SplineComputer conveyorSpline;
         [SerializeField] private Transform destination;
 
-        [SerializeField] private float conveyorHeightY = 0.5f;
         [SerializeField] private float approachMaxSpeed = 10f;
         [SerializeField] private float conveyorSpeed = 6f;
         [SerializeField] private float stopDistance = 0.05f;
@@ -27,7 +26,6 @@ namespace CollectionSystem
                 var frag = go.GetComponent<Fragment>() ?? go.AddComponent<Fragment>();
                 frag.Initialize(
                     conveyorSpline,
-                    conveyorHeightY,
                     approachMaxSpeed,
                     conveyorSpeed,
                     destination,

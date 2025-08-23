@@ -14,7 +14,6 @@ namespace CollectionSystem
         private SplineComputer _spline;
         private Transform _destination;
 
-        private float _heightY;
         private float _approachMaxSpeed;
         private float _followSpeed;
         private float _stopDistance;
@@ -30,14 +29,12 @@ namespace CollectionSystem
 
         public void Initialize(
             SplineComputer conveyorSpline,
-            float conveyorHeightY,
             float approachMaxSpeed,
             float conveyorFollowSpeed,
             Transform destinationTransform,
             float destinationStopDist)
         {
             _spline = conveyorSpline;
-            _heightY = conveyorHeightY;
             _approachMaxSpeed = approachMaxSpeed;
             _followSpeed = conveyorFollowSpeed;
             _destination = destinationTransform;
