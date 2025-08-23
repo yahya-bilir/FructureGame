@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Characters.Enemy.CharacterDestructionSystem;
-using CollectionField;
+using CollectionSystem;
 using Cysharp.Threading.Tasks;
 using RayFire;
 using UnityEngine;
@@ -43,21 +43,13 @@ namespace Characters.Enemy
 
             rayfireRigid.Demolish();
 
-
-            _cts?.Cancel();
-            _cts = new CancellationTokenSource();
-
-            var rbs = new List<Rigidbody>();
+            var fragments = new List<GameObject>();
             foreach (var frag in rayfireRigid.fragments)
             {
-                if (frag == null || frag.physics == null || frag.physics.rb == null)
-                    continue;
-                rbs.Add(frag.physics.rb);
+                fragments.Add(frag.gameObject);
             }
-
-
-            if (rbs.Count > 0 && _collectionArea != null)
-                _collectionArea.RegisterFragments(rbs, _cts.Token);
+            
+            _collectionArea.RegisterFragments(fragments);
 
             IsDestroyed = true;
         }
