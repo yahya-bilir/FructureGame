@@ -77,8 +77,6 @@ namespace CollectionSystem
                 _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y, 0f);
 
                 await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
-
-                // burada delta'yı güncelliyoruz
                 delta = new Vector2(target.x - _rb.position.x, target.y - _rb.position.y);
             }
 
@@ -93,7 +91,7 @@ namespace CollectionSystem
             _follower.SetPercent(_startPercent);
             _follower.followSpeed = _followSpeed;
             _follower.follow = true;
-            
+            _follower.applyDirectionRotation = false;
             while (true)
             {
                 var d2 = (transform.position - _destination.position).sqrMagnitude;

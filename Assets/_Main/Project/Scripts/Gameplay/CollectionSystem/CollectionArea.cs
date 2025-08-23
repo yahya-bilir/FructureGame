@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Dreamteck.Splines;
 using UnityEngine;
 
@@ -19,8 +20,9 @@ namespace CollectionSystem
         [SerializeField] private float conveyorSpeed = 6f;
         [SerializeField] private float stopDistance = 0.05f;
 
-        public void RegisterFragments(IEnumerable<GameObject> fragments)
+        public async UniTask RegisterFragments(IEnumerable<GameObject> fragments)
         {
+            await UniTask.WaitForSeconds(1.5f);
             foreach (var go in fragments.Where(f => f))
             {
                 var frag = go.GetComponent<Fragment>() ?? go.AddComponent<Fragment>();

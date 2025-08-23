@@ -49,7 +49,7 @@ namespace Characters.Enemy
                 fragments.Add(frag.gameObject);
             }
             
-            _collectionArea.RegisterFragments(fragments);
+            _collectionArea.RegisterFragments(fragments).Forget();
 
             IsDestroyed = true;
         }

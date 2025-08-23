@@ -16,4 +16,4 @@ MonoBehaviour:
   <ItemInitialPosition>k__BackingField: {x: -0.5, y: 0, z: -0.5}
   <MaxItemsInColumn>k__BackingField: 3
   <MaxItemsInRow>k__BackingField: 3
-  <JumpSpeedInSeconds>k__BackingField: 0.25
+  <TweenDuration>k__BackingField: 0.25
