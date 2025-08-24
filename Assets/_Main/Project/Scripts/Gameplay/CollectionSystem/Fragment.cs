@@ -18,6 +18,7 @@ namespace CollectionSystem
         private float _followSpeed;
         private float _stopDistance;
         private double _startPercent;
+        private CollectionArea _collectionArea;
 
         private void Awake()
         {
@@ -27,19 +28,18 @@ namespace CollectionSystem
             _follower.follow = false;
         }
 
-        public void Initialize(
-            SplineComputer conveyorSpline,
+        public void Initialize(SplineComputer conveyorSpline,
             float approachMaxSpeed,
             float conveyorFollowSpeed,
             Transform destinationTransform,
-            float destinationStopDist)
+            float destinationStopDist, CollectionArea collectionArea)
         {
             _spline = conveyorSpline;
             _approachMaxSpeed = approachMaxSpeed;
             _followSpeed = conveyorFollowSpeed;
             _destination = destinationTransform;
             _stopDistance = destinationStopDist;
-
+            _collectionArea = collectionArea;
             _follower.spline = _spline;
 
             var points = _spline.GetPoints();
@@ -79,6 +79,7 @@ namespace CollectionSystem
             }
 
             _follower.follow = false;
+            _collectionArea.AddDeployedFragment(this);
         }
     }
 }

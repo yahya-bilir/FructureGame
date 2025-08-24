@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoPouchSystem.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/MeshColliderAndSkinnedMeshData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField/CollectionArea.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionField/CollectionArea.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@624f919d8cdd/Samples~/Input System Samples/Split Screen Multiplayer/PlayerInitializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Container.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Unity/InstanceProviders/FindComponentProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/CollectionArea.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Fragment.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -133,7 +135,7 @@
       <workItem from="1755797295683" duration="4645000" />
       <workItem from="1755865295383" duration="19720000" />
       <workItem from="1755944177607" duration="13583000" />
-      <workItem from="1755981181984" duration="3694000" />
+      <workItem from="1755981181984" duration="12853000" />
     </task>
     <servers />
   </component>

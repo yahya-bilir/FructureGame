@@ -9,7 +9,7 @@ public abstract class RangedWeapon : UpgradeableWeapon
     [SerializeField] protected Transform projectileCreationPoint;
     [field: SerializeField] public Animator Animator { get; private set; }
 
-    protected RangedWeaponSO RangedWeaponSo;
+    public RangedWeaponSO RangedWeaponSo { get; protected set; }
     protected float _shootCooldown;
 
     public override void Initialize(CharacterCombatManager connectedCombatManager, float damage)

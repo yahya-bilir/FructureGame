@@ -29,6 +29,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<GameplayUI>();
             builder.RegisterComponentInHierarchy<UIParticleManager>();
             builder.RegisterComponentInHierarchy<CollectionArea>();
+            builder.RegisterComponentInHierarchy<AmmoCreator>();
         }
         
     }

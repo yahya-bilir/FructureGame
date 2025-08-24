@@ -1,4 +1,3 @@
-// CollectionArea.cs
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -9,29 +8,55 @@ namespace CollectionSystem
 {
     public class CollectionArea : MonoBehaviour
     {
+        [SerializeField] private CollectionAreaDataHolder dataHolder;
+        
         [SerializeField] private SplineComputer conveyorSpline;
         [SerializeField] private Transform destination;
-
-        [SerializeField] private float approachMaxSpeed = 10f;
-        [SerializeField] private float conveyorSpeed = 6f;
-        [SerializeField] private float stopDistance = 0.05f;
-
-        // Fragment'leri kayıt edip spline sistemine başlatır
+        
+        private readonly List<Fragment> _deployedFragments = new();
+        private AmmoCreator _ammoCreator;
+        private void Inject(AmmoCreator ammoCreator)
+        {
+            _ammoCreator = ammoCreator;
+        }
         public async UniTask RegisterFragments(IEnumerable<GameObject> fragments)
         {
-            await UniTask.WaitForSeconds(1.5f); // Gerekirse delay
+            await UniTask.WaitForSeconds(1.5f);
 
             foreach (var go in fragments.Where(f => f))
             {
                 var frag = go.GetComponent<Fragment>() ?? go.AddComponent<Fragment>();
                 frag.Initialize(
                     conveyorSpline,
-                    approachMaxSpeed,
-                    conveyorSpeed,
+                    dataHolder.ApproachMaxSpeed,
+                    dataHolder.ConveyorSpeed,
                     destination,
-                    stopDistance
+                    dataHolder.StopDistance,
+                    this
                 );
                 frag.StartTransportAsync().Forget();
+            }
+        }
+        
+        public void AddDeployedFragment(Fragment fragment)
+        {
+            _deployedFragments.Add(fragment);
+            if (_deployedFragments.Count % dataHolder.FragmentCountToCreateAmmo == 0)
+            {
+                var fragmentsToBeDestroyed = new List<Fragment>();
+                var lastIndex = _deployedFragments.Count - 1;
+                for (int i = lastIndex; i >= lastIndex - dataHolder.FragmentCountToCreateAmmo; i--)
+                {
+                    var frag =  _deployedFragments[i];
+                    fragmentsToBeDestroyed.Add(frag);
+                }
+
+                foreach (var frag in fragmentsToBeDestroyed)
+                {
+                    Destroy(frag.gameObject);
+                }
+                
+                _ammoCreator.CreateAmmo();
             }
         }
     }

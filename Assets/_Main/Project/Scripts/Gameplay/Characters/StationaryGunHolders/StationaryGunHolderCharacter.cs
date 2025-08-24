@@ -1,6 +1,7 @@
 using AI.Base;
 using BasicStackSystem;
 using Characters;
+using CollectionSystem;
 using EventBusses;
 using PropertySystem;
 using Sirenix.OdinInspector;
@@ -18,10 +19,13 @@ public class StationaryGunHolderCharacter : Character
     protected Transform _weaponTransform;
     protected IEventBus _eventBus;
     [SerializeField] private BasicStack connectedStack;
+    private AmmoCreator _ammoCreator;
+
     [Inject]
-    private void Inject(IEventBus eventBus)
+    private void Inject(IEventBus eventBus, AmmoCreator ammoCreator)
     {
         _eventBus = eventBus;
+        _ammoCreator = ammoCreator;
     }
     
     protected override void Start()
@@ -42,7 +46,9 @@ public class StationaryGunHolderCharacter : Character
         if (_rangedWeapon is RangedWeaponWithExternalAmmo externalAmmoWeapon)
         {
             externalAmmoWeapon.SetStack(connectedStack);
+            _ammoCreator.OnRangedWeaponCreated(externalAmmoWeapon);
         }
+        
         SetStates();
     }
 
