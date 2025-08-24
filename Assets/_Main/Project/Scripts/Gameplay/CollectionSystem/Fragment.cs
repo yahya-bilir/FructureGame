@@ -12,33 +12,29 @@ namespace CollectionSystem
         private SplineFollower _follower;
 
         private SplineComputer _spline;
-        private Transform _destination;
 
         private float _approachMaxSpeed;
         private float _followSpeed;
-        private float _stopDistance;
         private double _startPercent;
         private CollectionArea _collectionArea;
-
+        private MeshRenderer _meshRenderer;
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
             _col = GetComponent<Collider>();
+            _meshRenderer = GetComponent<MeshRenderer>();
             _follower = gameObject.AddComponent<SplineFollower>();
             _follower.follow = false;
         }
 
         public void Initialize(SplineComputer conveyorSpline,
             float approachMaxSpeed,
-            float conveyorFollowSpeed,
-            Transform destinationTransform,
-            float destinationStopDist, CollectionArea collectionArea)
+            float conveyorFollowSpeed, 
+            CollectionArea collectionArea)
         {
             _spline = conveyorSpline;
             _approachMaxSpeed = approachMaxSpeed;
             _followSpeed = conveyorFollowSpeed;
-            _destination = destinationTransform;
-            _stopDistance = destinationStopDist;
             _collectionArea = collectionArea;
             _follower.spline = _spline;
 
@@ -73,11 +69,12 @@ namespace CollectionSystem
             _follower.followSpeed = _followSpeed;
             _follower.follow = true;
             
-            while ((transform.position - _destination.position).sqrMagnitude > _stopDistance * _stopDistance)
+            while (_follower.GetPercent() < 0.99)
             {
                 await UniTask.Yield();
             }
 
+            _meshRenderer.enabled = false;
             _follower.follow = false;
             _collectionArea.AddDeployedFragment(this);
         }

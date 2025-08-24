@@ -18,4 +18,4 @@ MonoBehaviour:
   <MinimumRange>k__BackingField: 20
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.05
-  <AmmoSO>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
+  <AmmoSO>k__BackingField: {fileID: 11400000, guid: f67183213f1f9f241ad9e3620d729410, type: 2}

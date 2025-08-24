@@ -144,14 +144,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5759591}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
   m_LocalPosition: {x: 0, y: 0.304, z: 32.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 34198293}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &5759593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::BasicStackSystem.BasicStack
   <StackArea>k__BackingField: {fileID: 11400000, guid: 0866e5ebf50a79b459c1829e72050cf7, type: 2}
   <StackParent>k__BackingField: {fileID: 5759592}
-  <Capacity>k__BackingField: 15
+  <Capacity>k__BackingField: 1000
   <PlacementStyle>k__BackingField: 2
 --- !u!1 &13588336
 GameObject:
@@ -600,7 +600,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60
+    FieldOfView: 72.734344
     OrthographicSize: 12
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -770,7 +770,9 @@ MonoBehaviour:
   parentReference:
     TypeName: Initialization.InitialLifetimeScope
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 819010732}
+  - {fileID: 1058931615}
 --- !u!114 &143710302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::BasicStackSystem.BasicStack
   <StackArea>k__BackingField: {fileID: 11400000, guid: 0866e5ebf50a79b459c1829e72050cf7, type: 2}
   <StackParent>k__BackingField: {fileID: 371663555}
-  <Capacity>k__BackingField: 15
+  <Capacity>k__BackingField: 1000
   <PlacementStyle>k__BackingField: 2
 --- !u!4 &371663555
 Transform:
@@ -869,14 +871,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371663553}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
   m_LocalPosition: {x: -3, y: 0.304, z: 32.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1217034109}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &419884317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,54 +1376,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &635684807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 635684808}
-  - component: {fileID: 635684809}
-  m_Layer: 0
-  m_Name: Feeder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &635684808
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635684807}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28, y: 0, z: 32.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &635684809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635684807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a668a680e069478b9f842369595dc790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Gameplay::DebugAmmoSpawner
-  ammoPrefab: {fileID: 7636469058050451362, guid: 03d1ffa63be46434389650184decbe12, type: 3}
-  targetStack: {fileID: 5759593}
-  spawnPoint: {fileID: 635684808}
-  spawnInterval: 1
 --- !u!1 &681124084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1470,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1694eb1b181e0f46b2dd23d49e537d2, type: 3}
+--- !u!1 &819010732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8593699868854495612, guid: a1694eb1b181e0f46b2dd23d49e537d2, type: 3}
+  m_PrefabInstance: {fileID: 819010731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &944940519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,11 +1947,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlternateCannonWagon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5083980107054470337, guid: b2b98eeed9207404386a78d7a7382428, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b98eeed9207404386a78d7a7382428, type: 3}
+--- !u!1 &1058931615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8593699868854495612, guid: b2b98eeed9207404386a78d7a7382428, type: 3}
+  m_PrefabInstance: {fileID: 1058931614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1113329766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2006,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::CollectionSystem.CollectionArea
   dataHolder: {fileID: 11400000, guid: d42832250e3fca14dae05296b11170b8, type: 2}
   conveyorSpline: {fileID: 1113329769}
-  destination: {fileID: 681124085}
 --- !u!114 &1113329769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,27 +2031,27 @@ MonoBehaviour:
   _spline:
     points:
     - _type: 0
-      position: {x: 30.38987, y: 0.33, z: -65.702736}
+      position: {x: 22.13, y: 0.33, z: -62.17377}
       color: {r: 1, g: 1, b: 1, a: 1}
       normal: {x: 0, y: 1, z: 0}
       size: 1
-      tangent: {x: 30.38987, y: 0.33, z: -65.702736}
-      tangent2: {x: 30.38987, y: 0.33, z: -65.702736}
+      tangent: {x: 22.13, y: 0.33, z: -62.17377}
+      tangent2: {x: 22.13, y: 0.33, z: -62.17377}
     - _type: 0
-      position: {x: 18.89485, y: 0.33, z: -24.35785}
+      position: {x: 22.13, y: 0.33, z: -23.982424}
       color: {r: 1, g: 1, b: 1, a: 1}
       normal: {x: 0, y: 1, z: 0}
       size: 1
-      tangent: {x: 18.89485, y: 0.33, z: -24.35785}
-      tangent2: {x: 18.89485, y: 0.33, z: -24.35785}
+      tangent: {x: 22.13, y: 0.33, z: -23.982424}
+      tangent2: {x: 22.13, y: 0.33, z: -23.982424}
     - _type: 0
-      position: {x: 18.022236, y: 0.33, z: -21.329382}
+      position: {x: 19.813856, y: 0.33, z: -21.129215}
       color: {r: 1, g: 1, b: 1, a: 1}
       normal: {x: 0, y: 1, z: 0}
       size: 1
-      tangent: {x: 18.022236, y: 0.33, z: -21.329382}
-      tangent2: {x: 18.022236, y: 0.33, z: -21.329382}
-    type: 3
+      tangent: {x: 22.309256, y: 0.33, z: -20.66203}
+      tangent2: {x: 17.318457, y: 0.33, z: -21.596401}
+    type: 2
     linearAverageDirection: 1
     customValueInterpolation:
       serializedVersion: 2
@@ -2112,21 +2076,117 @@ MonoBehaviour:
   _sampleMode: 0
   _subscribers: []
   _rawSamples:
-  - position: {x: 30.38987, y: 0.33, z: -65.702736}
+  - position: {x: 22.13, y: 0.33, z: -62.17377}
     up: {x: 0, y: 1, z: 0}
-    forward: {x: -0.2678673, y: 0, z: 0.9634558}
+    forward: {x: 0, y: 0, z: 0}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
     percent: 0
-  - position: {x: 18.89485, y: 0.33, z: -24.35785}
+  - position: {x: 22.13, y: 0.33, z: -60.86405}
     up: {x: 0, y: 1, z: 0}
-    forward: {x: -0.27237663, y: 0, z: 0.96219075}
+    forward: {x: -0.0000000026336553, y: -3.292069e-10, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.05555555555555555
+  - position: {x: 22.130001, y: 0.33, z: -57.354015}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.000000006019784, y: 0, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.1111111111111111
+  - position: {x: 22.129997, y: 0.32999998, z: -52.27231}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.000000009364108, y: -1.4631418e-10, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.16666666666666666
+  - position: {x: 22.130001, y: 0.33000004, z: -46.24762}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.000000016855394, y: 0, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.2222222222222222
+  - position: {x: 22.13, y: 0.32999998, z: -39.908585}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.2777777777777778
+  - position: {x: 22.13, y: 0.33, z: -33.883884}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0.00000003745643, y: 5.8525673e-10, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.3333333333333333
+  - position: {x: 22.129997, y: 0.33000004, z: -28.802181}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0.000000096316526, y: 0, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.3888888888888889
+  - position: {x: 22.13, y: 0.33, z: -25.292141}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0.00000016855397, y: 0, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.4444444444444444
+  - position: {x: 22.13, y: 0.33, z: -23.982424}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0, z: 0}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
     percent: 0.5
-  - position: {x: 18.022236, y: 0.33, z: -21.329382}
+  - position: {x: 22.132723, y: 0.33, z: -23.869196}
     up: {x: 0, y: 1, z: 0}
-    forward: {x: -0.27687287, y: 0, z: 0.96090657}
+    forward: {x: 0.0070772395, y: -0.0000000038200505, z: 0.99997497}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.5555555555555556
+  - position: {x: 22.125238, y: 0.33, z: -23.568518}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.054390028, y: 0, z: 0.9985197}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.6111111111111112
+  - position: {x: 22.08405, y: 0.32999998, z: -23.138884}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.13746244, y: -0.0000000017277096, z: 0.99050695}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.6666666666666666
+  - position: {x: 21.985678, y: 0.33000004, z: -22.638803}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.25284493, y: 0, z: 0.96750677}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.7222222222222222
+  - position: {x: 21.806623, y: 0.32999998, z: -22.126774}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.41475445, y: 0, z: 0.90993345}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.7777777777777778
+  - position: {x: 21.523405, y: 0.33, z: -21.661299}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.63025, y: 0.000000006082175, z: 0.7763923}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.8333333333333334
+  - position: {x: 21.11253, y: 0.33000004, z: -21.30088}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.8583776, y: 0, z: 0.5130185}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.8888888888888888
+  - position: {x: 20.550508, y: 0.33, z: -21.104017}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.98921144, y: 0, z: 0.1464952}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.9444444444444444
+  - position: {x: 19.813856, y: 0.33, z: -21.129215}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: -0.9829223, y: 0, z: -0.18402115}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
     percent: 1
@@ -2280,7 +2340,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 72.734344
   orthographic: 0
   orthographic size: 12
   m_Depth: -1
@@ -2675,7 +2735,7 @@ Transform:
   m_GameObject: {fileID: 1566650475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.37, y: -0.17, z: 0}
+  m_LocalPosition: {x: -1.83, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3213,7 +3273,7 @@ Transform:
   m_GameObject: {fileID: 1955888043}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.92, y: 0.5, z: 29.45}
+  m_LocalPosition: {x: 3.62, y: 0.5, z: 29.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3233,6 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50afd8db00a4f26ac2901b3fc886b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::CollectionSystem.AmmoCreator
+  finalDestination: {fileID: 1566650476}
 --- !u!1 &2011734987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,6 +3406,5 @@ SceneRoots:
   - {fileID: 1058931614}
   - {fileID: 5759592}
   - {fileID: 371663555}
-  - {fileID: 635684808}
   - {fileID: 1113329767}
   - {fileID: 1955888044}

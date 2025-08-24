@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoPouchSystem.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/AlternateCannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/AlternateCannonBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CollectionAreaDataHolder/CollectionAreaDataHolder.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CollectionAreaDataHolder/CollectionAreaDataHolder.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/AlternateCannon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/AlternateCannon.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionAreaDataHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/Fragment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RangedWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,13 +104,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8116">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="8116" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -136,6 +136,7 @@
       <workItem from="1755865295383" duration="19720000" />
       <workItem from="1755944177607" duration="13583000" />
       <workItem from="1755981181984" duration="12853000" />
+      <workItem from="1756028452885" duration="6053000" />
     </task>
     <servers />
   </component>

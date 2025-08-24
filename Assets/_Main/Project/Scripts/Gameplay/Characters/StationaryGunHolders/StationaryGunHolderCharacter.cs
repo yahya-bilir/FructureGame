@@ -46,7 +46,7 @@ public class StationaryGunHolderCharacter : Character
         if (_rangedWeapon is RangedWeaponWithExternalAmmo externalAmmoWeapon)
         {
             externalAmmoWeapon.SetStack(connectedStack);
-            _ammoCreator.OnRangedWeaponCreated(externalAmmoWeapon);
+            _ammoCreator.OnRangedWeaponCreated(connectedStack, externalAmmoWeapon.RangedWeaponSo.AmmoSO.AmmoPrefab);
         }
         
         SetStates();

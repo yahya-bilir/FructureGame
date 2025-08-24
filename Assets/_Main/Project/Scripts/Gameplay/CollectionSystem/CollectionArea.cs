@@ -3,18 +3,19 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using Dreamteck.Splines;
 using UnityEngine;
+using VContainer;
 
 namespace CollectionSystem
 {
     public class CollectionArea : MonoBehaviour
     {
         [SerializeField] private CollectionAreaDataHolder dataHolder;
-        
         [SerializeField] private SplineComputer conveyorSpline;
-        [SerializeField] private Transform destination;
         
         private readonly List<Fragment> _deployedFragments = new();
         private AmmoCreator _ammoCreator;
+        
+        [Inject]
         private void Inject(AmmoCreator ammoCreator)
         {
             _ammoCreator = ammoCreator;
@@ -30,8 +31,6 @@ namespace CollectionSystem
                     conveyorSpline,
                     dataHolder.ApproachMaxSpeed,
                     dataHolder.ConveyorSpeed,
-                    destination,
-                    dataHolder.StopDistance,
                     this
                 );
                 frag.StartTransportAsync().Forget();
@@ -53,6 +52,7 @@ namespace CollectionSystem
 
                 foreach (var frag in fragmentsToBeDestroyed)
                 {
+                    _deployedFragments.Remove(frag);
                     Destroy(frag.gameObject);
                 }
                 

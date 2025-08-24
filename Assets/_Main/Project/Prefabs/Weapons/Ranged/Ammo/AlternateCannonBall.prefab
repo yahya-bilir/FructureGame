@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 895329048341504452}
     m_Modifications:
+    - target: {fileID: 2436368494309890618, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a1c0f33e1e2fcc244ba05684ee6083bd, type: 2}
     - target: {fileID: 3568140495002837333, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -229,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
     - target: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Name
-      value: CannonBall
+      value: AlternateCannonBall
       objectReference: {fileID: 0}
     - target: {fileID: 8980126373743906572, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Enabled
@@ -308,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f71bd0a9354bb5a664d29bbf35d272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.StackableAmmo
-  <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
+  <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: f67183213f1f9f241ad9e3620d729410, type: 2}
 --- !u!1001 &8891585157411591032
 PrefabInstance:
   m_ObjectHideFlags: 0

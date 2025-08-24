@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::CollectionSystem.CollectionAreaDataHolder
   <ApproachMaxSpeed>k__BackingField: 8
   <ConveyorSpeed>k__BackingField: 6
-  <StopDistance>k__BackingField: 0.05
-  <FragmentCountToCreateAmmo>k__BackingField: 5
+  <FragmentCountToCreateAmmo>k__BackingField: 20
