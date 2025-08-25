@@ -40,22 +40,23 @@ namespace CollectionSystem
         public void AddDeployedFragment(Fragment fragment)
         {
             _deployedFragments.Add(fragment);
+    
+            if (_deployedFragments.Count < dataHolder.FragmentCountToCreateAmmo)
+                return;
+
             if (_deployedFragments.Count % dataHolder.FragmentCountToCreateAmmo == 0)
             {
-                var fragmentsToBeDestroyed = new List<Fragment>();
-                var lastIndex = _deployedFragments.Count - 1;
-                for (int i = lastIndex; i >= lastIndex - dataHolder.FragmentCountToCreateAmmo; i--)
-                {
-                    var frag =  _deployedFragments[i];
-                    fragmentsToBeDestroyed.Add(frag);
-                }
+                var count = dataHolder.FragmentCountToCreateAmmo;
+                var startIndex = _deployedFragments.Count - count;
+
+                var fragmentsToBeDestroyed = _deployedFragments.GetRange(startIndex, count);
+                _deployedFragments.RemoveRange(startIndex, count);
 
                 foreach (var frag in fragmentsToBeDestroyed)
                 {
-                    _deployedFragments.Remove(frag);
                     Destroy(frag.gameObject);
                 }
-                
+
                 _ammoCreator.CreateAmmo();
             }
         }

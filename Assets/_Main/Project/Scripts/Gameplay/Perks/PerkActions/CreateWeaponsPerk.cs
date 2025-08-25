@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Perks.PerkActions
 {
+    [CreateAssetMenu(menuName = "Scriptable Objects/Perks/Create Weapons Perk")]
+
     public class CreateWeaponsPerk : PerkAction
     {
         [SerializeField] private StationaryGunHolderCharacter[] stationaryGunHolderCharacters;

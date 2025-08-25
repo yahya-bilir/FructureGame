@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters;
+using Characters.StationaryGunHolders;
 using Cysharp.Threading.Tasks;
 using EventBusses;
 using Events;
@@ -16,12 +17,14 @@ namespace Factories
 
         private IObjectResolver _resolver;
         private IEventBus _eventBus;
+        private GunHolderPlacer _gunHolderPlacer;
 
         [Inject]
-        private void Inject(IObjectResolver resolver, IEventBus eventBus)
+        private void Inject(IObjectResolver resolver, IEventBus eventBus, GunHolderPlacer gunHolderPlacer)
         {
             _resolver = resolver;
             _eventBus = eventBus;
+            _gunHolderPlacer = gunHolderPlacer;
         }
 
         private void Awake()
@@ -61,13 +64,12 @@ namespace Factories
         {
             await UniTask.WaitForSeconds(factory.FactorySo.InitialSpawnInterval);
     
-            if (factory.IsSpawningAvailable)
-            {
-                factory.SpawnEnemy();
-            }
-
             while (factory.IsSpawningAvailable)
             {
+                if (!_gunHolderPlacer.IsThereAnyWeapon)
+                {
+                    await UniTask.Yield();
+                }
                 await UniTask.WaitForSeconds(Random.Range(factory.FactorySo.SpawnRangeMin, factory.FactorySo.SpawnRangeMax));
                 factory.SpawnEnemy();
             }

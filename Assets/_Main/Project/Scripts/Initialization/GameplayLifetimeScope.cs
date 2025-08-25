@@ -1,4 +1,5 @@
 ﻿using Characters.BaseSystem;
+using Characters.StationaryGunHolders;
 using CollectionSystem;
 using CommonComponents;
 using Factories;
@@ -30,6 +31,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<UIParticleManager>();
             builder.RegisterComponentInHierarchy<CollectionArea>();
             builder.RegisterComponentInHierarchy<AmmoCreator>();
+            builder.RegisterComponentInHierarchy<GunHolderPlacer>();
         }
         
     }
