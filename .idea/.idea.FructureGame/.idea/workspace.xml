@@ -6,49 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/AlternateCannonWagon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/AlternateCannonWagon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/CannonWagon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/CannonWagon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Electro Train Engine Perk.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Electro Train Engine Perk.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Flamethrower Engine Perk.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Flamethrower Engine Perk.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Rocket Train Engine Perk.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Engine Spawns/Rocket Train Engine Perk.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Electro Speed Upgrade.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Electro Speed Upgrade.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Flamethower Speed Upgrade.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Flamethower Speed Upgrade.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Rocket Speed Upgrade.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Rocket Speed Upgrade.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Turret Speed Upgrade.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Speed Upgrades/Turret Speed Upgrade.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Electro Wagon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Electro Wagon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Flamethrower Wagon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Flamethrower Wagon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Rocket Wagon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Rocket Wagon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Turret Wagon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkActions/Wagon Spawns/Spawn Turret Wagon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Engine Spawn Perk Group.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Engine Spawn Perk Group.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Speed Upgrade Spawn Perk Group.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Speed Upgrade Spawn Perk Group.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Upgrade All Trains.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Upgrade All Trains.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Wagon Spawn Perk Group.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Perks/PerkGroups/Wagon Spawn Perk Group.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/GunHolderPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/GunHolderPlacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/CollectionArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/DataSave/GameDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/DataSave/GameDatabase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Factories/EnemyFactoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Factories/EnemyFactoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/CreateWeaponsPerk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/CreateWeaponsPerk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Initialization/GameplayLifetimeScope.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllTrainsUpgraded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllStationariesUpgraded.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllTrainsUpgraded.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllStationariesUpgraded.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllTrains.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllStationaries.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllTrains.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllStationaries.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +130,7 @@
       <workItem from="1755944177607" duration="13583000" />
       <workItem from="1755981181984" duration="12853000" />
       <workItem from="1756028452885" duration="8322000" />
-      <workItem from="1756113800678" duration="3241000" />
+      <workItem from="1756113800678" duration="4426000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 using AI.Base;
 using BasicStackSystem;
 using Characters;
+using Characters.StationaryGunHolders;
 using CollectionSystem;
 using EventBusses;
 using PropertySystem;
@@ -20,7 +21,7 @@ public class StationaryGunHolderCharacter : Character
     protected IEventBus _eventBus;
     [SerializeField] private BasicStack connectedStack;
     private AmmoCreator _ammoCreator;
-
+    private GunHolderEventHandler _gunHolderEventHandler;
     [Inject]
     private void Inject(IEventBus eventBus, AmmoCreator ammoCreator)
     {
@@ -48,7 +49,9 @@ public class StationaryGunHolderCharacter : Character
             externalAmmoWeapon.SetStack(connectedStack);
             _ammoCreator.OnRangedWeaponCreated(connectedStack, externalAmmoWeapon.RangedWeaponSo.AmmoSO.AmmoPrefab);
         }
-        
+
+        _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
+        Resolver.Inject(_gunHolderEventHandler);
         SetStates();
     }
 
