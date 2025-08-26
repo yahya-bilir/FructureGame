@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllTrainsUpgraded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllStationariesUpgraded.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllTrainsUpgraded.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Events/OnAllStationariesUpgraded.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllTrains.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllStationaries.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllTrains.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Perks/PerkActions/UpgradeAllStationaries.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Materials/Conveyor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Materials/Conveyor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94e1644530894ca4afcc0afbfd6605d39dd600/d6/3cca1d68/Editor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@624f919d8cdd/Samples~/Input System Samples/Split Screen Multiplayer/PlayerInitializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Container.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Internal/ReflectionInjector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@4a7702f47e52/Runtime/Unity/InstanceProviders/FindComponentProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/CollectionArea.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Fragment.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,7 +133,8 @@
       <workItem from="1755944177607" duration="13583000" />
       <workItem from="1755981181984" duration="12853000" />
       <workItem from="1756028452885" duration="8322000" />
-      <workItem from="1756113800678" duration="4426000" />
+      <workItem from="1756113800678" duration="8071000" />
+      <workItem from="1756205134173" duration="1138000" />
     </task>
     <servers />
   </component>
