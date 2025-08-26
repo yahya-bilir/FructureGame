@@ -18,6 +18,7 @@ namespace CollectionSystem
         private double _startPercent;
         private CollectionArea _collectionArea;
         private MeshRenderer _meshRenderer;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -29,7 +30,7 @@ namespace CollectionSystem
 
         public void Initialize(SplineComputer conveyorSpline,
             float approachMaxSpeed,
-            float conveyorFollowSpeed, 
+            float conveyorFollowSpeed,
             CollectionArea collectionArea)
         {
             _spline = conveyorSpline;
@@ -40,8 +41,14 @@ namespace CollectionSystem
 
             var points = _spline.GetPoints();
             float y = points[0].position.y;
-            var proj = _spline.Project(new Vector3(transform.position.x, y, transform.position.z));            
+            var proj = _spline.Project(new Vector3(transform.position.x, y, transform.position.z));
             _startPercent = proj.percent;
+
+            // Eğer başlangıç noktası spline'ın çok başında ise (%10'dan küçükse), %15'e sabitle
+            if (_startPercent < 0.25)
+            {
+                _startPercent = 0.25;
+            }
         }
 
         public async UniTaskVoid StartTransportAsync()
@@ -59,7 +66,7 @@ namespace CollectionSystem
             float distance = Vector3.Distance(transform.position, target);
             float duration = distance / _approachMaxSpeed;
 
-            var seq =  DOTween.Sequence();
+            var seq = DOTween.Sequence();
             seq.Append(transform.DOMove(target, duration).SetEase(Ease.InOutSine));
             seq.Join(transform.DORotate(Vector3.zero, duration));
             await seq.ToUniTask();
@@ -68,7 +75,7 @@ namespace CollectionSystem
             _follower.SetPercent(_startPercent);
             _follower.followSpeed = _followSpeed;
             _follower.follow = true;
-            
+
             while (_follower.GetPercent() < 0.99)
             {
                 await UniTask.Yield();

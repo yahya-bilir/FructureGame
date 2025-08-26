@@ -35,7 +35,7 @@ namespace WeaponSystem.AmmoSystem
                 var data = eb.EnemyDestructionManager.GetMeshColliderToAttack();
                 if (data != null && data.ParentGameObjectOfColliders != null)
                 {
-                    //Debug.Log(data.ParentGameObjectOfColliders.name);
+                    Debug.Log(data.ParentGameObjectOfColliders.name);
                     aimPoint = data.ParentGameObjectOfColliders.transform.position;
                 }
                 else
@@ -84,7 +84,7 @@ namespace WeaponSystem.AmmoSystem
         protected override void TryProcessTrigger(Collider other, bool isEntering)
         {
             if(!isEntering) return;
-
+            Debug.Log(other.name);
             if (other.CompareTag("Part"))
             {
                 var parentChar = other.GetComponentInParent<Character>();

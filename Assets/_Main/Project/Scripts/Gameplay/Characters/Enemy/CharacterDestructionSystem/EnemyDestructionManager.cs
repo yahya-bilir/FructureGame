@@ -68,21 +68,21 @@ namespace Characters.Enemy
                 
             }
 
-            if (_getTargetRequestCount <= 1)
-            {
-                var nonLegAlive = alive
-                    .Where(d => d.BodyPart != BodyPart.Leg)
-                    .ToList();
-            
-                if (nonLegAlive.Count > 0)
-                {
-                    int i = _rng.Next(nonLegAlive.Count);
-                    return nonLegAlive[i];
-                }
-            
-                int fallbackIdx = _rng.Next(alive.Count);
-                return alive[fallbackIdx];
-            }
+            // if (_getTargetRequestCount <= 1)
+            // {
+            //     var nonLegAlive = alive
+            //         .Where(d => d.BodyPart != BodyPart.Leg)
+            //         .ToList();
+            //
+            //     if (nonLegAlive.Count > 0)
+            //     {
+            //         int i = _rng.Next(nonLegAlive.Count);
+            //         return nonLegAlive[i];
+            //     }
+            //
+            //     int fallbackIdx = _rng.Next(alive.Count);
+            //     return alive[fallbackIdx];
+            // }
 
             int idx = _rng.Next(alive.Count);
             return alive[idx];

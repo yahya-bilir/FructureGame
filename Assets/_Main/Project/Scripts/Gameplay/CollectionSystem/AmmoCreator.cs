@@ -14,7 +14,7 @@ namespace CollectionSystem
         public void OnRangedWeaponCreated(BasicStack stack, AmmoBase ammo)
         {
             _stacksAndAmmo.Add(stack, ammo);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 var ammoInstance = Instantiate(ammo, stack.transform.position, Quaternion.identity);
                 stack.TryAddFromOutside(ammoInstance.GetComponent<IStackable>());

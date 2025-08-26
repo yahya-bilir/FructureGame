@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/_Main/Project/UI/USS/bottom.uss?fileID=7433441132597879392&amp;guid=402ffcca1f991c447b8e7416e3932390&amp;type=3#bottom" />
     <Style src="project://database/Assets/_Main/Project/UI/USS/Base/Text.uss?fileID=7433441132597879392&amp;guid=36f8aa8e68d8483189e51f32e4d0a630&amp;type=3#Text" />
     <ui:VisualElement style="flex-grow: 1;">
-        <ui:VisualElement name="Bottom" style="flex-grow: 0; flex-basis: 20%; height: auto; flex-shrink: 0; flex-direction: row; top: 80%; align-items: center;">
+        <ui:VisualElement name="Bottom" style="flex-grow: 0; flex-basis: 20%; height: auto; flex-shrink: 0; flex-direction: row; top: 80%; align-items: center; opacity: 0;">
             <ui:VisualElement name="Filler" class="healthbar-filler" style="width: 40%;" />
             <ui:VisualElement name="SliderContainer" style="flex-grow: 1; width: 50%; justify-content: center; align-items: center; height: 27%;">
                 <ui:VisualElement name="SliderBorder" style="flex-grow: 0; height: 100%; width: 100%; background-image: url(&quot;project://database/Assets/_Main/Art/UI/Enhance%20Menu/Bottom%20Menu/SliderBG.png?fileID=2800000&amp;guid=97bf23160aee5b541b43ef3d30a01ede&amp;type=3#SliderBG&quot;); -unity-background-scale-mode: stretch-to-fill; align-items: center; align-content: center; justify-content: center; flex-shrink: 1; transform-origin: center; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">

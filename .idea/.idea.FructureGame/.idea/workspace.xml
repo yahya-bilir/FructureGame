@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Materials/Conveyor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Materials/Conveyor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/AmmoCreator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/AmmoCreator.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/CollectionArea.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/CollectionArea.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBall.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/CharacterDestructionSystem/EnemyDestructionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
