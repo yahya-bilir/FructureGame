@@ -35,7 +35,6 @@ namespace WeaponSystem.AmmoSystem
                 var data = eb.EnemyDestructionManager.GetMeshColliderToAttack();
                 if (data != null && data.ParentGameObjectOfColliders != null)
                 {
-                    Debug.Log(data.ParentGameObjectOfColliders.name);
                     aimPoint = data.ParentGameObjectOfColliders.transform.position;
                 }
                 else

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa902be46a024fe1a85991dcb81ea6b6, type: 3}
-  m_Name: AlternateCannon
+  m_Name: MortarWeapon
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponSO
-  <ObjectName>k__BackingField: Alternate Cannon
+  <ObjectName>k__BackingField: Mortar Weapon
   <ObjectSprite>k__BackingField: {fileID: 21300000, guid: d146d4d90205c9b46a2de7445fe777e5, type: 3}
   <AttackInterval>k__BackingField: 1
   <MinimumRange>k__BackingField: 20

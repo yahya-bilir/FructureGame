@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2acc19bc5819497c92df540160588535, type: 3}
-  m_Name: TurretWagon
+  m_Name: MortarDataHolder
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
   <OnDeathParts>k__BackingField: []
   <Worth>k__BackingField: 30
@@ -21,4 +21,4 @@ MonoBehaviour:
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 0.5
   <Order>k__BackingField: 2
-  <Weapon>k__BackingField: {fileID: 8654844330399224036, guid: 62b2caaada8fa614996dbd7ee0e2520b, type: 3}
+  <Weapon>k__BackingField: {fileID: 8654844330399224036, guid: 9054b523fbae1074a8ad94140c8074f3, type: 3}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e45c566e2c2484d9f1943d09460a13f, type: 3}
-  m_Name: AlternateCannonBall
+  m_Name: MortarAmmo
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.AmmoProjectileSO
-  <ObjectName>k__BackingField: Alternate Cannon Ball
+  <ObjectName>k__BackingField: Mortar Ammo
   <ObjectSprite>k__BackingField: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   <Speed>k__BackingField: 25
   <AmmoPrefab>k__BackingField: {fileID: 7636469058050451362, guid: 4860edb51de272c43a088959124bfdfe, type: 3}

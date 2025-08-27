@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: <CharacterDataHolder>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: f957d8aad5c8be0488277621d5b1cd5d, type: 2}
+    - target: {fileID: 329017904342240658, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: <CharacterPropertiesSo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e6d0d203a6bca74886827e5d2aa88ea, type: 2}
     - target: {fileID: 2702675608387783655, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime2
       value: 65304
@@ -178,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8207661063093613109, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: m_Name
-      value: AlternateCannonWagon
+      value: MortarStationary
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1810114047428656059, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}

@@ -6,46 +6,60 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Basics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Basics/TrainEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Basics/TrainEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Basics/Wagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Basics/Wagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/ElectricEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/ElectricEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/FlameThrowerEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/FlameThrowerEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/LaserEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/LaserEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/RocketEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/RocketEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/TurretEngine.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Engines/TurretEngine.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/Railway.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/Railway.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/TrainSystem1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/TrainSystem1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/TrainTracks.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Systems/TrainTracks.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/AlternateCannonWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/AlternateCannonWagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/CannonWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/CannonWagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/ElectricWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/ElectricWagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/FlameThrowerWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/FlameThrowerWagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/LaserWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/LaserWagon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/RocketWagon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Trains/Wagons/RocketWagon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/Mortar.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/Mortar.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/AlternateCannonStationary.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/AlternateCannonStationary.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/AlternateCannon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/AlternateCannon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/AlternateCannonBall.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/AlternateCannonBall.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Cannon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Cannon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/AlternateCannonWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/AlternateCannonWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/BasicWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/BasicWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/ElectricWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/ElectricWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/FlamethrowerWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/FlamethrowerWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/LaserWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/LaserWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/RocketWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/RocketWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/TurretWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Wagons/TurretWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Base.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Base.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Wagons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Wagons/TurretWagon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Wagons/TurretWagon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/AlternateCannon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/AlternateCannon.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Ammo/AlternateCannonBall.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Ammo/AlternateCannonBall.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Cannon.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Weapons/Ranged/Cannon.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoFlamethrowerZone.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoFlamethrowerZone.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/AmmoProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/ArrowAmmo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/AmmoSystem/ArrowAmmo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ElectricArc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ElectricArc/AmmoElectricZone.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ElectricArc/AmmoElectricZone.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ElectricArc/ArcWeapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ElectricArc/ArcWeapon.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/FlameThrowers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/FlameThrowers/FlameThrowerWeapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/FlameThrowers/FlameThrowerWeapon.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/FlameThrowers/MainBaseGetterAsATarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/BaseSystem/MainBaseGetterAsATarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/FlameThrowers/MainBaseGetterAsATarget.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/BaseSystem/MainBaseGetterAsATarget.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RocketLauncher.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RocketLauncher/RocketLauncher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/RocketLauncher/RocketLauncher.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +183,7 @@
       <workItem from="1756028452885" duration="8322000" />
       <workItem from="1756113800678" duration="8071000" />
       <workItem from="1756205134173" duration="1138000" />
-      <workItem from="1756285899759" duration="3129000" />
+      <workItem from="1756285899759" duration="10890000" />
     </task>
     <servers />
   </component>
