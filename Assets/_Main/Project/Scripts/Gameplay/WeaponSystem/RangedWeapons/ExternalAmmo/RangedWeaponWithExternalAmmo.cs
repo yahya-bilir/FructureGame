@@ -37,7 +37,7 @@ namespace WeaponSystem.RangedWeapons
             _loadedAmmo.SetOwnerAndColor(this, _currentColor);
             _loadedAmmo.Initialize(ConnectedCombatManager, Damage);
             _loadedAmmo.FireAt(character);
-            DeloadWeapon();
+            UnloadWeapon();
         }
 
         public async UniTask LoadWeapon(AmmoBase ammo)
@@ -49,7 +49,7 @@ namespace WeaponSystem.RangedWeapons
             IsLoaded = true;
         }
         
-        private void DeloadWeapon()
+        private void UnloadWeapon()
         {
             IsLoaded = false;
             _loadedAmmo = null;
