@@ -7,5 +7,8 @@ namespace WeaponSystem.RangedWeapons
     public class RangedWeaponSO : UpgreadableWeaponSO
     {
         [field: SerializeField] public AmmoSO AmmoSO { get; private set; }
+        
+        [field: SerializeField] public AmmoBase ProjectilePrefab { get; private set; }
+
     }
 }

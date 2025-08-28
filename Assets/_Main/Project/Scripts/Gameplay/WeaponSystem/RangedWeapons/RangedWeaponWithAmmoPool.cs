@@ -46,13 +46,13 @@ namespace WeaponSystem.RangedWeapons
             _projectilePool = new Queue<AmmoBase>();
             for (int i = 0; i < 10; i++)
             {
-                var projectile = Instantiate(RangedWeaponSo.AmmoSO.AmmoPrefab);
+                var projectile = Instantiate(RangedWeaponSo.ProjectilePrefab);
                 projectile.gameObject.SetActive(false);
                 _projectilePool.Enqueue(projectile);
             }
         }
 
-        public override void OnAmmoDestroyed(AmmoBase projectile)
+        public void ReturnProjectileToPool(AmmoBase projectile)
         {
             _projectilePool.Enqueue(projectile);
         }
@@ -61,7 +61,7 @@ namespace WeaponSystem.RangedWeapons
         {
             for (int i = 0; i < amount; i++)
             {
-                var projectile = Instantiate(RangedWeaponSo.AmmoSO.AmmoPrefab);
+                var projectile = Instantiate(RangedWeaponSo.ProjectilePrefab);
                 projectile.gameObject.SetActive(false);
                 _projectilePool.Enqueue(projectile);
                 Debug.LogError("Pool expanded");

@@ -20,6 +20,7 @@ namespace WeaponSystem.AmmoSystem
             var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
             _rigidbody.useGravity = false;
+            _rigidbody.isKinematic = false;
         }
 
         public override void FireAt(Character target)

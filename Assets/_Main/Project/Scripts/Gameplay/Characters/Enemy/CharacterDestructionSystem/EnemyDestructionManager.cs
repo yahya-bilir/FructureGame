@@ -59,6 +59,7 @@ namespace Characters.Enemy
 
             var alive = _meshColliderAndSkinnedMeshDatas
                 .Where(d => d != null && !d.IsDestroyed && d.ParentGameObjectOfColliders != null)
+                .OrderBy(_ => _rng.Next()) // shuffle
                 .ToList();
 
             if (alive.Count == 0)

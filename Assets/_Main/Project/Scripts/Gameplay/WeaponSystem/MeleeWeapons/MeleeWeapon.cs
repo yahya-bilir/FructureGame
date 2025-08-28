@@ -43,8 +43,8 @@ public class MeleeWeapon : UpgradeableWeapon, ITriggerWeapon
                 var instantiatedVfx = Instantiate(attackVfx, character.transform.position, rotation);
 
                 // Rengi ayarla
-                Color vfxColor = character.CharacterDataHolder.OnAttackedVFXColor;
-                SetVfxColor(instantiatedVfx, vfxColor);
+                //Color vfxColor = character.CharacterDataHolder.OnAttackedVFXColor;
+                //SetVfxColor(instantiatedVfx, vfxColor);
             }
             EventBus.Publish(new OnEnemyBeingAttacked(character, transform.position));
             

@@ -2980,7 +2980,7 @@ PrefabInstance:
     - target: {fileID: 6963146245756324700, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: meshColliderAndSkinnedMeshDatas.Array.data[4].<ParentGameObjectOfColliders>k__BackingField
       value: 
-      objectReference: {fileID: 2933602838099109319}
+      objectReference: {fileID: 8744578558839736119}
     - target: {fileID: 7551792589262910866, guid: 3acc1eea8e5c6c048a1dd0d1410d1d8c, type: 3}
       propertyPath: m_Height
       value: 1.4630266
@@ -4158,11 +4158,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6386480451222621022, guid: cdfcb9fca57ea41458908aed34107a63, type: 3}
   m_PrefabInstance: {fileID: 5714059258512136012}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2933602838099109319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1731024231264914805, guid: cdfcb9fca57ea41458908aed34107a63, type: 3}
-  m_PrefabInstance: {fileID: 5714059258512136012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3179459653915665340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7157309607397930224, guid: cdfcb9fca57ea41458908aed34107a63, type: 3}
@@ -5044,6 +5039,11 @@ Transform:
 --- !u!1 &6581612057904900360 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7774620517717459388, guid: cdfcb9fca57ea41458908aed34107a63, type: 3}
+  m_PrefabInstance: {fileID: 5714059258512136012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8744578558839736119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897462237488877691, guid: cdfcb9fca57ea41458908aed34107a63, type: 3}
   m_PrefabInstance: {fileID: 5714059258512136012}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8907118628527501839 stripped

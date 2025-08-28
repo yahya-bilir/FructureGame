@@ -1,23 +1,40 @@
 using System;
+using BasicStackSystem;
 using Characters;
 using UnityEngine;
 
 namespace WeaponSystem.AmmoSystem
 {
-    public abstract class AmmoBase : TriggerWeapon
+    public abstract class AmmoBase : TriggerWeapon, IStackable
     {
         protected RangedWeapon _ownerWeapon;
         private ParticleSystem[] _particleSystems;
-        
+        public GameObject GameObject { get; private set; }
 
         private void OnEnable()
         {
             _particleSystems = GetComponentsInChildren<ParticleSystem>();
-            
             foreach (var particle in _particleSystems)
             {
                 particle.Clear();
             }
+
+            GameObject = gameObject;
+        }
+
+        public void OnObjectStartedBeingCarried()
+        {
+            
+        }
+
+        public void OnObjectCollected()
+        {
+            
+        }
+
+        public void OnObjectDropped()
+        {
+            
         }
 
         public void SetOwnerAndColor(RangedWeapon owner, Color color)
@@ -34,5 +51,6 @@ namespace WeaponSystem.AmmoSystem
         }
 
         public abstract void FireAt(Character target);
+
     }
 }

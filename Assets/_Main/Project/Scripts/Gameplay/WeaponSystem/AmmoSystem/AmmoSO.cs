@@ -7,6 +7,5 @@ namespace WeaponSystem.AmmoSystem
     public class AmmoSO : ObjectUIIdentifierSO
     {
         [field: SerializeField] public float Speed { get; private set; }
-        [field: SerializeField] public AmmoBase AmmoPrefab { get; private set; }
     }
 }

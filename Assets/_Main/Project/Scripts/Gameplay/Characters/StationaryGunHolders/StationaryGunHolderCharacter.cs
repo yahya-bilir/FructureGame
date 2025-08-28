@@ -8,6 +8,7 @@ using PropertySystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
+using WeaponSystem.AmmoSystem;
 using WeaponSystem.RangedWeapons;
 
 public class StationaryGunHolderCharacter : Character
@@ -19,9 +20,12 @@ public class StationaryGunHolderCharacter : Character
     protected RangedWeapon _rangedWeapon;
     protected Transform _weaponTransform;
     protected IEventBus _eventBus;
-    [SerializeField] private BasicStack connectedStack;
     private AmmoCreator _ammoCreator;
     private GunHolderEventHandler _gunHolderEventHandler;
+    
+    [SerializeField] private BasicStack connectedStack;
+    [SerializeField] private AmmoBase scriptToAddWhenCollected;
+    
     [Inject]
     private void Inject(IEventBus eventBus, AmmoCreator ammoCreator)
     {
@@ -47,7 +51,7 @@ public class StationaryGunHolderCharacter : Character
         if (_rangedWeapon is RangedWeaponWithExternalAmmo externalAmmoWeapon)
         {
             externalAmmoWeapon.SetStack(connectedStack);
-            _ammoCreator.OnRangedWeaponCreated(connectedStack, externalAmmoWeapon.RangedWeaponSo.AmmoSO.AmmoPrefab);
+            _ammoCreator.OnRangedWeaponCreated(connectedStack, externalAmmoWeapon.RangedWeaponSo.ProjectilePrefab);
         }
 
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);

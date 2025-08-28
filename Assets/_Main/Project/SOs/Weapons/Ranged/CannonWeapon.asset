@@ -19,3 +19,4 @@ MonoBehaviour:
   <DamageIncrementOnEachUpgrade>k__BackingField: 1
   <AttackSpeedUpgradeOnEachIncrement>k__BackingField: 0.05
   <AmmoSO>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
+  <ProjectilePrefab>k__BackingField: {fileID: 7636469058050451362, guid: 03d1ffa63be46434389650184decbe12, type: 3}

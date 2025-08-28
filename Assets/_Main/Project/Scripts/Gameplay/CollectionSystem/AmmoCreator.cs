@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using BasicStackSystem;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using EventBusses;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 using WeaponSystem.AmmoSystem;
 
 namespace CollectionSystem
@@ -11,6 +14,13 @@ namespace CollectionSystem
     {
         private readonly Dictionary<BasicStack, AmmoBase> _stacksAndAmmo = new();
         [SerializeField] private Transform finalDestination;
+        private IObjectResolver _resolver;
+
+        [Inject]
+        private void Inject(IObjectResolver resolver)
+        {
+            _resolver = resolver;
+        }
         public void OnRangedWeaponCreated(BasicStack stack, AmmoBase ammo)
         {
             _stacksAndAmmo.Add(stack, ammo);
@@ -41,7 +51,7 @@ namespace CollectionSystem
 
             var ammoPrefab = _stacksAndAmmo[targetStack];
             var ammoInstance = Instantiate(ammoPrefab, transform.position, Quaternion.identity);
-            
+            _resolver.InjectGameObject(ammoInstance.gameObject);
             SendAmmoToStack(ammoInstance.transform, targetStack).Forget();
         }
 

@@ -2,8 +2,8 @@ namespace Characters
 {
     public enum DamageTypes
     {
-        Electric,
-        Fire,
-        Normal
+        Electric = 0,
+        Fire = 1,
+        Normal = 2
     }
 }

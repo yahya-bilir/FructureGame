@@ -305,7 +305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2524038127036583080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f71bd0a9354bb5a664d29bbf35d272, type: 3}
+  m_Script: {fileID: 11500000, guid: da7df27875d747f69333407ba1aaa6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.StackableAmmo
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}

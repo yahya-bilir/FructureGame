@@ -10,7 +10,7 @@ namespace WeaponSystem.AmmoSystem
         protected Tween _moveTween;
         protected Character _targetCharacter;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
@@ -28,12 +28,12 @@ namespace WeaponSystem.AmmoSystem
 
         protected abstract void PlayTween(Character target);
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             _moveTween?.Kill();
         }
 
-        protected void OnTweenComplete()
+        protected virtual void OnTweenComplete()
         {
             if (_targetCharacter != null)
                 _targetCharacter.CharacterCombatManager.GetDamage(Damage);
