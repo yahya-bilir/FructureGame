@@ -5,12 +5,10 @@ using UnityEngine;
 
 namespace WeaponSystem.AmmoSystem
 {
-    public class AmmoAOEProjectile : AmmoBase
+    public abstract class AmmoAOEProjectile : AmmoBase
     {
-        [SerializeField] private float aoeRadius = 3f;
-        [SerializeField] private float jumpPower = 2f;
-        [SerializeField] private float jumpDuration = 1f;
-        [SerializeField] private ParticleSystem vfx;
+        [SerializeField] protected float aoeRadius = 3f;
+        [SerializeField] protected ParticleSystem vfx;
 
         protected bool _hasExploded = false;
         protected CancellationTokenSource _cts;
@@ -26,19 +24,9 @@ namespace WeaponSystem.AmmoSystem
             FireAtPosition(target.transform.position);
         }
 
-        protected virtual void FireAtPosition(Vector3 targetPos)
-        {
-            _cts?.Cancel();
-            _cts = new CancellationTokenSource();
-            _hasExploded = false;
+        protected abstract void FireAtPosition(Vector3 targetPos);
 
-            transform.DOMove(targetPos, jumpDuration)
-                .SetEase(Ease.Linear)
-                .SetLoops(1)
-                .OnComplete(() => Explode());
-        }
-
-        protected void Explode()
+        protected virtual void Explode()
         {
             if (_hasExploded) return;
             _hasExploded = true;

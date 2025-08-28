@@ -64,26 +64,22 @@ public class StationaryGunHolderCharacter : Character
             _searchingState,
             waitingForWeaponToBeLoaded,
             () => LastEnemyIsValid()
-        );
-
-        _stateMachine.AddTransition(
-            _attackingState,
-            _searchingState,
-            () => !LastEnemyIsValid()
         );        
         
         _stateMachine.AddTransition(
             waitingForWeaponToBeLoaded,
             _attackingState,
-            () => _rangedWeapon.IsLoaded
-        );        
+            () => _rangedWeapon.IsLoaded && LastEnemyIsValid()
+        );
         
         _stateMachine.AddTransition(
             _attackingState,
             waitingForWeaponToBeLoaded,
-            () => !_rangedWeapon.IsLoaded
+            () => !_rangedWeapon.IsLoaded && LastEnemyIsValid()
         );
-
+        
+        _stateMachine.AddAnyTransition(_searchingState, () => !LastEnemyIsValid());
+        
         _stateMachine.SetState(_searchingState);
     }
 

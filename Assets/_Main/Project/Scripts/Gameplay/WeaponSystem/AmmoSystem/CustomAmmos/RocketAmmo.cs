@@ -21,7 +21,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
             _hasExploded = false;
-
+            _rigidbody.isKinematic = false;
             _rigidbody.useGravity = false;
 
             StartArcTrajectory(_cts.Token).Forget();
