@@ -68,12 +68,10 @@ namespace Factories
             {
                 if (!_gunHolderPlacer.IsThereAnyWeapon)
                 {
-                    Debug.Log("There is not any weapons created");
                     await UniTask.Yield();
                     continue;
                 }
 
-                Debug.Log($"There is weapons: {_gunHolderPlacer.IsThereAnyWeapon}");
                 factory.SpawnEnemy();
                 await UniTask.WaitForSeconds(Random.Range(factory.FactorySo.SpawnRangeMin, factory.FactorySo.SpawnRangeMax));
             }

@@ -137,13 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Gameplay::WeaponSystem.RangedWeapons.RangedWeaponWithExternalAmmo
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: 8919bfca979d4ae46a1d9c6ab9cab1b3, type: 2}
-  projectileCreationPoint: {fileID: 6499353075451566267}
+  projectileCreationPoint: {fileID: 1114291903027149052}
   <Animator>k__BackingField: {fileID: 6133434454843229350}
---- !u!4 &6499353075451566267 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6072619496691396390, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}
-  m_PrefabInstance: {fileID: 1041475478197958557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9104149209049389144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8082975162410872773, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}

@@ -1,11 +1,10 @@
 using AI.Base;
+using AI.StationaryGunHolderStates;
 using BasicStackSystem;
 using Characters;
 using Characters.StationaryGunHolders;
 using CollectionSystem;
 using EventBusses;
-using PropertySystem;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 using WeaponSystem.AmmoSystem;
@@ -17,7 +16,7 @@ public class StationaryGunHolderCharacter : Character
     private SearchingForEnemy _searchingState;
     private Attacking _attackingState;
 
-    protected RangedWeapon _rangedWeapon;
+    protected RangedWeaponWithExternalAmmo _rangedWeapon;
     protected Transform _weaponTransform;
     protected IEventBus _eventBus;
     private AmmoCreator _ammoCreator;
@@ -39,7 +38,7 @@ public class StationaryGunHolderCharacter : Character
 
         _stateMachine = new StateMachine();
 
-        _rangedWeapon = CharacterWeaponManager.SpawnedWeapon as RangedWeapon;
+        _rangedWeapon = CharacterWeaponManager.SpawnedWeapon as RangedWeaponWithExternalAmmo;
         _weaponTransform = CharacterWeaponManager.SpawnedWeapon?.transform;
 
         if (_rangedWeapon == null || _weaponTransform == null)
@@ -48,11 +47,8 @@ public class StationaryGunHolderCharacter : Character
             return;
         }
 
-        if (_rangedWeapon is RangedWeaponWithExternalAmmo externalAmmoWeapon)
-        {
-            externalAmmoWeapon.SetStack(connectedStack);
-            _ammoCreator.OnRangedWeaponCreated(connectedStack, externalAmmoWeapon.RangedWeaponSo.ProjectilePrefab);
-        }
+        _rangedWeapon.SetStack(connectedStack);
+        _ammoCreator.OnRangedWeaponCreated(connectedStack, _rangedWeapon.RangedWeaponSo.ProjectilePrefab);
 
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
         Resolver.Inject(_gunHolderEventHandler);
@@ -63,10 +59,10 @@ public class StationaryGunHolderCharacter : Character
     {
         _searchingState = new SearchingForEnemy(CharacterCombatManager, AIText, _rangedWeapon.Animator, this.name);
         _attackingState = new Attacking(CharacterCombatManager, _rangedWeapon, _weaponTransform, AIText, _rangedWeapon.Animator, _eventBus, connectedStack);
-
+        var waitingForWeaponToBeLoaded = new WaitingForWeaponToBeLoaded(_rangedWeapon, AIText);
         _stateMachine.AddTransition(
             _searchingState,
-            _attackingState,
+            waitingForWeaponToBeLoaded,
             () => LastEnemyIsValid()
         );
 
@@ -74,6 +70,18 @@ public class StationaryGunHolderCharacter : Character
             _attackingState,
             _searchingState,
             () => !LastEnemyIsValid()
+        );        
+        
+        _stateMachine.AddTransition(
+            waitingForWeaponToBeLoaded,
+            _attackingState,
+            () => _rangedWeapon.IsLoaded
+        );        
+        
+        _stateMachine.AddTransition(
+            _attackingState,
+            waitingForWeaponToBeLoaded,
+            () => !_rangedWeapon.IsLoaded
         );
 
         _stateMachine.SetState(_searchingState);
@@ -90,11 +98,11 @@ public class StationaryGunHolderCharacter : Character
         return enemy != null && !enemy.IsCharacterDead && !IsCharacterDead;
     }
 
-    [Button]
-    public void DebugUpgradeAttackSpeed()
-    {
-        var speedValue = CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue;
-        CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.AttackSpeed, speedValue + 0.1f);
-        Debug.Log(CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
-    }
+    // [Button]
+    // public void DebugUpgradeAttackSpeed()
+    // {
+    //     var speedValue = CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue;
+    //     CharacterPropertyManager.SetPropertyTemporarily(PropertyQuery.AttackSpeed, speedValue + 0.1f);
+    //     Debug.Log(CharacterPropertyManager.GetProperty(PropertyQuery.AttackSpeed).TemporaryValue);
+    // }
 }

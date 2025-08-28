@@ -6,13 +6,14 @@ using Events;
 using PropertySystem;
 using TMPro;
 using UnityEngine;
+using WeaponSystem.RangedWeapons;
 
 public class Attacking : IState
 {
     private static readonly int CanAttack = Animator.StringToHash("CanAttack");
     private static readonly int Speed = Animator.StringToHash("Speed");
     private readonly CharacterCombatManager _combatManager;
-    private readonly RangedWeapon _rangedWeapon;
+    private readonly RangedWeaponWithExternalAmmo _rangedWeapon;
     private readonly Transform _weaponTransform;
     private readonly TextMeshPro _aiText;
     private readonly Animator _rangedWeaponAnimator;
@@ -28,7 +29,7 @@ public class Attacking : IState
         TextMeshPro aiText, Animator rangedWeaponAnimator, IEventBus eventBus, BasicStack connectedStack)
     {
         _combatManager = combatManager;
-        _rangedWeapon = rangedWeapon;
+        _rangedWeapon = rangedWeapon as RangedWeaponWithExternalAmmo;
         _weaponTransform = weaponTransform;
         _aiText = aiText;
         _rangedWeaponAnimator = rangedWeaponAnimator;
@@ -38,7 +39,6 @@ public class Attacking : IState
 
     public void Tick()
     {
-        if(!_connectedStack.IsThereAnyObject) return;
         var target = _combatManager.LastFoundEnemy;
         if (target == null || target.IsCharacterDead) return;
 
@@ -57,35 +57,33 @@ public class Attacking : IState
             return; // hedefe dönmeden saldırma
         }
 
-        // --- ZAMANLAMA ---
-        float currentAtkSpeed = _combatManager.CharacterPropertyManager
-            .GetProperty(PropertyQuery.AttackSpeed).TemporaryValue; // 1.0 => normal hız
-        if (currentAtkSpeed <= 0f) currentAtkSpeed = 0.0001f;
-
-        float baseInterval = _rangedWeapon.CurrentAttackInterval; // RangedWeapon.Initialize'da SO'dan gelir
-        float effectiveInterval = baseInterval / currentAtkSpeed;
-
-        _cooldown += Time.deltaTime;
-
-        // Anim hızını güncelle
-        _rangedWeaponAnimator.SetFloat(Speed, currentAtkSpeed);
-
-        if (_cooldown >= effectiveInterval)
-        {
-            
-            _rangedWeaponAnimator.SetBool(CanAttack, true);
-            _cooldown = 0f;
-        }
+        // // --- ZAMANLAMA ---
+        // float currentAtkSpeed = _combatManager.CharacterPropertyManager
+        //     .GetProperty(PropertyQuery.AttackSpeed).TemporaryValue; // 1.0 => normal hız
+        // if (currentAtkSpeed <= 0f) currentAtkSpeed = 0.0001f;
+        //
+        // float baseInterval = _rangedWeapon.CurrentAttackInterval; // RangedWeapon.Initialize'da SO'dan gelir
+        // float effectiveInterval = baseInterval / currentAtkSpeed;
+        //
+        // _cooldown += Time.deltaTime;
+        //
+        // // Anim hızını güncelle
+        //
+        // if (_cooldown >= effectiveInterval)
+        // {
+        //     _rangedWeaponAnimator.SetBool(CanAttack, true);
+        //     _cooldown = 0f;
+        // }
     }
 
     public void OnEnter()
     {
         _aiText.text = "Attacking to Enemy";
         _eventBus.Subscribe<OnCharacterAttacked>(OnCharacterAttacked);
+        _rangedWeaponAnimator.SetFloat(Speed, 1);
 
-        // Her girişte cooldown sıfırlansın (ilk girişle sınırlamayalım)
-        _cooldown = 0f;
-        _rangedWeaponAnimator.SetBool(CanAttack, false);
+        //_cooldown = 0f;
+        _rangedWeaponAnimator.SetBool(CanAttack, true);
     }
 
 

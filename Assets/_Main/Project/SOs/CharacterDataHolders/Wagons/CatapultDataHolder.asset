@@ -12,13 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acc19bc5819497c92df540160588535, type: 3}
   m_Name: CatapultDataHolder
   m_EditorClassIdentifier: Gameplay::Characters.CharacterDataHolder
-  <OnDeathParts>k__BackingField: []
   <Worth>k__BackingField: 30
-  <ShineColor>k__BackingField: {r: 1024, g: 0, b: 0, a: 1}
-  <ShineDuration>k__BackingField: 0.3
-  <OnAttackedVFXColor>k__BackingField: {r: 0.1764706, g: 0.83137256, b: 0.9803922, a: 1}
   <OnAttackedSpeedDivider>k__BackingField: 2
   <OnAttackedSpeedRecoverTime>k__BackingField: 5
   <AttackingInterval>k__BackingField: 0.5
-  <Order>k__BackingField: 2
-  <Weapon>k__BackingField: {fileID: 8654844330399224036, guid: 9054b523fbae1074a8ad94140c8074f3, type: 3}
+  <Weapon>k__BackingField: {fileID: 8654844330399224036, guid: 51acf777622daa24abcf8142cb52c336, type: 3}
