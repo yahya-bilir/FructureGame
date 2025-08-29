@@ -48,13 +48,13 @@ namespace Characters.CarrierAI
             var waitingForStack = new WaitingForStack(_navmeshAgent, _animator);
             var walkingTowardsCarryingPosition = new WalkingTowardsCarryingPosition(_navmeshAgent, _animator, _stack);
             var collectingAmmo = new CollectingAmmo(_carryingController, _animator, _navmeshAgent);
-            var carryingTowardsWeapon = new CarryingTowardsWeapon(_navmeshAgent, _animator, _weapon);
+            var carryingTowardsWeapon = new CarryingTowardsWeapon(_navmeshAgent, _animator, _weapon, _carryingController);
             var droppingAmmo = new DroppingAmmo(_carryingController, _animator, _navmeshAgent);
             var waitingWeaponToShoot = new WaitingWeaponToShoot(_navmeshAgent, _animator);
 
-            Func<bool> ReachedStack() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 2f && !_carryingController.IsCarrying;
+            Func<bool> ReachedStack() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying;
             Func<bool> IsThereAnyStackObject() => () => _stack.IsThereAnyObject && !_carryingController.IsCarrying;
-            Func<bool> IsReachedWeapon() => () => Vector3.Distance(transform.position, _weapon.transform.position) <= 2f && _carryingController.IsCarrying;
+            Func<bool> IsReachedWeapon() => () => Vector3.Distance(transform.position, _weapon.CarrierDropPoint.position) <= 0.75f && _carryingController.IsCarrying && _weapon.LoadedAmmo == null;
             Func<bool> IsWeaponEmpty() => () => !_weapon.IsLoaded;
             Func<bool> IsCarrying() => () => _carryingController.IsCarrying;
             Func<bool> IsDropped() => () => !_carryingController.IsCarrying;

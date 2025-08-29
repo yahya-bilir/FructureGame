@@ -9,11 +9,5 @@ AnimatorOverrideController:
   m_Name: Gargoyle
   m_Controller: {fileID: 9100000, guid: 3cd26f50e5acbd14cb077c47249df71d, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 226c59b081c54dc448b700282255b8b8, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 31f9f41fa6940d84a8a9773165f24dad, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 7514a766cd5e19242ad0b9891897ad6c, type: 2}
-    m_OverrideClip: {fileID: -1742303119596364422, guid: 4c12333499eb4884799e25ba75b1dce0, type: 3}
-  - m_OriginalClip: {fileID: 7400000, guid: 175942e9fdb5d8f48b66450a01401492, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e53e543b66280b04899349bf28a49107, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: a1ed1c7d3c0ead649975d13beef7f42e, type: 2}
-    m_OverrideClip: {fileID: -1742303119596364422, guid: 4c12333499eb4884799e25ba75b1dce0, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}

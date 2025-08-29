@@ -5,99 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CarryingTowardsWeapon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CarryingTowardsWeapon.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CollectingAmmo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CollectingAmmo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/DroppingAmmo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/DroppingAmmo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WaitingForStack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WaitingForStack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WaitingWeaponToShoot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WaitingWeaponToShoot.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WalkingTowardsCarryingPosition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WalkingTowardsCarryingPosition.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarryingController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarryingController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Mummy.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Mummy.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Zombie_Attack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Zombie_Attack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Zombie_Walk.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Model/Zombie_Walk.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Prefab/Mummy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Prefab/Mummy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Scene/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Scene/README.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Scene/Zombie animated character.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Scene/Zombie animated character.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/Zombie.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/Zombie.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/Zombie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/Zombie.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/zombi.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Texture/zombi.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Zombie.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fantasy animated characters pack/Zombie animated character/Zombie.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_attack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_attack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_death.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_death.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_knockback.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_knockback.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_walking.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Animations/CharacterAnimations/zombie_walking.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Falling Back Death.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Falling Back Death.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Getting Hit Backwards.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Getting Hit Backwards.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (1).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (2).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens (2).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Mremireh O Desbiens.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Zombie Attack.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Zombie Attack.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Zombie Running.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/Zombie Running.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/emireh_body_material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/emireh_body_material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/emireh_shoe_material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Characters/emireh_shoe_material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/Soldier.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/Soldier.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/GunHolderPlacer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/GunHolderPlacer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/CannonStationary.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/CannonStationary.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/CatapultStationary.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/CatapultStationary.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/MortarStationary.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/Wagons/MortarStationary.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Attacking/MeleeAttacking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Attacking/MeleeAttacking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Dead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/SearchingForEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/SearchingForEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Waiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/Waiting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/WalkingTowardsEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/EnemyStates/WalkingTowardsEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterAnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/EnemyMovementController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CharacterMovementController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeleeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/Enemy/MeleeEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/Overriders/Gargoyle.overrideController" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/Overriders/Gargoyle.overrideController" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Weapons/WeaponGenericAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Weapons/WeaponGenericAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/CatapultStationary.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/CatapultStationary.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/MortarStationary.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Stationaries/MortarStationary.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/CannonWeapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/CannonWeapon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/CatapultWeapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/CatapultWeapon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/MortarWeapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/MortarWeapon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CarryingTowardsWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/CarryingTowardsWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/StationaryGunHolders/StationaryGunHolderCharacter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs" afterDir="false" />
     </list>
@@ -226,7 +144,7 @@
       <workItem from="1756205134173" duration="1138000" />
       <workItem from="1756285899759" duration="10890000" />
       <workItem from="1756367181375" duration="20610000" />
-      <workItem from="1756456131666" duration="9329000" />
+      <workItem from="1756456131666" duration="14200000" />
     </task>
     <servers />
   </component>

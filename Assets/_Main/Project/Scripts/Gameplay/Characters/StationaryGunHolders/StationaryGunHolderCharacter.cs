@@ -50,7 +50,6 @@ public class StationaryGunHolderCharacter : Character
             return;
         }
 
-        _rangedWeapon.SetStack(connectedStack);
         _ammoCreator.OnRangedWeaponCreated(connectedStack, _rangedWeapon.RangedWeaponSo.ProjectilePrefab);
 
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
@@ -74,13 +73,13 @@ public class StationaryGunHolderCharacter : Character
         _stateMachine.AddTransition(
             waitingForWeaponToBeLoaded,
             _attackingState,
-            () => _rangedWeapon.IsLoaded && LastEnemyIsValid()
+            () => _rangedWeapon.LoadedAmmo != null && LastEnemyIsValid()
         );
         
         _stateMachine.AddTransition(
             _attackingState,
             waitingForWeaponToBeLoaded,
-            () => !_rangedWeapon.IsLoaded && LastEnemyIsValid()
+            () => _rangedWeapon.LoadedAmmo == null && LastEnemyIsValid()
         );
         
         _stateMachine.AddAnyTransition(_searchingState, () => !LastEnemyIsValid());
