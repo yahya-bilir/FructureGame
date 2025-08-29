@@ -6,11 +6,11 @@ namespace AI.EnemyStates
 {
     public class Waiting : IState
     {
-        private readonly EnemyMovementController _enemyMovementController;
+        private readonly CharacterMovementController characterMovementController;
 
-        public Waiting(EnemyMovementController enemyMovementController)
+        public Waiting(CharacterMovementController characterMovementController)
         {
-            _enemyMovementController = enemyMovementController;
+            this.characterMovementController = characterMovementController;
         }
 
         public void Tick()
@@ -20,7 +20,7 @@ namespace AI.EnemyStates
 
         public void OnEnter()
         {
-            _enemyMovementController.StopCharacter(true);
+            characterMovementController.StopCharacter(true);
         }
 
         public void OnExit()

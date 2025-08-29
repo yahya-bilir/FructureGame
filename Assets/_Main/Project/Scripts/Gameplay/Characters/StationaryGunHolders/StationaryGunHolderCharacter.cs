@@ -2,6 +2,7 @@ using AI.Base;
 using AI.StationaryGunHolderStates;
 using BasicStackSystem;
 using Characters;
+using Characters.CarrierAI;
 using Characters.StationaryGunHolders;
 using CollectionSystem;
 using EventBusses;
@@ -23,6 +24,8 @@ public class StationaryGunHolderCharacter : Character
     private GunHolderEventHandler _gunHolderEventHandler;
     
     [SerializeField] private BasicStack connectedStack;
+    [SerializeField] private CarrierAIBehaviour carrier;
+    
     [SerializeField] private AmmoBase scriptToAddWhenCollected;
     
     [Inject]
@@ -53,6 +56,8 @@ public class StationaryGunHolderCharacter : Character
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
         Resolver.Inject(_gunHolderEventHandler);
         SetStates();
+        
+        carrier.Initialize(connectedStack, _rangedWeapon);
     }
 
     protected virtual void SetStates()

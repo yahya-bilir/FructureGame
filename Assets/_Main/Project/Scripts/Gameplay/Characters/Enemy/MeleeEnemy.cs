@@ -18,7 +18,7 @@ namespace Characters.Enemy
         {
             return new MeleeAttacking(AnimationController, CharacterDataHolder.AttackingInterval,
                 CharacterCombatManager, _eventBus,
-                CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue, model, EnemyMovementController, MainBase, this, AIText);
+                CharacterPropertyManager.GetProperty(PropertyQuery.Damage).TemporaryValue, model, CharacterMovementController, MainBase, this, AIText);
         }
     }
 }

@@ -12,17 +12,17 @@ namespace AI.EnemyStates
     {
         private readonly MainBase _mainBase;
         private readonly CharacterDataHolder _characterDataHolder;
-        private readonly EnemyMovementController _enemyMovementController;
+        private readonly CharacterMovementController characterMovementController;
         private readonly Transform _modelTransform;
         private readonly TextMeshPro _aiText;
         private Character _enemy;
         public WalkingTowardsEnemy(MainBase mainBase,
-            CharacterDataHolder characterDataHolder, EnemyMovementController enemyMovementController,
+            CharacterDataHolder characterDataHolder, CharacterMovementController characterMovementController,
             Transform modelTransform, TextMeshPro aiText)
         {
             _mainBase = mainBase;
             _characterDataHolder = characterDataHolder;
-            _enemyMovementController = enemyMovementController;
+            this.characterMovementController = characterMovementController;
             _modelTransform = modelTransform;
             _aiText = aiText;
         }
@@ -41,12 +41,12 @@ namespace AI.EnemyStates
 
             if (currentDistance > minimumRange + 0.1f)
             {
-                _enemyMovementController.MoveCharacter(targetPosition, false, 0f);
-                _enemyMovementController.IncreaseSpeedSmoothly(2f);
+                characterMovementController.MoveCharacter(targetPosition, false, 0f);
+                characterMovementController.IncreaseSpeedSmoothly(2f);
             }
             else
             {
-                _enemyMovementController.StopCharacter(false);
+                characterMovementController.StopCharacter(false);
             }
         }
 

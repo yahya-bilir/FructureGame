@@ -11,16 +11,16 @@ namespace AI.EnemyStates
         private readonly CharacterAnimationController _animationController;
         private readonly Collider _collider2D;
         private readonly TextMeshPro _aiText;
-        private readonly EnemyMovementController _enemyMovementController;
+        private readonly CharacterMovementController characterMovementController;
         private float _deathTimer;
 
         public Dead(CharacterAnimationController animationController, Collider collider2D, TextMeshPro aiText,
-            EnemyMovementController enemyMovementController)
+            CharacterMovementController characterMovementController)
         {
             _animationController = animationController;
             _collider2D = collider2D;
             _aiText = aiText;
-            _enemyMovementController = enemyMovementController;
+            this.characterMovementController = characterMovementController;
         }
 
         public void Tick()
@@ -36,7 +36,7 @@ namespace AI.EnemyStates
         {
             _aiText.text = "Dead";
             _collider2D.enabled = false;
-            _enemyMovementController.StopCharacter(false);
+            characterMovementController.StopCharacter(false);
             //_animationController.DisableAnimator();
             _animationController.Dead();
             //_camerasManager.ShakeCamera();

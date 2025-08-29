@@ -22,7 +22,7 @@ namespace Characters.Enemy
         [SerializeField] private List<MeshColliderAndSkinnedMeshData> meshColliderAndSkinnedMeshDatas;
         
         protected Collider Collider;
-        protected EnemyMovementController EnemyMovementController;
+        protected CharacterMovementController CharacterMovementController;
         protected IEventBus EventBus;
         private Rigidbody _rigidbody;
         protected StateMachine StateMachine;
@@ -60,7 +60,7 @@ namespace Characters.Enemy
                 EnemyDestructionManager);
             Collider.enabled = true;
 
-            EnemyMovementController = new EnemyMovementController(
+            CharacterMovementController = new CharacterMovementController(
                 Collider,
                 _rigidbody,
                 AnimationController,
@@ -99,9 +99,9 @@ namespace Characters.Enemy
         {
             StateMachine = new StateMachine();
 
-            WalkingToEnemy = new WalkingTowardsEnemy(MainBase, CharacterDataHolder, EnemyMovementController, model.transform, AIText);
+            WalkingToEnemy = new WalkingTowardsEnemy(MainBase, CharacterDataHolder, CharacterMovementController, model.transform, AIText);
             AttackingState = CreateAttackingState();
-            var dead = new Dead(AnimationController, Collider, AIText, EnemyMovementController);
+            var dead = new Dead(AnimationController, Collider, AIText, CharacterMovementController);
 
             Func<bool> ReachedEnemy() => () =>
                 Vector3.Distance(transform.position, MainBase.Collider.ClosestPoint(transform.position)) <= 0.2f && !IsCharacterDead;

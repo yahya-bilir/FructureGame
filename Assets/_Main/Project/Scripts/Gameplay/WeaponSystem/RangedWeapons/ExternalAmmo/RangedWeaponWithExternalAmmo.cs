@@ -13,7 +13,7 @@ namespace WeaponSystem.RangedWeapons
     {
         private BasicStack _connectedStack;
         public bool IsLoaded { get; private set; }
-        private AmmoBase _loadedAmmo;    
+        private AmmoBase _loadedAmmo;
         [Inject]
         protected override void Inject(IEventBus eventBus)
         {

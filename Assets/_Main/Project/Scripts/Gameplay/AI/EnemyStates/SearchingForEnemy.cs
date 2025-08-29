@@ -6,11 +6,11 @@ namespace AI.EnemyStates
 {
     public class SearchingForEnemy : IState
     {
-        private readonly EnemyMovementController _enemyMovementController;
+        private readonly CharacterMovementController characterMovementController;
 
-        public SearchingForEnemy(EnemyMovementController enemyMovementController)
+        public SearchingForEnemy(CharacterMovementController characterMovementController)
         {
-            _enemyMovementController = enemyMovementController;
+            this.characterMovementController = characterMovementController;
         }            
 
         public void Tick()

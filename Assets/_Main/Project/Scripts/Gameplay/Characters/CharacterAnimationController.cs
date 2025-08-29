@@ -55,13 +55,13 @@ namespace Characters
 
         public void Armless()
         {
-            
         }
         
         public void Dead()
         {
             _animator.SetTrigger(DeadHash);
         }
+        
 
         public void Spawn()
         {

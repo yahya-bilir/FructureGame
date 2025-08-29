@@ -11,7 +11,7 @@ public class MeleeAttacking : BaseAttacking
     private readonly CharacterCombatManager _combatManager;
     private readonly IEventBus _eventBus;
     private readonly float _damage;
-    private readonly EnemyMovementController _enemyMovementController;
+    private readonly CharacterMovementController characterMovementController;
     private readonly MainBase _mainBase;
     private readonly MeleeEnemy _meleeEnemy;
     private readonly TextMeshPro _aıText;
@@ -20,13 +20,13 @@ public class MeleeAttacking : BaseAttacking
     
     public MeleeAttacking(CharacterAnimationController animationController, float interval,
         CharacterCombatManager combatManager, IEventBus eventBus, float damage, GameObject model,
-        EnemyMovementController enemyMovementController, MainBase mainBase, MeleeEnemy meleeEnemy, TextMeshPro aıText)
+        CharacterMovementController characterMovementController, MainBase mainBase, MeleeEnemy meleeEnemy, TextMeshPro aıText)
         : base(animationController, interval, combatManager, model)
     {
         _combatManager = combatManager;
         _eventBus = eventBus;
         _damage = damage;
-        _enemyMovementController = enemyMovementController;
+        this.characterMovementController = characterMovementController;
         _mainBase = mainBase;
         _meleeEnemy = meleeEnemy;
         _aıText = aıText;
@@ -36,7 +36,7 @@ public class MeleeAttacking : BaseAttacking
     {
         base.OnEnter();
         _eventBus.Subscribe<OnCharacterAttacked>(OnEnemyAttacked);
-        _enemyMovementController.StopCharacter(false);
+        characterMovementController.StopCharacter(false);
         _aıText.text = "Melee Attacking";
         // _meleeEnemy'i _mainBase'e döndür
 
