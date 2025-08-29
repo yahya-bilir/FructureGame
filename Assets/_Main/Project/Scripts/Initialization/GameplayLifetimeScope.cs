@@ -31,6 +31,7 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<UIParticleManager>();
             builder.RegisterComponentInHierarchy<CollectionArea>();
             builder.RegisterComponentInHierarchy<AmmoCreator>();
+            builder.RegisterComponentInHierarchy<RailManager>();
             builder.RegisterComponentInHierarchy<GunHolderPlacer>();
         }
         

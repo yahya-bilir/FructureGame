@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using BasicStackSystem;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Dreamteck.Splines;
 using EventBusses;
 using UnityEngine;
 using VContainer;
@@ -15,7 +16,8 @@ namespace CollectionSystem
         private readonly Dictionary<BasicStack, AmmoBase> _stacksAndAmmo = new();
         [SerializeField] private Transform finalDestination;
         private IObjectResolver _resolver;
-
+        [SerializeField] private SplineComputer splineComputer;
+        
         [Inject]
         private void Inject(IObjectResolver resolver)
         {
