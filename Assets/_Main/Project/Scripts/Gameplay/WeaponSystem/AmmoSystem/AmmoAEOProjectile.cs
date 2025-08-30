@@ -12,12 +12,6 @@ namespace WeaponSystem.AmmoSystem
 
         protected bool _hasExploded = false;
         protected CancellationTokenSource _cts;
-        protected Rigidbody _rigidbody;
-
-        protected void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody>();
-        }
 
         public override void FireAt(Character target)
         {
@@ -51,7 +45,7 @@ namespace WeaponSystem.AmmoSystem
                 }
             }
 
-            _rigidbody.linearVelocity = Vector3.zero;
+            Rigidbody.linearVelocity = Vector3.zero;
 
             gameObject.SetActive(false);
             _ownerWeapon.OnAmmoDestroyed(this);

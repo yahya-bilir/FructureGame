@@ -21,8 +21,8 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
             _hasExploded = false;
-            _rigidbody.isKinematic = false;
-            _rigidbody.useGravity = false;
+            Rigidbody.isKinematic = false;
+            Rigidbody.useGravity = false;
 
             StartArcTrajectory(_cts.Token).Forget();
             AutoDestruct(_cts.Token).Forget();
@@ -50,7 +50,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
                 Vector3 nextPos = linear;
                 Vector3 direction = (nextPos - transform.position).normalized;
 
-                _rigidbody.linearVelocity = direction * speed;
+                Rigidbody.linearVelocity = direction * speed;
                 transform.forward = Vector3.Lerp(transform.forward, direction, Time.deltaTime * 10f);
 
                 await UniTask.Yield();

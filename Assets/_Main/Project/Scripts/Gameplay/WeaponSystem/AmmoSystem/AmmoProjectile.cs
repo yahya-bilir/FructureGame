@@ -9,22 +9,22 @@ namespace WeaponSystem.AmmoSystem
 {
     public class AmmoProjectile : AmmoBase
     {
-        protected Rigidbody _rigidbody;
         private float _speed;
         private bool _hasReturnedToPool = false;
         private CancellationTokenSource _cts;
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            base.Awake();
             var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
-            _rigidbody.useGravity = false;
-            _rigidbody.isKinematic = false;
+
         }
 
         public override void FireAt(Character target)
         {
+            Rigidbody.useGravity = false;
+            Rigidbody.isKinematic = false;
             _hasReturnedToPool = false;
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
@@ -51,7 +51,7 @@ namespace WeaponSystem.AmmoSystem
             }
             
             Vector3 direction = (aimPoint - transform.position).normalized;
-            _rigidbody.linearVelocity = direction * _speed;
+            Rigidbody.linearVelocity = direction * _speed;
             transform.rotation = Quaternion.LookRotation(direction);
 
             AutoDisableAfterTime(_cts.Token).Forget();
@@ -95,6 +95,10 @@ namespace WeaponSystem.AmmoSystem
             {
                 var comp = other.GetComponent<Character>();
                 comp.CharacterCombatManager.GetDamage(Damage);
+            }
+            else
+            {
+                return;
             }
             
             DisableAndEnqueue();

@@ -23,16 +23,17 @@ public class StationaryGunHolderCharacter : Character
     private AmmoCreator _ammoCreator;
     private GunHolderEventHandler _gunHolderEventHandler;
     
-    [SerializeField] private BasicStack connectedStack;
     [SerializeField] private CarrierAIBehaviour carrier;
     
     [SerializeField] private AmmoBase scriptToAddWhenCollected;
-    
+    private PhysicsStack _stack;
+
     [Inject]
-    private void Inject(IEventBus eventBus, AmmoCreator ammoCreator)
+    private void Inject(IEventBus eventBus, AmmoCreator ammoCreator, PhysicsStack stack)
     {
         _eventBus = eventBus;
         _ammoCreator = ammoCreator;
+        _stack = stack;
     }
     
     protected override void Start()
@@ -50,19 +51,19 @@ public class StationaryGunHolderCharacter : Character
             return;
         }
 
-        _ammoCreator.OnRangedWeaponCreated(connectedStack, _rangedWeapon.RangedWeaponSo.ProjectilePrefab);
+        _ammoCreator.OnRangedWeaponCreated(_stack, _rangedWeapon.RangedWeaponSo.ProjectilePrefab);
 
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
         Resolver.Inject(_gunHolderEventHandler);
         SetStates();
         
-        carrier.Initialize(connectedStack, _rangedWeapon);
+        carrier.Initialize(_stack, _rangedWeapon);
     }
 
     protected virtual void SetStates()
     {
         _searchingState = new SearchingForEnemy(CharacterCombatManager, AIText, _rangedWeapon.Animator, this.name);
-        _attackingState = new Attacking(CharacterCombatManager, _rangedWeapon, _weaponTransform, AIText, _rangedWeapon.Animator, _eventBus, connectedStack);
+        _attackingState = new Attacking(CharacterCombatManager, _rangedWeapon, _weaponTransform, AIText, _rangedWeapon.Animator, _eventBus, _stack);
         var waitingForWeaponToBeLoaded = new WaitingForWeaponToBeLoaded(_rangedWeapon, AIText);
         _stateMachine.AddTransition(
             _searchingState,

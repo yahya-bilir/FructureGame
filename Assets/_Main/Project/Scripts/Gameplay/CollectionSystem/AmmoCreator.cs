@@ -1,12 +1,9 @@
 using System.Collections.Generic;
 using BasicStackSystem;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using Dreamteck.Splines;
-using EventBusses;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
+using VContainer;       
 using WeaponSystem.AmmoSystem;
 
 namespace CollectionSystem
@@ -14,10 +11,9 @@ namespace CollectionSystem
     public class AmmoCreator : MonoBehaviour
     {
         private readonly Dictionary<BasicStack, AmmoBase> _stacksAndAmmo = new();
-        [SerializeField] private Transform finalDestination;
         private IObjectResolver _resolver;
         [SerializeField] private SplineComputer splineComputer;
-        
+
         [Inject]
         private void Inject(IObjectResolver resolver)
         {
@@ -48,19 +44,14 @@ namespace CollectionSystem
                     targetStack = stack;
                 }
             }
-
+            
             if (targetStack == null) return;
-
+            if(targetStack.Count > 6) return;
             var ammoPrefab = _stacksAndAmmo[targetStack];
             var ammoInstance = Instantiate(ammoPrefab, transform.position, Quaternion.identity);
-            _resolver.InjectGameObject(ammoInstance.gameObject);
-            SendAmmoToStack(ammoInstance.transform, targetStack).Forget();
-        }
-
-        private async UniTask SendAmmoToStack(Transform ammoTransform, BasicStack stack)
-        {
-            await ammoTransform.DOMove(finalDestination.position, 0.25f).ToUniTask();
-            stack.TryAddFromOutside(ammoTransform.gameObject.GetComponent<IStackable>());
+            var roller = new AmmoRailMovement(ammoInstance.transform, ammoInstance.Rigidbody, splineComputer);
+            _resolver.Inject(roller);
+            roller.InitiateMovementActions().Forget();
         }
     }
 }

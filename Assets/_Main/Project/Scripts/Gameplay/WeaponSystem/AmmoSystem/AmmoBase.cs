@@ -7,6 +7,8 @@ namespace WeaponSystem.AmmoSystem
 {
     public abstract class AmmoBase : TriggerWeapon, IStackable
     {
+        public Rigidbody Rigidbody {private set; get;}
+        
         protected RangedWeapon _ownerWeapon;
         private ParticleSystem[] _particleSystems;
         public GameObject GameObject { get; private set; }
@@ -20,6 +22,12 @@ namespace WeaponSystem.AmmoSystem
             }
 
             GameObject = gameObject;
+        }
+
+        protected virtual void Awake()
+        {
+            Rigidbody = GetComponent<Rigidbody>();
+            
         }
 
         public void OnObjectStartedBeingCarried()

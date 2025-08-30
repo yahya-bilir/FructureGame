@@ -1,4 +1,5 @@
-﻿using Characters.BaseSystem;
+﻿using BasicStackSystem;
+using Characters.BaseSystem;
 using Characters.StationaryGunHolders;
 using CollectionSystem;
 using CommonComponents;
@@ -6,6 +7,7 @@ using Factories;
 using FlingTamplate.UIParticle;
 using Perks;
 using UI;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -13,6 +15,8 @@ namespace Initialization
 {
     public class GameplayLifetimeScope : LifetimeScope
     {
+        [SerializeField] private PhysicsStack stack;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -31,8 +35,8 @@ namespace Initialization
             builder.RegisterComponentInHierarchy<UIParticleManager>();
             builder.RegisterComponentInHierarchy<CollectionArea>();
             builder.RegisterComponentInHierarchy<AmmoCreator>();
-            builder.RegisterComponentInHierarchy<RailManager>();
             builder.RegisterComponentInHierarchy<GunHolderPlacer>();
+            builder.RegisterInstance(stack).AsSelf();
         }
         
     }

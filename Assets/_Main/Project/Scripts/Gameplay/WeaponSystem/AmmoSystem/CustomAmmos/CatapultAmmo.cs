@@ -43,7 +43,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
                 }
             }
 
-            _rigidbody.linearVelocity = Vector3.zero;
+            Rigidbody.linearVelocity = Vector3.zero;
             gameObject.SetActive(false);
             _ownerWeapon.OnAmmoDestroyed(this);
         }

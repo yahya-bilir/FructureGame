@@ -12,12 +12,11 @@ namespace BasicStackSystem
         [field: SerializeField] public Transform StackParent { get; private set; }
         [field: SerializeField] public int Capacity { get; private set; } = 6;
         [field: SerializeField] public MoveStyle PlacementStyle { get; private set; } = MoveStyle.Instant;
-        
-        private StackBuffer _buffer;
-        private IStackLayout _layout;
-        private IStackMover _mover;
 
-        private IEventBus _eventBus;
+        protected StackBuffer _buffer;
+        protected IStackLayout _layout;
+        protected IStackMover _mover;
+        protected IEventBus _eventBus;
 
         public bool IsThereAnySpace => !_buffer.IsFull;
         public bool IsThereAnyObject => !_buffer.IsEmpty;
@@ -26,7 +25,7 @@ namespace BasicStackSystem
         [Inject]
         private void Inject(IEventBus eventBus) => _eventBus = eventBus;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (StackParent == null) StackParent = transform;
 
@@ -43,8 +42,7 @@ namespace BasicStackSystem
             _buffer.SetCapacity(Capacity);
         }
 
-        // Dışarıdan obje ekleme
-        public bool TryAddFromOutside(IStackable stackable)
+        public virtual bool TryAddFromOutside(IStackable stackable)
         {
             if (stackable == null || !_buffer.TryPush(stackable)) return false;
 
@@ -58,8 +56,7 @@ namespace BasicStackSystem
             return true;
         }
 
-        // Son objeyi dışarı çıkar
-        public IStackable EjectLastTo(Transform targetParent, Vector3 targetLocalPos, bool instant = true)
+        public virtual IStackable EjectLastTo(Transform targetParent, Vector3 targetLocalPos, bool instant = true)
         {
             var item = _buffer.Pop();
             if (item == null) return null;
@@ -68,8 +65,8 @@ namespace BasicStackSystem
             return item;
         }
 
-        // Belirli objeyi dışarı çıkar
-        public bool EjectSpecificTo(IStackable stackable, Transform targetParent, Vector3 targetLocalPos, bool instant = true)
+        public virtual bool EjectSpecificTo(IStackable stackable, Transform targetParent, Vector3 targetLocalPos,
+            bool instant = true)
         {
             int idx = _buffer.IndexOf(stackable);
             if (idx < 0) return false;
@@ -79,10 +76,7 @@ namespace BasicStackSystem
             return true;
         }
 
-        // --- Helpers ---
-
-        // Reflow her zaman INSTANT
-        private void ReflowFrom(int startIndex)
+        protected virtual void ReflowFrom(int startIndex)
         {
             for (int i = Mathf.Max(0, startIndex); i < _buffer.Count; i++)
             {
@@ -99,7 +93,8 @@ namespace BasicStackSystem
             tr.localPosition = localPos;
         }
 
-        private void Eject(IStackable item, int reflowStartIndex, Transform targetParent, Vector3 targetLocalPos, bool instant)
+        protected virtual void Eject(IStackable item, int reflowStartIndex, Transform targetParent,
+            Vector3 targetLocalPos, bool instant)
         {
             var tr = item.GameObject.transform;
             tr.DOKill();
@@ -117,6 +112,8 @@ namespace BasicStackSystem
 
             item.OnObjectDropped();
             _eventBus?.Publish(new OnStackObjectEjected(this, item));
+
+            // ✨ Türevin iptal edebileceği nokta
             ReflowFrom(reflowStartIndex);
         }
 
