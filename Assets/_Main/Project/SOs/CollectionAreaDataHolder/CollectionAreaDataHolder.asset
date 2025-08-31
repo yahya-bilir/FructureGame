@@ -16,6 +16,6 @@ MonoBehaviour:
   <ConveyorSpeed>k__BackingField: 6
   <FragmentCountToCreateAmmo>k__BackingField: 20
   <CreatedAmmoSplineSpeed>k__BackingField: 3.25
-  <FireAmmo>k__BackingField: {fileID: 0}
-  <IceAmmo>k__BackingField: {fileID: 0}
-  <NormalAmmo>k__BackingField: {fileID: 0}
+  <FireAmmo>k__BackingField: {fileID: 4237680869799951343, guid: 35d95de958a86ec49aed0bd1f48cf7b9, type: 3}
+  <IceAmmo>k__BackingField: {fileID: 4237680869799951343, guid: 73c082b9b4458e84ab65ba90334c56e4, type: 3}
+  <NormalAmmo>k__BackingField: {fileID: 4237680869799951343, guid: 33918a8cbec87f243aef91e4a080eac4, type: 3}

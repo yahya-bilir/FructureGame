@@ -18,18 +18,18 @@ namespace Characters.CarrierAI
         private StateMachine _stateMachine;
         private NavMeshAgent _navmeshAgent;
         private Animator _animator;
-        private BasicStack _stack;
+        private PhysicsStack _stack;
         private RangedWeaponWithExternalAmmo _weapon;
         private AmmoCreator _ammoCreator;
 
         [Inject]
-        private void Inject(AmmoCreator ammoCreator)
+        private void Inject(AmmoCreator ammoCreator, PhysicsStack stack)
         {
             _ammoCreator = ammoCreator;
+            _stack = stack;
         }
         private void Awake()
         {
-            enabled = false;
             GetComponents();
         }
 
@@ -38,10 +38,9 @@ namespace Characters.CarrierAI
             SetupStates();
         }
 
-        public void Initialize(BasicStack stack, RangedWeaponWithExternalAmmo weapon)
+        public void Initialize(RangedWeaponWithExternalAmmo weapon)
         {
             _weapon = weapon;
-            _stack = stack;
             _carryingController = new CarryingController(carryingPosition, _stack, _animator, _weapon, _ammoCreator);
         }
 

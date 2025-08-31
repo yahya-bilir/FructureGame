@@ -55,9 +55,10 @@ namespace Characters.StationaryGunHolders
 
             _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
             Resolver.Inject(_gunHolderEventHandler);
+            Resolver.Inject(carrier);
             SetStates();
 
-            carrier.Initialize(_stack, _rangedWeapon);
+            carrier.Initialize(_rangedWeapon);
         }
 
         protected virtual void SetStates()

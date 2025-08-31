@@ -21,3 +21,31 @@ MonoBehaviour:
   - Level: 2
     PerkGroup: {fileID: 11400000, guid: 7192656aed52ca548b7b4032586b45bd, type: 2}
   <CollectionSystemDataHolder>k__BackingField: {fileID: 11400000, guid: d42832250e3fca14dae05296b11170b8, type: 2}
+  <AmmoPrefabs>k__BackingField:
+  - LogicType: 0
+    ElementType: 0
+    Prefab: {fileID: 7636469058050451362, guid: 81c492e35888b304ebd09e619282681a, type: 3}
+  - LogicType: 0
+    ElementType: 1
+    Prefab: {fileID: 7636469058050451362, guid: 03d1ffa63be46434389650184decbe12, type: 3}
+  - LogicType: 0
+    ElementType: 2
+    Prefab: {fileID: 7636469058050451362, guid: 5479ffe3688ab4846b64ac4a73dbb684, type: 3}
+  - LogicType: 2
+    ElementType: 0
+    Prefab: {fileID: -8038009027868598764, guid: 86cc46dce1c07154e801cd49fc5ef76b, type: 3}
+  - LogicType: 2
+    ElementType: 1
+    Prefab: {fileID: -8038009027868598764, guid: bd35538d4546dff42911183c191d2cc9, type: 3}
+  - LogicType: 2
+    ElementType: 2
+    Prefab: {fileID: -8038009027868598764, guid: f6293f542e8c9ec4186165bc27980978, type: 3}
+  - LogicType: 1
+    ElementType: 0
+    Prefab: {fileID: 4271599648806156744, guid: 933b8cc149a7e4c44ac6594abead1e08, type: 3}
+  - LogicType: 1
+    ElementType: 1
+    Prefab: {fileID: 4271599648806156744, guid: 52968892f31cbfa41b20e80dc7fe0b09, type: 3}
+  - LogicType: 1
+    ElementType: 2
+    Prefab: {fileID: 4271599648806156744, guid: cfa3c77e4da44a84bb199c8980f53f98, type: 3}
