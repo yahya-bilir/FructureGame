@@ -76,6 +76,16 @@ namespace BasicStackSystem
             return true;
         }
 
+        public virtual IStackable EjectAtIndex(int index, Transform targetParent, Vector3 targetLocalPos, bool instant = true)
+        {
+            if (index < 0 || index >= _buffer.Count) return null;
+
+            var item = _buffer[index];
+            _buffer.TryRemove(item);
+            Eject(item, reflowStartIndex: index, targetParent, targetLocalPos, instant);
+            return item;
+        }
+        
         protected virtual void ReflowFrom(int startIndex)
         {
             for (int i = Mathf.Max(0, startIndex); i < _buffer.Count; i++)

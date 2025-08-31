@@ -52,8 +52,20 @@ namespace BasicStackSystem
             return true;
         }
 
+        public override IStackable EjectAtIndex(int index, Transform targetParent, Vector3 targetLocalPos, bool instant = true)
+        {
+            if (index < 0 || index >= _buffer.Count) return null;
+
+            var item = _buffer[index];
+            _buffer.TryRemove(item);
+            EjectWithoutReflow(item, targetParent, targetLocalPos, instant);
+            return item;
+        }
+        
         private void EjectWithoutReflow(IStackable item, Transform targetParent, Vector3 targetLocalPos, bool instant)
         {
+            item.OnObjectDropped();
+            
             var tr = item.GameObject.transform;
             tr.DOKill();
 
@@ -68,7 +80,6 @@ namespace BasicStackSystem
                 mover.Place(tr, targetParent, targetLocalPos);
             }
 
-            item.OnObjectDropped();
             _eventBus?.Publish(new OnStackObjectEjected(this, item));
 
             // ❌ ReflowFrom yok!

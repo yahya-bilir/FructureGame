@@ -14,7 +14,7 @@ namespace WeaponSystem.RangedWeapons
         public bool IsLoaded { get; private set; }
         public AmmoBase LoadedAmmo { get; private set; }
 
-        [field: SerializeField] public Transform CarrierDropPoint { get; private set; }
+        public Transform CarrierDropPoint { get; private set; }
         
         [Inject]
         protected override void Inject(IEventBus eventBus)
@@ -51,7 +51,8 @@ namespace WeaponSystem.RangedWeapons
             IsLoaded = false;
             LoadedAmmo = null;
         }
-
+        
+        public void SetLoadingPos(Transform target) => CarrierDropPoint = target;
         private void Update()
         {
             //Debug.Log($"IsLoaded: {IsLoaded} |  LoadedAmmo: {LoadedAmmo}");

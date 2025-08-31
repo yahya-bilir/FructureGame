@@ -15,3 +15,7 @@ MonoBehaviour:
   <ApproachMaxSpeed>k__BackingField: 8
   <ConveyorSpeed>k__BackingField: 6
   <FragmentCountToCreateAmmo>k__BackingField: 20
+  <CreatedAmmoSplineSpeed>k__BackingField: 3.25
+  <FireAmmo>k__BackingField: {fileID: 0}
+  <IceAmmo>k__BackingField: {fileID: 0}
+  <NormalAmmo>k__BackingField: {fileID: 0}

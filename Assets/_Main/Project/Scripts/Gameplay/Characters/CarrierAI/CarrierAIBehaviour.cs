@@ -52,7 +52,8 @@ namespace Characters.CarrierAI
             var droppingAmmo = new DroppingAmmo(_carryingController, _animator, _navmeshAgent);
             var waitingWeaponToShoot = new WaitingWeaponToShoot(_navmeshAgent, _animator);
 
-            Func<bool> ReachedStack() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying;
+            Func<bool> ReachedStackAndThereIsAmmo() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying && _stack.IsThereAnyObject;
+            Func<bool> ReachedStackButThereIsNoAmmo() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying && !_stack.IsThereAnyObject;
             Func<bool> IsThereAnyStackObject() => () => _stack.IsThereAnyObject && !_carryingController.IsCarrying;
             Func<bool> IsReachedWeapon() => () => Vector3.Distance(transform.position, _weapon.CarrierDropPoint.position) <= 0.75f && _carryingController.IsCarrying && _weapon.LoadedAmmo == null;
             Func<bool> IsWeaponEmpty() => () => !_weapon.IsLoaded;
@@ -60,7 +61,8 @@ namespace Characters.CarrierAI
             Func<bool> IsDropped() => () => !_carryingController.IsCarrying;
 
             _stateMachine.AddTransition(waitingForStack, walkingTowardsCarryingPosition, IsThereAnyStackObject());            
-            _stateMachine.AddTransition(walkingTowardsCarryingPosition, collectingAmmo, ReachedStack());            
+            _stateMachine.AddTransition(walkingTowardsCarryingPosition, waitingForStack, ReachedStackButThereIsNoAmmo());            
+            _stateMachine.AddTransition(walkingTowardsCarryingPosition, collectingAmmo, ReachedStackAndThereIsAmmo());            
             _stateMachine.AddTransition(collectingAmmo, carryingTowardsWeapon, IsCarrying());
             _stateMachine.AddTransition(carryingTowardsWeapon, droppingAmmo, IsReachedWeapon());
             _stateMachine.AddTransition(droppingAmmo, waitingForStack, IsDropped());

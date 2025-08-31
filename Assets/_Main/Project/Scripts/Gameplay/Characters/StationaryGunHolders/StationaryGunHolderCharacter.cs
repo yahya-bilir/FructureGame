@@ -5,6 +5,7 @@ using Characters;
 using Characters.CarrierAI;
 using Characters.StationaryGunHolders;
 using CollectionSystem;
+using Cysharp.Threading.Tasks;
 using EventBusses;
 using UnityEngine;
 using VContainer;
@@ -28,12 +29,14 @@ public class StationaryGunHolderCharacter : Character
     [SerializeField] private AmmoBase scriptToAddWhenCollected;
     private PhysicsStack _stack;
 
+    [SerializeField] private Transform loadingPos;
+    
+
     [Inject]
-    private void Inject(IEventBus eventBus, AmmoCreator ammoCreator, PhysicsStack stack)
+    private void Inject(IEventBus eventBus, AmmoCreator ammoCreator)
     {
         _eventBus = eventBus;
         _ammoCreator = ammoCreator;
-        _stack = stack;
     }
     
     protected override void Start()
@@ -50,8 +53,9 @@ public class StationaryGunHolderCharacter : Character
             Debug.LogError("Weapon not properly initialized.");
             return;
         }
-
-        _ammoCreator.OnRangedWeaponCreated(_stack, _rangedWeapon.RangedWeaponSo.ProjectilePrefab);
+        
+        _rangedWeapon.SetLoadingPos(loadingPos);
+        _ammoCreator.OnRangedWeaponCreated().Forget();
 
         _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
         Resolver.Inject(_gunHolderEventHandler);

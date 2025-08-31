@@ -10,8 +10,9 @@ namespace WeaponSystem.AmmoSystem
         protected Tween _moveTween;
         protected Character _targetCharacter;
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             var so = ObjectUIIdentifierSo as AmmoSO;
             _speed = so.Speed;
         }

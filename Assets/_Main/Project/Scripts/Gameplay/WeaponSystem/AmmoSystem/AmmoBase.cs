@@ -5,13 +5,12 @@ using UnityEngine;
 
 namespace WeaponSystem.AmmoSystem
 {
-    public abstract class AmmoBase : TriggerWeapon, IStackable
+    public abstract class AmmoBase : TriggerWeapon
     {
         public Rigidbody Rigidbody {private set; get;}
         
         protected RangedWeapon _ownerWeapon;
         private ParticleSystem[] _particleSystems;
-        public GameObject GameObject { get; private set; }
 
         private void OnEnable()
         {
@@ -20,8 +19,6 @@ namespace WeaponSystem.AmmoSystem
             {
                 particle.Clear();
             }
-
-            GameObject = gameObject;
         }
 
         protected virtual void Awake()
@@ -29,22 +26,6 @@ namespace WeaponSystem.AmmoSystem
             Rigidbody = GetComponent<Rigidbody>();
             
         }
-
-        public void OnObjectStartedBeingCarried()
-        {
-            
-        }
-
-        public void OnObjectCollected()
-        {
-            
-        }
-
-        public void OnObjectDropped()
-        {
-            
-        }
-
         public void SetOwnerAndColor(RangedWeapon owner, Color color)
         {
             _ownerWeapon = owner;

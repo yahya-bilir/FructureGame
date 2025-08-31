@@ -15,28 +15,40 @@ namespace CollectionSystem
         private Rigidbody _rigidbody;
         private Vector3 _startPos;
         private SplineComputer _splineComputer;
+        private readonly float _createdAmmoSplineSpeed;
         private PhysicsStack _stack;
+        private AmmoCreator _ammoCreator;
+        private Collider[] _colliders;
 
-        public AmmoRailMovement(Transform connectedTransform, Rigidbody rigidbody, SplineComputer splineComputer)
+        public AmmoRailMovement(Transform connectedTransform, SplineComputer splineComputer,
+            float createdAmmoSplineSpeed)
         {
-            _rigidbody = rigidbody;
             _connectedTransform = connectedTransform;
             _startPos = connectedTransform.position;
             _splineFollower = _connectedTransform.gameObject.AddComponent<SplineFollower>();
             _splineComputer = splineComputer;
+            _createdAmmoSplineSpeed = createdAmmoSplineSpeed;
             GameObject = connectedTransform.gameObject;
+            _colliders = GameObject.GetComponentsInChildren<Collider>();
+            _rigidbody = connectedTransform.gameObject.GetComponent<Rigidbody>();
         }
 
         [Inject]
-        private void Inject(PhysicsStack stack)
+        private void Inject(PhysicsStack stack, AmmoCreator ammoCreator)
         {
             _stack = stack;
+            _ammoCreator = ammoCreator;
         }
         
         [Button]
         private void AddVelocity()
         {
+            foreach (var collider in _colliders)
+            {
+                collider.enabled = true;
+            }
             _rigidbody.isKinematic = false;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             _rigidbody.linearVelocity = -Vector3.right * 3;
         }
 
@@ -46,14 +58,19 @@ namespace CollectionSystem
             _rigidbody.isKinematic = true;
             _rigidbody.linearVelocity = Vector3.zero;
             _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
             //_connectedTransform.position = _startPos;
+            foreach (var collider in _colliders)
+            {
+                collider.enabled = false;
+            }
         }
 
         public async UniTask InitiateMovementActions()
         {
             ResetVelocity();
             _splineFollower.spline = _splineComputer;
-            _splineFollower.followSpeed = 3.25f;
+            _splineFollower.followSpeed = _createdAmmoSplineSpeed;
             _splineFollower.follow = true;
             
             while (_splineFollower.GetPercent() < 0.99)
@@ -62,7 +79,11 @@ namespace CollectionSystem
             }
             
             _splineFollower.follow = false;
+            _splineFollower.enabled = false;
+            GameObject.Destroy(_splineFollower);
+            
             _stack.TryAddFromOutside(this);
+            _ammoCreator.ReduceRequest();
             AddVelocity();
 
         }
@@ -78,6 +99,7 @@ namespace CollectionSystem
 
         public void OnObjectDropped()
         {
+            ResetVelocity();
         }
     }
 }

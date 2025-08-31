@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Database;
 using Dreamteck.Splines;
 using UnityEngine;
 using VContainer;
@@ -9,16 +10,17 @@ namespace CollectionSystem
 {
     public class CollectionArea : MonoBehaviour
     {
-        [SerializeField] private CollectionAreaDataHolder dataHolder;
+        private CollectionSystemDataHolder _dataHolder;
         [SerializeField] private SplineComputer conveyorSpline;
         
         private readonly List<Fragment> _deployedFragments = new();
         private AmmoCreator _ammoCreator;
         
         [Inject]
-        private void Inject(AmmoCreator ammoCreator)
+        private void Inject(AmmoCreator ammoCreator, GameDatabase gameDatabase)
         {
             _ammoCreator = ammoCreator;
+            _dataHolder = gameDatabase.CollectionSystemDataHolder;
         }
         public async UniTask RegisterFragments(IEnumerable<GameObject> fragments)
         {
@@ -29,8 +31,8 @@ namespace CollectionSystem
                 var frag = go.GetComponent<Fragment>() ?? go.AddComponent<Fragment>();
                 frag.Initialize(
                     conveyorSpline,
-                    dataHolder.ApproachMaxSpeed,
-                    dataHolder.ConveyorSpeed,
+                    _dataHolder.ApproachMaxSpeed,
+                    _dataHolder.ConveyorSpeed,
                     this
                 );
                 frag.StartTransportAsync().Forget();
@@ -41,12 +43,12 @@ namespace CollectionSystem
         {
             _deployedFragments.Add(fragment);
     
-            if (_deployedFragments.Count < dataHolder.FragmentCountToCreateAmmo)
+            if (_deployedFragments.Count < _dataHolder.FragmentCountToCreateAmmo)
                 return;
 
-            if (_deployedFragments.Count % dataHolder.FragmentCountToCreateAmmo == 0)
+            if (_deployedFragments.Count % _dataHolder.FragmentCountToCreateAmmo == 0)
             {
-                var count = dataHolder.FragmentCountToCreateAmmo;
+                var count = _dataHolder.FragmentCountToCreateAmmo;
                 var startIndex = _deployedFragments.Count - count;
 
                 var fragmentsToBeDestroyed = _deployedFragments.GetRange(startIndex, count);

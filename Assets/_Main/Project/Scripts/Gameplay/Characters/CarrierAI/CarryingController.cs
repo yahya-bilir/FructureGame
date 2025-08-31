@@ -27,7 +27,7 @@ namespace Characters.CarrierAI
         public async UniTask Carry()
         {
             _animator.SetBool(CarryHash, true);
-            _carriedAmmo = _stack.EjectLastTo(_carryingPosition, Vector3.zero, false);
+            _carriedAmmo = _stack.EjectAtIndex(0, _carryingPosition, Vector3.zero, false);
             await UniTask.WaitForSeconds(0.5f);
         }
 
