@@ -1,4 +1,6 @@
 using BasicStackSystem;
+using Characters.StationaryGunHolders;
+using CollectionSystem;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
@@ -13,15 +15,18 @@ namespace Characters.CarrierAI
         private readonly BasicStack _stack;
         private readonly Animator _animator;
         private readonly RangedWeaponWithExternalAmmo _weapon;
+        private readonly AmmoCreator _ammoCreator;
         private IStackable _carriedAmmo;
         public bool IsCarrying => _carriedAmmo != null;
+
         public CarryingController(Transform carryingPosition, BasicStack stack, Animator animator,
-            RangedWeaponWithExternalAmmo weapon)
+            RangedWeaponWithExternalAmmo weapon, AmmoCreator ammoCreator)
         {
             _carryingPosition = carryingPosition;
             _stack = stack;
             _animator = animator;
             _weapon = weapon;
+            _ammoCreator = ammoCreator;
         }
 
         public async UniTask Carry()
@@ -34,8 +39,14 @@ namespace Characters.CarrierAI
         public async UniTask Drop()
         {
             _animator.SetBool(CarryHash, false);
-            await _weapon.LoadWeapon(_carriedAmmo.GameObject.GetComponent<AmmoBase>());
-            _carriedAmmo =  null;
+
+            var gunHolder = _weapon.ConnectedCombatManager.Character as StationaryGunHolderCharacter;
+            var ammoPrefab = _ammoCreator.GetAmmoPrefab(gunHolder); // AmmoBase prefab
+            var visualObject = _carriedAmmo.GameObject; // Stack'ten alınan boş görsel
+
+            await _weapon.LoadWeapon(visualObject, ammoPrefab);
+            _carriedAmmo = null;
         }
+
     }
 }

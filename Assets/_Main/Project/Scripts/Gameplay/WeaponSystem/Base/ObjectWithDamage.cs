@@ -9,7 +9,7 @@ namespace WeaponSystem
     {
         [field: SerializeField] public ObjectUIIdentifierSO ObjectUIIdentifierSo { get; protected set; }
         protected float Damage { get; private set; }
-        protected CharacterCombatManager ConnectedCombatManager;
+        public CharacterCombatManager ConnectedCombatManager {private set; get;}
         //[SerializeField] protected SpriteRenderer modelRenderer;
         
         

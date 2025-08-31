@@ -6,6 +6,7 @@ using EventBusses;
 using UnityEngine;
 using VContainer;
 using WeaponSystem.AmmoSystem;
+using WeaponSystem.AmmoSystem.Logic;
 
 namespace WeaponSystem.RangedWeapons
 {
@@ -15,6 +16,8 @@ namespace WeaponSystem.RangedWeapons
         public AmmoBase LoadedAmmo { get; private set; }
 
         public Transform CarrierDropPoint { get; private set; }
+        
+        [field: SerializeField] public AmmoLogicType AmmoLogicType { get; private set; }
         
         [Inject]
         protected override void Inject(IEventBus eventBus)
@@ -37,14 +40,24 @@ namespace WeaponSystem.RangedWeapons
             UnloadWeapon();
         }
 
-        public async UniTask LoadWeapon(AmmoBase ammo)
+        public async UniTask LoadWeapon(GameObject visualObject, AmmoBase ammoPrefab)
         {
-            var trf = ammo.transform;
+            var trf = visualObject.transform;
             trf.SetParent(projectileCreationPoint);
             IsLoaded = true;
+
             await trf.DOLocalJump(Vector3.zero, 1, 1, 0.5f).ToUniTask();
-            LoadedAmmo = ammo;
+            Destroy(visualObject);
+            
+            var spawnedAmmo = Instantiate(ammoPrefab, projectileCreationPoint);
+            spawnedAmmo.transform.localPosition = Vector3.zero;
+            
+            spawnedAmmo.SetOwnerAndColor(this, _currentColor);
+            spawnedAmmo.Initialize(ConnectedCombatManager, Damage);
+            
+            LoadedAmmo = spawnedAmmo;
         }
+
         
         private void UnloadWeapon()
         {

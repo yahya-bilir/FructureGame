@@ -1,3 +1,5 @@
+using Characters.StationaryGunHolders;
+
 namespace Events
 {
     public class OnWeaponsCreated

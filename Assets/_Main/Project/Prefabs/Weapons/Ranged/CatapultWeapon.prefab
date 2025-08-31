@@ -173,8 +173,7 @@ MonoBehaviour:
   <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: 8919bfca979d4ae46a1d9c6ab9cab1b3, type: 2}
   projectileCreationPoint: {fileID: 1114291903027149052}
   <Animator>k__BackingField: {fileID: 6133434454843229350}
-  <CarrierDropPoint>k__BackingField: {fileID: 5834186638368943513}
-  shouldDisableAmmoAfterPlacing: 0
+  <AmmoLogicType>k__BackingField: 2
 --- !u!4 &7079369302842032332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7803305157754664785, guid: e568fa62366d65e4c8c47ec9ca66d5e8, type: 3}

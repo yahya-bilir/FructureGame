@@ -2,8 +2,10 @@ using System;
 using AI.Base;
 using AI.CarrierAI;
 using BasicStackSystem;
+using CollectionSystem;
 using UnityEngine;
 using UnityEngine.AI;
+using VContainer;
 using WeaponSystem.RangedWeapons;
 
 namespace Characters.CarrierAI
@@ -18,8 +20,16 @@ namespace Characters.CarrierAI
         private Animator _animator;
         private BasicStack _stack;
         private RangedWeaponWithExternalAmmo _weapon;
+        private AmmoCreator _ammoCreator;
+
+        [Inject]
+        private void Inject(AmmoCreator ammoCreator)
+        {
+            _ammoCreator = ammoCreator;
+        }
         private void Awake()
         {
+            enabled = false;
             GetComponents();
         }
 
@@ -32,7 +42,7 @@ namespace Characters.CarrierAI
         {
             _weapon = weapon;
             _stack = stack;
-            _carryingController = new CarryingController(carryingPosition, _stack, _animator, _weapon);
+            _carryingController = new CarryingController(carryingPosition, _stack, _animator, _weapon, _ammoCreator);
         }
 
         private void GetComponents()
