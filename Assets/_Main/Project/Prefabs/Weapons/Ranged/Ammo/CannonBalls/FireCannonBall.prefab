@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3568140495002837333, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3568140495002837333, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3568140495002837333, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3568140495002837333, guid: 36ac75424695f3147a2e72a7da4b2130, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140,15 +140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2429215640013221854, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3224639516660099369, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Enabled
@@ -158,9 +158,13 @@ PrefabInstance:
       propertyPath: <ObjectUIIdentifierSo>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: ac01d8b60919b164d82d45b65d545747, type: 2}
+    - target: {fileID: 5270277599013972460, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6278591123754628218, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Name
-      value: CannonBall
+      value: FireCannonBall
       objectReference: {fileID: 0}
     - target: {fileID: 8980126373743906572, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
       propertyPath: m_Enabled
@@ -205,6 +209,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3626204024890543117, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
     - {fileID: 85550945756408677, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
+    - {fileID: -6309796725717699375, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8667739435181644054, guid: dd681bf7398fd014c8c260d55f9d8725, type: 3}

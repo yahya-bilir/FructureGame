@@ -80,12 +80,10 @@ namespace CollectionSystem
             
             _splineFollower.follow = false;
             _splineFollower.enabled = false;
-            GameObject.Destroy(_splineFollower);
             
             _stack.TryAddFromOutside(this);
             _ammoCreator.ReduceRequest();
             AddVelocity();
-
         }
 
         public GameObject GameObject { get; private set; }

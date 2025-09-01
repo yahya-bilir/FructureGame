@@ -47,10 +47,14 @@ namespace CollectionSystem
 
         public void CreateAmmo()
         {
-            _requestedAmmoCreationCount++;
 
             int estimatedCount = _stack.Count + _requestedAmmoCreationCount;
-            if (!_stack.IsThereAnySpace || estimatedCount >= _stack.Capacity) return;
+            if (!_stack.IsThereAnySpace || estimatedCount >= _stack.Capacity)
+            {
+                Debug.Log($"Estimated count: {estimatedCount} | Count: {_stack.Count} | Requested: {_requestedAmmoCreationCount}");
+                return;
+            }
+            _requestedAmmoCreationCount++;
 
             var visualPrefab = GetVisualOnlyPrefab(_currentElementType);
 
@@ -73,7 +77,11 @@ namespace CollectionSystem
             };
         }
         
-        public void ReduceRequest() => _requestedAmmoCreationCount--;
+        public void ReduceRequest()
+        {
+            _requestedAmmoCreationCount -= 1;
+            Debug.Log("Request reduced");
+        }
 
         public AmmoBase GetAmmoPrefab(StationaryGunHolderCharacter gunHolder)
         {

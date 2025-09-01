@@ -49,9 +49,8 @@ namespace WeaponSystem.RangedWeapons
             await trf.DOLocalJump(Vector3.zero, 1, 1, 0.5f).ToUniTask();
             Destroy(visualObject);
             
-            var spawnedAmmo = Instantiate(ammoPrefab, projectileCreationPoint);
-            spawnedAmmo.transform.localPosition = Vector3.zero;
-            
+            var spawnedAmmo = Instantiate(ammoPrefab, projectileCreationPoint.position, projectileCreationPoint.rotation);
+            spawnedAmmo.transform.parent = projectileCreationPoint;
             spawnedAmmo.SetOwnerAndColor(this, _currentColor);
             spawnedAmmo.Initialize(ConnectedCombatManager, Damage);
             

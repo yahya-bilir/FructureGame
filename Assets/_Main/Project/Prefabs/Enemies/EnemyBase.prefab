@@ -152,6 +152,7 @@ MonoBehaviour:
   <Faction>k__BackingField: 0
   fireVfxObj: {fileID: 0}
   electricVfxObj: {fileID: 0}
+  meshColliderAndSkinnedMeshDatas: []
 --- !u!195 &6638099238512735819
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &451701907078105984

@@ -6,12 +6,12 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gargoyle
+  m_Name: GiantGargoyle
   m_Controller: {fileID: 9100000, guid: 3cd26f50e5acbd14cb077c47249df71d, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 14b8dd7c31f70e449883441a7f9ebbf4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: e53e543b66280b04899349bf28a49107, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e53e543b66280b04899349bf28a49107, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 82c95874b89950d4c9907aab2a72f944, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: bbf93f8f98c783b4a9510b6917477451, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: bbf93f8f98c783b4a9510b6917477451, type: 2}
