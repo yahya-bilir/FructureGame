@@ -6,34 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="609ab55c-71b5-4144-a16a-318db6b9c5aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FructureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/GiantGargoyle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/GiantGargoyle.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Models/Level1_Gargoyle.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/CharacterAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/Overriders/Gargoyle.overrideController" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Enemies/Overriders/Gargoyle.overrideController" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/EnemyBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/EnemyBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Enemies/Zombie1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Art/Fonts/LilitaOne - Regular SDF 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Carrier/CarrierAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Animations/Carrier/CarrierAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/FireBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/FireBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/IceBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/IceBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/NormalBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/EmptyAmmoBalls/NormalBall.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/AmmoCreator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/AmmoCreator.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/Rail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Scene/Rail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/FireCannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/FireCannonBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/IceCannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/IceCannonBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/NormalCannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CannonBalls/NormalCannonBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/FireCatapultAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/FireCatapultAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/IceCatapultAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/IceCatapultAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/NormalCatapultAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/CatapultAmmos/NormalCatapultAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/FireMortarAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/FireMortarAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/IceMortalAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/IceMortalAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/NormalMortalAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Prefabs/Weapons/Ranged/Ammo/MortarAmmos/NormalMortalAmmo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Zombie1DataHolder.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CharacterDataHolders/Zombie1DataHolder.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CollectionAreaDataHolder/CollectionAreaDataHolder.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/CollectionAreaDataHolder/CollectionAreaDataHolder.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Factories/EnemyFactories/ZombieSpawnerTop.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Zombie1Properties.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/SOs/Properties/CharacterProperties/Zombie1Properties.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WalkingTowardsCarryingPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/AI/CarrierAI/WalkingTowardsCarryingPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/PhysicsStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/BasicStackSystem/PhysicsStack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarrierAIBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarryingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/Characters/CarrierAI/CarryingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoRailMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/CollectionSystem/AmmoRailMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Main/Project/Scripts/Gameplay/WeaponSystem/RangedWeapons/ExternalAmmo/RangedWeaponWithExternalAmmo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +150,7 @@
       <workItem from="1756625666575" duration="13281000" />
       <workItem from="1756661826607" duration="7106000" />
       <workItem from="1756714669432" duration="6716000" />
+      <workItem from="1756799933160" duration="4518000" />
     </task>
     <servers />
   </component>

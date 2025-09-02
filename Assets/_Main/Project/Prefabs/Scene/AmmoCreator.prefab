@@ -443,5 +443,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Gameplay::BasicStackSystem.PhysicsStack
   <StackArea>k__BackingField: {fileID: 11400000, guid: 0866e5ebf50a79b459c1829e72050cf7, type: 2}
   <StackParent>k__BackingField: {fileID: 2033132928701758197}
-  <Capacity>k__BackingField: 6
+  <Capacity>k__BackingField: 7
   <PlacementStyle>k__BackingField: 0

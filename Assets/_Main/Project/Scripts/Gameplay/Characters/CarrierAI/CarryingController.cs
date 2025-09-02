@@ -12,14 +12,14 @@ namespace Characters.CarrierAI
     {
         private static readonly int CarryHash = Animator.StringToHash("Carry");
         private readonly Transform _carryingPosition;
-        private readonly BasicStack _stack;
+        private readonly PhysicsStack _stack;
         private readonly Animator _animator;
         private readonly RangedWeaponWithExternalAmmo _weapon;
         private readonly AmmoCreator _ammoCreator;
         private IStackable _carriedAmmo;
         public bool IsCarrying => _carriedAmmo != null;
 
-        public CarryingController(Transform carryingPosition, BasicStack stack, Animator animator,
+        public CarryingController(Transform carryingPosition, PhysicsStack stack, Animator animator,
             RangedWeaponWithExternalAmmo weapon, AmmoCreator ammoCreator)
         {
             _carryingPosition = carryingPosition;
@@ -29,10 +29,12 @@ namespace Characters.CarrierAI
             _ammoCreator = ammoCreator;
         }
 
+        public Vector3 GetClosestPosition() => _stack.GetClosestPositionToEject(_carryingPosition.position);
+
         public async UniTask Carry()
         {
             _animator.SetBool(CarryHash, true);
-            _carriedAmmo = _stack.EjectAtIndex(0, _carryingPosition, Vector3.zero, false);
+            _carriedAmmo = _stack.EjectClosest(_carryingPosition.position, _carryingPosition, Vector3.zero, false);
             await UniTask.WaitForSeconds(0.5f);
         }
 
