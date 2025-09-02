@@ -76,8 +76,19 @@ namespace CollectionSystem
             _splineFollower.followSpeed = _createdAmmoSplineSpeed;
             _splineFollower.follow = true;
             
+            float accumulatedRoll = 0f;
+            float accumulatedRoll2 = 0f;
+            const float rotationSpeedX = -270;
+            const float rotationSpeedZ = 90;
             while (_splineFollower.GetPercent() < 0.99)
             {
+                
+                accumulatedRoll += rotationSpeedX * Time.deltaTime;
+                accumulatedRoll2 += rotationSpeedZ * Time.deltaTime;
+
+                // rotationOffset: Euler açıları (degrees)
+                _splineFollower.motion.rotationOffset = new Vector3(accumulatedRoll, 0f, accumulatedRoll2);
+
                 await UniTask.Yield();
             }
             

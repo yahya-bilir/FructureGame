@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7683269f9fa4fe796a7c790a337b898, type: 3}
   m_Name: CollectionAreaDataHolder
   m_EditorClassIdentifier: Gameplay::CollectionSystem.CollectionAreaDataHolder
-  <ApproachMaxSpeed>k__BackingField: 8
-  <ConveyorSpeed>k__BackingField: 6
+  <ApproachMaxSpeed>k__BackingField: 16
+  <ConveyorSpeed>k__BackingField: 8
   <FragmentCountToCreateAmmo>k__BackingField: 10
   <CreatedAmmoSplineSpeed>k__BackingField: 3.75
   <FireAmmo>k__BackingField: {fileID: 4237680869799951343, guid: 35d95de958a86ec49aed0bd1f48cf7b9, type: 3}

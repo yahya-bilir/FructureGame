@@ -61,6 +61,8 @@ namespace CollectionSystem
 
             while (_createAmmoQueue.Count > 0)
             {
+                await UniTask.WaitForSeconds(0.25f);
+                
                 _createAmmoQueue.Dequeue(); // sadece sırayı korumak için
 
                 int estimatedCount = _stack.Count + _requestedAmmoCreationCount;
@@ -76,7 +78,6 @@ namespace CollectionSystem
                     roller.InitiateMovementActions().Forget();
                 }
 
-                await UniTask.WaitForSeconds(0.25f);
             }
 
             _isProcessingQueue = false;

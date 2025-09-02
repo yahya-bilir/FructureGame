@@ -24,7 +24,7 @@ namespace CollectionSystem
         }
         public async UniTask RegisterFragments(IEnumerable<GameObject> fragments)
         {
-            await UniTask.WaitForSeconds(1.5f);
+            await UniTask.WaitForSeconds(1f);
 
             foreach (var go in fragments.Where(f => f))
             {
