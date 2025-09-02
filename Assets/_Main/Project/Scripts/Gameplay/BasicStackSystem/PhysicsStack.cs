@@ -61,6 +61,56 @@ namespace BasicStackSystem
             EjectWithoutReflow(item, targetParent, targetLocalPos, instant);
             return item;
         }
+
+        public IStackable EjectClosest(Vector3 worldPosOfObject, Transform targetParent, Vector3 targetLocalPos,
+            bool instant = true)
+        {
+            if (_buffer.IsEmpty) return null;
+
+            IStackable closest = null;
+            float closestDist = float.MaxValue;
+
+            foreach (var item in _buffer.Items())
+            {
+                var itemPos = item.GameObject.transform.position;
+                float dist = Vector3.Distance(itemPos, worldPosOfObject);
+
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = item;
+                }
+            }
+
+            if (closest == null) return null;
+
+            _buffer.TryRemove(closest);
+            EjectWithoutReflow(closest, targetParent, targetLocalPos, instant);
+            return closest;
+        }
+
+        public Vector3 GetClosestPositionToEject(Vector3 worldPos)
+        {
+            if (_buffer.IsEmpty) return Vector3.zero;
+
+            IStackable closest = null;
+            float closestDist = float.MaxValue;
+
+            foreach (var item in _buffer.Items())
+            {
+                var itemPos = item.GameObject.transform.position;
+                float dist = Vector3.Distance(worldPos, itemPos);
+
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = item;
+                }
+            }
+
+            return closest != null ? closest.GameObject.transform.position : Vector3.zero;
+        }
+
         
         private void EjectWithoutReflow(IStackable item, Transform targetParent, Vector3 targetLocalPos, bool instant)
         {

@@ -20,7 +20,9 @@ namespace CollectionSystem
 
         private ElementType _currentElementType = ElementType.Normal;
         private int _requestedAmmoCreationCount;
-
+        private readonly Queue<bool> _createAmmoQueue = new();
+        private bool _isProcessingQueue;
+        
         [SerializeField] private SplineComputer splineComputer;
 
         private readonly Dictionary<StationaryGunHolderCharacter, AmmoLogicType> _gunToLogicMap = new();
@@ -44,28 +46,42 @@ namespace CollectionSystem
                 await UniTask.WaitForSeconds(0.25f);
             }
         }
-
+        
         public void CreateAmmo()
         {
+            _createAmmoQueue.Enqueue(true);
 
-            int estimatedCount = _stack.Count + _requestedAmmoCreationCount;
-            if (!_stack.IsThereAnySpace || estimatedCount >= _stack.Capacity)
-            {
-                Debug.Log($"Estimated count: {estimatedCount} | Count: {_stack.Count} | Requested: {_requestedAmmoCreationCount}");
-                return;
-            }
-            _requestedAmmoCreationCount++;
-
-            var visualPrefab = GetVisualOnlyPrefab(_currentElementType);
-
-            var instance = Instantiate(visualPrefab, transform.position, Quaternion.identity);
-            
-            var roller = new AmmoRailMovement(instance.transform, splineComputer, _collectionSystemDataHolder.CreatedAmmoSplineSpeed);
-            
-            _resolver.Inject(roller);
-            roller.InitiateMovementActions().Forget();
+            if (!_isProcessingQueue)
+                ProcessQueue().Forget();
         }
 
+        private async UniTaskVoid ProcessQueue()
+        {
+            _isProcessingQueue = true;
+
+            while (_createAmmoQueue.Count > 0)
+            {
+                _createAmmoQueue.Dequeue(); // sadece sırayı korumak için
+
+                int estimatedCount = _stack.Count + _requestedAmmoCreationCount;
+                if (_stack.IsThereAnySpace && estimatedCount < _stack.Capacity)
+                {
+                    _requestedAmmoCreationCount++;
+
+                    var visualPrefab = GetVisualOnlyPrefab(_currentElementType);
+                    var instance = Instantiate(visualPrefab, transform.position, Quaternion.identity);
+
+                    var roller = new AmmoRailMovement(instance.transform, splineComputer, _collectionSystemDataHolder.CreatedAmmoSplineSpeed);
+                    _resolver.Inject(roller);
+                    roller.InitiateMovementActions().Forget();
+                }
+
+                await UniTask.WaitForSeconds(0.25f);
+            }
+
+            _isProcessingQueue = false;
+        }
+        
         private GameObject GetVisualOnlyPrefab(ElementType element)
         {
             return element switch
@@ -77,11 +93,7 @@ namespace CollectionSystem
             };
         }
         
-        public void ReduceRequest()
-        {
-            _requestedAmmoCreationCount -= 1;
-            Debug.Log("Request reduced");
-        }
+        public void ReduceRequest() => _requestedAmmoCreationCount -= 1;
 
         public AmmoBase GetAmmoPrefab(StationaryGunHolderCharacter gunHolder)
         {

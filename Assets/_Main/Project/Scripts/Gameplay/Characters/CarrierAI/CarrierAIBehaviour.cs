@@ -21,7 +21,7 @@ namespace Characters.CarrierAI
         private PhysicsStack _stack;
         private RangedWeaponWithExternalAmmo _weapon;
         private AmmoCreator _ammoCreator;
-
+        public Vector3 ClosestPosition { get; set; }
         [Inject]
         private void Inject(AmmoCreator ammoCreator, PhysicsStack stack)
         {
@@ -55,14 +55,14 @@ namespace Characters.CarrierAI
             _stateMachine = new StateMachine();
 
             var waitingForStack = new WaitingForStack(_navmeshAgent, _animator);
-            var walkingTowardsCarryingPosition = new WalkingTowardsCarryingPosition(_navmeshAgent, _animator, _stack);
+            var walkingTowardsCarryingPosition = new WalkingTowardsCarryingPosition(_navmeshAgent, _animator, _carryingController, this);
             var collectingAmmo = new CollectingAmmo(_carryingController, _animator, _navmeshAgent);
             var carryingTowardsWeapon = new CarryingTowardsWeapon(_navmeshAgent, _animator, _weapon, _carryingController);
             var droppingAmmo = new DroppingAmmo(_carryingController, _animator, _navmeshAgent);
             var waitingWeaponToShoot = new WaitingWeaponToShoot(_navmeshAgent, _animator);
 
-            Func<bool> ReachedStackAndThereIsAmmo() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying && _stack.IsThereAnyObject;
-            Func<bool> ReachedStackButThereIsNoAmmo() => () => Vector3.Distance(transform.position, _stack.transform.position) <= 1f && !_carryingController.IsCarrying && !_stack.IsThereAnyObject;
+            Func<bool> ReachedStackAndThereIsAmmo() => () => Vector3.Distance(transform.position, ClosestPosition) <= 2f && !_carryingController.IsCarrying && _stack.IsThereAnyObject;
+            Func<bool> ReachedStackButThereIsNoAmmo() => () => Vector3.Distance(transform.position, ClosestPosition) <= 2f && !_carryingController.IsCarrying && !_stack.IsThereAnyObject;
             Func<bool> IsThereAnyStackObject() => () => _stack.IsThereAnyObject && !_carryingController.IsCarrying;
             Func<bool> IsReachedWeapon() => () => Vector3.Distance(transform.position, _weapon.CarrierDropPoint.position) <= 0.75f && _carryingController.IsCarrying && _weapon.LoadedAmmo == null;
             Func<bool> IsWeaponEmpty() => () => !_weapon.IsLoaded;

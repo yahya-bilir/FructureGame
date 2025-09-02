@@ -1,5 +1,6 @@
 using AI.Base.Interfaces;
 using BasicStackSystem;
+using Characters.CarrierAI;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,13 +11,16 @@ namespace AI.CarrierAI
         private static readonly int WalkHash = Animator.StringToHash("Walk");
         private readonly NavMeshAgent _navmeshAgent;
         private readonly Animator _animator;
-        private readonly BasicStack _stack;
+        private readonly CarryingController _carryingController;
+        private readonly CarrierAIBehaviour _carrierAIBehaviour;
 
-        public WalkingTowardsCarryingPosition(NavMeshAgent navmeshAgent, Animator animator, BasicStack stack)
+        public WalkingTowardsCarryingPosition(NavMeshAgent navmeshAgent, Animator animator,
+            CarryingController carryingController, CarrierAIBehaviour carrierAIBehaviour)
         {
             _navmeshAgent = navmeshAgent;
             _animator = animator;
-            _stack = stack;
+            _carryingController = carryingController;
+            _carrierAIBehaviour = carrierAIBehaviour;
         }
 
         public void Tick()
@@ -26,8 +30,9 @@ namespace AI.CarrierAI
 
         public void OnEnter()
         {
+            _carrierAIBehaviour.ClosestPosition = _carryingController.GetClosestPosition();
             _navmeshAgent.isStopped = false;
-            _navmeshAgent.SetDestination(_stack.transform.position);
+            _navmeshAgent.SetDestination(_carrierAIBehaviour.ClosestPosition);
             _animator.SetBool(WalkHash, true);
         }
 
