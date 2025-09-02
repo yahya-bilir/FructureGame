@@ -4,6 +4,7 @@ using CollectionSystem;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using WeaponSystem.AmmoSystem;
+using WeaponSystem.AmmoSystem.Logic;
 using WeaponSystem.RangedWeapons;
 
 namespace Characters.CarrierAI
@@ -43,12 +44,14 @@ namespace Characters.CarrierAI
             _animator.SetBool(CarryHash, false);
 
             var gunHolder = _weapon.ConnectedCombatManager.Character as StationaryGunHolderCharacter;
-            var ammoPrefab = _ammoCreator.GetAmmoPrefab(gunHolder); // AmmoBase prefab
-            var visualObject = _carriedAmmo.GameObject; // Stack'ten alınan boş görsel
+            var visualObject = _carriedAmmo.GameObject;
 
+            var elementType = (_carriedAmmo as AmmoRailMovement)?.ElementType ?? ElementType.Normal;
+            var ammoPrefab = _ammoCreator.GetAmmoPrefabForGunWithElement(gunHolder, elementType);
             await _weapon.LoadWeapon(visualObject, ammoPrefab);
             _carriedAmmo = null;
         }
+
 
     }
 }

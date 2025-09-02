@@ -23,12 +23,12 @@ namespace WeaponSystem.AmmoSystem
 
         public override void FireAt(Character target)
         {
+            base.FireAt(target);
             Rigidbody.useGravity = false;
             Rigidbody.isKinematic = false;
             _hasReturnedToPool = false;
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
-
             Vector3 aimPoint;
 
             if (target is EnemyBehaviour eb)
@@ -84,7 +84,6 @@ namespace WeaponSystem.AmmoSystem
         protected override void TryProcessTrigger(Collider other, bool isEntering)
         {
             if(!isEntering) return;
-            Debug.Log(other.name);
             if (other.CompareTag("Part"))
             {
                 var parentChar = other.GetComponentInParent<Character>();
@@ -100,7 +99,8 @@ namespace WeaponSystem.AmmoSystem
             {
                 return;
             }
-            
+
+            HitVisualEffect();
             DisableAndEnqueue();
 
         }

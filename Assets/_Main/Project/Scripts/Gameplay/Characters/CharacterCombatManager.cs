@@ -48,7 +48,7 @@ namespace Characters
             // var range = CharacterPropertyManager.GetProperty(PropertyQuery.AttackRange).TemporaryValue;
             var origin = Character.transform.position;
 
-            Collider[] hits = Physics.OverlapSphere(origin, 25, LayerMask.GetMask("AI"));
+            Collider[] hits = Physics.OverlapSphere(origin, 35, LayerMask.GetMask("AI"));
 
             if (hits.Length == 0) return null;
 

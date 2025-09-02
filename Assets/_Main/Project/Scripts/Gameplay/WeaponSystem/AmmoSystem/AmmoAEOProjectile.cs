@@ -8,13 +8,13 @@ namespace WeaponSystem.AmmoSystem
     public abstract class AmmoAOEProjectile : AmmoBase
     {
         [SerializeField] protected float aoeRadius = 3f;
-        [SerializeField] protected ParticleSystem vfx;
 
         protected bool _hasExploded = false;
         protected CancellationTokenSource _cts;
 
         public override void FireAt(Character target)
         {
+            base.FireAt(target);
             FireAtPosition(target.transform.position);
         }
 
@@ -25,13 +25,7 @@ namespace WeaponSystem.AmmoSystem
             if (_hasExploded) return;
             _hasExploded = true;
 
-            // 💥 VFX oluştur
-            if (vfx != null)
-            {
-                vfx.transform.SetParent(null);
-                vfx.transform.position = transform.position;
-                vfx.Play();
-            }
+            HitVisualEffect();
 
             // 📦 Hasar verilecek hedefleri bul
             var hits = Physics.OverlapSphere(transform.position, aoeRadius, LayerMask.GetMask("AI"));

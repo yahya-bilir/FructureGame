@@ -71,7 +71,7 @@ namespace CollectionSystem
                     var visualPrefab = GetVisualOnlyPrefab(_currentElementType);
                     var instance = Instantiate(visualPrefab, transform.position, Quaternion.identity);
 
-                    var roller = new AmmoRailMovement(instance.transform, splineComputer, _collectionSystemDataHolder.CreatedAmmoSplineSpeed);
+                    var roller = new AmmoRailMovement(instance.transform, splineComputer, _collectionSystemDataHolder.CreatedAmmoSplineSpeed, _currentElementType);
                     _resolver.Inject(roller);
                     roller.InitiateMovementActions().Forget();
                 }
@@ -94,11 +94,14 @@ namespace CollectionSystem
         }
         
         public void ReduceRequest() => _requestedAmmoCreationCount -= 1;
-
-        public AmmoBase GetAmmoPrefab(StationaryGunHolderCharacter gunHolder)
+        
+        public AmmoBase GetAmmoPrefabForGunWithElement(StationaryGunHolderCharacter gunHolder, ElementType element)
         {
-            var logic = _gunToLogicMap.TryGetValue(gunHolder, out var logicType) ? logicType : default;
-            return _gameDatabase.GetAmmoPrefab(logic, _currentElementType);
+            if (_gunToLogicMap.TryGetValue(gunHolder, out var logicType))
+                return _gameDatabase.GetAmmoPrefab(logicType, element);
+
+            Debug.LogWarning($"[AmmoCreator] Logic type not found for {gunHolder.name}");
+            return null;
         }
 
         private void Update()

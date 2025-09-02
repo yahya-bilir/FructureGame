@@ -404,7 +404,6 @@ MonoBehaviour:
   <CharacterPropertiesSo>k__BackingField: {fileID: 11400000, guid: 53f41525daf430d459eef58312bb2b76, type: 2}
   <Faction>k__BackingField: 0
   carrier: {fileID: 0}
-  scriptToAddWhenCollected: {fileID: 0}
   loadingPos: {fileID: 4558127759465276511}
 --- !u!1001 &2932094582311728868
 PrefabInstance:
@@ -500,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028245069169468115, guid: c18a0512f3eacce49a7d1a4b0472b38e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

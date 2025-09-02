@@ -20,7 +20,7 @@ namespace WeaponSystem.AmmoSystem
         public override void FireAt(Character target)
         {
             if (target == null) return;
-
+            base.FireAt(target);
             _targetCharacter = target;
 
             transform.SetParent(target.transform, worldPositionStays: true);

@@ -2,24 +2,17 @@ using System;
 using BasicStackSystem;
 using Characters;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace WeaponSystem.AmmoSystem
 {
     public abstract class AmmoBase : TriggerWeapon
     {
-        public Rigidbody Rigidbody {private set; get;}
+        [SerializeField] private VisualEffect visualEffect;
         
+        public Rigidbody Rigidbody {private set; get;}
         protected RangedWeapon _ownerWeapon;
-        private ParticleSystem[] _particleSystems;
-
-        private void OnEnable()
-        {
-            _particleSystems = GetComponentsInChildren<ParticleSystem>();
-            foreach (var particle in _particleSystems)
-            {
-                particle.Clear();
-            }
-        }
+        
 
         protected virtual void Awake()
         {
@@ -39,7 +32,23 @@ namespace WeaponSystem.AmmoSystem
             }
         }
 
-        public abstract void FireAt(Character target);
+        protected void StartVisualEffect()
+        {
+            if(visualEffect == null) return;
+            visualEffect.SendEvent("loop");
+        }
+
+        protected void HitVisualEffect()
+        {
+            if(visualEffect == null) return;
+            visualEffect.transform.parent = null;
+            visualEffect.SendEvent("hit");
+        }
+
+        public virtual void FireAt(Character target)
+        {
+            StartVisualEffect();
+        }
 
     }
 }

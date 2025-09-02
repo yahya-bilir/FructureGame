@@ -23,11 +23,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
             _hasExploded = true;
 
             // 💥 VFX
-            if (vfx != null)
-            {
-                var spawnedVfx = Instantiate(vfx, transform.position, Quaternion.identity);
-                spawnedVfx.Play();
-            }
+            HitVisualEffect();
 
             // 🎯 Parça yok etme işlemi
             var hits = Physics.OverlapSphere(transform.position, aoeRadius, LayerMask.GetMask("AI"));

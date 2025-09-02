@@ -4,6 +4,7 @@ using Dreamteck.Splines;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
+using WeaponSystem.AmmoSystem.Logic;
 using Vector3 = UnityEngine.Vector3;
 
 namespace CollectionSystem
@@ -19,9 +20,10 @@ namespace CollectionSystem
         private PhysicsStack _stack;
         private AmmoCreator _ammoCreator;
         private Collider[] _colliders;
+        public ElementType ElementType { get; private set; }
 
         public AmmoRailMovement(Transform connectedTransform, SplineComputer splineComputer,
-            float createdAmmoSplineSpeed)
+            float createdAmmoSplineSpeed, ElementType elementType)
         {
             _connectedTransform = connectedTransform;
             _startPos = connectedTransform.position;
@@ -31,6 +33,7 @@ namespace CollectionSystem
             GameObject = connectedTransform.gameObject;
             _colliders = GameObject.GetComponentsInChildren<Collider>();
             _rigidbody = connectedTransform.gameObject.GetComponent<Rigidbody>();
+            ElementType = elementType;
         }
 
         [Inject]
@@ -49,7 +52,7 @@ namespace CollectionSystem
             }
             _rigidbody.isKinematic = false;
             _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-            _rigidbody.linearVelocity = -Vector3.right * 3;
+            _rigidbody.linearVelocity = -Vector3.right * 5;
         }
 
         [Button]

@@ -18,8 +18,9 @@ namespace AI.CarrierAI
 
         public void Tick()
         {
+            
         }
-
+        
         public void OnEnter()
         {
             _navmeshAgent.isStopped = true;

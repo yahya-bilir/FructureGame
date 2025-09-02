@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaf0e0a8e67341fd8ded70baba58ecb4, type: 3}
-  m_Name: ZombieSpawnerTop
+  m_Name: IceBaby
   m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
   <SpawnableEnemies>k__BackingField:
-  - {fileID: 4790879081205326185, guid: 5f7219087afe1bc478f14e0bbbc0ecda, type: 3}
-  - {fileID: 4790879081205326185, guid: aae9782b6f9ca194d9489df4bfd5fc49, type: 3}
-  - {fileID: 4790879081205326185, guid: d3a08fb1e51e20b489fa98355d7794e9, type: 3}
   - {fileID: 4790879081205326185, guid: 56ac1a73c878de34ca634896cb4531bf, type: 3}
-  <SpawnLimit>k__BackingField: 10000
-  <SpawnRangeMin>k__BackingField: 6
-  <SpawnRangeMax>k__BackingField: 6
+  <SpawnLimit>k__BackingField: 1
+  <SpawnRangeMin>k__BackingField: 0
+  <SpawnRangeMax>k__BackingField: 0
   <InitialSpawnInterval>k__BackingField: 0

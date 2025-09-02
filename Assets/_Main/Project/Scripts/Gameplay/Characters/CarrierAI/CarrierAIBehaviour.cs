@@ -65,6 +65,7 @@ namespace Characters.CarrierAI
             Func<bool> ReachedStackButThereIsNoAmmo() => () => Vector3.Distance(transform.position, ClosestPosition) <= 2f && !_carryingController.IsCarrying && !_stack.IsThereAnyObject;
             Func<bool> IsThereAnyStackObject() => () => _stack.IsThereAnyObject && !_carryingController.IsCarrying;
             Func<bool> IsReachedWeapon() => () => Vector3.Distance(transform.position, _weapon.CarrierDropPoint.position) <= 0.75f && _carryingController.IsCarrying && _weapon.LoadedAmmo == null;
+            Func<bool> IsReachedWeaponButWeaponIsLoaded() => () => Vector3.Distance(transform.position, _weapon.CarrierDropPoint.position) <= 0.75f && _carryingController.IsCarrying && _weapon.LoadedAmmo != null;
             Func<bool> IsWeaponEmpty() => () => !_weapon.IsLoaded;
             Func<bool> IsCarrying() => () => _carryingController.IsCarrying;
             Func<bool> IsDropped() => () => !_carryingController.IsCarrying;
@@ -74,6 +75,7 @@ namespace Characters.CarrierAI
             _stateMachine.AddTransition(walkingTowardsCarryingPosition, collectingAmmo, ReachedStackAndThereIsAmmo());            
             _stateMachine.AddTransition(collectingAmmo, carryingTowardsWeapon, IsCarrying());
             _stateMachine.AddTransition(carryingTowardsWeapon, droppingAmmo, IsReachedWeapon());
+            _stateMachine.AddTransition(carryingTowardsWeapon, waitingWeaponToShoot, IsReachedWeaponButWeaponIsLoaded());
             _stateMachine.AddTransition(droppingAmmo, waitingForStack, IsDropped());
             _stateMachine.AddTransition(waitingWeaponToShoot, droppingAmmo, IsWeaponEmpty());
             

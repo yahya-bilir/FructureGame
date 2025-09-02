@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2524038127036583080, guid: 81c492e35888b304ebd09e619282681a, type: 3}
       propertyPath: m_Name
-      value: NormalCatapultAmmo
+      value: NormalMortarAmmo
       objectReference: {fileID: 0}
     - target: {fileID: 7872592239512464017, guid: 81c492e35888b304ebd09e619282681a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,14 +59,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2524038127036583080, guid: 81c492e35888b304ebd09e619282681a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6355037707781274117}
+      addedObject: {fileID: -8469376355871961634}
   m_SourcePrefab: {fileID: 100100000, guid: 81c492e35888b304ebd09e619282681a, type: 3}
 --- !u!1 &2366434265130520680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2524038127036583080, guid: 81c492e35888b304ebd09e619282681a, type: 3}
   m_PrefabInstance: {fileID: 274838464730766528}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6355037707781274117
+--- !u!114 &-8469376355871961634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,15 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2366434265130520680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6120b019db7b43dda42bdaf12dc88336, type: 3}
+  m_Script: {fileID: 11500000, guid: 40634ada4e91418aa271487e53eaa258, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.CustomAmmos.CatapultAmmo
-  <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: 8bc23be8b29872748a14186ed2e4bd9a, type: 2}
+  m_EditorClassIdentifier: Gameplay::WeaponSystem.AmmoSystem.CustomAmmos.VerticalAmmo
+  <ObjectUIIdentifierSo>k__BackingField: {fileID: 11400000, guid: f67183213f1f9f241ad9e3620d729410, type: 2}
   visualEffect: {fileID: 5415211291719344190}
-  aoeRadius: 3
-  speed: 15
-  arcHeight: 5
-  selfDestructTime: 3
+  jumpHeight: 5
+  duration: 1
 --- !u!2083052967 &5415211291719344190 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 5257633544288189694, guid: 81c492e35888b304ebd09e619282681a, type: 3}

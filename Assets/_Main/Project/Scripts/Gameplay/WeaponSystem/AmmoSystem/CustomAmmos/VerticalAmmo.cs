@@ -64,6 +64,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
 
             _targetCharacter.CharacterCombatManager.GetDamage(Damage, DamageTypes.Normal, _targetPartObj);
 
+            HitVisualEffect();
             gameObject.SetActive(false);
             _ownerWeapon.OnAmmoDestroyed(this);
         }
