@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e64aaab6c7448669f3ba301baa98c55, type: 3}
   m_Name: CreateCatapult
   m_EditorClassIdentifier: Gameplay::Perks.PerkActions.CreateWeaponsPerk
-  <PerkName>k__BackingField: Create Catapult
+  <PerkName>k__BackingField: Catapult
   <Description>k__BackingField: Create {Catapult}
-  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: f8cce696afa6ef94489e0393714dba26, type: 2}
-  <Icon>k__BackingField: {fileID: 21300000, guid: 1379cb1ac7b31014c8d1165ea80868b8, type: 3}
+  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 376541b84ef8426498eadc80a0b3ad8a, type: 2}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 0d41fcdeeaaf18b4489f933e4e347725, type: 3}
   stationaryGunHolderCharacters:
   - {fileID: 159143543087781595, guid: cf4df2cb796630847afd1f0a541fd4e6, type: 3}

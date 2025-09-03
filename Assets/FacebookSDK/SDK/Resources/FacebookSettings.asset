@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Facebook.Unity.Settings.dll::Facebook.Unity.Settings.FacebookSettings
   selectedAppIndex: 0
   clientTokens:
-  - b2e4ef8b56637042b958a1884154184e
+  - 1e9bbf0935dd62fdea7b849755879632
   appIds:
-  - 1908175323308566
+  - 1320916702957600
   appLabels:
   - Blastworks
   cookie: 1

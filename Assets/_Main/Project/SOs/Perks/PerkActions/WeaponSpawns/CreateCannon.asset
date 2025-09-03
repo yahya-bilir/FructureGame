@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e64aaab6c7448669f3ba301baa98c55, type: 3}
   m_Name: CreateCannon
   m_EditorClassIdentifier: Gameplay::Perks.PerkActions.CreateWeaponsPerk
-  <PerkName>k__BackingField: Create Cannon
+  <PerkName>k__BackingField: Cannon
   <Description>k__BackingField: Create {Cannon}
-  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: f8cce696afa6ef94489e0393714dba26, type: 2}
-  <Icon>k__BackingField: {fileID: 21300000, guid: 2ba271be6427e144aa1e8a55bd422995, type: 3}
+  <PerkUIInfo>k__BackingField: {fileID: 11400000, guid: 376541b84ef8426498eadc80a0b3ad8a, type: 2}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 3abe0e821a272404199bb2ca848d7dd5, type: 3}
   stationaryGunHolderCharacters:
   - {fileID: 159143543087781595, guid: a1694eb1b181e0f46b2dd23d49e537d2, type: 3}

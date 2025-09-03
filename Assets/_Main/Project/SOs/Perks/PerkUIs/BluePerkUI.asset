@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96eb2a743474e7e9dccad0c28176d84, type: 3}
   m_Name: BluePerkUI
   m_EditorClassIdentifier: Gameplay::Perks.PerkUIInfo
-  <Background>k__BackingField: {fileID: 21300000, guid: ddb153ce596016b448d426486e05b14e, type: 3}
+  <Background>k__BackingField: {fileID: 21300000, guid: eff987561af5b5247a2e1e976be87431, type: 3}
   <NameColor>k__BackingField: {r: 0, g: 0.24705882, b: 0.5529412, a: 1}
   <NewStatColor>k__BackingField: {r: 0, g: 0.5169811, b: 0.089926995, a: 1}

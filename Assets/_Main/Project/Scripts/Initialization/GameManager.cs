@@ -11,7 +11,7 @@ namespace Initialization
             Application.targetFrameRate = 60;
             Debug.Log("Logging check");
 #if !UNITY_EDITOR
-            Debug.unityLogger.logEnabled = false;
+            //Debug.unityLogger.logEnabled = false;
 #endif
         }
     }
