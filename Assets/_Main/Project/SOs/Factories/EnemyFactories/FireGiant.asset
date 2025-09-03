@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireGiant
   m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
   <SpawnableEnemies>k__BackingField:
-  - {fileID: 4790879081205326185, guid: aae9782b6f9ca194d9489df4bfd5fc49, type: 3}
+  - {fileID: 779644166145216778, guid: aae9782b6f9ca194d9489df4bfd5fc49, type: 3}
   <SpawnLimit>k__BackingField: 1
   <SpawnRangeMin>k__BackingField: 0
   <SpawnRangeMax>k__BackingField: 0

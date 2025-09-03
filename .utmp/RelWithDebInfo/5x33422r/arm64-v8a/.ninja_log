@@ -1,3 +1,5 @@
 # ninja log v5
-1	394	7786190068535935	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	85a636c5f64f3f1a
-395	584	7786190070252535	C:/Users/capta/Documents/GitHub/FructureGame/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5x33422r/obj/arm64-v8a/libswappywrapper.so	871fff8f08fa17af
+3	219	7786214819078585	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	85a636c5f64f3f1a
+220	378	7786214820470344	C:/Users/capta/Documents/GitHub/FructureGame/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5x33422r/obj/arm64-v8a/libswappywrapper.so	871fff8f08fa17af
+3	325	7786221955352180	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	85a636c5f64f3f1a
+326	479	7786221956726148	C:/Users/capta/Documents/GitHub/FructureGame/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5x33422r/obj/arm64-v8a/libswappywrapper.so	871fff8f08fa17af

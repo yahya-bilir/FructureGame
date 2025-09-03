@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: GiantGargoyle
   m_Controller: {fileID: 9100000, guid: 3cd26f50e5acbd14cb077c47249df71d, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 14b8dd7c31f70e449883441a7f9ebbf4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: e53e543b66280b04899349bf28a49107, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 82c95874b89950d4c9907aab2a72f944, type: 2}
+    m_OverrideClip: {fileID: 4594593978392170722, guid: 0df9957e4e4eaa8468a2ec45dee12e8e, type: 3}
   - m_OriginalClip: {fileID: 7400000, guid: bbf93f8f98c783b4a9510b6917477451, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: bbf93f8f98c783b4a9510b6917477451, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a50043fa4fafbd1498b0daec618eaf81, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1601fd3d64d6d244ebf9597d4e2aa94d, type: 2}
+    m_OverrideClip: {fileID: -1681261107431915817, guid: 0df9957e4e4eaa8468a2ec45dee12e8e, type: 3}

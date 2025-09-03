@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceGiant
   m_EditorClassIdentifier: Gameplay::Factories.EnemyFactorySO
   <SpawnableEnemies>k__BackingField:
-  - {fileID: 4790879081205326185, guid: ef46fcc42d6d51643b7570af66549e1d, type: 3}
+  - {fileID: 779644166145216778, guid: 0012b68ddc35e4749af22dcfe8d9fb5a, type: 3}
   <SpawnLimit>k__BackingField: 1
   <SpawnRangeMin>k__BackingField: 0
   <SpawnRangeMax>k__BackingField: 0
