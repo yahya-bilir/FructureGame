@@ -1,0 +1,5 @@
+C:/Users/capta/Documents/GitHub/FructureGame/.utmp/RelWithDebInfo/5x33422r/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/capta/Documents/GitHub/FructureGame/.utmp/RelWithDebInfo/5x33422r/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/Users/capta/Documents/GitHub/FructureGame/.utmp/RelWithDebInfo/5x33422r/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/capta/Documents/GitHub/FructureGame/.utmp/RelWithDebInfo/5x33422r/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/capta/Documents/GitHub/FructureGame/.utmp/RelWithDebInfo/5x33422r/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

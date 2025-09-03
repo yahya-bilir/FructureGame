@@ -18,6 +18,7 @@ namespace WeaponSystem.RangedWeapons
         public Transform CarrierDropPoint { get; private set; }
         
         [field: SerializeField] public AmmoLogicType AmmoLogicType { get; private set; }
+        [SerializeField] private bool disableAmmoAfterPlacing;
         
         [Inject]
         protected override void Inject(IEventBus eventBus)
@@ -32,6 +33,7 @@ namespace WeaponSystem.RangedWeapons
             t.SetParent(null, true);
             t.position = projectileCreationPoint.position;
             t.rotation = transform.rotation;
+            
             LoadedAmmo.gameObject.SetActive(true);
 
             LoadedAmmo.SetOwnerAndColor(this, _currentColor);
@@ -53,7 +55,7 @@ namespace WeaponSystem.RangedWeapons
             spawnedAmmo.transform.parent = projectileCreationPoint;
             spawnedAmmo.SetOwnerAndColor(this, _currentColor);
             spawnedAmmo.Initialize(ConnectedCombatManager, Damage);
-            
+            if(disableAmmoAfterPlacing) spawnedAmmo.gameObject.SetActive(false);
             LoadedAmmo = spawnedAmmo;
         }
 

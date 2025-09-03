@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 6776b6762d648c34f9c39086c1b7ee06
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: bdf1ad60c88849268c0ad53c69a8c075
+    m_Address: Assets/_Main/Project/Scripts/Gameplay/DataSave/GameData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4a3f3c63a828f14380f45e0c0c4ebf1
+    m_Address: Assets/_Main/Project/Scripts/Gameplay/DataSave/GameDatabase.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 12d622832ea71c2449bbb5f38eeba05c, type: 2}
   m_SchemaSet:
