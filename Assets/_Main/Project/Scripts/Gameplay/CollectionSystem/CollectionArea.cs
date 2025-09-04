@@ -15,7 +15,7 @@ namespace CollectionSystem
         
         private readonly List<Fragment> _deployedFragments = new();
         private AmmoCreator _ammoCreator;
-        
+        public float waitBeforeCollection = 1f;
         [Inject]
         private void Inject(AmmoCreator ammoCreator, GameDatabase gameDatabase)
         {
@@ -24,7 +24,7 @@ namespace CollectionSystem
         }
         public async UniTask RegisterFragments(IEnumerable<GameObject> fragments)
         {
-            await UniTask.WaitForSeconds(1f);
+            await UniTask.WaitForSeconds(waitBeforeCollection);
 
             foreach (var go in fragments.Where(f => f))
             {

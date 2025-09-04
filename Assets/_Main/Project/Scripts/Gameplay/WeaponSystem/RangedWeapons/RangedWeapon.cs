@@ -3,14 +3,20 @@ using UnityEngine;
 using WeaponSystem;
 using WeaponSystem.AmmoSystem;
 using WeaponSystem.RangedWeapons;
+using System.Linq;
 
 public abstract class RangedWeapon : UpgradeableWeapon
 {
-    [SerializeField] protected Transform projectileCreationPoint;
+    [field: SerializeField] public Transform[] ProjectileCreationPoints { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
 
     public RangedWeaponSO RangedWeaponSo { get; protected set; }
     protected float _shootCooldown;
+
+    protected Transform PrimaryCreationPoint =>
+        ProjectileCreationPoints != null && ProjectileCreationPoints.Length > 0
+            ? ProjectileCreationPoints[0]
+            : null;
 
     public override void Initialize(CharacterCombatManager connectedCombatManager, float damage)
     {

@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using BasicStackSystem;
 using Characters;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using EventBusses;
+using System.Linq;
 using UnityEngine;
 using VContainer;
 using WeaponSystem.AmmoSystem;
@@ -12,64 +14,84 @@ namespace WeaponSystem.RangedWeapons
 {
     public class RangedWeaponWithExternalAmmo : RangedWeapon
     {
-        public bool IsLoaded { get; private set; }
-        public AmmoBase LoadedAmmo { get; private set; }
-
-        public Transform CarrierDropPoint { get; private set; }
-        
         [field: SerializeField] public AmmoLogicType AmmoLogicType { get; private set; }
         [SerializeField] private bool disableAmmoAfterPlacing;
-        
+        [SerializeField] private Transform[] projectileCreationPoints;
+
+        private AmmoBase[] _loadedAmmos;
+        public bool IsLoaded => _loadedAmmos.All(a => a != null);
+        public IReadOnlyList<AmmoBase> LoadedAmmos => _loadedAmmos;
+
+        public Transform CarrierDropPoint { get; private set; }
+
         [Inject]
         protected override void Inject(IEventBus eventBus)
         {
             base.Inject(eventBus);
         }
 
-        public override void Shoot(Character character)
+        private void Awake()
         {
-            if (LoadedAmmo == null) return;
-            var t = LoadedAmmo.transform;
-            t.SetParent(null, true);
-            t.position = projectileCreationPoint.position;
-            t.rotation = transform.rotation;
-            
-            LoadedAmmo.gameObject.SetActive(true);
-
-            LoadedAmmo.SetOwnerAndColor(this, _currentColor);
-            LoadedAmmo.Initialize(ConnectedCombatManager, Damage);
-            LoadedAmmo.FireAt(character);
-            UnloadWeapon();
+            _loadedAmmos = new AmmoBase[projectileCreationPoints.Length];
         }
 
-        public async UniTask LoadWeapon(GameObject visualObject, AmmoBase ammoPrefab)
+        public override void Shoot(Character character)
         {
+            for (int i = 0; i < _loadedAmmos.Length; i++)
+            {
+                var ammo = _loadedAmmos[i];
+                if (ammo == null) continue;
+
+                var point = projectileCreationPoints[i];
+                ammo.transform.SetParent(null, true);
+                ammo.transform.position = point.position;
+                ammo.transform.rotation = transform.rotation;
+
+                ammo.gameObject.SetActive(true);
+                ammo.SetOwnerAndColor(this, _currentColor);
+                ammo.Initialize(ConnectedCombatManager, Damage);
+                ammo.FireAt(character);
+
+                _loadedAmmos[i] = null;
+            }
+        }
+
+        public async UniTask LoadWeapon(GameObject visualObject, AmmoBase ammoPrefab, int slotIndex)
+        {
+            if (slotIndex < 0 || slotIndex >= projectileCreationPoints.Length) return;
+            if (_loadedAmmos[slotIndex] != null) return;
+
+            var targetPoint = projectileCreationPoints[slotIndex];
             var trf = visualObject.transform;
-            trf.SetParent(projectileCreationPoint);
-            IsLoaded = true;
+            trf.SetParent(targetPoint);
 
             await trf.DOLocalJump(Vector3.zero, 1, 1, 0.5f).ToUniTask();
             Destroy(visualObject);
-            
-            var spawnedAmmo = Instantiate(ammoPrefab, projectileCreationPoint.position, projectileCreationPoint.rotation);
-            spawnedAmmo.transform.parent = projectileCreationPoint;
+
+            var spawnedAmmo = Instantiate(ammoPrefab, targetPoint.position, targetPoint.rotation, targetPoint);
             spawnedAmmo.SetOwnerAndColor(this, _currentColor);
             spawnedAmmo.Initialize(ConnectedCombatManager, Damage);
-            if(disableAmmoAfterPlacing) spawnedAmmo.gameObject.SetActive(false);
-            LoadedAmmo = spawnedAmmo;
+            if (disableAmmoAfterPlacing) spawnedAmmo.gameObject.SetActive(false);
+
+            _loadedAmmos[slotIndex] = spawnedAmmo;
+            Video.Events.OnBallSpawned?.Invoke(spawnedAmmo.transform);
         }
 
-        
-        private void UnloadWeapon()
+        public void UnloadWeapon(int slotIndex)
         {
-            IsLoaded = false;
-            LoadedAmmo = null;
+            if (slotIndex < 0 || slotIndex >= _loadedAmmos.Length) return;
+            _loadedAmmos[slotIndex] = null;
         }
-        
+
+        public int? GetFirstEmptySlotIndex()
+        {
+            for (int i = 0; i < _loadedAmmos.Length; i++)
+            {
+                if (_loadedAmmos[i] == null) return i;
+            }
+            return null;
+        }
+
         public void SetLoadingPos(Transform target) => CarrierDropPoint = target;
-        private void Update()
-        {
-            //Debug.Log($"IsLoaded: {IsLoaded} |  LoadedAmmo: {LoadedAmmo}");
-        }
     }
 }

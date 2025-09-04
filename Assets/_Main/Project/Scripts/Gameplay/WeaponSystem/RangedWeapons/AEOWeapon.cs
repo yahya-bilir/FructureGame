@@ -18,7 +18,7 @@ public class AOEWeapon : RangedWeaponWithAmmoPool
         }
 
         ammo.transform.SetParent(null);
-        ammo.transform.position = projectileCreationPoint.position;
+        ammo.transform.position = ProjectileCreationPoints[0].position;
         ammo.transform.rotation = Quaternion.identity;
         ammo.gameObject.SetActive(true);
 

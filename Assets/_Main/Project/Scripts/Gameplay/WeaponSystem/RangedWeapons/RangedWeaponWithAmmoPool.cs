@@ -30,7 +30,7 @@ namespace WeaponSystem.RangedWeapons
                 return;
             }
             ammo.transform.SetParent(null); // herhangi bir parent'tan ayrılıyor
-            ammo.transform.position = projectileCreationPoint.position;
+            ammo.transform.position = ProjectileCreationPoints[0].position;
             ammo.transform.rotation = transform.rotation;
             ammo.gameObject.SetActive(true);
 

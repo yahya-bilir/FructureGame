@@ -59,36 +59,34 @@ namespace Characters.Enemy
 
             var alive = _meshColliderAndSkinnedMeshDatas
                 .Where(d => d != null && !d.IsDestroyed && d.ParentGameObjectOfColliders != null)
-                .OrderBy(_ => _rng.Next()) // shuffle
                 .ToList();
 
             if (alive.Count == 0)
             {
                 Debug.Log("Not anything is alive");
                 return null;
-                
             }
 
-            // if (_getTargetRequestCount <= 1)
-            // {
-            //     var nonLegAlive = alive
-            //         .Where(d => d.BodyPart != BodyPart.Leg)
-            //         .ToList();
-            //
-            //     if (nonLegAlive.Count > 0)
-            //     {
-            //         int i = _rng.Next(nonLegAlive.Count);
-            //         return nonLegAlive[i];
-            //     }
-            //
-            //     int fallbackIdx = _rng.Next(alive.Count);
-            //     return alive[fallbackIdx];
-            // }
+            // 1. Seçim: Head
+            if (_getTargetRequestCount == 1)
+            {
+                var head = alive.FirstOrDefault(d => d.BodyPart == BodyPart.Head);
+                if (head != null)
+                    return head;
+            }
 
-            int idx = _rng.Next(alive.Count);
-            return alive[idx];
+            // 2. Seçim: Leg
+            if (_getTargetRequestCount == 2)
+            {
+                var leg = alive.FirstOrDefault(d => d.BodyPart == BodyPart.Leg);
+                if (leg != null)
+                    return leg;
+            }
+
+            // 3+ Seçim: Rastgele shuffle
+            alive = alive.OrderBy(_ => _rng.Next()).ToList();
+            return alive[_rng.Next(alive.Count)];
         }
-
 
         private void CheckLimbCount()
         {

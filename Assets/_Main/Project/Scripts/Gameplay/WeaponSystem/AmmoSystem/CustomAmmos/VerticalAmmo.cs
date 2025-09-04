@@ -66,6 +66,7 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
             HitVisualEffect();
             gameObject.SetActive(false);
             _ownerWeapon.OnAmmoDestroyed(this);
+            Video.Events.OnBallClashed?.Invoke(transform);
         }
 
         protected override void TryProcessTrigger(Collider other, bool isEntering) { }

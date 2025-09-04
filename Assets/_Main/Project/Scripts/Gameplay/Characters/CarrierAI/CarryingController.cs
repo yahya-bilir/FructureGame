@@ -18,16 +18,18 @@ namespace Characters.CarrierAI
         private readonly RangedWeaponWithExternalAmmo _weapon;
         private readonly AmmoCreator _ammoCreator;
         private IStackable _carriedAmmo;
+        private int _indexOfConnectedLoadingPoint;
         public bool IsCarrying => _carriedAmmo != null;
 
         public CarryingController(Transform carryingPosition, PhysicsStack stack, Animator animator,
-            RangedWeaponWithExternalAmmo weapon, AmmoCreator ammoCreator)
+            RangedWeaponWithExternalAmmo weapon, AmmoCreator ammoCreator, int indexOfConnectedLoadingPoint)
         {
             _carryingPosition = carryingPosition;
             _stack = stack;
             _animator = animator;
             _weapon = weapon;
             _ammoCreator = ammoCreator;
+            _indexOfConnectedLoadingPoint = indexOfConnectedLoadingPoint;
         }
 
         public Vector3 GetClosestPosition() => _stack.GetClosestPositionToEject(_carryingPosition.position);
@@ -48,7 +50,7 @@ namespace Characters.CarrierAI
 
             var elementType = (_carriedAmmo as AmmoRailMovement)?.ElementType ?? ElementType.Normal;
             var ammoPrefab = _ammoCreator.GetAmmoPrefabForGunWithElement(gunHolder, elementType);
-            await _weapon.LoadWeapon(visualObject, ammoPrefab);
+            await _weapon.LoadWeapon(visualObject, ammoPrefab, _indexOfConnectedLoadingPoint);
             _carriedAmmo = null;
         }
 

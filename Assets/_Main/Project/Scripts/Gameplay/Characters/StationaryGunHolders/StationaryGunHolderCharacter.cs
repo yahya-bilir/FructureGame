@@ -23,7 +23,7 @@ namespace Characters.StationaryGunHolders
         private AmmoCreator _ammoCreator;
         private GunHolderEventHandler _gunHolderEventHandler;
 
-        [SerializeField] private CarrierAIBehaviour carrier;
+        [SerializeField] private CarrierAIBehaviour[] carriers;
         [SerializeField] private Transform loadingPos;
 
         private PhysicsStack _stack;
@@ -55,10 +55,14 @@ namespace Characters.StationaryGunHolders
 
             _gunHolderEventHandler = new GunHolderEventHandler(this, CharacterPropertyManager);
             Resolver.Inject(_gunHolderEventHandler);
-            Resolver.Inject(carrier);
-            SetStates();
+            
+            foreach (var carrierAIBehaviour in carriers)
+            {
+                carrierAIBehaviour.Initialize(_rangedWeapon);
+                Resolver.Inject(carrierAIBehaviour);
+            }
 
-            carrier.Initialize(_rangedWeapon);
+            SetStates();
         }
 
         protected virtual void SetStates()
@@ -69,8 +73,8 @@ namespace Characters.StationaryGunHolders
             var waitingForWeaponToBeLoaded = new WaitingForWeaponToBeLoaded(_rangedWeapon, AIText);
 
             _stateMachine.AddTransition(_searchingState, waitingForWeaponToBeLoaded, () => LastEnemyIsValid());
-            _stateMachine.AddTransition(waitingForWeaponToBeLoaded, _attackingState, () => _rangedWeapon.LoadedAmmo != null && LastEnemyIsValid());
-            _stateMachine.AddTransition(_attackingState, waitingForWeaponToBeLoaded, () => _rangedWeapon.LoadedAmmo == null && LastEnemyIsValid());
+            _stateMachine.AddTransition(waitingForWeaponToBeLoaded, _attackingState, () => _rangedWeapon.IsLoaded && LastEnemyIsValid());
+            _stateMachine.AddTransition(_attackingState, waitingForWeaponToBeLoaded, () => !_rangedWeapon.IsLoaded && LastEnemyIsValid());
             _stateMachine.AddAnyTransition(_searchingState, () => !LastEnemyIsValid());
 
             _stateMachine.SetState(_searchingState);

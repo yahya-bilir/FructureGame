@@ -100,6 +100,7 @@ namespace WeaponSystem.AmmoSystem
                 return;
             }
 
+            Video.Events.OnBallClashed?.Invoke(transform);
             HitVisualEffect();
             DisableAndEnqueue();
 
