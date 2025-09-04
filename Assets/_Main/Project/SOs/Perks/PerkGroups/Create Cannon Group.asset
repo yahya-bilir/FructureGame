@@ -15,4 +15,3 @@ MonoBehaviour:
   Perks:
   - {fileID: 11400000, guid: 61ff47e91d4c2f140a58a1dc5a35ddf7, type: 2}
   - {fileID: 11400000, guid: 0e0ea53d1e6934242bfc409563c5a4a4, type: 2}
-  - {fileID: 11400000, guid: 6c8c8191fd1ca3e4098cdbd25286c4e6, type: 2}

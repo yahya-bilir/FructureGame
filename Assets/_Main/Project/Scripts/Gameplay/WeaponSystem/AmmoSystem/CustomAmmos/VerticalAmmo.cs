@@ -58,7 +58,6 @@ namespace WeaponSystem.AmmoSystem.CustomAmmos
 
             if (_targetCharacter is EnemyBehaviour eb && _targetPartObj != null)
             {
-                Debug.Log(_targetPartObj.name);
                 eb.EnemyDestructionManager.DestroyPartIfPossible(_targetPartObj);
             }
 

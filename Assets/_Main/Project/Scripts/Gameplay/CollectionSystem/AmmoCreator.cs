@@ -13,6 +13,7 @@ namespace CollectionSystem
 {
     public class AmmoCreator : MonoBehaviour
     {
+        private static readonly int Press = Animator.StringToHash("Press");
         private IObjectResolver _resolver;
         private CollectionSystemDataHolder _collectionSystemDataHolder;
         private GameDatabase _gameDatabase;
@@ -24,6 +25,7 @@ namespace CollectionSystem
         private bool _isProcessingQueue;
         
         [SerializeField] private SplineComputer splineComputer;
+        [SerializeField] private Animator machineAnimator;
 
         private readonly Dictionary<StationaryGunHolderCharacter, AmmoLogicType> _gunToLogicMap = new();
 
@@ -61,14 +63,19 @@ namespace CollectionSystem
 
             while (_createAmmoQueue.Count > 0)
             {
-                await UniTask.WaitForSeconds(0.25f);
+                await UniTask.WaitForSeconds(0.15f);
                 
                 _createAmmoQueue.Dequeue(); // sadece sırayı korumak için
 
                 int estimatedCount = _stack.Count + _requestedAmmoCreationCount;
                 if (_stack.IsThereAnySpace && estimatedCount < _stack.Capacity)
                 {
+                    machineAnimator.SetTrigger(Press);
+
                     _requestedAmmoCreationCount++;
+                    
+                    await UniTask.WaitForSeconds(0.10f);
+
 
                     var visualPrefab = GetVisualOnlyPrefab(_currentElementType);
                     var instance = Instantiate(visualPrefab, transform.position, Quaternion.identity);

@@ -29,11 +29,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.12998992}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4014590991401797125}
   - {fileID: 2264249049779061272}
+  - {fileID: 5697580763550565315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5494315003083796003
@@ -77,8 +78,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25.469654, y: 1.5240878, z: 3.1697962}
-  m_Center: {x: -0.08503342, y: 0.10306913, z: -0.003728032}
+  m_Size: {x: 30.058697, y: 1.8998353, z: 11.445455}
+  m_Center: {x: -0.08503342, y: 0.2909429, z: 2.4882536}
 --- !u!114 &5735027126881387190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,13 @@ MonoBehaviour:
   InScriptDrivenPause: 0
   FeedbacksList:
   - rid: 4047134766522171506
+  - rid: 4569012974472396914
+  - rid: 4569012974472396915
+  - rid: 4569012974472396916
+  - rid: 4569012974472396917
+  - rid: 4569012974472396918
+  - rid: 4569012974472396919
+  - rid: 4569012974472396920
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -265,7 +273,595 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 5735027126881387190}
         DebugActive: 0
-        BoundRenderer: {fileID: 35060207805293414}
+        BoundRenderer: {fileID: 533201018660590865}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396914
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 119849245
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 3946317870263839802}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396915
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: -2043972871
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 8107429839808764361}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396916
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: -510139021
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 749766418020008797}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396917
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: -1321695497
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 8859589298707280413}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396918
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 1358961686
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 9037106313685786880}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396919
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 2065888604
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 6643453522302142025}
+        ExtraBoundRenderers: []
+        Mode: 1
+        PropertyName: _BaseColor
+        FlickerDuration: 0.05
+        FlickerPeriod: 0.1
+        FlickerColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+        MaterialIndexes: 00000000
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
+    - rid: 4569012974472396920
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: -2108753404
+        Label: Flicker
+        OriginalLabel: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 126
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 5735027126881387190}
+        DebugActive: 0
+        BoundRenderer: {fileID: 4654834136996219297}
         ExtraBoundRenderers: []
         Mode: 1
         PropertyName: _BaseColor
@@ -324,7 +920,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2559553661805709736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -383,6 +979,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5351681191924283991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5697580763550565315}
+  m_Layer: 0
+  m_Name: Spikes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5697580763550565315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351681191924283991}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 6.9090004, y: 0.55, z: 4.4618835}
+  m_LocalScale: {x: 1, y: 1, z: 7.6929035}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1670100287693254270}
+  - {fileID: 6973908304588956326}
+  - {fileID: 2778457007433570133}
+  - {fileID: 1886049783773558834}
+  - {fileID: 7690100161029294450}
+  - {fileID: 7863685804670949999}
+  - {fileID: 5510546785748974886}
+  - {fileID: 5823829558253220558}
+  m_Father: {fileID: 7239187242202418578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6094737408725723413
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +1082,89 @@ Transform:
   - {fileID: 4700991766523397976}
   m_Father: {fileID: 7239187242202418578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1200167663360706965
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!23 &533201018660590865 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 1200167663360706965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1670100287693254270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 1200167663360706965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1992336056376485309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,3 +1278,584 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+--- !u!1001 &2136431582070382553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.6100001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!23 &749766418020008797 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 2136431582070382553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1886049783773558834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 2136431582070382553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2379508708154060990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.9000006
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!4 &2778457007433570133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 2379508708154060990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3946317870263839802 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 2379508708154060990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5472960304910539469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 77.990135
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 77.990135
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 77.990135
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2899604
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001267165
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0004787445
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!4 &5510546785748974886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 5472960304910539469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6643453522302142025 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 5472960304910539469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6294026073712039205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!23 &4654834136996219297 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 6294026073712039205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5823829558253220558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 6294026073712039205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7440779851718886733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.8100004
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!4 &6973908304588956326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7440779851718886733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8107429839808764361 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7440779851718886733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7686472407653875076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!4 &7863685804670949999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7686472407653875076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &9037106313685786880 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7686472407653875076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7868351667545976473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5697580763550565315}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.115486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.11549
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.49
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.972326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23362836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -27.022
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d6875217b904c44696e1c8836576080, type: 2}
+    - target: {fileID: 919132149155446097, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+      propertyPath: m_Name
+      value: Spiked_Timber_Fence_0904091855_texture (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+--- !u!4 &7690100161029294450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7868351667545976473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8859589298707280413 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e84df08e3a4e82e44980af58bcd55677, type: 3}
+  m_PrefabInstance: {fileID: 7868351667545976473}
+  m_PrefabAsset: {fileID: 0}

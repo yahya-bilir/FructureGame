@@ -121,6 +121,14 @@ PrefabInstance:
       value: 0.61960787
       objectReference: {fileID: 0}
     - target: {fileID: 4183943445291218100, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: m_InitialEventName
+      value: OnPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183943445291218100, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183943445291218100, guid: 043ef7d1409a376428fa3a41df5e9a1a, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.b
       value: 0.019382361
       objectReference: {fileID: 0}

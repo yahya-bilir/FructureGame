@@ -55,7 +55,7 @@ namespace Factories
             {
                 foreach (var factory in enemyFactories)
                 {
-                    factory.MultiplySpawnRate(2);
+                    //factory.MultiplySpawnRate(2);
                 }
             }
         }
